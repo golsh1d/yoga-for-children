@@ -11,6 +11,7 @@ let sideNav = document.querySelector('.side-nav')
 let sideShoppingCard = document.querySelector('.side-shopping-card')
 let xMarkIcon = document.querySelector('.x-mark')
 let shoppingCardIcon = document.querySelector('.shopping-card')
+let overlayElem = document.querySelector('.overlay')
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -70,10 +71,12 @@ function moveSideNav() {
         sideNav.style.transform = 'translateX(0px)'
         sideNav.style.transition = 'transform .5s ease'
         isRight = false
+        overlayElem.style.display = 'block'
     } else {
         sideNav.style.transform = 'translateX(256px)'
         sideNav.style.transition = 'transform .5s ease'
         isRight = true
+        overlayElem.style.display = 'none'
     }
 }
 
@@ -81,11 +84,13 @@ function moveSideNav() {
 function moveShoppingCardToRight() {
     sideShoppingCard.style.transform = 'translateX(0px)'
     sideShoppingCard.style.transition = 'transform .5s ease'
+    overlayElem.style.display = 'block'
 }
 
 function moveShoppingCardToLeft() {
     sideShoppingCard.style.transform = 'translateX(-256px)'
     sideShoppingCard.style.transition = 'transform .5s ease' 
+    overlayElem.style.display = 'none'
 }
 
 checkBoxInput.addEventListener('change', animationForIcon)

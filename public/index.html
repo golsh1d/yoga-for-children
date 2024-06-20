@@ -215,7 +215,7 @@
     </header>
 
     <!-- side nav -->
-    <div class="side-nav w-64 min-h-screen py-3 px-4 bg-white dark:bg-zinc-700 fixed top-0 bottom-0 right-0 translate-x-[256px]">
+    <div class="side-nav w-64 min-h-screen py-3 px-4 bg-white dark:bg-zinc-700 fixed top-0 bottom-0 right-0 translate-x-[256px] z-20">
         <div class="flex justify-center pb-5 border-b-[1px] border-gray-100 dark:border-white/10">
             <img class="w-20 h-20" src="./img/logo.png" alt="">
         </div>
@@ -303,7 +303,7 @@
     </div> 
 
     <!-- side shopping card -->
-    <div class="side-shopping-card w-64 min-h-screen py-5 px-4 bg-white dark:bg-zinc-700 fixed top-0 bottom-0 left-0 translate-x-[-256px]">
+    <div class="side-shopping-card w-64 min-h-screen py-5 px-4 bg-white dark:bg-zinc-700 fixed top-0 bottom-0 left-0 translate-x-[-256px] z-20">
         <div class="w-full pb-5 font-Dana text-zinc-700 dark:text-white flex items-center justify-between
         border-b-[1px] border-gray-100 dark:border-white/10">
             <svg class="w-5 h-5 x-mark">
@@ -312,29 +312,6 @@
             <a href="#" class="text-base hover:text-orange-300 transition-colors">مشاهده سبد خرید</a>
         </div>
         <div>
-            <div class="flex gap-x-2 items-center py-5 border-b-[1px] border-gray-100 dark:border-white/10">
-                <div>
-                    <img class="w-[90px] h-[90px]" src="./img/logo.png" alt="">
-                </div>
-                <div class="w-[130px] flex flex-col gap-y-3">
-                    <p class="font-DanaMedium text-sm text-zinc-700 dark:text-white line-clamp-2">کارت های یوگای کودک</p>
-                    <div class="flex items-center justify-evenly w-[70px] h-7 ml-5 border-[1px] border-gray-300 rounded-full
-                        font-DanaDemiBold text-orange-300">
-                        <div class="hover:text-orange-400 transition-colors">
-                            <svg class="w-4 h-4 cursor-pointer">
-                                <use xlink:href="#plus"></use>
-                            </svg>
-                        </div>
-                        <p class="text-base tracking-tighter">1</p>
-                        <div class="hover:text-orange-400 transition-colors">
-                            <svg class="w-4 h-4 cursor-pointer">
-                                <use xlink:href="#minus"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <p class="font-Dana text-xs text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-base">350,000</span> تومان</p>
-                </div>
-            </div>
             <div class="flex gap-x-2 items-center py-5 border-b-[1px] border-gray-100 dark:border-white/10">
                 <div>
                     <img class="w-[90px] h-[90px]" src="./img/logo.png" alt="">
@@ -392,6 +369,9 @@
             </div>
         </div>
     </div>
+
+    <!-- overlay -->
+    <div class="overlay w-full h-full fixed inset-0 bg-black/40 z-10 hidden"></div>
      
 
 
