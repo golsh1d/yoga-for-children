@@ -1,35 +1,25 @@
-const darkThemeIcon = document.querySelector(".dark-theme-icon");
-const lightThemeIcon = document.querySelector(".light-theme-icon");
+const toggleThemeBtns = document.querySelectorAll(".toggle-theme");
 let hamburgerIcon = document.querySelector('#hamburger')
 let hamburgerFirstLine = document.querySelector('#hamburger-first-line')
 let hamburgerSecondLine = document.querySelector('#hamburger-second-line')
 let hamburgerThirdLine = document.querySelector('#hamburger-third-line')
 let checkBoxInput = document.querySelector('#ham')
+let liWithSub = document.querySelector('.has-sub-menu')
+let liSub = document.querySelector('.sub-menu')
+let chevronUp = document.querySelector('.chevron-up')
+let sideNav = document.querySelector('.side-nav')
 
 //changing the theme
-function turnToDarkMode() {
-    document.documentElement.classList.add("dark");
-    darkThemeIcon.style.display = 'none'
-    lightThemeIcon.style.display = 'block'
-    localStorage.setItem('theme', 'dark')
-}
-
-function turnToLightMode() {
-    document.documentElement.classList.remove("dark");
-    darkThemeIcon.style.display = 'block'
-    lightThemeIcon.style.display = 'none'
-    localStorage.setItem('theme', 'light')
-}
-
-window.addEventListener('load',() => {
-    let theme = localStorage.getItem('theme')
-    console.log(theme);
-    if (theme === 'dark') {
-        turnToDarkMode()
+toggleThemeBtns.forEach(function (btn) {
+    btn.addEventListener("click" , () => {
+    if (localStorage.theme === "dark"){
+        document.documentElement.classList.remove("dark");
+        localStorage.theme = "light";
+    } else {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme" , "dark");
     }
-    else {
-        turnToLightMode()
-    }
+})
 })
 
 // animation for hamburger icon
@@ -52,7 +42,38 @@ function animationForIcon(event) {
      }
 }
 
+// changing display for side nav sub menu
+let isUp = true
+function changeSubmenuDisplay () {
+    if (isUp) {
+        chevronUp.style.transform = 'rotate(180deg)'
+        chevronUp.style.transition = 'transform .2s ease'
+        liSub.style.display = 'block'
+        liSub.style.transition = 'all 2s ease'
+        isUp = false
+    } else {
+        chevronUp.style.transform = 'rotate(0deg)'
+        chevronUp.style.transition = 'transform .2s ease'
+        liSub.style.display = 'none'
+        liSub.style.transition = 'all 2s ease'
+        isUp = true
+    }
+}
 
-darkThemeIcon.addEventListener('click', turnToDarkMode)
-lightThemeIcon.addEventListener('click', turnToLightMode)
+// move side nav
+let isRight = true
+function moveSideNav() {
+    if (isRight) {
+        sideNav.style.transform = 'translateX(-256px)'
+        sideNav.style.transition = 'transform .5s ease'
+        isRight = false
+    } else {
+        sideNav.style.transform = 'translateX(0px)'
+        sideNav.style.transition = 'transform .5s ease'
+        isRight = true
+    }
+}
+
 checkBoxInput.addEventListener('change', animationForIcon)
+chevronUp.addEventListener('click', changeSubmenuDisplay)
+hamburgerIcon.addEventListener('click' , moveSideNav)

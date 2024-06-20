@@ -6,6 +6,13 @@
     <title>هنر یوگای کودک</title>
     <link rel="icon" href="./img/logo.png">
     <link rel="stylesheet" href="./styles/app.css">
+    <script type="text/javascript">
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
 </head>
 <body>
     <!-- all svg icon -->
@@ -31,7 +38,21 @@
         <symbol id="minus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
         </symbol>
-          
+        <symbol id="home" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </symbol>
+        <symbol id="services" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+        </symbol>
+        <symbol id="about" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
+        </symbol>
+        <symbol id="contact" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z" />
+        </symbol>  
+        <symbol id="chevron-up" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+        </symbol>
                 
     </svg>
     
@@ -144,11 +165,11 @@
                     </div>
                 </div>
                 <!-- change theme -->
-                <div id="toggle-theme" class="hover:text-orange-300 transition-colors cursor-pointer">
-                    <svg class="dark-theme-icon inline-block dark:hidden w-6 h-6 lg:w-8 lg:h-8">
+                <div class="toggle-theme hover:text-orange-300 transition-colors cursor-pointer">
+                    <svg class="inline-block dark:hidden w-6 h-6 lg:w-8 lg:h-8">
                         <use xlink:href="#moon"></use>
                     </svg>
-                    <svg class="light-theme-icon hidden dark:inline-block w-6 h-6 lg:w-8 lg:h-8">
+                    <svg class="hidden dark:inline-block w-6 h-6 lg:w-8 lg:h-8">
                         <use xlink:href="#sun"></use>
                     </svg>
                 </div>
@@ -170,8 +191,8 @@
     </header>
 
     <!-- header for smaller screens -->
-     <header class="flex items-center justify-between md:hidden w-full h-16 p-4 bg-white dark:bg-zinc-700">
-        <div>
+    <header class="flex items-center justify-between md:hidden w-full h-16 p-4 bg-white dark:bg-zinc-700">
+        <div class="z-50">
             <label for="ham" id="hamburger" class="flex flex-col gap-y-1">
                 <div id="hamburger-first-line" class="w-[16.5px] h-[1.5px] bg-zinc-700 dark:bg-white rounded-lg"></div>
                 <div id="hamburger-second-line" class="w-[16.5px] h-[1.5px] bg-zinc-700 dark:bg-white rounded-lg"></div>
@@ -187,9 +208,95 @@
                 <use xlink:href="#shopping-card"></use>
             </svg>
         </div>
-     </header>
+    </header>
 
-
+    <!-- side nav -->
+    <div class="side-nav w-64 h-svh py-3 px-4 bg-white dark:bg-zinc-700 absolute top-0 right-[-256px]">
+        <div class="flex justify-center pb-5 border-b-[1px] border-gray-100 dark:border-white">
+            <img class="w-20 h-20" src="./img/logo.png" alt="">
+        </div>
+        <ul class="flex flex-col gap-y-1 mt-5 pb-5 font-Dana text-base text-zinc-700 dark:text-white
+        border-b-[1px] border-gray-100 dark:border-white">
+            <li class="flex items-center gap-x-2 w-full h-10 p-2.5 rounded-md hover:bg-orange-100/20 hover:text-orange-300 transition-colors">
+                <svg class="w-5 h-5 mt-[-6px]">
+                    <use xlink:href="#home"></use>
+                </svg>
+                <a href="#">صفحه اصلی</a>
+            </li>
+            <!-- has sub menu -->
+            <li class="has-sub-menu">
+                <div class="flex items-center justify-between w-full h-10 p-2.5 rounded-md hover:bg-orange-100/20 hover:text-orange-300 transition-colors">
+                    <div class="flex items-center gap-x-2">
+                        <svg class="w-5 h-5 mt-[-6px]">
+                            <use xlink:href="#services"></use>
+                        </svg>
+                        <a href="#">خدمات ما</a>
+                    </div>
+                    <svg class="chevron-up w-4 h-4 mt-[-3px]">
+                        <use xlink:href="#chevron-up"></use>
+                    </svg>
+                </div>
+                <ul class="sub-menu w-full h-min pr-9 hidden text-sm text-zinc-600 dark:text-white">
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors my-3">
+                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
+                        <a href="#">کارت ها</a>
+                    </li>
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors mb-3">
+                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
+                        <a href="#">بوردگیم ها</a>
+                    </li>
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors mb-3">
+                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
+                        <a href="#">مراقبه ها</a>
+                    </li>
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors mb-3">
+                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
+                        <a href="#">دوره ها</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="flex items-center gap-x-2 w-full h-10 p-2.5 rounded-md hover:bg-orange-100/20 hover:text-orange-300 transition-colors">
+                <svg class="w-5 h-5 mt-[-6px]">
+                    <use xlink:href="#about"></use>
+                </svg>
+                <a href="#">درباره ما</a>
+            </li>
+            <li class="flex items-center gap-x-2 w-full h-10 p-2.5 rounded-md hover:bg-orange-100/20 hover:text-orange-300 transition-colors">
+                <svg class="w-5 h-5 mt-[-6px]">
+                    <use xlink:href="#contact"></use>
+                </svg>
+                <a href="#">ارتباط با ما</a>
+            </li>
+        </ul>
+        <ul class="mt-[30px]">
+            <li class="text-orange-300 font-Dana text-base flex items-center gap-x-2">
+                <svg class="w-5 h-5">
+                    <use xlink:href="#arrow-right-end-on-rectangle"></use>
+                </svg>
+                <a href="#">ورود  |  ثبت‌نام</a>
+            </li>
+            <li class="toggle-theme text-orange-300 font-Dana text-base mt-6">
+                <div class="flex items-center gap-x-2">
+                    <svg class="w-5 h-5 inline-block dark:hidden">
+                        <use xlink:href="#moon"></use>
+                    </svg>
+                    <a href="#" class="inline-block dark:hidden">تم تیره</a>
+                </div>
+                <div class="flex items-center gap-x-2">
+                    <svg class="w-5 h-5 hidden dark:inline-block">
+                        <use xlink:href="#sun"></use>
+                    </svg>
+                    <a href="#" class="hidden dark:inline-block">تم روشن</a>
+                </div>
+            </li>
+            <li class="text-orange-300 font-Dana text-base flex items-center gap-x-2 mt-6">
+                <svg class="w-5 h-5">
+                    <use xlink:href="#shopping-card"></use>
+                </svg>
+                <a href="#">سبد خرید</a>
+            </li>
+        </ul>
+    </div> 
 
 
     <!-- hero header -->
