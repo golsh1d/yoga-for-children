@@ -64,11 +64,11 @@ function changeSubmenuDisplay () {
 let isRight = true
 function moveSideNav() {
     if (isRight) {
-        sideNav.style.transform = 'translateX(-256px)'
+        sideNav.style.transform = 'translateX(0px)'
         sideNav.style.transition = 'transform .5s ease'
         isRight = false
     } else {
-        sideNav.style.transform = 'translateX(0px)'
+        sideNav.style.transform = 'translateX(256px)'
         sideNav.style.transition = 'transform .5s ease'
         isRight = true
     }
