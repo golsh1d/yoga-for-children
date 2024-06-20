@@ -14,7 +14,7 @@
         }
     </script>
 </head>
-<body class="overflow-hidden">
+<br class="overflow-hidden">
 
     <!-- all svg icon -->
     <svg class="hidden">
@@ -195,9 +195,9 @@
     </header>
 
     <!-- header for smaller screens -->
-    <header class="flex items-center justify-between md:hidden w-full h-16 p-4 bg-white dark:bg-zinc-700">
+    <header class="absolute inset-0 flex items-center justify-between md:hidden w-full h-16 p-4 bg-white dark:bg-zinc-700">
         <div class="z-50">
-            <label for="ham" id="hamburger" class="flex flex-col gap-y-1">
+            <label for="ham" id="hamburger" class="flex flex-col gap-y-1 z-50">
                 <div id="hamburger-first-line" class="w-[16.5px] h-[1.5px] bg-zinc-700 dark:bg-white rounded-lg"></div>
                 <div id="hamburger-second-line" class="w-[16.5px] h-[1.5px] bg-zinc-700 dark:bg-white rounded-lg"></div>
                 <div id="hamburger-third-line" class="w-[16.5px] h-[1.5px] bg-zinc-700 dark:bg-white rounded-lg"></div>        
@@ -207,7 +207,7 @@
         <div class="w-14 h-14">
             <img src="./img/logo.png" alt="">
         </div>
-        <div class="shopping-card">
+        <div class="shopping-card z-10">
             <svg class="w-6 h-6 text-zinc-700 dark:text-white">
                 <use xlink:href="#shopping-card"></use>
             </svg>
@@ -370,19 +370,29 @@
         </div>
     </div>
 
+    <main>
+         <!-- hero header  -->
+         <section class="md:absolute inset-0 w-full h-[905px] bg-orange-100">
+            <div class="right-section">
+                <div class="absolute xl:top-20 xl:right-20 xl:w-[550px] xl:h-[550px]">
+                    <img src="./img/—Pngtree—simple shapes vector_9229331.png" alt="">
+                </div>
+                <div class="absolute xl:top-[118px] xl:right-32 xl:w-[450px] xl:h-[450px]">
+                    <img src="./img/header.png" alt="">
+                </div>
+            </div>
+         </section>
+     </main>
+
+
+
+    </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+
     <!-- overlay -->
     <div class="overlay w-full h-full fixed inset-0 bg-black/40 z-10 hidden"></div>
      
 
 
-    <!-- hero header -->
-     <!-- <main>
-         <div class="relative w-full h-lvh bg-emerald-900">
-            <div class="absolute top-48 right-20 w-[400px] h-[400px]">
-                <img src="./img/—Pngtree—hand painted health yoga sit_3892911.png" alt="">
-            </div>
-         </div>
-     </main> -->
 
 
      <script src="./scripts/app.js" type="module"></script>
