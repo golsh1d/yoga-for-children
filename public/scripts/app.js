@@ -8,6 +8,9 @@ let liWithSub = document.querySelector('.has-sub-menu')
 let liSub = document.querySelector('.sub-menu')
 let chevronUp = document.querySelector('.chevron-up')
 let sideNav = document.querySelector('.side-nav')
+let sideShoppingCard = document.querySelector('.side-shopping-card')
+let xMarkIcon = document.querySelector('.x-mark')
+let shoppingCardIcon = document.querySelector('.shopping-card')
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -74,6 +77,19 @@ function moveSideNav() {
     }
 }
 
+// move shopping card
+function moveShoppingCardToRight() {
+    sideShoppingCard.style.transform = 'translateX(0px)'
+    sideShoppingCard.style.transition = 'transform .5s ease'
+}
+
+function moveShoppingCardToLeft() {
+    sideShoppingCard.style.transform = 'translateX(-256px)'
+    sideShoppingCard.style.transition = 'transform .5s ease' 
+}
+
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
 hamburgerIcon.addEventListener('click' , moveSideNav)
+shoppingCardIcon.addEventListener('click' , moveShoppingCardToRight)
+xMarkIcon.addEventListener('click' , moveShoppingCardToLeft)
