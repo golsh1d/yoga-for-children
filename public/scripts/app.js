@@ -4,6 +4,7 @@ let hamburgerIcon = document.querySelector('#hamburger')
 let hamburgerFirstLine = document.querySelector('#hamburger-first-line')
 let hamburgerSecondLine = document.querySelector('#hamburger-second-line')
 let hamburgerThirdLine = document.querySelector('#hamburger-third-line')
+let checkBoxInput = document.querySelector('#ham')
 
 //changing the theme
 function turnToDarkMode() {
@@ -32,25 +33,26 @@ window.addEventListener('load',() => {
 })
 
 // animation for hamburger icon
-hamburgerIcon.addEventListener('click', () => {
-    hamburgerSecondLine.style.display = 'none'
-    hamburgerFirstLine.style.transform = 'rotate(45deg) translateY(3.5px) translateX(4px)'
-    hamburgerFirstLine.style.transition = 'transform .5s ease'
-    hamburgerThirdLine.style.transform = 'rotate(-45deg) translateY(0.5px) translateX(0.5px)'
-    hamburgerThirdLine.style.transition = 'transform .5s ease'
-})
-
-
-
-
-
-
-
-
-
-
+function animationForIcon(event) {
+    let isChecked = event.target.checked
+    if(isChecked) {
+        console.log("change");
+        hamburgerSecondLine.style.display = 'none'
+        hamburgerFirstLine.style.transform = 'rotate(45deg) translateY(3.5px) translateX(4px)'
+        hamburgerFirstLine.style.transition = 'transform .3s ease'
+        hamburgerThirdLine.style.transform = 'rotate(-45deg) translateY(0.5px) translateX(0.5px)'
+        hamburgerThirdLine.style.transition = 'transform .3s ease'
+     }else{
+        console.log("unchange");
+        hamburgerSecondLine.style.display = 'block'
+        hamburgerFirstLine.style.transform = 'rotate(0deg) translateY(0px) translateX(0px)'
+        hamburgerFirstLine.style.transition = 'transform .3s ease'
+        hamburgerThirdLine.style.transform = 'rotate(0deg) translateY(0px) translateX(0px)'
+        hamburgerThirdLine.style.transition = 'transform .3s ease'
+     }
+}
 
 
 darkThemeIcon.addEventListener('click', turnToDarkMode)
 lightThemeIcon.addEventListener('click', turnToLightMode)
-
+checkBoxInput.addEventListener('change', animationForIcon)

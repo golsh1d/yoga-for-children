@@ -777,12 +777,12 @@ video {
   width: 400px;
 }
 
-.w-\[90\%\] {
-  width: 90%;
-}
-
 .w-\[90px\] {
   width: 90px;
+}
+
+.w-\[95\%\] {
+  width: 95%;
 }
 
 .w-full {
@@ -1163,4 +1163,3 @@ video {
     margin-right: 2.5rem;
   }
 }
-
