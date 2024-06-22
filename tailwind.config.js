@@ -13,6 +13,13 @@ module.exports = {
         "MorabbaBold" : "MorabbaBold",
       }
     },
+    container : {
+      center : true,
+      padding : {
+        default : '1rem',
+        lg : '0.8rem',
+      },
+    },
   },
   plugins: [],
 }
