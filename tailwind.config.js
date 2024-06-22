@@ -13,12 +13,17 @@ module.exports = {
         "MorabbaBold" : "MorabbaBold",
       }
     },
+    screens : {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+    },
     container : {
       center : true,
-      padding : {
-        default : '1rem',
-        lg : '0.8rem',
-      },
+    },
+    letterSpacing: {
+      "tightest" : "-0.065em"
     },
   },
   plugins: [],
