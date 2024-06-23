@@ -12,6 +12,12 @@ let sideShoppingCard = document.querySelector('.side-shopping-card')
 let xMarkIcon = document.querySelector('.x-mark')
 let shoppingCardIcon = document.querySelector('.shopping-card')
 let overlayElem = document.querySelector('.overlay')
+let cardElem = document.querySelector('#cards')
+let boardGameElem = document.querySelector('#board-games')
+let meditationElem = document.querySelector('#meditations')
+let cardSliderContainer = document.querySelector('#card-slider')
+let boardGameContainer = document.querySelector('#board-game-slider')
+let meditationContainer = document.querySelector('#meditation-slider')
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -93,8 +99,25 @@ function moveShoppingCardToLeft() {
     overlayElem.style.display = 'none'
 }
 
+// scroll to specific element
+function scrollToCardSection() {
+    cardSliderContainer.scrollIntoView({ behavior : 'smooth'})
+}
+
+function scrollToBoardGameSection() {
+    boardGameContainer.scrollIntoView({ behavior : 'smooth'})
+}
+
+function scrollToMeditationSection() {
+    meditationContainer.scrollIntoView({ behavior : 'smooth'})
+}
+
+
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
 hamburgerIcon.addEventListener('click' , moveSideNav)
 shoppingCardIcon.addEventListener('click' , moveShoppingCardToRight)
 xMarkIcon.addEventListener('click' , moveShoppingCardToLeft)
+cardElem.addEventListener('click' , scrollToCardSection)
+boardGameElem.addEventListener('click' , scrollToBoardGameSection)
+meditationElem.addEventListener('click' , scrollToMeditationSection)
