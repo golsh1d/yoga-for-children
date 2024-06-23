@@ -15,9 +15,11 @@ let overlayElem = document.querySelector('.overlay')
 let cardElem = document.querySelector('#cards')
 let boardGameElem = document.querySelector('#board-games')
 let meditationElem = document.querySelector('#meditations')
+let coursesElem = document.querySelector('#courses')
 let cardSliderContainer = document.querySelector('#card-slider')
 let boardGameContainer = document.querySelector('#board-game-slider')
 let meditationContainer = document.querySelector('#meditation-slider')
+let coursesContainer = document.querySelector('#courses-section')
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -112,6 +114,10 @@ function scrollToMeditationSection() {
     meditationContainer.scrollIntoView({ behavior : 'smooth'})
 }
 
+function scrollToCoursesSection() {
+    coursesContainer.scrollIntoView({ behavior : 'smooth'})
+}
+
 
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
@@ -121,3 +127,4 @@ xMarkIcon.addEventListener('click' , moveShoppingCardToLeft)
 cardElem.addEventListener('click' , scrollToCardSection)
 boardGameElem.addEventListener('click' , scrollToBoardGameSection)
 meditationElem.addEventListener('click' , scrollToMeditationSection)
+coursesElem.addEventListener('click' , scrollToCoursesSection)
