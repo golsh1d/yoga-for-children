@@ -781,10 +781,6 @@ video {
   margin-top: 30px;
 }
 
-.mr-auto {
-  margin-right: auto;
-}
-
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -1050,22 +1046,13 @@ video {
   width: 100%;
 }
 
-.w-px {
-  width: 1px;
-}
-
-.w-min {
-  width: -moz-min-content;
-  width: min-content;
-}
-
-.w-32 {
-  width: 8rem;
-}
-
 .w-max {
   width: -moz-max-content;
   width: max-content;
+}
+
+.w-px {
+  width: 1px;
 }
 
 .basis-\[50\%\] {
@@ -2183,10 +2170,6 @@ video {
 @media (min-width: 1280px) {
   .xl\:mx-10 {
     margin-left: 2.5rem;
-    margin-right: 2.5rem;
-  }
-
-  .xl\:mr-10 {
     margin-right: 2.5rem;
   }
 
