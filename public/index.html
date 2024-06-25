@@ -1256,7 +1256,14 @@
                             <svg class="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-gray-300 -mr-1 group-hover:text-orange-300 transition-colors">
                                 <use xlink:href="#phone"></use>
                             </svg>
-                            <p class="font-Dana text-xs md:text-sm lg:text-base xl:text-xl text-gray-300 group-hover:text-orange-300 transition-colors cursor-pointer mt-1.5">09122600520</p>
+                            <div id="copy-to-clipboard" class="cursor-pointer mt-1.5 flex items-center gap-x-1 text-gray-300 font-Dana">
+                                <span class="text-xs md:text-sm lg:text-base xl:text-xl group-hover:text-orange-300 transition-colors">09122600520</span>
+                                <div id="copied" class="hidden">
+                                    <div class="w-16 h-6 bg-zinc-800 rounded-xl flex items-center justify-center">
+                                        <p class="text-xs tracking-wider">کپی شد !</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </li>
                 </ul>

@@ -22,6 +22,8 @@ let meditationContainer = document.querySelector('#meditation-slider')
 let coursesContainer = document.querySelector('#courses-section')
 let footerChevronUpElem = document.querySelector('#jump-to-top')
 let headerElems = document.querySelectorAll('.header')
+let phoneNumElem = document.querySelector('#copy-to-clipboard')
+let copybadgeElem = document.querySelector('#copied')
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -126,6 +128,18 @@ function scrollToTop() {
     })
 }
 
+// copy phone number to clipboard
+function copyToClipboard() {
+    let clipBoardText = '09122600520'
+
+    if (window.navigator.clipboard) {
+        window.navigator.clipboard.writeText(clipBoardText)
+        copybadgeElem.style.display = 'block'
+        setTimeout(() => {
+            copybadgeElem.style.display = 'none'
+        } , 700)
+    }
+}
 
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
@@ -137,3 +151,4 @@ boardGameElem.addEventListener('click' , scrollToBoardGameSection)
 meditationElem.addEventListener('click' , scrollToMeditationSection)
 coursesElem.addEventListener('click' , scrollToCoursesSection)
 footerChevronUpElem.addEventListener('click' , scrollToTop)
+phoneNumElem.addEventListener('click' , copyToClipboard)
