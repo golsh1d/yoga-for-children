@@ -20,6 +20,8 @@ let cardSliderContainer = document.querySelector('#card-slider')
 let boardGameContainer = document.querySelector('#board-game-slider')
 let meditationContainer = document.querySelector('#meditation-slider')
 let coursesContainer = document.querySelector('#courses-section')
+let footerChevronUpElem = document.querySelector('#jump-to-top')
+let headerElems = document.querySelectorAll('.header')
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -118,6 +120,12 @@ function scrollToCoursesSection() {
     coursesContainer.scrollIntoView({ behavior : 'smooth'})
 }
 
+function scrollToTop() {
+    headerElems.forEach( header => {
+        header.scrollIntoView({ behavior : 'smooth'})
+    })
+}
+
 
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
@@ -128,3 +136,4 @@ cardElem.addEventListener('click' , scrollToCardSection)
 boardGameElem.addEventListener('click' , scrollToBoardGameSection)
 meditationElem.addEventListener('click' , scrollToMeditationSection)
 coursesElem.addEventListener('click' , scrollToCoursesSection)
+footerChevronUpElem.addEventListener('click' , scrollToTop)

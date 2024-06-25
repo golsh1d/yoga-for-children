@@ -66,13 +66,15 @@
         <symbol id="chevron-right" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
         </symbol>
-          
+        <symbol id="curve" viewBox="0 0 100 22" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 0C69 0 81 22 100 22L0 22C18.75 22 31 0 50 0Z" />
+        </symbol>  
           
              
     </svg>
     
     <!-- header -->
-    <header class="hidden md:flex items-center justify-between absolute top-5 right-0 left-0 w-[95%] h-24 mx-auto p-5 rounded-3xl bg-black/50 backdrop-blur-[6px] z-50">
+    <header class="header hidden md:flex items-center justify-between absolute top-5 right-0 left-0 w-[95%] h-24 mx-auto p-5 rounded-3xl bg-black/50 backdrop-blur-[6px] z-50">
         <!-- menu -->
          <nav class="flex gap-x-4 lg:gap-x-9 items-center">
             <img class="w-16 h-16" src="/public/img/logo.png" alt="logo">
@@ -204,7 +206,7 @@
     </header>
 
     <!-- header for smaller screens -->
-    <header class="flex items-center justify-between md:hidden w-full h-16 p-4 bg-white dark:bg-zinc-700">
+    <header class="header flex items-center justify-between md:hidden w-full h-16 p-4 bg-white dark:bg-zinc-700">
         <div class="z-50">
             <label for="ham" id="hamburger" class="flex flex-col gap-y-1 z-50">
                 <div id="hamburger-first-line" class="w-[16.5px] h-[1.5px] bg-zinc-700 dark:bg-white rounded-lg"></div>
@@ -1184,8 +1186,26 @@
                  </div>
             </section>
          </section>
-         <br><br><br><br><br><br>
     </main> 
+
+    <footer class="relative w-full h-[500px] bg-zinc-700 mt-14 md:mt-20">
+        <!-- curve -->
+        <div class="w-full">
+            <svg class="w-[100px] h-[22px] mx-auto text-white dark:text-zinc-800 rotate-180">
+                <use xlink:href="#curve"></use>
+            </svg>
+            <div id="jump-to-top" class="absolute -top-4 w-full flex justify-center z-10 cursor-pointer group">
+                <div class="w-[30px] h-[30px] border-2 border-zinc-700 dark:border-white group-hover:border-orange-300 transition-colors rounded-full
+                flex items-center justify-center">
+                    <svg class="w-4 h-4 text-zinc-700 dark:text-white group-hover:text-orange-300 transition-colors font-bold">
+                        <use xlink:href="#chevron-up"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="w-full px-24 py-16 flex justify-between items-center flex-wrap">
+        </div>
+    </footer>
 
     <!-- overlay -->
     <div class="overlay w-full h-full fixed inset-0 bg-black/40 z-10 hidden"></div>
