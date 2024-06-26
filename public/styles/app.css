@@ -1921,8 +1921,8 @@ video {
     margin-top: 5rem;
   }
 
-  .md\:mt-36 {
-    margin-top: 9rem;
+  .md\:mt-40 {
+    margin-top: 10rem;
   }
 
   .md\:mt-48 {
@@ -1931,10 +1931,6 @@ video {
 
   .md\:mt-52 {
     margin-top: 13rem;
-  }
-
-  .md\:mt-40 {
-    margin-top: 10rem;
   }
 
   .md\:block {
@@ -2200,10 +2196,6 @@ video {
 
   .lg\:mb-5 {
     margin-bottom: 1.25rem;
-  }
-
-  .lg\:mt-40 {
-    margin-top: 10rem;
   }
 
   .lg\:block {
