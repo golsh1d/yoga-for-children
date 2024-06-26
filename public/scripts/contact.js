@@ -131,7 +131,6 @@ function copyToClipboardFooter() {
 }
 
 
-
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
 hamburgerIcon.addEventListener('click' , moveSideNav)
