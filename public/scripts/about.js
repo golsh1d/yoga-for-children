@@ -17,6 +17,7 @@ let headerElems = document.querySelectorAll('.header')
 let phoneNumElem = document.querySelector('#copy-to-clipboard')
 let copybadgeElem = document.querySelector('#copied')
 
+
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
     btn.addEventListener("click" , () => {
@@ -95,6 +96,13 @@ function moveShoppingCardToLeft() {
     sideShoppingCard.style.transform = 'translateX(-256px)'
     sideShoppingCard.style.transition = 'transform .5s ease' 
     overlayElem.style.display = 'none'
+}
+
+// scroll to specific element
+function scrollToTop() {
+    headerElems.forEach( header => {
+        header.scrollIntoView({ behavior : 'smooth'})
+    })
 }
 
 // copy phone number to clipboard
