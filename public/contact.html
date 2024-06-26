@@ -392,7 +392,7 @@
 
     <main>
          <!-- start container -->
-         <section class="container px-10 mt-6 mb-14 md:mt-44 lg:mt-48 md:mb-20 lg:mb-24">
+         <section class="container px-4 mt-6 mb-14 md:mt-44 lg:mt-48 md:mb-20 lg:mb-24">
             <!-- main content -->
             <section>
                 <div class="w-full h-min bg-gray-100 dark:bg-zinc-800 flex items-center justify-center">
@@ -411,12 +411,12 @@
                                     <div class="flex items-center justify-center -mt-2">
                                         <div class="flex items-center gap-x-5">
                                             <a href="#" class="inline-block">
-                                                <svg class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 text-zinc-700 dark:text-gray-100 hover:text-orange-300 transition-colors">
+                                                <svg class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 text-zinc-700 dark:text-gray-100 hover:text-orange-300 dark:hover:text-orange-300 transition-colors">
                                                     <use xlink:href="#instagram"></use>
                                                 </svg>
                                             </a>
                                             <a href="#" class="inline-block mt-1.5">
-                                                <svg class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 text-zinc-700 dark:text-gray-100 hover:text-orange-300 transition-colors">
+                                                <svg class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 text-zinc-700 dark:text-gray-100 hover:text-orange-300 dark:hover:text-orange-300 transition-colors">
                                                     <use xlink:href="#telegram"></use>
                                                 </svg>
                                             </a>
@@ -424,20 +424,13 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-x-8 md:gap-x-14">
-                                    <p class="font-Dana text-base md:text-lg lg:text-2xl xl:text-3xl drop-shadow-sm"> شماره ی تماس</p>
-                                    <div class="flex items-center justify-center -mt-2">
-                                        <div class="flex items-center gap-x-5">
-                                            <svg class="w-6 h-6 md:w-7 md:h-7 lg:w-10 lg:h-10 text-zinc-700 dark:text-gray-100 -mr-2 transition-colors">
-                                                <use xlink:href="#phone"></use>
-                                            </svg>
-                                            <div id="copy-to-clipboard" class="mt-1.5 flex items-center gap-x-1">
-                                                <span class="text-xs text-zinc-700 dark:text-gray-100 md:text-sm lg:text-base xl:text-xl hover:text-orange-300 transition-colors
-                                                font-DanaMedium cursor-pointer">09122600520</span>
-                                                <div id="copied" class="hidden">
-                                                    <div class="w-16 h-6 bg-zinc-500 text-white rounded-xl flex items-center justify-center">
-                                                        <p class="font-Dana text-xs tracking-wider mt-1">کپی شد !</p>
-                                                    </div>
-                                                </div>
+                                    <p class="min-w-fit font-Dana text-base md:text-lg lg:text-2xl xl:text-3xl drop-shadow-sm"> شماره ی تماس</p>
+                                    <div class="copy-to-clipboard w-full mt-1.5 flex items-center gap-x-1">
+                                        <span class="text-xs text-zinc-700 dark:text-gray-100 md:text-sm lg:text-base xl:text-xl hover:text-orange-300 dark:hover:text-orange-300 transition-colors
+                                        font-DanaDemiBold cursor-pointer">09122600520</span>
+                                        <div class="copied hidden">
+                                            <div class="w-16 h-6 bg-zinc-500 text-white rounded-xl flex items-center justify-center -mt-2">
+                                                <p class="font-Dana text-xs tracking-wider mt-1">کپی شد !</p>
                                             </div>
                                         </div>
                                     </div>
@@ -512,10 +505,10 @@
                             <svg class="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-gray-300 -mr-1 group-hover:text-orange-300 transition-colors">
                                 <use xlink:href="#phone"></use>
                             </svg>
-                            <div id="copy-to-clipboard" class="cursor-pointer mt-1.5 flex items-center gap-x-1 text-gray-300 font-Dana">
+                            <div class="copy-to-clipboard cursor-pointer mt-1.5 flex items-center gap-x-1 text-gray-300 font-Dana">
                                 <span class="text-xs md:text-sm lg:text-base xl:text-xl group-hover:text-orange-300 transition-colors">09122600520</span>
-                                <div id="copied" class="hidden">
-                                    <div class="w-16 h-6 bg-zinc-800 rounded-xl flex items-center justify-center">
+                                <div class="copied hidden">
+                                    <div class="w-16 h-6 bg-zinc-800 rounded-xl flex items-center justify-center -mt-2">
                                         <p class="text-xs tracking-wider mt-1">کپی شد !</p>
                                     </div>
                                 </div>
@@ -534,6 +527,6 @@
     <!-- overlay -->
     <div class="overlay w-full h-full fixed inset-0 bg-black/40 z-10 hidden"></div>
     
-    <script src="./scripts/about.js"></script>
+    <script src="./scripts/contact.js"></script>
 </body>
 </html>

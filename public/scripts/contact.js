@@ -14,9 +14,8 @@ let shoppingCardIcon = document.querySelector('.shopping-card')
 let overlayElem = document.querySelector('.overlay')
 let footerChevronUpElem = document.querySelector('#jump-to-top')
 let headerElems = document.querySelectorAll('.header')
-let phoneNumElem = document.querySelector('#copy-to-clipboard')
-let copybadgeElem = document.querySelector('#copied')
-
+let phoneNumElems = document.querySelectorAll('.copy-to-clipboard')
+let copybadgeElems = document.querySelectorAll('.copied')
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -111,12 +110,27 @@ function copyToClipboard() {
 
     if (window.navigator.clipboard) {
         window.navigator.clipboard.writeText(clipBoardText)
-        copybadgeElem.style.display = 'block'
+        copybadgeElems[0].style.display = 'block'
         setTimeout(() => {
-            copybadgeElem.style.display = 'none'
+            copybadgeElems[0].style.display = 'none'
         } , 700)
     }
 }
+
+// copy phone number to clipboard
+function copyToClipboardFooter() {
+    let clipBoardText = '09122600520'
+
+    if (window.navigator.clipboard) {
+        window.navigator.clipboard.writeText(clipBoardText)
+        copybadgeElems[1].style.display = 'block'
+        setTimeout(() => {
+            copybadgeElems[1].style.display = 'none'
+        } , 700)
+    }
+}
+
+
 
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
@@ -124,4 +138,5 @@ hamburgerIcon.addEventListener('click' , moveSideNav)
 shoppingCardIcon.addEventListener('click' , moveShoppingCardToRight)
 xMarkIcon.addEventListener('click' , moveShoppingCardToLeft)
 footerChevronUpElem.addEventListener('click' , scrollToTop)
-phoneNumElem.addEventListener('click' , copyToClipboard)
+phoneNumElems[0].addEventListener('click' , copyToClipboard)
+phoneNumElems[1].addEventListener('click' , copyToClipboardFooter)
