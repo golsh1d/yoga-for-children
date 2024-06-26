@@ -905,6 +905,10 @@ video {
   height: 120px;
 }
 
+.h-\[140px\] {
+  height: 140px;
+}
+
 .h-\[150px\] {
   height: 150px;
 }
@@ -940,14 +944,6 @@ video {
 .h-min {
   height: -moz-min-content;
   height: min-content;
-}
-
-.h-\[160px\] {
-  height: 160px;
-}
-
-.h-\[140px\] {
-  height: 140px;
 }
 
 .min-h-screen {
