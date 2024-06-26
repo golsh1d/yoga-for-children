@@ -109,3 +109,11 @@ function copyToClipboard() {
         } , 700)
     }
 }
+
+checkBoxInput.addEventListener('change', animationForIcon)
+chevronUp.addEventListener('click', changeSubmenuDisplay)
+hamburgerIcon.addEventListener('click' , moveSideNav)
+shoppingCardIcon.addEventListener('click' , moveShoppingCardToRight)
+xMarkIcon.addEventListener('click' , moveShoppingCardToLeft)
+footerChevronUpElem.addEventListener('click' , scrollToTop)
+phoneNumElem.addEventListener('click' , copyToClipboard)
