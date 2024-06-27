@@ -44,14 +44,14 @@ function moveSignUpPage() {
 // show messages
 function checkUserNameValidation() {
     if (inputsElems[2].value === '' || inputsElems[2].value.length < 3 || inputsElems[2].value.length > 20) {
-        messages[2].style.display = 'block'
+        messages[2].style.opacity = '1'
         messages[2].style.transition = 'transform 0.5s ease'
     }
 }
 
 function checkPassWordValidation() {
     if (inputsElems[3].value === '' || inputsElems[3].value.length < 3 || inputsElems[3].value.length > 30) {
-        messages[3].style.display = 'block'
+        messages[3].style.opacity = '1'
         messages[3].style.transition = 'transform 0.5s ease'
     }
 }
@@ -62,7 +62,7 @@ function hideMessages() {
         input.addEventListener('focus', () => {
             messages.forEach(message => {
                 if (message.dataset.id === input.dataset.id) {
-                    message.style.display = 'none'
+                    message.style.opacity = '0'
                     message.style.transition = 'transform 0.5s ease'
                 }
             })

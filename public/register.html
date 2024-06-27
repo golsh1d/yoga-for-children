@@ -21,17 +21,17 @@
     <section class="w-[350px] h-[400px] bg-black/20 dark:bg-white/30 rounded-2xl shadow-sm overflow-hidden">
         <div class="wrapper w-[200%] h-full flex items-center">
             <!-- left section -->
-            <div class="sign-in w-full h-min p-8 flex flex-col items-center gap-y-14 text-zinc-700 dark:text-gray-200">
+            <div class="sign-in w-full h-min p-8 flex flex-col items-center gap-y-10 text-zinc-700 dark:text-gray-200">
                 <p class="font-DanaDemiBold text-2xl">ورود</p>
                 <div class="relative flex flex-col w-full">
                     <label for="user-name" class="absolute font-DanaMedium text-base" data-id="1">نام کاربری</label>
-                    <input type="text" id="user-name" class="bg-transparent border-b-[1px] border-black/10 dark:border-white/10 outline-none font-Dana text-base" placeholder="" data-id="1">
-                    <span class="message hidden font-Dana text-xs mx-auto mt-1.5 text-red-700" data-id="1">نام کاربری وارد شده اشتباه است !</span>
+                    <input type="text" id="user-name" class="bg-transparent border-b-[1px] border-black/10 dark:border-white/10 outline-none font-Dana text-base" placeholder="" data-id="1" required>
+                    <span class="message opacity-0 font-Dana text-xs mx-auto mt-1.5 text-red-700" data-id="1">نام کاربری وارد شده اشتباه است !</span>
                 </div>
                 <div class="relative flex flex-col w-full">
                     <label for="pass" class="absolute font-DanaMedium text-base" data-id="2">رمز عبور</label>
-                    <input type="text" id="pass" class="bg-transparent border-b-[1px] border-black/10 dark:border-white/10 outline-none font-Dana text-base" placeholder="" data-id="2">
-                    <span class="message hidden font-Dana text-xs mx-auto mt-1.5 text-red-700" data-id="2">رمز عبور وارد شده اشتباه است !</span>
+                    <input type="text" id="pass" class="bg-transparent border-b-[1px] border-black/10 dark:border-white/10 outline-none font-Dana text-base" placeholder="" data-id="2" required>
+                    <span class="message opacity-0 font-Dana text-xs mx-auto mt-1.5 text-red-700" data-id="2">رمز عبور وارد شده اشتباه است !</span>
                 </div>
                 <div class="w-full flex flex-col items-center gap-y-2">
                     <button class="w-full h-min p-2 font-Dana text-sm text-gray-200 bg-green-800 hover:bg-green-900 transition-colors rounded 
@@ -40,17 +40,17 @@
                 </div>
             </div>
             <!-- right section -->
-            <div class="sign-up w-full h-min p-8 flex flex-col items-center gap-y-14 text-zinc-700 dark:text-gray-200">
+            <div class="sign-up w-full h-min p-8 flex flex-col items-center gap-y-10 text-zinc-700 dark:text-gray-200">
                 <p class="font-DanaDemiBold text-2xl">ثبت‌نام</p>
                 <div class="relative flex flex-col w-full">
                     <label for="user-name" class="absolute font-DanaMedium text-base" data-id="3">نام کاربری</label>
-                    <input type="text" id="user-name" class="bg-transparent border-b-[1px] border-black/10 dark:border-white/10 outline-none font-Dana text-base" placeholder="" data-id="3">
-                    <span class="message hidden font-Dana text-xs mx-auto mt-1.5 text-red-700" data-id="3">نام کاربری باید بین 3 تا 20 کاراکتر باشد !</span>
+                    <input type="text" id="user-name" class="bg-transparent border-b-[1px] border-black/10 dark:border-white/10 outline-none font-Dana text-base" placeholder="" data-id="3" required>
+                    <span class="message opacity-0 font-Dana text-xs mx-auto mt-1.5 text-red-700" data-id="3">نام کاربری باید بین 3 تا 20 کاراکتر باشد !</span>
                 </div>
                 <div class="relative flex flex-col w-full">
                     <label for="pass" class="absolute font-DanaMedium text-base" data-id="4">رمز عبور</label>
-                    <input type="text" id="pass" class="bg-transparent border-b-[1px] border-black/10 dark:border-white/10 outline-none font-Dana text-base" placeholder="" data-id="4">
-                    <span class="message hidden font-Dana text-xs mx-auto mt-1.5 text-red-700" data-id="4">رمز عبور باید بین 3 تا 30 کاراکتر باشد !</span>
+                    <input type="text" id="pass" class="bg-transparent border-b-[1px] border-black/10 dark:border-white/10 outline-none font-Dana text-base" placeholder="" data-id="4" required>
+                    <span class="message opacity-0 font-Dana text-xs mx-auto mt-1.5 text-red-700" data-id="4">رمز عبور باید بین 3 تا 30 کاراکتر باشد !</span>
                 </div>
                 <div class="w-full flex flex-col items-center gap-y-2">
                     <button class="w-full h-min p-2 font-Dana text-sm text-gray-200 bg-green-800 hover:bg-green-900 transition-colors rounded 
