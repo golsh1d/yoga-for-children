@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه ی ثبت‌نام</title>
+    <link rel="icon" href="./img/logo.png">
+    <link rel="stylesheet" href="./styles/app.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://kit.fontawesome.com/4f2890a18c.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="bg-white/60 dark:bg-zinc-800 w-full h-svh overflow-hidden flex items-center justify-center">
+
+    <section class="w-[350px] h-[400px] bg-black/30 dark:bg-white/30 flex flex-col justify-center gap-y-10"></section>
+
+
+
+    <script src="./scripts/register.js" type="module"></script>
+</body>
+</html>
