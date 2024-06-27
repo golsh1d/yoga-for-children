@@ -18,22 +18,23 @@
 </head>
 <body class="bg-white/60 dark:bg-zinc-800 w-full h-svh overflow-hidden flex items-center justify-center">
 
-    <section class="w-[350px] h-[400px] bg-black/30 dark:bg-white/30">
-        <div>
+    <section class="w-[350px] h-[400px] bg-black/20 dark:bg-white/30 rounded-2xl shadow-sm">
+        <div class="h-full flex items-center">
             <!-- left section -->
-            <div class="w-full h-full flex flex-col justify-center items-center gap-y-10">
-                <p>ورود</p>
-                <div>
-                    <label for="user-name">نام کاربری</label>
-                    <input type="text" id="user-name">
+            <div class="w-full h-min p-8 flex flex-col items-center gap-y-14 text-zinc-700 dark:text-gray-200">
+                <p class="font-DanaDemiBold text-2xl">ورود</p>
+                <div class="relative flex flex-col w-full">
+                    <label for="user-name" class="absolute font-DanaMedium text-base">نام کاربری</label>
+                    <input type="text" id="user-name" class="bg-transparent border-b-[1px] border-black/10 dark:border-white/10 outline-none" placeholder="">
                 </div>
-                <div>
-                    <label for="pass">رمز عبور</label>
-                    <input type="text" id="pass">
+                <div class="relative flex flex-col w-full">
+                    <label for="pass" class="absolute font-DanaMedium text-base">رمز عبور</label>
+                    <input type="text" id="pass" class="bg-transparent border-b-[1px] border-black/10 dark:border-white/10 outline-none" placeholder="">
                 </div>
-                <div>
-                    <button>ورود به سایت</button>
-                    <span>حساب کاربری ندارید؟ ثبت‌نام کنید</span>
+                <div class="w-full flex flex-col items-center gap-y-2">
+                    <button class="w-full h-min p-2 font-Dana text-sm text-gray-200 bg-green-800 hover:bg-green-900 transition-colors rounded 
+                    flex items-center justify-center shadow-sm">ورود به سایت</button>
+                    <p class="font-Dana text-xs">حساب کاربری ندارید؟ <span class="hover:text-zinc-900 transition-colors cursor-pointer">ثبت‌نام کنید.</span></p>
                 </div>
             </div>
             <!-- right section -->
