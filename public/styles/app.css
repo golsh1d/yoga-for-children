@@ -1046,6 +1046,10 @@ video {
   width: 16.5px;
 }
 
+.w-\[200\%\] {
+  width: 200%;
+}
+
 .w-\[230px\] {
   width: 230px;
 }
@@ -1105,10 +1109,6 @@ video {
 
 .w-px {
   width: 1px;
-}
-
-.w-\[200\%\] {
-  width: 200%;
 }
 
 .min-w-fit {

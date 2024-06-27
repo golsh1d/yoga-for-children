@@ -1,5 +1,8 @@
 let lableElems = document.querySelectorAll('label')
 let inputsElems = document.querySelectorAll('input')
+let signInSpan = document.querySelector('.sign-in-span')
+let signUpSpan = document.querySelector('.sign-up-span')
+let wrapper = document.querySelector('.wrapper')
 
 // move lables
 inputsElems.forEach(input => {
@@ -25,3 +28,18 @@ inputsElems.forEach(input => {
         })
     })
 })
+
+// move pages
+function moveSignInPage() {
+    wrapper.style.transform = 'translateX(50%)'
+    wrapper.style.transition = 'transform 1s ease'
+}
+
+function moveSignUpPage() {
+    wrapper.style.transform = 'translateX(0px)'
+    wrapper.style.transition = 'transform 1s ease'
+}
+
+// events
+signInSpan.addEventListener('click', moveSignInPage)
+signUpSpan.addEventListener('click', moveSignUpPage)
