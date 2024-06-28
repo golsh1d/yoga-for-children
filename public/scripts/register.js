@@ -5,7 +5,7 @@ let signUpSpan = document.querySelector('.sign-up-span')
 let wrapper = document.querySelector('.wrapper')
 let messages = document.querySelectorAll('.message')
 let btns = document.querySelectorAll('button')
-let successfulSignInMessage = document.querySelectorAll('.successful-sign-in')
+let successfulSignInMessage = document.querySelector('.successful-sign-in')
 
 // move specific lables
 inputsElems.forEach(input => {
@@ -88,6 +88,16 @@ function moveDownAllLables() {
     })
 }
 
+// pop up sign in message
+function showSuccessfulSignIn() {
+    successfulSignInMessage.style.display = 'block'
+    successfulSignInMessage.style.transition = 'transform 0.5s ease'
+    setTimeout(() => {
+        successfulSignInMessage.style.display = 'none'
+        successfulSignInMessage.style.transition = 'transform 0.5s ease'
+    } , 3000)
+}
+
 // send data to back end
 async function sendDataToBackEnd() {
     let userNameValue = inputsElems[2].value
@@ -98,13 +108,21 @@ async function sendDataToBackEnd() {
         password : passwordValue,
     }
 
-    await fetch('https://wke21.wiremockapi.cloud/Users' , {
+    try {
+        let res = await fetch('https://wke21.wiremockapi.cloud/Users' , {
         method : 'POST' ,
         headers : {
             "Content-type" : "application/json"
         },
-        body : JSON.stringify(userInfoObj)
-    }).then(resp => console.log(resp))
+        body : JSON.stringify(userInfoObj),
+        })
+
+        console.log(res)
+        showSuccessfulSignIn()
+
+        } catch (err) {
+          console.log(err)
+        }
 }
 
 // work with cookies
