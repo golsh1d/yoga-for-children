@@ -5,6 +5,7 @@ let signUpSpan = document.querySelector('.sign-up-span')
 let wrapper = document.querySelector('.wrapper')
 let messages = document.querySelectorAll('.message')
 let btns = document.querySelectorAll('button')
+let successfulSignInMessage = document.querySelectorAll('.successful-sign-in')
 
 // move specific lables
 inputsElems.forEach(input => {
@@ -87,6 +88,25 @@ function moveDownAllLables() {
     })
 }
 
+// send data to back end
+async function sendDataToBackEnd() {
+    let userNameValue = inputsElems[2].value
+    let passwordValue = inputsElems[3].value
+
+    let userInfoObj = {
+        userName : userNameValue,
+        password : passwordValue,
+    }
+
+    await fetch('https://wke21.wiremockapi.cloud/Users' , {
+        method : 'POST' ,
+        headers : {
+            "Content-type" : "application/json"
+        },
+        body : JSON.stringify(userInfoObj)
+    }).then(resp => console.log(resp))
+}
+
 // work with cookies
 function setCookie() {
     let userNameValue = inputsElems[2].value
@@ -99,10 +119,9 @@ function setCookie() {
     }
 
     clearInputs()
-
     moveDownAllLables()
+    sendDataToBackEnd()
 }
-
 
 // events
 signInSpan.addEventListener('click', moveSignInPage)
