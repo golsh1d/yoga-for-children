@@ -6,6 +6,7 @@ let wrapper = document.querySelector('.wrapper')
 let messages = document.querySelectorAll('.message')
 let btns = document.querySelectorAll('button')
 let successfulSignInMessage = document.querySelector('.successful-sign-in')
+let takenUserNameMessage = document.querySelector('.taken-user-name')
 
 // move specific lables
 inputsElems.forEach(input => {
@@ -44,19 +45,21 @@ function moveSignUpPage() {
 }
 
 // show messages
-function checkUserNameValidation() {
-    if (inputsElems[2].value === '' || inputsElems[2].value.length < 3 || inputsElems[2].value.length > 20) {
-        messages[2].style.opacity = '1'
-        messages[2].style.transition = 'transform 0.5s ease'
-    }
-}
+// function isUserNameValid() {
+//     if (inputsElems[2].value === '' || inputsElems[2].value.length < 3 || inputsElems[2].value.length > 20) {
+//         return false
+//     } else {
+//         return true
+//     }
+// }
 
-function checkPassWordValidation() {
-    if (inputsElems[3].value === '' || inputsElems[3].value.length < 3 || inputsElems[3].value.length > 30) {
-        messages[3].style.opacity = '1'
-        messages[3].style.transition = 'transform 0.5s ease'
-    }
-}
+// function isPassWordValid() {
+//     if (inputsElems[3].value === '' || inputsElems[3].value.length < 3 || inputsElems[3].value.length > 30) {
+//         return false
+//     } else {
+//         return true
+//     }
+// }
 
 // hide messages
 function hideMessages() {
@@ -74,18 +77,18 @@ function hideMessages() {
 
 hideMessages()
 
-// clear inputs 
-function clearInputs() {
-    inputsElems.forEach(input => {
-        input.value = ''
-    })
-}
+// connect to back end funcs
 
-// move down all lables
-function moveDownAllLables() {
-    lableElems.forEach(lable => {
-        lable.style.transform = 'translateY(0px)'
-    })
+// work with cookies
+function setCookie() {
+    let userNameValue = inputsElems[2].value
+
+    if (userNameValue) {
+        let now = new Date()
+        now.setTime(now.getTime() + 10 * 24 * 60 * 60 * 1000)
+
+        document.cookie = `userName=${userNameValue};path=/;expires=${now}`
+    }
 }
 
 // pop up sign in message
@@ -125,25 +128,64 @@ async function sendDataToBackEnd() {
         }
 }
 
-// work with cookies
-function setCookie() {
-    let userNameValue = inputsElems[2].value
+// clear inputs 
+function clearInputs() {
+    inputsElems.forEach(input => {
+        input.value = ''
+    })
+}
 
-    if (userNameValue) {
-        let now = new Date()
-        now.setTime(now.getTime() + 10 * 24 * 60 * 60 * 1000)
+// move down all lables
+function moveDownAllLables() {
+    lableElems.forEach(lable => {
+        lable.style.transform = 'translateY(0px)'
+    })
+}
 
-        document.cookie = `userName=${userNameValue};path=/;expires=${now}`
+// recieve data form back end
+async function connectToBackEnd() {
+    // check validation
+    if ((inputsElems[2].value === '' || inputsElems[2].value.length < 3 || inputsElems[2].value.length > 20) && (inputsElems[3].value === '' || inputsElems[3].value.length < 3 || inputsElems[3].value.length > 30)) {
+        messages[2].style.opacity = '1'
+        messages[2].style.transition = 'transform 0.5s ease' 
+        messages[4].style.opacity = '1'
+        messages[4].style.transition = 'transform 0.5s ease'
+    } else if ((inputsElems[2].value === '' || inputsElems[2].value.length < 3 || inputsElems[2].value.length > 20) && (inputsElems[3].value.length >= 3 || inputsElems[3].value.length <= 30)) {
+        messages[2].style.opacity = '1'
+        messages[2].style.transition = 'transform 0.5s ease'
+    } else if ((inputsElems[2].value.length >= 3 || inputsElems[2].value.length <= 20) && (inputsElems[3].value === '' || inputsElems[3].value.length < 3 || inputsElems[3].value.length > 30)) {
+        messages[4].style.opacity = '1'
+        messages[4].style.transition = 'transform 0.5s ease'
+    } else {
+        let userNameValue = inputsElems[2].value
+
+        try {
+            let res = await fetch('https://eky74.wiremockapi.cloud/info')
+            let data = await res.json()
+
+            let isInData = data.some(info => {
+                return info.userName === userNameValue
+            })
+
+            console.log(isInData)
+
+            if (isInData) {
+                takenUserNameMessage.style.opacity = '1'
+                takenUserNameMessage.style.transform = 'transition 0.5s ease'
+            } else {
+                setCookie()
+                sendDataToBackEnd()
+                clearInputs()
+                moveDownAllLables()
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
     }
-
-    clearInputs()
-    moveDownAllLables()
-    sendDataToBackEnd()
 }
 
 // events
 signInSpan.addEventListener('click', moveSignInPage)
 signUpSpan.addEventListener('click', moveSignUpPage)
-inputsElems[2].addEventListener('blur' , checkUserNameValidation)
-inputsElems[3].addEventListener('blur' , checkPassWordValidation)
-btns[1].addEventListener('click' , setCookie)
+btns[1].addEventListener('click' , connectToBackEnd)

@@ -21,7 +21,7 @@
     <div class="container flex items-center justify-center">
         <section class="w-[350px] h-[400px] lg:w-[450px] lg:h-[500px] bg-black/20 dark:bg-white/30 rounded-2xl shadow-sm overflow-hidden">
             <div class="wrapper w-[200%] h-full flex items-center">
-                <!-- left section -->
+                <!-- right section -->
                 <div class="sign-in w-full h-min p-8 flex flex-col items-center gap-y-10 lg:gap-y-14 text-zinc-700 dark:text-gray-200">
                     <p class="font-DanaDemiBold text-lg lg:text-2xl">ورود</p>
                     <div class="relative flex flex-col w-full">
@@ -40,13 +40,14 @@
                         <p class="font-Dana text-xs">حساب کاربری ندارید؟ <span class="sign-in-span hover:text-zinc-900 transition-colors cursor-pointer">ثبت‌نام کنید.</span></p>
                     </div>
                 </div>
-                <!-- right section -->
+                <!-- left section -->
                 <div class="sign-up w-full h-min p-8 flex flex-col items-center gap-y-10 lg:gap-y-14 text-zinc-700 dark:text-gray-200">
                     <p class="font-DanaDemiBold text-lg lg:text-2xl">ثبت‌نام</p>
                     <div class="relative flex flex-col w-full">
                         <label for="user-name" class="absolute font-DanaMedium text-sm lg:text-lg" data-id="3">نام کاربری</label>
                         <input type="text" id="user-name" class="bg-transparent border-b-[1px] border-black/10 dark:border-white/10 outline-none font-Dana text-base" placeholder="" data-id="3" required>
                         <span class="message opacity-0 font-Dana text-[10px] lg:text-xs mx-auto mt-1.5 text-red-700" data-id="3">نام کاربری باید بین 3 تا 20 کاراکتر باشد !</span>
+                        <span class="taken-user-name message opacity-0 font-Dana text-[10px] lg:text-xs mx-auto -mt-4 text-red-700" data-id="3">این نام کاربری قبلا انتخاب شده است !</span>
                     </div>
                     <div class="relative flex flex-col w-full">
                         <label for="pass" class="absolute font-DanaMedium text-sm lg:text-lg" data-id="4">رمز عبور</label>
@@ -64,8 +65,7 @@
     </div>
 
     <div class="successful-sign-in hidden absolute top-5 right-5 w-56 h-14 leading-[35px] bg-black/20 dark:bg-white/30 text-zinc-700 dark:text-gray-200 rounded-xl font-Dana text-base p-3">شما با موفقیت ثبت‌نام کردید.</div>
-
-
+    <div class="successful-log-in hidden absolute top-5 right-5 w-56 h-14 leading-[35px] bg-black/20 dark:bg-white/30 text-zinc-700 dark:text-gray-200 rounded-xl font-Dana text-base p-3">شما با موفقیت وارد شدید.</div>
 
     <script src="./scripts/register.js" type="module"></script>
 </body>
