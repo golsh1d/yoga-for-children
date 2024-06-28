@@ -6,6 +6,7 @@ let wrapper = document.querySelector('.wrapper')
 let messages = document.querySelectorAll('.message')
 let btns = document.querySelectorAll('button')
 let successfulSignInMessage = document.querySelector('.successful-sign-in')
+let successfulLogInMessage = document.querySelector('.successful-log-in')
 let takenUserNameMessage = document.querySelector('.taken-user-name')
 
 // move specific lables
@@ -43,23 +44,6 @@ function moveSignUpPage() {
     wrapper.style.transform = 'translateX(0px)'
     wrapper.style.transition = 'transform 1s ease'
 }
-
-// show messages
-// function isUserNameValid() {
-//     if (inputsElems[2].value === '' || inputsElems[2].value.length < 3 || inputsElems[2].value.length > 20) {
-//         return false
-//     } else {
-//         return true
-//     }
-// }
-
-// function isPassWordValid() {
-//     if (inputsElems[3].value === '' || inputsElems[3].value.length < 3 || inputsElems[3].value.length > 30) {
-//         return false
-//     } else {
-//         return true
-//     }
-// }
 
 // hide messages
 function hideMessages() {
@@ -143,6 +127,7 @@ function moveDownAllLables() {
 }
 
 // recieve data form back end
+
 async function connectToBackEnd() {
     // check validation
     if ((inputsElems[2].value === '' || inputsElems[2].value.length < 3 || inputsElems[2].value.length > 20) && (inputsElems[3].value === '' || inputsElems[3].value.length < 3 || inputsElems[3].value.length > 30)) {
@@ -175,13 +160,66 @@ async function connectToBackEnd() {
             } else {
                 setCookie()
                 sendDataToBackEnd()
-                clearInputs()
-                moveDownAllLables()
             }
 
         } catch (error) {
             console.log(error)
         }
+    }
+    clearInputs()
+    moveDownAllLables()
+}
+
+async function getUserInfos() {
+    let userNameValue = inputsElems[0].value
+    let passValue = inputsElems[1].value
+
+    try {
+        let res = await fetch('https://eky74.wiremockapi.cloud/info')
+        let data = await res.json()
+
+        let isInUserNames = data.some(info => {
+            if (info.userName === userNameValue) {
+                return true
+            } else {
+                return false
+            }
+        })
+
+        let isInPasswords = data.some(info => {
+            if (info.password === passValue) {
+                return true
+            } else {
+                return false
+            }
+        })
+
+        if (isInUserNames && isInPasswords) {
+            successfulLogInMessage.style.display = 'block'
+            successfulLogInMessage.style.transition = 'transform 0.5s ease'
+            setTimeout(() => {
+                successfulLogInMessage.style.display = 'none'
+                successfulLogInMessage.style.transition = 'transform 0.5s ease'
+            }, 3000)
+        } else if (!isInUserNames && isInPasswords) {
+            messages[0].style.opacity = '1'
+            messages[0].style.transition = 'transform 0.5s ease'
+        } else if (isInUserNames && !isInPasswords) {
+            messages[1].style.opacity = '1'
+            messages[1].style.transition = 'transform 0.5s ease'
+        }
+        else {
+            messages[0].style.opacity = '1'
+            messages[0].style.transition = 'transform 0.5s ease'
+            messages[1].style.opacity = '1'
+            messages[1].style.transition = 'transform 0.5s ease'
+        }
+
+        clearInputs()
+        moveDownAllLables()
+           
+    } catch (error) {
+        console.log(error)
     }
 }
 
@@ -189,3 +227,4 @@ async function connectToBackEnd() {
 signInSpan.addEventListener('click', moveSignInPage)
 signUpSpan.addEventListener('click', moveSignUpPage)
 btns[1].addEventListener('click' , connectToBackEnd)
+btns[0].addEventListener('click' , getUserInfos)
