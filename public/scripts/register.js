@@ -4,6 +4,7 @@ let signInSpan = document.querySelector('.sign-in-span')
 let signUpSpan = document.querySelector('.sign-up-span')
 let wrapper = document.querySelector('.wrapper')
 let messages = document.querySelectorAll('.message')
+let btns = document.querySelectorAll('button')
 
 // move lables
 inputsElems.forEach(input => {
@@ -72,8 +73,22 @@ function hideMessages() {
 
 hideMessages()
 
+// work with cookies
+function setCookie() {
+    let userNameValue = inputsElems[2].value
+
+    if (userNameValue) {
+        let now = new Date()
+        now.setTime(now.getTime() + 10 * 24 * 60 * 60 * 1000)
+
+        document.cookie = `userName=${userNameValue};path=/;expires=${now}`
+    }
+}
+
+
 // events
 signInSpan.addEventListener('click', moveSignInPage)
 signUpSpan.addEventListener('click', moveSignUpPage)
 inputsElems[2].addEventListener('blur' , checkUserNameValidation)
 inputsElems[3].addEventListener('blur' , checkPassWordValidation)
+btns[1].addEventListener('click' , setCookie)
