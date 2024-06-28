@@ -6,7 +6,7 @@ let wrapper = document.querySelector('.wrapper')
 let messages = document.querySelectorAll('.message')
 let btns = document.querySelectorAll('button')
 
-// move lables
+// move specific lables
 inputsElems.forEach(input => {
     input.addEventListener('focus' , () => {
         lableElems.forEach(lable => {
@@ -73,6 +73,20 @@ function hideMessages() {
 
 hideMessages()
 
+// clear inputs 
+function clearInputs() {
+    inputsElems.forEach(input => {
+        input.value = ''
+    })
+}
+
+// move down all lables
+function moveDownAllLables() {
+    lableElems.forEach(lable => {
+        lable.style.transform = 'translateY(0px)'
+    })
+}
+
 // work with cookies
 function setCookie() {
     let userNameValue = inputsElems[2].value
@@ -83,6 +97,10 @@ function setCookie() {
 
         document.cookie = `userName=${userNameValue};path=/;expires=${now}`
     }
+
+    clearInputs()
+
+    moveDownAllLables()
 }
 
 
