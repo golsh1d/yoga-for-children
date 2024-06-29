@@ -16,6 +16,8 @@ let footerChevronUpElem = document.querySelector('#jump-to-top')
 let headerElems = document.querySelectorAll('.header')
 let phoneNumElem = document.querySelector('.copy-to-clipboard')
 let copybadgeElem = document.querySelector('.copied')
+let swiperWrapper = document.querySelector('.swiper-wrapper')
+let productWrapper = document.querySelector('.product-wrapper')
 
 
 //changing the theme
@@ -117,6 +119,79 @@ function copyToClipboard() {
         } , 700)
     }
 }
+
+// fetch slider data from back end
+async function fetchSliderData() {
+    try {
+        let res = await fetch('https://ekyr3.wiremockapi.cloud/boardGameSlider')
+        let data = await res.json()
+        
+        console.log(data)
+
+        data.forEach(info => {
+            swiperWrapper.insertAdjacentHTML(`beforeend` , 
+                `<div class="swiper-slide">
+                        <a href="#" class="inline-block w-full h-min p-3 md:p-5
+                        bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                        <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
+                            <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${info.src}" alt="">
+                        </div>
+                        <div class="flex flex-col gap-y-2.5">
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${info.title}</p>
+                            <div class="w-full flex items-center justify-between">
+                                <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${info.price}</span>تومان</p>
+                                <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                                 flex items-center justify-center">
+                                    <svg class="w-4 h-4 md:w-5 md:h-5">
+                                        <use xlink:href="#shopping-card"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                    </div>`)
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+fetchSliderData()
+
+// fetch all product data from back end
+async function fetchProductData() {
+    try {
+        let res = await fetch ('https://9g47l.wiremockapi.cloud/boardGameInfo')
+        let data = await res.json()
+
+        data.forEach(info => {
+            productWrapper.insertAdjacentHTML(`beforeend` , 
+                `<a href="#" class="inline-block w-full h-min p-3 md:p-5
+                        bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                        <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
+                            <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${info.src}" alt="">
+                        </div>
+                        <div class="flex flex-col gap-y-2.5">
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${info.title}</p>
+                            <div class="w-full flex items-center justify-between">
+                                <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${info.price}</span>تومان</p>
+                                <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                                 flex items-center justify-center">
+                                    <svg class="w-4 h-4 md:w-5 md:h-5">
+                                        <use xlink:href="#shopping-card"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                </a>`
+            )
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+fetchProductData()
 
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
