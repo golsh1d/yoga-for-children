@@ -18,6 +18,23 @@ let phoneNumElem = document.querySelector('.copy-to-clipboard')
 let copybadgeElem = document.querySelector('.copied')
 let swiperWrapper = document.querySelector('.swiper-wrapper')
 let productWrapper = document.querySelector('.product-wrapper')
+let meditationSliderInfo = [
+    {id : 1, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "135,000"},
+    {id : 2, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "145,000"},
+    {id : 3, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "155,000"},
+    {id : 4, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "165,000"},
+    {id : 5, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "175,000"},
+    {id : 6, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "185,000"},
+]
+let allmeditationsInfo = [
+    {id : 1, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "135,000"},
+    {id : 2, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "145,000"},
+    {id : 3, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "155,000"},
+    {id : 4, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "165,000"},
+    {id : 5, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "175,000"},
+    {id : 6, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "185,000"},
+    {id : 7, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "195,000"},
+]
 
 
 //changing the theme
@@ -123,12 +140,7 @@ function copyToClipboard() {
 // fetch slider data from back end
 async function fetchSliderData() {
     try {
-        let res = await fetch('https://7eg3d.wiremockapi.cloud/meditationSlider')
-        let data = await res.json()
-        
-        console.log(data)
-
-        data.forEach(info => {
+        meditationSliderInfo.forEach(info => {
             swiperWrapper.insertAdjacentHTML(`beforeend` , 
                 `<div class="swiper-slide">
                         <a href="#" class="inline-block w-full h-min p-3 md:p-5
@@ -161,10 +173,7 @@ fetchSliderData()
 // fetch all product data from back end
 async function fetchProductData() {
     try {
-        let res = await fetch ('https://meo4v.wiremockapi.cloud/meditationInfo')
-        let data = await res.json()
-
-        data.forEach(info => {
+        allmeditationsInfo.forEach(info => {
             productWrapper.insertAdjacentHTML(`beforeend` , 
                 `<a href="#" class="inline-block w-full h-min p-3 md:p-5
                         bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
