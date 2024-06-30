@@ -24,6 +24,35 @@ let footerChevronUpElem = document.querySelector('#jump-to-top')
 let headerElems = document.querySelectorAll('.header')
 let phoneNumElem = document.querySelector('#copy-to-clipboard')
 let copybadgeElem = document.querySelector('#copied')
+let swiperWrapper = document.querySelector('.swiper-wrapper')
+// database
+let CardSlidrerInfo = [
+    {id : 1, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "135,000"},
+    {id : 2, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "145,000"},
+    {id : 3, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "155,000"},
+    {id : 4, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "165,000"},
+    {id : 5, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "175,000"},
+    {id : 6, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "185,000"},
+    {id : 7, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "195,000"},
+]
+let BoardGameSliderInfo = [
+    {id : 1, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "135,000"},
+    {id : 2, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "145,000"},
+    {id : 3, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "155,000"},
+    {id : 4, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "165,000"},
+    {id : 5, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "175,000"},
+    {id : 6, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "185,000"},
+    {id : 7, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "195,000"},
+]
+let meditationSliderInfo = [
+    {id : 1, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 2, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 3, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 4, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 5, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 6, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 7, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+]
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -141,6 +170,34 @@ function copyToClipboard() {
     }
 }
 
+// load dynamic data
+function loadCards() {
+    CardSlidrerInfo.forEach(obj => {
+        swiperWrapper.insertAdjacentHTML(`beforeend` , 
+            `<div class="swiper-slide">
+                            <a href="#" class="inline-block w-full h-min p-3 md:p-5
+                            bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                            <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
+                                <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
+                            </div>
+                            <div class="flex flex-col gap-y-2.5">
+                                <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
+                                <div class="w-full flex items-center justify-between">
+                                    <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${obj.price}</span>تومان</p>
+                                    <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                                     flex items-center justify-center">
+                                        <svg class="w-4 h-4 md:w-5 md:h-5">
+                                            <use xlink:href="#shopping-card"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>`
+        )
+    })
+}
+
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
 hamburgerIcon.addEventListener('click' , moveSideNav)
@@ -152,3 +209,4 @@ meditationElem.addEventListener('click' , scrollToMeditationSection)
 coursesElem.addEventListener('click' , scrollToCoursesSection)
 footerChevronUpElem.addEventListener('click' , scrollToTop)
 phoneNumElem.addEventListener('click' , copyToClipboard)
+window.addEventListener('load' , loadCards)
