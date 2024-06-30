@@ -6,6 +6,7 @@
     <title>صفحه ی خدمات (کارت)</title>
     <link rel="icon" href="./img/logo.png">
     <link rel="stylesheet" href="./styles/app.css">
+    <link rel="stylesheet" href="./styles/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="https://kit.fontawesome.com/4f2890a18c.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
@@ -81,8 +82,359 @@
                  
     </svg>
 
+    <!-- header -->
+    <header class="header hidden md:flex items-center justify-between absolute top-5 right-0 left-0 w-[98%] h-24 mx-auto p-5 rounded-3xl bg-black/50 backdrop-blur-[6px] z-50">
+        <!-- menu -->
+         <nav class="flex gap-x-4 lg:gap-x-9 items-center">
+            <img class="w-16 h-16" src="/public/img/logo.png" alt="logo">
+            <ul class="font-Dana text-base lg:text-xl tracking-tighter text-gray-300 flex items-center gap-x-4 lg:gap-x-9">
+                <li class="h-16 leading-[64px]"><a href="index.html" class="hover:text-orange-300 transition-colors">صفحه اصلی</a></li>
+                <!-- has sub menu -->
+                <li class="relative group h-16 leading-[64px] text-orange-200 hover:text-orange-300 transition-colors">
+                    <a href="#">خدمات ما</a>
+                    <ul class="absolute top-100 right-0 hidden w-52 h-min py-5 px-6 rounded-2xl border-t-[3px] bg-white dark:bg-zinc-700 border-orange-300 
+                    font-Dana text-base text-zinc-700 dark:text-white group-hover:flex flex-col gap-y-3">
+                        <li class="hover:-translate-x-1 hover:text-orange-200 dark:hover:text-orange-300 transition-all"><a href="cards.html">کارت ها</a></li>
+                        <li class="hover:-translate-x-1 hover:text-orange-200 dark:hover:text-orange-300 transition-all"><a href="boardgame.html">بورد گیم ها</a></li>
+                        <li class="hover:-translate-x-1 hover:text-orange-200 dark:hover:text-orange-300 transition-all"><a href="meditation.html">مراقبه ها</a></li>
+                        <li class="hover:-translate-x-1 hover:text-orange-200 dark:hover:text-orange-300 transition-all"><a href="#">دوره ها</a></li>
+                    </ul>
+                </li>
+                <li class="h-16 leading-[64px]"><a href="about.html" class="hover:text-orange-300 transition-colors">درباره ی ما</a></li>
+                <li class="h-16 leading-[64px]"><a href="contact.html" class="hover:text-orange-300 transition-colors">ارتباط با ما</a></li>
+            </ul>
+         </nav>
+         <!-- icons -->
+         <div class="flex items-center text-orange-200">
+             <!-- shopping card icon & dark mode icon -->
+             <div class="flex items-center gap-x-5">
+                <!-- shopping card -->
+                <div class="group relative transition-colors">
+                    <svg class="w-6 lg:w-8 h-16 hover:text-orange-300 cursor-pointer">
+                        <use xlink:href="#shopping-card"></use>
+                    </svg>
+                    <!-- has sub menu -->
+                    <div class="hidden group-hover:block absolute top-100 left-0 w-[400px] h-min p-5
+                     rounded-2xl border-t-[3px] bg-white dark:bg-zinc-700 border-orange-300">
+                     <div class="w-full flex items-center justify-between font-DanaMedium">
+                        <div class="text-xs tracking-tighter text-gray-300">
+                            <p><span>1</span> مورد</p>
+                        </div>
+                        <a href="#" class="inline-flex items-center justify-between text-orange-300 hover:text-orange-400 transition-colors">
+                            <p class="text-xs tracking-tighter">مشاهده سبد خرید</p>
+                            <svg class="w-3 h-3">
+                                <use xlink:href="#chevron-left"></use>
+                            </svg>
+                        </a>
+                     </div>
+                     <div class="flex gap-x-2.5 items-center py-5 border-b-[1px] border-gray-300 dark:border-white/10">
+                        <div>
+                            <img class="w-[120px] h-[120px]" src="./img/logo.png" alt="">
+                        </div>
+                        <div class="w-[230px]">
+                            <p class="font-DanaMedium text-base text-zinc-700 dark:text-white line-clamp-2 mb-[28px]">کارت های یوگای کودک</p>
+                            <div class="flex items-end">
+                                <div class="flex items-center justify-evenly w-[90px] h-11 ml-5 border-[1px] border-gray-300 rounded-full
+                                font-DanaDemiBold text-orange-300">
+                                <div class="hover:text-orange-400 transition-colors">
+                                    <svg class="w-4 h-4 cursor-pointer">
+                                        <use xlink:href="#plus"></use>
+                                    </svg>
+                                </div>
+                                <p class="text-xl tracking-tighter">1</p>
+                                <div class="hover:text-orange-400 transition-colors">
+                                    <svg class="w-4 h-4 cursor-pointer">
+                                        <use xlink:href="#minus"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="font-Dana text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-xl">350,000</span> تومان</p>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="flex gap-x-2.5 items-center py-5 border-b-[1px] border-gray-300 dark:border-white/10">
+                        <div>
+                            <img class="w-[120px] h-[120px]" src="./img/logo.png" alt="">
+                        </div>
+                        <div class="w-[230px]">
+                            <p class="font-DanaMedium text-base text-zinc-700 dark:text-white line-clamp-2 mb-[28px]">کارت های یوگای کودک</p>
+                            <div class="flex items-end">
+                                <div class="flex items-center justify-evenly w-[90px] h-11 ml-5 border-[1px] border-gray-300 rounded-full
+                                font-DanaDemiBold text-orange-300">
+                                <div class="hover:text-orange-400 transition-colors">
+                                    <svg class="w-4 h-4 cursor-pointer">
+                                        <use xlink:href="#plus"></use>
+                                    </svg>
+                                </div>
+                                <p class="text-xl tracking-tighter">1</p>
+                                <div class="hover:text-orange-400 transition-colors">
+                                    <svg class="w-4 h-4 cursor-pointer">
+                                        <use xlink:href="#minus"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="font-Dana text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-xl">350,000</span> تومان</p>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="mt-5 flex items-center justify-between">
+                        <div>
+                            <p class="font-DanaMedium text-xs tracking-tighter text-gray-300">مبلغ قابل پرداخت</p>
+                            <p class="font-Dana text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-xl">350,000</span> تومان</p>
+                        </div>
+                        <a href="#" class="inline-flex items-center justify-center w-[144px] h-14  bg-lime-900 hover:bg-lime-950 dark:bg-green-700 dark:hover:bg-green-800 transition-colors rounded-xl">
+                            <p class="font-Dana text-xl tracking-tighter text-white">ثبت سفارش</p>
+                        </a>
+                     </div>
+                    </div>
+                </div>
+                <!-- change theme -->
+                <div class="toggle-theme hover:text-orange-300 transition-colors cursor-pointer">
+                    <svg class="inline-block dark:hidden w-6 h-6 lg:w-8 lg:h-8">
+                        <use xlink:href="#moon"></use>
+                    </svg>
+                    <svg class="hidden dark:inline-block w-6 h-6 lg:w-8 lg:h-8">
+                        <use xlink:href="#sun"></use>
+                    </svg>
+                </div>
+             </div>
+             <!-- seperator -->
+             <div class="w-px h-14 bg-white/20 mx-5 xl:mx-10"></div> 
+             <!-- register  -->
+             <a href="register.html" class="inline-flex items-center gap-x-3 hover:text-orange-300 transition-colors cursor-pointer">
+                <div>
+                    <svg class="w-6 h-6 lg:w-8 lg:h-8">
+                        <use xlink:href="#arrow-right-end-on-rectangle"></use>
+                    </svg>
+                </div>
+                <div class="hidden lg:block">
+                    <p class="font-Dana">ورود  |  ثبت‌نام</p>
+                </div>
+             </a>
+         </div>
+    </header>
 
+    <!-- header for smaller screens -->
+    <header class="header flex items-center justify-between md:hidden w-full h-16 p-4 bg-white dark:bg-zinc-700">
+        <div class="z-50">
+            <label for="ham" id="hamburger" class="flex flex-col gap-y-1 z-50">
+                <div id="hamburger-first-line" class="w-[16.5px] h-[1.5px] bg-zinc-700 dark:bg-white rounded-lg"></div>
+                <div id="hamburger-second-line" class="w-[16.5px] h-[1.5px] bg-zinc-700 dark:bg-white rounded-lg"></div>
+                <div id="hamburger-third-line" class="w-[16.5px] h-[1.5px] bg-zinc-700 dark:bg-white rounded-lg"></div>        
+            </label>
+            <input type="checkbox" id="ham" class="hidden">
+        </div>
+        <div class="w-14 h-14">
+            <img src="./img/logo.png" alt="">
+        </div>
+        <div class="shopping-card">
+            <svg class="w-6 h-6 text-zinc-700 dark:text-white">
+                <use xlink:href="#shopping-card"></use>
+            </svg>
+        </div>
+    </header>
 
+    <!-- side nav -->
+    <div class="side-nav w-64 min-h-screen py-3 px-4 bg-white dark:bg-zinc-700 fixed top-0 bottom-0 right-0 translate-x-[256px] z-20">
+        <div class="flex justify-center pb-5 border-b-[1px] border-gray-100 dark:border-white/10">
+            <img class="w-20 h-20" src="./img/logo.png" alt="">
+        </div>
+        <ul class="flex flex-col gap-y-1 mt-5 pb-5 font-Dana text-base text-zinc-700 dark:text-white
+        border-b-[1px] border-gray-100 dark:border-white/10">
+            <li class="flex items-center gap-x-2 w-full h-10 p-2.5 rounded-md hover:bg-orange-100/20 hover:text-orange-300 transition-colors">
+                <svg class="w-5 h-5 mt-[-6px]">
+                    <use xlink:href="#home"></use>
+                </svg>
+                <a href="index.html">صفحه اصلی</a>
+            </li>
+            <!-- has sub menu -->
+            <li class="has-sub-menu">
+                <div class="flex items-center justify-between w-full h-10 p-2.5 rounded-md hover:bg-orange-100/20 hover:text-orange-300 transition-colors">
+                    <div class="flex items-center gap-x-2">
+                        <svg class="w-5 h-5 mt-[-6px]">
+                            <use xlink:href="#services"></use>
+                        </svg>
+                        <a href="#">خدمات ما</a>
+                    </div>
+                    <svg class="chevron-up w-4 h-4 mt-[-3px]">
+                        <use xlink:href="#chevron-up"></use>
+                    </svg>
+                </div>
+                <ul class="sub-menu w-full h-min pr-9 hidden text-sm text-zinc-600 dark:text-white z-20">
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors my-3">
+                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
+                        <a href="cards.html">کارت ها</a>
+                    </li>
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors mb-3">
+                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
+                        <a href="boardgame.html">بوردگیم ها</a>
+                    </li>
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors mb-3">
+                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
+                        <a href="meditation.html">مراقبه ها</a>
+                    </li>
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors mb-3">
+                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
+                        <a href="#">دوره ها</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="flex items-center gap-x-2 w-full h-10 p-2.5 rounded-md hover:bg-orange-100/20 hover:text-orange-300 transition-colors">
+                <svg class="w-5 h-5 mt-[-6px]">
+                    <use xlink:href="#about"></use>
+                </svg>
+                <a href="about.html">درباره ما</a>
+            </li>
+            <li class="flex items-center gap-x-2 w-full h-10 p-2.5 rounded-md hover:bg-orange-100/20 hover:text-orange-300 transition-colors">
+                <svg class="w-5 h-5 mt-[-6px]">
+                    <use xlink:href="#contact"></use>
+                </svg>
+                <a href="contact.html">ارتباط با ما</a>
+            </li>
+        </ul>
+        <ul class="mt-[30px]">
+            <li class="text-orange-300 font-Dana text-base flex items-center gap-x-2">
+                <svg class="w-5 h-5">
+                    <use xlink:href="#arrow-right-end-on-rectangle"></use>
+                </svg>
+                <a href="register.html">ورود  |  ثبت‌نام</a>
+            </li>
+            <li class="toggle-theme text-orange-300 font-Dana text-base mt-6">
+                <div class="flex items-center gap-x-2">
+                    <svg class="w-5 h-5 inline-block dark:hidden">
+                        <use xlink:href="#moon"></use>
+                    </svg>
+                    <a href="#" class="inline-block dark:hidden">تم تیره</a>
+                </div>
+                <div class="flex items-center gap-x-2">
+                    <svg class="w-5 h-5 hidden dark:inline-block">
+                        <use xlink:href="#sun"></use>
+                    </svg>
+                    <a href="#" class="hidden dark:inline-block">تم روشن</a>
+                </div>
+            </li>
+            <li class="text-orange-300 font-Dana text-base flex items-center gap-x-2 mt-6">
+                <svg class="w-5 h-5">
+                    <use xlink:href="#shopping-card"></use>
+                </svg>
+                <a href="#">سبد خرید</a>
+            </li>
+        </ul>
+    </div> 
+
+    <!-- side shopping card -->
+    <div class="side-shopping-card w-64 min-h-screen py-5 px-4 bg-white dark:bg-zinc-700 fixed top-0 bottom-0 left-0 translate-x-[-256px] z-20">
+        <div class="w-full pb-5 font-Dana text-zinc-700 dark:text-white flex items-center justify-between
+        border-b-[1px] border-gray-100 dark:border-white/10">
+            <svg class="w-5 h-5 x-mark">
+                <use xlink:href="#X-mark"></use>
+            </svg>
+            <a href="#" class="text-base hover:text-orange-300 transition-colors">مشاهده سبد خرید</a>
+        </div>
+        <div>
+            <div class="flex gap-x-2 items-center py-5 border-b-[1px] border-gray-100 dark:border-white/10">
+                <div>
+                    <img class="w-[90px] h-[90px]" src="./img/logo.png" alt="">
+                </div>
+                <div class="w-[130px] flex flex-col gap-y-3">
+                    <p class="font-DanaMedium text-sm text-zinc-700 dark:text-white line-clamp-2">کارت های یوگای کودک</p>
+                    <div class="flex items-center justify-evenly w-[70px] h-7 ml-5 border-[1px] border-gray-300 rounded-full
+                        font-DanaDemiBold text-orange-300">
+                        <div class="hover:text-orange-400 transition-colors">
+                            <svg class="w-4 h-4 cursor-pointer">
+                                <use xlink:href="#plus"></use>
+                            </svg>
+                        </div>
+                        <p class="text-base tracking-tighter">1</p>
+                        <div class="hover:text-orange-400 transition-colors">
+                            <svg class="w-4 h-4 cursor-pointer">
+                                <use xlink:href="#minus"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="font-Dana text-xs text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-base">350,000</span> تومان</p>
+                </div>
+            </div>
+            <div class="flex gap-x-2 items-center py-5 border-b-[1px] border-gray-100 dark:border-white/10">
+                <div>
+                    <img class="w-[90px] h-[90px]" src="./img/logo.png" alt="">
+                </div>
+                <div class="w-[130px] flex flex-col gap-y-3">
+                    <p class="font-DanaMedium text-sm text-zinc-700 dark:text-white line-clamp-2">کارت های یوگای کودک</p>
+                    <div class="flex items-center justify-evenly w-[70px] h-7 ml-5 border-[1px] border-gray-300 rounded-full
+                        font-DanaDemiBold text-orange-300">
+                        <div class="hover:text-orange-400 transition-colors">
+                            <svg class="w-4 h-4 cursor-pointer">
+                                <use xlink:href="#plus"></use>
+                            </svg>
+                        </div>
+                        <p class="text-base tracking-tighter">1</p>
+                        <div class="hover:text-orange-400 transition-colors">
+                            <svg class="w-4 h-4 cursor-pointer">
+                                <use xlink:href="#minus"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="font-Dana text-xs text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-base">350,000</span> تومان</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 flex items-center gap-x-4">
+            <a href="#" class="inline-flex items-center justify-center w-28 h-11  bg-lime-900 hover:bg-lime-950 dark:bg-green-700 dark:hover:bg-green-800 transition-colors rounded-xl">
+                <p class="font-Dana text-base tracking-tighter text-white">ثبت سفارش</p>
+            </a>
+            <div>
+                <p class="font-DanaMedium text-xs tracking-tighter text-gray-300">مبلغ قابل پرداخت</p>
+                <p class="font-Dana text-xs text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-base">350,000</span> تومان</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- main content -->
+    <section>
+        <div class="container px-5 md:px-16 mt-14 md:mt-44 flex flex-col md:flex-row items-center md:justify-between gap-y-10 md:gap-y-0">
+            <!-- right section -->
+            <div class="w-[60%] md:w-[30%] h-min">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper w-full mx-auto">
+                      <div class="swiper-slide w-80 h-80 p-3 md:p-5 rounded-3xl bg-zinc-400">
+                        <img class="w-full h-full" src="./img/logo.png" alt="">
+                      </div>
+                      <div class="swiper-slide w-80 h-80 p-3 md:p-5 rounded-3xl bg-zinc-500">
+                        <img class="w-full h-full" src="./img/logo.png" alt="">
+                      </div>
+                      <div class="swiper-slide w-80 h-80 p-3 md:p-5 rounded-3xl bg-zinc-600">
+                        <img class="w-full h-full" src="./img/logo.png" alt="">
+                      </div>
+                      <div class="swiper-slide w-80 h-80 p-3 md:p-5 rounded-3xl bg-zinc-700">
+                        <img class="w-full h-full" src="./img/logo.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <!-- left section -->
+            <div class="w-full md:w-[60%] h-min text-zinc-700 dark:text-gray-100">
+                <p class="font-MorabbaMedium text-lg md:text-xl lg:text-2xl xl:text-3xl mb-5 md:mb-7">کارت های یوگای کودک</p>
+                <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-justify mb-10 md:mb-16">
+                    این کارت ها ، مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود 
+                    و یا در خانه می توانید کودک خود را سرگرم کنید.
+                </p>
+                <div class="flex items-center justify-between">
+                    <!-- right section -->
+                    <div>
+                        <p class="font-Dana text-sm md:text-base lg:text-lg xl:text-xl text-lime-900 dark:text-lime-100"><span class="text-lg md:text-xl lg:text-2xl xl:text-3xl">135,000</span>تومان</p>
+                    </div>
+                    <!-- left section -->
+                    <a href="#" class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-gray-300 text-gray-600 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                    inline-flex items-center justify-center">
+                        <svg class="w-5 h-5 lg:w-8 lg:h-8">
+                            <use xlink:href="#shopping-card"></use>
+                        </svg>
+                    </a> 
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="relative w-full h-min bg-zinc-700 mt-14 md:mt-20">
         <!-- curve -->
@@ -146,9 +498,9 @@
                             <svg class="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-gray-300 -mr-1 group-hover:text-orange-300 transition-colors">
                                 <use xlink:href="#phone"></use>
                             </svg>
-                            <div id="copy-to-clipboard" class="cursor-pointer mt-1.5 flex items-center gap-x-1 text-gray-300 font-Dana">
+                            <div class="copy-to-clipboard cursor-pointer mt-1.5 flex items-center gap-x-1 text-gray-300 font-Dana">
                                 <span class="text-xs md:text-sm lg:text-base xl:text-xl group-hover:text-orange-300 transition-colors">09122600520</span>
-                                <div id="copied" class="hidden">
+                                <div class="copied hidden">
                                     <div class="w-16 h-6 bg-zinc-800 rounded-xl flex items-center justify-center">
                                         <p class="text-xs tracking-wider mt-1">کپی شد !</p>
                                     </div>
@@ -169,5 +521,12 @@
     <div class="overlay w-full h-full fixed inset-0 bg-black/40 z-10 hidden"></div>
     
     <script src="./scripts/singleCard.js"></script>
+    <script src="./scripts/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          effect: "cards",
+          grabCursor: true,
+        });
+      </script>
 </body>
 </html>
