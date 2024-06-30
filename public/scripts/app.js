@@ -178,7 +178,7 @@ function loadCards() {
     CardSlidrerInfo.forEach(obj => {
         cardSwiperWrapper.insertAdjacentHTML(`beforeend` , 
             `<div class="swiper-slide">
-                <a href="#" class="inline-block w-full h-min p-3 md:p-5
+                <a href="singleCard.html?id=${obj.id}" class="inline-block w-full h-min p-3 md:p-5
                  bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
                 <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
                     <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
@@ -196,14 +196,16 @@ function loadCards() {
                     </div>
                 </div>
                 </a>
-            </div>`)})
+            </div>`)
+        }
+    )
 }
 
 function loadBoardGames() {
     BoardGameSliderInfo.forEach(obj => {
         boardGameSwiperWrapper.insertAdjacentHTML(`beforeend` , 
             `<div class="swiper-slide">
-                <a href="#" class="inline-block w-full h-min p-3 md:p-5
+                <a href="singleBoardGame.html?id=${obj.id}" class="inline-block w-full h-min p-3 md:p-5
                  bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
                 <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
                     <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
@@ -221,14 +223,16 @@ function loadBoardGames() {
                     </div>
                 </div>
                 </a>
-            </div>`)})
+            </div>`)
+        }
+    )
 }
 
 function loadmeditation() {
     meditationSliderInfo.forEach(obj => {
         meditationSwiperWrapper.insertAdjacentHTML(`beforeend` , 
             `<div class="swiper-slide">
-                <a href="#" class="inline-block w-full h-min p-3 md:p-5
+                <a href="singleMeditation.html?id=${obj.id}" class="inline-block w-full h-min p-3 md:p-5
                  bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
                 <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
                     <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
@@ -237,9 +241,13 @@ function loadmeditation() {
                     <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
                 </div>
                 </a>
-            </div>`)})
+            </div>`)
+        }
+    )
 }
 
+
+// events
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
 hamburgerIcon.addEventListener('click' , moveSideNav)
