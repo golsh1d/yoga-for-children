@@ -153,7 +153,6 @@ function loadData() {
                 <div class="w-full h-min p-[2px] bg-zinc-700 dark:bg-transparent rounded-full">
                     <audio class="w-full" controls src="${obj.audioSrc}"></audio>
                 </div>
-                <a dir="ltr" class="inline-flex text-zinc-700 dark:text-gray-100 w-full items-center justify-center text-sm md:text-base" href="${obj.audioSrc}" download="myAudio.mp3">Download</a>
             </div>
             </div>`)
         }
