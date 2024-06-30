@@ -24,7 +24,8 @@ let footerChevronUpElem = document.querySelector('#jump-to-top')
 let headerElems = document.querySelectorAll('.header')
 let phoneNumElem = document.querySelector('#copy-to-clipboard')
 let copybadgeElem = document.querySelector('#copied')
-let swiperWrapper = document.querySelector('.swiper-wrapper')
+let cardSwiperWrapper = document.querySelector('#card-swiper-wrapper')
+let boardGameSwiperWrapper = document.querySelector('#boardgame-swiper-wrapper')
 // database
 let CardSlidrerInfo = [
     {id : 1, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "135,000"},
@@ -173,29 +174,52 @@ function copyToClipboard() {
 // load dynamic data
 function loadCards() {
     CardSlidrerInfo.forEach(obj => {
-        swiperWrapper.insertAdjacentHTML(`beforeend` , 
+        cardSwiperWrapper.insertAdjacentHTML(`beforeend` , 
             `<div class="swiper-slide">
-                            <a href="#" class="inline-block w-full h-min p-3 md:p-5
-                            bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-                            <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
-                                <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
-                            </div>
-                            <div class="flex flex-col gap-y-2.5">
-                                <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
-                                <div class="w-full flex items-center justify-between">
-                                    <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${obj.price}</span>تومان</p>
-                                    <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
-                                     flex items-center justify-center">
-                                        <svg class="w-4 h-4 md:w-5 md:h-5">
-                                            <use xlink:href="#shopping-card"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </div>`
-        )
-    })
+                <a href="#" class="inline-block w-full h-min p-3 md:p-5
+                 bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
+                    <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
+                </div>
+                <div class="flex flex-col gap-y-2.5">
+                    <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
+                    <div class="w-full flex items-center justify-between">
+                        <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${obj.price}</span>تومان</p>
+                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                            flex items-center justify-center">
+                            <svg class="w-4 h-4 md:w-5 md:h-5">
+                                <use xlink:href="#shopping-card"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>`)})
+}
+
+function loadBoardGames() {
+    BoardGameSliderInfo.forEach(obj => {
+        boardGameSwiperWrapper.insertAdjacentHTML(`beforeend` , 
+            `<div class="swiper-slide">
+                <a href="#" class="inline-block w-full h-min p-3 md:p-5
+                 bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
+                    <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
+                </div>
+                <div class="flex flex-col gap-y-2.5">
+                    <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
+                    <div class="w-full flex items-center justify-between">
+                        <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${obj.price}</span>تومان</p>
+                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                            flex items-center justify-center">
+                            <svg class="w-4 h-4 md:w-5 md:h-5">
+                                <use xlink:href="#shopping-card"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>`)})
 }
 
 checkBoxInput.addEventListener('change', animationForIcon)
@@ -210,3 +234,4 @@ coursesElem.addEventListener('click' , scrollToCoursesSection)
 footerChevronUpElem.addEventListener('click' , scrollToTop)
 phoneNumElem.addEventListener('click' , copyToClipboard)
 window.addEventListener('load' , loadCards)
+window.addEventListener('load' , loadBoardGames)
