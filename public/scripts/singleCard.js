@@ -19,13 +19,13 @@ let copybadgeElem = document.querySelector('.copied')
 let swiperWrapper = document.querySelector('.swiper-wrapper')
 let productWrapper = document.querySelector('.product-wrapper')
 let allCardsInfo = [
-    {id : 1, src : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "135,000"},
-    {id : 2, src : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "145,000"},
-    {id : 3, src : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "155,000"},
-    {id : 4, src : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "165,000"},
-    {id : 5, src : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "175,000"},
-    {id : 6, src : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "185,000"},
-    {id : 7, src : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "195,000"},
+    {id : 1, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "135,000"},
+    {id : 2, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "145,000"},
+    {id : 3, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "155,000"},
+    {id : 4, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "165,000"},
+    {id : 5, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "175,000"},
+    {id : 6, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "185,000"},
+    {id : 7, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : "195,000"},
 ]
 
 //changing the theme
@@ -132,7 +132,50 @@ function copyToClipboard() {
 let locationSearch = location.search
 let searchParams = new URLSearchParams(locationSearch)
 let pageId = searchParams.get('id')
-console.log(pageId)
+
+function loadData() {
+    allCardsInfo.forEach(obj => {
+        if (obj.id == pageId) {
+            productWrapper.insertAdjacentHTML(`beforeend` , 
+            ` <div class="container px-5 md:px-16 mt-14 md:mt-44 flex flex-col md:flex-row items-center md:justify-between gap-y-10 md:gap-y-0">
+            <div class="w-[60%] md:w-[30%] h-min">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper w-full mx-auto">
+                      <div class="swiper-slide w-80 h-80 p-3 md:p-5 rounded-3xl bg-zinc-400">
+                        <img class="w-full h-full" src="${obj.src1}" alt="">
+                      </div>
+                      <div class="swiper-slide w-80 h-80 p-3 md:p-5 rounded-3xl bg-zinc-500">
+                        <img class="w-full h-full" src="${obj.src2}" alt="">
+                      </div>
+                      <div class="swiper-slide w-80 h-80 p-3 md:p-5 rounded-3xl bg-zinc-600">
+                        <img class="w-full h-full" src="${obj.src3}" alt="">
+                      </div>
+                      <div class="swiper-slide w-80 h-80 p-3 md:p-5 rounded-3xl bg-zinc-700">
+                        <img class="w-full h-full" src="${obj.src4}" alt="">
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="w-full md:w-[60%] h-min text-zinc-700 dark:text-gray-100">
+                <p class="font-MorabbaMedium text-lg md:text-xl lg:text-2xl xl:text-3xl mb-5 md:mb-7">${obj.title}</p>
+                <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-justify mb-10 md:mb-16">${obj.desc}
+                </p>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="font-Dana text-sm md:text-base lg:text-lg xl:text-xl text-lime-900 dark:text-lime-100"><span class="text-lg md:text-xl lg:text-2xl xl:text-3xl">${obj.price}</span>تومان</p>
+                    </div>
+                    <a href="#" class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-gray-300 text-gray-600 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                    inline-flex items-center justify-center">
+                        <svg class="w-5 h-5 lg:w-8 lg:h-8">
+                            <use xlink:href="#shopping-card"></use>
+                        </svg>
+                    </a> 
+                </div>
+            </div>
+        </div>`)
+        }
+    })
+}
 
 // events
 checkBoxInput.addEventListener('change', animationForIcon)
@@ -142,3 +185,4 @@ shoppingCardIcon.addEventListener('click' , moveShoppingCardToRight)
 xMarkIcon.addEventListener('click' , moveShoppingCardToLeft)
 footerChevronUpElem.addEventListener('click' , scrollToTop)
 phoneNumElem.addEventListener('click' , copyToClipboard)
+window.addEventListener('load' , loadData)
