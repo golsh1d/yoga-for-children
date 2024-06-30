@@ -19,21 +19,21 @@ let copybadgeElem = document.querySelector('.copied')
 let swiperWrapper = document.querySelector('.swiper-wrapper')
 let productWrapper = document.querySelector('.product-wrapper')
 let meditationSliderInfo = [
-    {id : 1, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "135,000"},
-    {id : 2, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "145,000"},
-    {id : 3, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "155,000"},
-    {id : 4, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "165,000"},
-    {id : 5, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "175,000"},
-    {id : 6, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "185,000"},
+    {id : 1, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 2, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 3, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 4, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 5, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 6, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
 ]
 let allmeditationsInfo = [
-    {id : 1, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "135,000"},
-    {id : 2, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "145,000"},
-    {id : 3, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "155,000"},
-    {id : 4, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "165,000"},
-    {id : 5, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "175,000"},
-    {id : 6, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "185,000"},
-    {id : 7, src : "./img/logo.png", title : "مراقبه های یوگای کودک", price : "195,000"},
+    {id : 1, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 2, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 3, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 4, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 5, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 6, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+    {id : 7, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
 ]
 
 
@@ -148,17 +148,8 @@ async function fetchSliderData() {
                         <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
                             <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${info.src}" alt="">
                         </div>
-                        <div class="flex flex-col gap-y-2.5">
+                        <div>
                             <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${info.title}</p>
-                            <div class="w-full flex items-center justify-between">
-                                <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${info.price}</span>تومان</p>
-                                <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
-                                 flex items-center justify-center">
-                                    <svg class="w-4 h-4 md:w-5 md:h-5">
-                                        <use xlink:href="#shopping-card"></use>
-                                    </svg>
-                                </div>
-                            </div>
                         </div>
                         </a>
                     </div>`)
@@ -180,17 +171,8 @@ async function fetchProductData() {
                         <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
                             <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${info.src}" alt="">
                         </div>
-                        <div class="flex flex-col gap-y-2.5">
+                        <div>
                             <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${info.title}</p>
-                            <div class="w-full flex items-center justify-between">
-                                <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${info.price}</span>تومان</p>
-                                <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
-                                 flex items-center justify-center">
-                                    <svg class="w-4 h-4 md:w-5 md:h-5">
-                                        <use xlink:href="#shopping-card"></use>
-                                    </svg>
-                                </div>
-                            </div>
                         </div>
                 </a>`
             )
