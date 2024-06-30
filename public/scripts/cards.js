@@ -18,6 +18,7 @@ let phoneNumElem = document.querySelector('.copy-to-clipboard')
 let copybadgeElem = document.querySelector('.copied')
 let swiperWrapper = document.querySelector('.swiper-wrapper')
 let productWrapper = document.querySelector('.product-wrapper')
+// data base
 let cardSliderInfo = [
     {id : 1, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "135,000"},
     {id : 2, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "145,000"},
@@ -35,7 +36,6 @@ let allCardsInfo = [
     {id : 6, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "185,000"},
     {id : 7, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "195,000"},
 ]
-
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -143,7 +143,7 @@ async function fetchSliderData() {
         cardSliderInfo.forEach(info => {
             swiperWrapper.insertAdjacentHTML(`beforeend` , 
                 `<div class="swiper-slide">
-                        <a href="#" class="inline-block w-full h-min p-3 md:p-5
+                        <a href="singleCard.html?id=${info.id}" class="inline-block w-full h-min p-3 md:p-5
                         bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
                         <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
                             <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${info.src}" alt="">
@@ -175,7 +175,7 @@ async function fetchProductData() {
     try {
         allCardsInfo.forEach(info => {
             productWrapper.insertAdjacentHTML(`beforeend` , 
-                `<a href="#" class="inline-block w-full h-min p-3 md:p-5
+                `<a href="singleCard.html?id=${info.id}" class="inline-block w-full h-min p-3 md:p-5
                         bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
                         <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
                             <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${info.src}" alt="">
@@ -202,6 +202,7 @@ async function fetchProductData() {
 
 fetchProductData()
 
+// events
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
 hamburgerIcon.addEventListener('click' , moveSideNav)
