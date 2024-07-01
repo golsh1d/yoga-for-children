@@ -27,6 +27,7 @@ let copybadgeElem = document.querySelector('#copied')
 let cardSwiperWrapper = document.querySelector('#card-swiper-wrapper')
 let boardGameSwiperWrapper = document.querySelector('#boardgame-swiper-wrapper')
 let meditationSwiperWrapper = document.querySelector('#meditation-swiper-wrapper')
+let blogSwiperWrapper = document.querySelector('#blog-swiper-wrapper')
 
 // database
 let CardSlidrerInfo = [
@@ -55,6 +56,12 @@ let meditationSliderInfo = [
     {id : 5, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
     {id : 6, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
     {id : 7, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
+]
+let blogSliderInfo = [
+    {id : 1, src : "./img/blogimg.png" , title : "فواید یوگا برای کودکان" , author : "ندا تاری وردی" , desc : "در این مقاله سعی داریم تا به فواید یوگا برای کودکان و نحوه برگزاری کلاس های هنر یوگای کودک بپردازیم."},
+    {id : 2, src : "./img/blogimg.png" , title : "فواید یوگا برای کودکان" , author : "ندا تاری وردی" , desc : "در این مقاله سعی داریم تا به فواید یوگا برای کودکان و نحوه برگزاری کلاس های هنر یوگای کودک بپردازیم."},
+    {id : 3, src : "./img/blogimg.png" , title : "فواید یوگا برای کودکان" , author : "ندا تاری وردی" , desc : "در این مقاله سعی داریم تا به فواید یوگا برای کودکان و نحوه برگزاری کلاس های هنر یوگای کودک بپردازیم."},
+    {id : 4, src : "./img/blogimg.png" , title : "فواید یوگا برای کودکان" , author : "ندا تاری وردی" , desc : "در این مقاله سعی داریم تا به فواید یوگا برای کودکان و نحوه برگزاری کلاس های هنر یوگای کودک بپردازیم."},
 ]
 
 //changing the theme
@@ -246,6 +253,33 @@ function loadmeditation() {
     )
 }
 
+function loadblogs() {
+    blogSliderInfo.forEach(obj => {
+        blogSwiperWrapper.insertAdjacentHTML(`beforeend`, 
+            `<div class="swiper-slide">
+                <div class="flex flex-row justify-around items-center w-full h-min p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                    <div class="hover:scale-110 overflow-hidden transition-transform w-[30%]">
+                        <img class="w-full" src="${obj.src}" alt="">
+                    </div>
+                    <div class="flex flex-col gap-y-2 md:gap-y-1 lg:gap-y-2 w-[60%] h-min">
+                        <p class="font-DanaDemiBold text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
+                        <p class="font-Dana text-[10px] lg:text-xs xl:text-sm text-lime-900 dark:text-lime-100 line-clamp-2 tracking-tightest">نویسنده : ${obj.author}</p>
+                        <p class="font-DanaMedium text-xs lg:text-sm xl:text-base text-zinc-700 dark:text-gray-100 mb-3 md:mb-5 line-clamp-2">${obj.desc}</p>
+                        <div class="w-full text-left">
+                            <a href="#" class="group inline-flex items-center justify-between font-DanaMedium">
+                                <p class="text-xs lg:text-sm tracking-tighter text-zinc-700 dark:text-gray-100  group-hover:text-zinc-500 dark:group-hover:text-lime-100 transition-colors">مشاهده</p>
+                                <svg class="w-3 h-3 mt-[-2px] text-zinc-700 dark:text-gray-100  group-hover:text-zinc-500 dark:group-hover:text-lime-100 group-hover:-translate-x-1 transition-all">
+                                    <use xlink:href="#chevron-left"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+        )
+    })
+}
+
 
 // events
 checkBoxInput.addEventListener('change', animationForIcon)
@@ -262,3 +296,4 @@ phoneNumElem.addEventListener('click' , copyToClipboard)
 window.addEventListener('load' , loadCards)
 window.addEventListener('load' , loadBoardGames)
 window.addEventListener('load' , loadmeditation)
+window.addEventListener('load' , loadblogs)
