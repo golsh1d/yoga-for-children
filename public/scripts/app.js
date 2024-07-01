@@ -266,7 +266,7 @@ function loadblogs() {
                         <p class="font-Dana text-[10px] lg:text-xs xl:text-sm text-lime-900 dark:text-lime-100 line-clamp-2 tracking-tightest">نویسنده : ${obj.author}</p>
                         <p class="font-DanaMedium text-xs lg:text-sm xl:text-base text-zinc-700 dark:text-gray-100 mb-3 md:mb-5 line-clamp-2">${obj.desc}</p>
                         <div class="w-full text-left">
-                            <a href="#" class="group inline-flex items-center justify-between font-DanaMedium">
+                            <a href="singleArticle.html?id=${obj.id}" class="group inline-flex items-center justify-between font-DanaMedium">
                                 <p class="text-xs lg:text-sm tracking-tighter text-zinc-700 dark:text-gray-100  group-hover:text-zinc-500 dark:group-hover:text-lime-100 transition-colors">مشاهده</p>
                                 <svg class="w-3 h-3 mt-[-2px] text-zinc-700 dark:text-gray-100  group-hover:text-zinc-500 dark:group-hover:text-lime-100 group-hover:-translate-x-1 transition-all">
                                     <use xlink:href="#chevron-left"></use>
