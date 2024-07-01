@@ -833,6 +833,14 @@ video {
   margin-top: 30px;
 }
 
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -2154,6 +2162,14 @@ video {
     margin-top: 13rem;
   }
 
+  .md\:mt-36 {
+    margin-top: 9rem;
+  }
+
+  .md\:mb-14 {
+    margin-bottom: 3.5rem;
+  }
+
   .md\:block {
     display: block;
   }
@@ -2467,6 +2483,10 @@ video {
 
   .lg\:mt-48 {
     margin-top: 12rem;
+  }
+
+  .lg\:mt-40 {
+    margin-top: 10rem;
   }
 
   .lg\:block {
