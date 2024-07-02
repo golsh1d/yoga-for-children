@@ -797,6 +797,10 @@ video {
   margin-top: 3.5rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .mt-36 {
   margin-top: 9rem;
 }
@@ -829,8 +833,16 @@ video {
   margin-top: 30px;
 }
 
-.mt-20 {
-  margin-top: 5rem;
+.mt-28 {
+  margin-top: 7rem;
+}
+
+.mt-24 {
+  margin-top: 6rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .line-clamp-2 {
@@ -2153,8 +2165,8 @@ video {
     margin-top: 13rem;
   }
 
-  .md\:mt-32 {
-    margin-top: 8rem;
+  .md\:mt-40 {
+    margin-top: 10rem;
   }
 
   .md\:block {
