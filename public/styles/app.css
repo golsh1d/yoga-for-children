@@ -761,8 +761,8 @@ video {
   margin-bottom: 3rem;
 }
 
-.mb-14 {
-  margin-bottom: 3.5rem;
+.mb-16 {
+  margin-bottom: 4rem;
 }
 
 .mb-3 {
@@ -831,14 +831,6 @@ video {
 
 .mt-\[30px\] {
   margin-top: 30px;
-}
-
-.mb-20 {
-  margin-bottom: 5rem;
-}
-
-.mb-16 {
-  margin-bottom: 4rem;
 }
 
 .line-clamp-2 {
@@ -1207,6 +1199,10 @@ video {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -2150,6 +2146,10 @@ video {
     margin-top: 8rem;
   }
 
+  .md\:mt-36 {
+    margin-top: 9rem;
+  }
+
   .md\:mt-44 {
     margin-top: 11rem;
   }
@@ -2160,14 +2160,6 @@ video {
 
   .md\:mt-52 {
     margin-top: 13rem;
-  }
-
-  .md\:mt-36 {
-    margin-top: 9rem;
-  }
-
-  .md\:mb-14 {
-    margin-bottom: 3.5rem;
   }
 
   .md\:block {
@@ -2330,6 +2322,10 @@ video {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .md\:flex-row {
     flex-direction: row;
   }
@@ -2483,10 +2479,6 @@ video {
 
   .lg\:mt-48 {
     margin-top: 12rem;
-  }
-
-  .lg\:mt-40 {
-    margin-top: 10rem;
   }
 
   .lg\:block {
@@ -2719,10 +2711,6 @@ video {
 
   .xl\:w-\[600px\] {
     width: 600px;
-  }
-
-  .xl\:gap-y-12 {
-    row-gap: 3rem;
   }
 
   .xl\:text-2xl {
