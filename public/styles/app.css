@@ -829,6 +829,10 @@ video {
   margin-top: 30px;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -1469,11 +1473,6 @@ video {
 .bg-orange-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(253 186 116 / var(--tw-bg-opacity));
-}
-
-.bg-orange-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 247 237 / var(--tw-bg-opacity));
 }
 
 .bg-transparent {
@@ -2152,6 +2151,10 @@ video {
 
   .md\:mt-52 {
     margin-top: 13rem;
+  }
+
+  .md\:mt-32 {
+    margin-top: 8rem;
   }
 
   .md\:block {
