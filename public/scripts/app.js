@@ -28,25 +28,28 @@ let cardSwiperWrapper = document.querySelector('#card-swiper-wrapper')
 let boardGameSwiperWrapper = document.querySelector('#boardgame-swiper-wrapper')
 let meditationSwiperWrapper = document.querySelector('#meditation-swiper-wrapper')
 let blogSwiperWrapper = document.querySelector('#blog-swiper-wrapper')
+let headerShoppingCard = document.querySelector('.header-shopping-card')
+let headerShoppingCardPrice = document.querySelector('.header-shopping-card-price')
+let headerShoppingCardItemCount = document.querySelector('.header-shopping-card-item-count')
 
 // database
 let CardSlidrerInfo = [
-    {id : 1, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "135,000"},
-    {id : 2, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "145,000"},
-    {id : 3, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "155,000"},
-    {id : 4, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "165,000"},
-    {id : 5, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "175,000"},
-    {id : 6, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "185,000"},
-    {id : 7, src : "./img/logo.png", title : "کارت های یوگای کودک", price : "195,000"},
+    {id : 1, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 135_000},
+    {id : 2, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 145_000},
+    {id : 3, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 155_000},
+    {id : 4, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 165_000},
+    {id : 5, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 175_000},
+    {id : 6, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 185_000},
+    {id : 7, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 195_000},
 ]
 let BoardGameSliderInfo = [
-    {id : 1, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "135,000"},
-    {id : 2, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "145,000"},
-    {id : 3, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "155,000"},
-    {id : 4, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "165,000"},
-    {id : 5, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "175,000"},
-    {id : 6, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "185,000"},
-    {id : 7, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "195,000"},
+    {id : 1, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 135_000},
+    {id : 2, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 145_000},
+    {id : 3, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 155_000},
+    {id : 4, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 165_000},
+    {id : 5, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 175_000},
+    {id : 6, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 185_000},
+    {id : 7, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 195_000},
 ]
 let meditationSliderInfo = [
     {id : 1, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
@@ -63,6 +66,7 @@ let blogSliderInfo = [
     {id : 3, src : "./img/blogimg.png" , title : "فواید یوگا برای کودکان" , author : "ندا تاری وردی" , desc : "در این مقاله سعی داریم تا به فواید یوگا برای کودکان و نحوه برگزاری کلاس های هنر یوگای کودک بپردازیم."},
     {id : 4, src : "./img/blogimg.png" , title : "فواید یوگا برای کودکان" , author : "ندا تاری وردی" , desc : "در این مقاله سعی داریم تا به فواید یوگا برای کودکان و نحوه برگزاری کلاس های هنر یوگای کودک بپردازیم."},
 ]
+let shoppingCardProductArray = []
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -185,24 +189,23 @@ function loadCards() {
     CardSlidrerInfo.forEach(obj => {
         cardSwiperWrapper.insertAdjacentHTML(`beforeend` , 
             `<div class="swiper-slide">
-                <a href="singleCard.html?id=${obj.id}" class="inline-block w-full h-min p-3 md:p-5
-                 bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-                <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
+                <div class="w-full h-min p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                <a href="singleCard.html?id=${obj.id}" class="inline-block w-full hover:scale-110 overflow-hidden transition-transform mb-5">
                     <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
-                </div>
+                </a>
                 <div class="flex flex-col gap-y-2.5">
                     <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
                     <div class="w-full flex items-center justify-between">
                         <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${obj.price}</span>تومان</p>
-                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
-                            flex items-center justify-center">
+                        <div onclick="addCardToShoppingCard(${obj.id})" class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                            flex items-center justify-center cursor-pointer">
                             <svg class="w-4 h-4 md:w-5 md:h-5">
                                 <use xlink:href="#shopping-card"></use>
                             </svg>
                         </div>
                     </div>
                 </div>
-                </a>
+                </div>
             </div>`)
         }
     )
@@ -280,6 +283,113 @@ function loadblogs() {
     })
 }
 
+// add element to shopping card array
+function addCardToShoppingCard(id) {
+    CardSlidrerInfo.forEach(obj => {
+        if (obj.id === id) {
+            let isInArray = shoppingCardProductArray.some(obj => {
+                if (obj.id === id) {
+                    return true
+                }
+            }
+            )
+            if (!isInArray){
+                shoppingCardProductArray.push(obj)
+                console.log(shoppingCardProductArray)
+                shoppingCardGenerator()
+                setLocalStorage()
+            }
+            console.log(shoppingCardProductArray)
+        }
+    })
+}
+
+// generate shopping card
+function shoppingCardGenerator() {
+    headerShoppingCard.innerHTML = ''
+    shoppingCardProductArray.forEach(obj => {
+        headerShoppingCard.insertAdjacentHTML(`beforeend`,
+            `<div class="flex gap-x-2.5 items-center py-5 border-b-[1px] border-gray-300 dark:border-white/10">
+                        <div>
+                            <img class="w-[120px] h-[120px]" src="${obj.src}" alt="">
+                        </div>
+                        <div class="w-[230px]">
+                            <p class="font-DanaMedium text-base text-zinc-700 dark:text-white line-clamp-2 mb-[28px]">${obj.title}</p>
+                            <div class="flex items-end">
+                                <div class="flex items-center justify-evenly w-[90px] h-11 ml-5 border-[1px] border-gray-300 rounded-full
+                                font-DanaDemiBold text-orange-300">
+                                <div onclick="inVal(${obj.id})" class="hover:text-orange-400 transition-colors">
+                                    <svg class="w-4 h-4 cursor-pointer">
+                                        <use xlink:href="#plus"></use>
+                                    </svg>
+                                </div>
+                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">1</p>
+                                <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
+                                    <svg class="w-4 h-4 cursor-pointer">
+                                        <use xlink:href="#minus"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="font-Dana text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-xl">${obj.price}</span> تومان</p>
+                            </div>
+                        </div>
+                     </div>`
+        )
+    })
+    totalPrice()
+    totalItem()
+}
+
+// calculate value
+function inVal(id) {
+    let values = document.querySelectorAll('.val')
+    values.forEach(elem => {
+        if (elem.getAttribute('data-id') == id) {
+            let valueCount = Number(elem.innerHTML)
+            elem.innerHTML = ++valueCount
+        }
+    })
+}
+
+function decVal(id) {
+    let values = document.querySelectorAll('.val')
+    values.forEach(elem => {
+        if (elem.getAttribute('data-id') == id) {
+            let valueCount = Number(elem.innerHTML)
+            if (valueCount > 1) {
+                elem.innerHTML = --valueCount
+            }
+        }
+    })
+}
+
+// calculate total price
+function totalPrice() {
+    let sum = 0
+    shoppingCardProductArray.forEach(obj => {
+        sum += obj.price
+        headerShoppingCardPrice.innerHTML = sum
+    })
+}
+
+// calculate total items
+function totalItem() {
+    let sum = shoppingCardProductArray.length
+    headerShoppingCardItemCount.innerHTML = sum
+}
+
+//local storage
+function setLocalStorage() {
+    localStorage.setItem('shoppingCardArray' , JSON.stringify(shoppingCardProductArray))
+}
+
+function loadHeaderShoppingCard() {
+    let localStorageArray = JSON.parse(localStorage.getItem('shoppingCardArray'))
+    if (localStorageArray) {
+        shoppingCardProductArray = localStorageArray
+        shoppingCardGenerator()
+    }
+}
 
 // events
 checkBoxInput.addEventListener('change', animationForIcon)
@@ -297,3 +407,4 @@ window.addEventListener('load' , loadCards)
 window.addEventListener('load' , loadBoardGames)
 window.addEventListener('load' , loadmeditation)
 window.addEventListener('load' , loadblogs)
+window.addEventListener('load' , loadHeaderShoppingCard)

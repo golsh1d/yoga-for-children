@@ -801,6 +801,10 @@ video {
   margin-top: 5rem;
 }
 
+.mt-24 {
+  margin-top: 6rem;
+}
+
 .mt-36 {
   margin-top: 9rem;
 }
@@ -831,18 +835,6 @@ video {
 
 .mt-\[30px\] {
   margin-top: 30px;
-}
-
-.mt-28 {
-  margin-top: 7rem;
-}
-
-.mt-24 {
-  margin-top: 6rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
 }
 
 .line-clamp-2 {
@@ -2163,10 +2155,6 @@ video {
 
   .md\:mt-52 {
     margin-top: 13rem;
-  }
-
-  .md\:mt-40 {
-    margin-top: 10rem;
   }
 
   .md\:block {

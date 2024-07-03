@@ -118,7 +118,7 @@
                      rounded-2xl border-t-[3px] bg-white dark:bg-zinc-700 border-orange-300">
                      <div class="w-full flex items-center justify-between font-DanaMedium">
                         <div class="text-xs tracking-tighter text-gray-300">
-                            <p><span>1</span> مورد</p>
+                            <p><span class="header-shopping-card-item-count">0</span> مورد</p>
                         </div>
                         <a href="#" class="inline-flex items-center justify-between text-orange-300 hover:text-orange-400 transition-colors">
                             <p class="text-xs tracking-tighter">مشاهده سبد خرید</p>
@@ -127,60 +127,11 @@
                             </svg>
                         </a>
                      </div>
-                     <div class="flex gap-x-2.5 items-center py-5 border-b-[1px] border-gray-300 dark:border-white/10">
-                        <div>
-                            <img class="w-[120px] h-[120px]" src="./img/logo.png" alt="">
-                        </div>
-                        <div class="w-[230px]">
-                            <p class="font-DanaMedium text-base text-zinc-700 dark:text-white line-clamp-2 mb-[28px]">کارت های یوگای کودک</p>
-                            <div class="flex items-end">
-                                <div class="flex items-center justify-evenly w-[90px] h-11 ml-5 border-[1px] border-gray-300 rounded-full
-                                font-DanaDemiBold text-orange-300">
-                                <div class="hover:text-orange-400 transition-colors">
-                                    <svg class="w-4 h-4 cursor-pointer">
-                                        <use xlink:href="#plus"></use>
-                                    </svg>
-                                </div>
-                                <p class="text-xl tracking-tighter">1</p>
-                                <div class="hover:text-orange-400 transition-colors">
-                                    <svg class="w-4 h-4 cursor-pointer">
-                                        <use xlink:href="#minus"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                            <p class="font-Dana text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-xl">350,000</span> تومان</p>
-                            </div>
-                        </div>
-                     </div>
-                     <div class="flex gap-x-2.5 items-center py-5 border-b-[1px] border-gray-300 dark:border-white/10">
-                        <div>
-                            <img class="w-[120px] h-[120px]" src="./img/logo.png" alt="">
-                        </div>
-                        <div class="w-[230px]">
-                            <p class="font-DanaMedium text-base text-zinc-700 dark:text-white line-clamp-2 mb-[28px]">کارت های یوگای کودک</p>
-                            <div class="flex items-end">
-                                <div class="flex items-center justify-evenly w-[90px] h-11 ml-5 border-[1px] border-gray-300 rounded-full
-                                font-DanaDemiBold text-orange-300">
-                                <div class="hover:text-orange-400 transition-colors">
-                                    <svg class="w-4 h-4 cursor-pointer">
-                                        <use xlink:href="#plus"></use>
-                                    </svg>
-                                </div>
-                                <p class="text-xl tracking-tighter">1</p>
-                                <div class="hover:text-orange-400 transition-colors">
-                                    <svg class="w-4 h-4 cursor-pointer">
-                                        <use xlink:href="#minus"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                            <p class="font-Dana text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-xl">350,000</span> تومان</p>
-                            </div>
-                        </div>
-                     </div>
+                     <div class="header-shopping-card"></div>
                      <div class="mt-5 flex items-center justify-between">
                         <div>
                             <p class="font-DanaMedium text-xs tracking-tighter text-gray-300">مبلغ قابل پرداخت</p>
-                            <p class="font-Dana text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-xl">350,000</span> تومان</p>
+                            <p class="font-Dana text-sm text-zinc-700 dark:text-white"><span class="header-shopping-card-price font-DanaDemiBold text-xl">0</span> تومان</p>
                         </div>
                         <a href="#" class="inline-flex items-center justify-center w-[144px] h-14  bg-lime-900 hover:bg-lime-950 dark:bg-green-700 dark:hover:bg-green-800 transition-colors rounded-xl">
                             <p class="font-Dana text-xl tracking-tighter text-white">ثبت سفارش</p>
@@ -767,7 +718,7 @@
     <!-- overlay -->
     <div class="overlay w-full h-full fixed inset-0 bg-black/40 z-10 hidden"></div>
     
-    <script src="./scripts/app.js" type="module"></script>
+    <script src="./scripts/app.js"></script>
     <script src="./scripts/swiper-bundle.min.js"></script>
     <script>
         const swiper1 = new Swiper(".swiper1", {
