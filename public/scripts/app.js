@@ -34,13 +34,13 @@ let headerShoppingCardItemCount = document.querySelector('.header-shopping-card-
 
 // database
 let CardSlidrerInfo = [
-    {id : 1, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 135_000},
-    {id : 2, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 145_000},
-    {id : 3, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 155_000},
-    {id : 4, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 165_000},
-    {id : 5, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 175_000},
-    {id : 6, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 185_000},
-    {id : 7, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 195_000},
+    {id : 1, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 135_000 , val : 1},
+    {id : 2, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 145_000 , val : 1},
+    {id : 3, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 155_000 , val : 1},
+    {id : 4, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 165_000 , val : 1},
+    {id : 5, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 175_000 , val : 1},
+    {id : 6, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 185_000 , val : 1},
+    {id : 7, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 195_000 , val : 1},
 ]
 let BoardGameSliderInfo = [
     {id : 1, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 135_000},
@@ -314,7 +314,12 @@ function shoppingCardGenerator() {
                             <img class="w-[120px] h-[120px]" src="${obj.src}" alt="">
                         </div>
                         <div class="w-[230px]">
-                            <p class="font-DanaMedium text-base text-zinc-700 dark:text-white line-clamp-2 mb-[28px]">${obj.title}</p>
+                            <div class="w-full flex justify-between text-base text-zinc-700 dark:text-white mb-[28px]">
+                            <p class="font-DanaMedium">${obj.title}</p>
+                            <svg onclick="removeItem(${obj.id})" class="mt-[2px] w-4 h-4 cursor-pointer hover:text-orange-300">
+                                <use xlink:href="#X-mark"></use>
+                            </svg>
+                            </div>
                             <div class="flex items-end">
                                 <div class="flex items-center justify-evenly w-[90px] h-11 ml-5 border-[1px] border-gray-300 rounded-full
                                 font-DanaDemiBold text-orange-300">
@@ -323,7 +328,7 @@ function shoppingCardGenerator() {
                                         <use xlink:href="#plus"></use>
                                     </svg>
                                 </div>
-                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">1</p>
+                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.val}</p>
                                 <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                                     <svg class="w-4 h-4 cursor-pointer">
                                         <use xlink:href="#minus"></use>
@@ -340,34 +345,45 @@ function shoppingCardGenerator() {
     totalItem()
 }
 
+// remove item
+function removeItem(id) {
+    let objIndex = shoppingCardProductArray.findIndex(obj => {
+        return obj.id === id
+    })
+    shoppingCardProductArray.splice(objIndex , 1)
+    shoppingCardGenerator()
+    setLocalStorage()
+}
+
 // calculate value
 function inVal(id) {
-    let values = document.querySelectorAll('.val')
-    values.forEach(elem => {
-        if (elem.getAttribute('data-id') == id) {
-            let valueCount = Number(elem.innerHTML)
-            elem.innerHTML = ++valueCount
+    shoppingCardProductArray.forEach(obj => {
+        if (obj.id == id) {
+            ++obj.val 
+            totalPrice()
         }
     })
+    shoppingCardGenerator()
+    setLocalStorage()
 }
 
 function decVal(id) {
-    let values = document.querySelectorAll('.val')
-    values.forEach(elem => {
-        if (elem.getAttribute('data-id') == id) {
-            let valueCount = Number(elem.innerHTML)
-            if (valueCount > 1) {
-                elem.innerHTML = --valueCount
+    shoppingCardProductArray.forEach(obj => {
+        if (obj.id == id) {
+            if(obj.val > 1){
+                --obj.val 
+                totalPrice()
             }
         }
     })
+    shoppingCardGenerator()
+    setLocalStorage()
 }
 
-// calculate total price
 function totalPrice() {
     let sum = 0
     shoppingCardProductArray.forEach(obj => {
-        sum += obj.price
+        sum += obj.price * obj.val
         headerShoppingCardPrice.innerHTML = sum
     })
 }
