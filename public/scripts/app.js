@@ -382,6 +382,7 @@ function decVal(id) {
 
 function totalPrice() {
     let sum = 0
+    headerShoppingCardPrice.innerHTML = '0'
     shoppingCardProductArray.forEach(obj => {
         sum += obj.price * obj.val
         headerShoppingCardPrice.innerHTML = sum
