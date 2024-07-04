@@ -26,13 +26,13 @@ let headerShoppingCard = document.querySelector('.header-shopping-card')
 let headerShoppingCardPrice = document.querySelector('.header-shopping-card-price')
 let headerShoppingCardItemCount = document.querySelector('.header-shopping-card-item-count')
 let allCardsInfo = [
-    {id : 1, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 135_000 , val : 1},
-    {id : 2, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 145_000 , val : 1},
-    {id : 3, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 155_000 , val : 1},
-    {id : 4, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 165_000 , val : 1},
-    {id : 5, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 175_000 , val : 1},
-    {id : 6, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 185_000 , val : 1},
-    {id : 7, src1 : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 195_000 , val : 1},
+    {id : 1, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 135_000 , val : 1},
+    {id : 2, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 145_000 , val : 1},
+    {id : 3, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 155_000 , val : 1},
+    {id : 4, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 165_000 , val : 1},
+    {id : 5, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 175_000 , val : 1},
+    {id : 6, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 185_000 , val : 1},
+    {id : 7, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 195_000 , val : 1},
 ]
 
 //changing the theme
@@ -143,7 +143,7 @@ function loadData() {
     allCardsInfo.forEach(obj => {
         if (obj.id == pageId) {
             swiperSlide1.insertAdjacentHTML(`afterbegin` , 
-                `<img class="w-full h-full" src="${obj.src1}" alt="">`)
+                `<img class="w-full h-full" src="${obj.src}" alt="">`)
                 swiperSlide2.insertAdjacentHTML(`afterbegin`,
                 `<img class="w-full h-full" src="${obj.src2}" alt="">`)
                 swiperSlide3.insertAdjacentHTML(`afterbegin`,
@@ -197,7 +197,7 @@ function shoppingCardGenerator() {
         headerShoppingCard.insertAdjacentHTML(`beforeend`,
             `<div class="flex gap-x-2.5 items-center py-5 border-b-[1px] border-gray-300 dark:border-white/10">
                         <div>
-                            <img class="w-[120px] h-[120px]" src="${obj.src1}" alt="">
+                            <img class="w-[120px] h-[120px]" src="${obj.src}" alt="">
                         </div>
                         <div class="w-[230px]">
                             <div class="w-full flex justify-between text-base text-zinc-700 dark:text-white mb-[28px]">

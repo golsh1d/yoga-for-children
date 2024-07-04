@@ -33,7 +33,7 @@ let headerShoppingCardPrice = document.querySelector('.header-shopping-card-pric
 let headerShoppingCardItemCount = document.querySelector('.header-shopping-card-item-count')
 
 // database
-let CardSlidrerInfo = [
+let cardSlidrerInfo = [
     {id : 1, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 135_000 , val : 1},
     {id : 2, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 145_000 , val : 1},
     {id : 3, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 155_000 , val : 1},
@@ -42,7 +42,7 @@ let CardSlidrerInfo = [
     {id : 6, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 185_000 , val : 1},
     {id : 7, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 195_000 , val : 1},
 ]
-let BoardGameSliderInfo = [
+let boardGameSliderInfo = [
     {id : 8, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 135_000 , val : 1},
     {id : 9, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 145_000 , val : 1},
     {id : 10, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 155_000 , val : 1},
@@ -186,7 +186,7 @@ function copyToClipboard() {
 
 // load dynamic data
 function loadCards() {
-    CardSlidrerInfo.forEach(obj => {
+    cardSlidrerInfo.forEach(obj => {
         cardSwiperWrapper.insertAdjacentHTML(`beforeend` , 
             `<div class="swiper-slide">
                 <div class="w-full h-min p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
@@ -212,7 +212,7 @@ function loadCards() {
 }
 
 function loadBoardGames() {
-    BoardGameSliderInfo.forEach(obj => {
+    boardGameSliderInfo.forEach(obj => {
         boardGameSwiperWrapper.insertAdjacentHTML(`beforeend` , 
             `<div class="swiper-slide">
                 <div class="w-full h-min p-3 md:p-5
@@ -285,7 +285,7 @@ function loadblogs() {
 
 // add element to shopping card array
 function addCardToShoppingCard(id) {
-    CardSlidrerInfo.forEach(obj => {
+    cardSlidrerInfo.forEach(obj => {
         if (obj.id === id) {
             let isInArray = shoppingCardProductArray.some(obj => {
                 if (obj.id === id) {
@@ -303,7 +303,7 @@ function addCardToShoppingCard(id) {
 }
 
 function addBoardGameToShoppingCard(id) {
-    BoardGameSliderInfo.forEach(obj => {
+    boardGameSliderInfo.forEach(obj => {
         if (obj.id === id) {
             let isInArray = shoppingCardProductArray.some(obj => {
                 if (obj.id === id) {
@@ -462,6 +462,3 @@ window.addEventListener('load' , loadBoardGames)
 window.addEventListener('load' , loadmeditation)
 window.addEventListener('load' , loadblogs)
 window.addEventListener('load' , loadHeaderShoppingCard)
-
-// export
-// export { headerShoppingCard , headerShoppingCardPrice , headerShoppingCardItemCount , addCardToShoppingCard , addBoardGameToShoppingCard , addCourseToShoppingCard , shoppingCardGenerator , removeItem , inVal , decVal , totalPrice , totalItem , setLocalStorage , loadHeaderShoppingCard}
