@@ -320,6 +320,27 @@ function addBoardGameToShoppingCard(id) {
     })
 }
 
+function addCourseToShoppingCard() {
+    let courseObj = {
+        id : 15,
+        src : "./img/logo.png",
+        title : "دوره ی یوگای کودک",
+        price : 135_000 ,
+        val : 1
+    } 
+    let isInArray = shoppingCardProductArray.some(obj => {
+        if (obj.id === courseObj.id) {
+            return true
+        }
+    }
+    )
+    if (!isInArray){
+        shoppingCardProductArray.push(courseObj)
+        shoppingCardGenerator()
+        setLocalStorage()
+    }
+}
+
 // generate shopping card
 function shoppingCardGenerator() {
     headerShoppingCard.innerHTML = ''
