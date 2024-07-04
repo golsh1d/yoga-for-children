@@ -462,3 +462,6 @@ window.addEventListener('load' , loadBoardGames)
 window.addEventListener('load' , loadmeditation)
 window.addEventListener('load' , loadblogs)
 window.addEventListener('load' , loadHeaderShoppingCard)
+
+// export
+// export { headerShoppingCard , headerShoppingCardPrice , headerShoppingCardItemCount , addCardToShoppingCard , addBoardGameToShoppingCard , addCourseToShoppingCard , shoppingCardGenerator , removeItem , inVal , decVal , totalPrice , totalItem , setLocalStorage , loadHeaderShoppingCard}
