@@ -19,21 +19,21 @@ let copybadgeElem = document.querySelector('.copied')
 let swiperWrapper = document.querySelector('.swiper-wrapper')
 let productWrapper = document.querySelector('.product-wrapper')
 let boardGameSliderInfo = [
-    {id : 1, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "135,000"},
-    {id : 2, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "145,000"},
-    {id : 3, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "155,000"},
-    {id : 4, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "165,000"},
-    {id : 5, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "175,000"},
-    {id : 6, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "185,000"},
+    {id : 8, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "135,000"},
+    {id : 9, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "145,000"},
+    {id : 10, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "155,000"},
+    {id : 11, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "165,000"},
+    {id : 12, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "175,000"},
+    {id : 13, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "185,000"},
 ]
 let allBoardGamesInfo = [
-    {id : 1, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "135,000"},
-    {id : 2, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "145,000"},
-    {id : 3, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "155,000"},
-    {id : 4, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "165,000"},
-    {id : 5, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "175,000"},
-    {id : 6, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "185,000"},
-    {id : 7, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "195,000"},
+    {id : 8, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "135,000"},
+    {id : 9, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "145,000"},
+    {id : 10, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "155,000"},
+    {id : 11, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "165,000"},
+    {id : 12, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "175,000"},
+    {id : 13, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "185,000"},
+    {id : 14, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : "195,000"},
 ]
 
 

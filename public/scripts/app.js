@@ -43,13 +43,13 @@ let CardSlidrerInfo = [
     {id : 7, src : "./img/logo.png", title : "کارت های یوگای کودک", price : 195_000 , val : 1},
 ]
 let BoardGameSliderInfo = [
-    {id : 1, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 135_000},
-    {id : 2, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 145_000},
-    {id : 3, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 155_000},
-    {id : 4, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 165_000},
-    {id : 5, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 175_000},
-    {id : 6, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 185_000},
-    {id : 7, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 195_000},
+    {id : 8, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 135_000},
+    {id : 9, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 145_000},
+    {id : 10, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 155_000},
+    {id : 12, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 165_000},
+    {id : 12, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 175_000},
+    {id : 13, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 185_000},
+    {id : 14, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 195_000},
 ]
 let meditationSliderInfo = [
     {id : 1, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
