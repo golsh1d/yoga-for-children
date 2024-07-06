@@ -2265,6 +2265,14 @@ video {
     height: 650px;
   }
 
+  .md\:h-\[320px\] {
+    height: 320px;
+  }
+
+  .md\:h-\[330px\] {
+    height: 330px;
+  }
+
   .md\:w-10 {
     width: 2.5rem;
   }
@@ -2351,6 +2359,14 @@ video {
 
   .md\:w-\[60\%\] {
     width: 60%;
+  }
+
+  .md\:w-\[320px\] {
+    width: 320px;
+  }
+
+  .md\:w-\[330px\] {
+    width: 330px;
   }
 
   .md\:grid-cols-2 {
