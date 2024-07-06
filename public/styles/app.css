@@ -781,8 +781,8 @@ video {
   margin-bottom: 28px;
 }
 
-.mb-\[60px\] {
-  margin-bottom: 60px;
+.mb-\[30px\] {
+  margin-bottom: 30px;
 }
 
 .ml-5 {
@@ -851,10 +851,6 @@ video {
 
 .mt-\[30px\] {
   margin-top: 30px;
-}
-
-.mb-\[30px\] {
-  margin-bottom: 30px;
 }
 
 .line-clamp-2 {
@@ -2161,6 +2157,10 @@ video {
     margin-bottom: 1.75rem;
   }
 
+  .md\:mb-\[60px\] {
+    margin-bottom: 60px;
+  }
+
   .md\:mt-0 {
     margin-top: 0px;
   }
@@ -2187,10 +2187,6 @@ video {
 
   .md\:mt-52 {
     margin-top: 13rem;
-  }
-
-  .md\:mb-\[60px\] {
-    margin-bottom: 60px;
   }
 
   .md\:block {
