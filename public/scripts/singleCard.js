@@ -25,6 +25,8 @@ let swiperSlide4 = document.querySelector('.swiper-slide4')
 let headerShoppingCard = document.querySelector('.header-shopping-card')
 let headerShoppingCardPrice = document.querySelector('.header-shopping-card-price')
 let headerShoppingCardItemCount = document.querySelector('.header-shopping-card-item-count')
+let sideShoppingCardBody = document.querySelector('.side-shopping-card-body')
+let sideShoppingCardPrice = document.querySelector('.side-shopping-card-price')
 let allCardsInfo = [
     {id : 1, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 135_000 , val : 1},
     {id : 2, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 145_000 , val : 1},
@@ -231,6 +233,43 @@ function shoppingCardGenerator() {
     totalItem()
 }
 
+function sideShoppingCardGenerator() {
+    sideShoppingCardBody.innerHTML = ''
+    shoppingCardProductArray.forEach(obj => {
+        sideShoppingCardBody.insertAdjacentHTML(`beforeend`,
+            `<div class="flex gap-x-3 items-center py-5 border-b-[1px] border-gray-100 dark:border-white/10">
+                <div>
+                    <img class="w-[50px] h-[50px]" src="${obj.src}" alt="">
+                </div>
+                <div class="w-[170px] flex flex-col gap-y-3">
+                    <div class="flex justify-between">
+                    <p class="font-DanaMedium text-sm text-zinc-700 dark:text-white">${obj.title}</p>
+                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 cursor-pointer hover:text-orange-300">
+                        <use xlink:href="#X-mark"></use>
+                    </svg>
+                    </div>
+                    <div class="flex items-center justify-evenly w-[70px] h-7 ml-5 border-[1px] border-gray-300 rounded-full
+                        font-DanaDemiBold text-orange-300">
+                        <div onclick="inVal(${obj.id})" class="hover:text-orange-400 transition-colors">
+                            <svg class="w-4 h-4 cursor-pointer">
+                                <use xlink:href="#plus"></use>
+                            </svg>
+                        </div>
+                        <p class="text-base tracking-tighter">${obj.val}</p>
+                        <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
+                            <svg class="w-4 h-4 cursor-pointer">
+                                <use xlink:href="#minus"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="font-Dana text-xs text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-base">${obj.price}</span> تومان</p>
+                </div>
+            </div>`
+        )
+    })
+    totalPrice()
+}
+
 // remove item
 function removeItem(id) {
     let objIndex = shoppingCardProductArray.findIndex(obj => {
@@ -238,6 +277,7 @@ function removeItem(id) {
     })
     shoppingCardProductArray.splice(objIndex , 1)
     shoppingCardGenerator()
+    sideShoppingCardGenerator()
     setLocalStorage()
 }
 
@@ -250,6 +290,7 @@ function inVal(id) {
         }
     })
     shoppingCardGenerator()
+    sideShoppingCardGenerator()
     setLocalStorage()
 }
 
@@ -263,15 +304,18 @@ function decVal(id) {
         }
     })
     shoppingCardGenerator()
+    sideShoppingCardGenerator()
     setLocalStorage()
 }
 
 function totalPrice() {
     let sum = 0
     headerShoppingCardPrice.innerHTML = '0'
+    sideShoppingCardPrice.innerHTML = '0'
     shoppingCardProductArray.forEach(obj => {
         sum += obj.price * obj.val
         headerShoppingCardPrice.innerHTML = sum
+        sideShoppingCardPrice.innerHTML = sum
     })
 }
 
@@ -291,6 +335,7 @@ function loadHeaderShoppingCard() {
     if (localStorageArray) {
         shoppingCardProductArray = localStorageArray
         shoppingCardGenerator()
+        sideShoppingCardGenerator()
     }
 }
 
