@@ -23,6 +23,9 @@ let headerShoppingCardPrice = document.querySelector('.header-shopping-card-pric
 let headerShoppingCardItemCount = document.querySelector('.header-shopping-card-item-count')
 let sideShoppingCardBody = document.querySelector('.side-shopping-card-body')
 let sideShoppingCardPrice = document.querySelector('.side-shopping-card-price')
+let shoppingCardBody = document.querySelector('.shopping-card-body')
+let ShoppingCardPrice = document.querySelector('.shopping-card-price')
+let ShoppingCardItemCount = document.querySelector('.shopping-card-item-count')
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -202,6 +205,44 @@ function sideShoppingCardGenerator() {
     totalPrice()
 }
 
+function mainShoppingCardGenerator() {
+    shoppingCardBody.innerHTML = ''
+    shoppingCardProductArray.forEach(obj => {
+        shoppingCardBody.insertAdjacentHTML(`beforeend`, 
+            `<div class="flex gap-x-3 md:gap-x-5 items-center py-3 md:py-5 border-b-[1px] border-gray-300 dark:border-white/10">
+                    <div>
+                        <img class="w-[120px] h-[120px] md:w-[300px] md:h-[300px]" src="${obj.src}" alt="">
+                    </div>
+                    <div class="w-full">
+                        <div class="w-full flex justify-between items-center text-zinc-700 dark:text-white mb-[30px] md:mb-[60px]">
+                        <p class="font-DanaMedium text-lg md:text-2xl">${obj.title}</p>
+                        <svg onclick="removeItem(${obj.id})" class="w-4 h-4 md:w-5 md:h-5 cursor-pointer hover:text-orange-300">
+                            <use xlink:href="#X-mark"></use>
+                        </svg>
+                        </div>
+                        <div class="flex items-end">
+                            <div class="flex items-center justify-evenly w-[90px] h-11 ml-5 border-[1px] border-gray-300 rounded-full
+                            font-DanaDemiBold text-orange-300">
+                            <div onclick="inVal(${obj.id})" class="hover:text-orange-400 transition-colors">
+                                <svg class="w-4 h-4 cursor-pointer">
+                                    <use xlink:href="#plus"></use>
+                                </svg>
+                            </div>
+                            <p class="val text-xl tracking-tighter">${obj.val}</p>
+                            <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
+                                <svg class="w-4 h-4 cursor-pointer">
+                                    <use xlink:href="#minus"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="font-Dana text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-xl">${obj.price}</span> تومان</p>
+                        </div>
+                    </div>
+                </div>`
+        )
+    })
+}
+
 // remove item
 function removeItem(id) {
     let objIndex = shoppingCardProductArray.findIndex(obj => {
@@ -210,6 +251,7 @@ function removeItem(id) {
     shoppingCardProductArray.splice(objIndex , 1)
     shoppingCardGenerator()
     sideShoppingCardGenerator()
+    mainShoppingCardGenerator()
     setLocalStorage()
 }
 
@@ -223,6 +265,7 @@ function inVal(id) {
     })
     shoppingCardGenerator()
     sideShoppingCardGenerator()
+    mainShoppingCardGenerator()
     setLocalStorage()
 }
 
@@ -237,6 +280,7 @@ function decVal(id) {
     })
     shoppingCardGenerator()
     sideShoppingCardGenerator()
+    mainShoppingCardGenerator()
     setLocalStorage()
 }
 
@@ -244,10 +288,12 @@ function totalPrice() {
     let sum = 0
     headerShoppingCardPrice.innerHTML = '0'
     sideShoppingCardPrice.innerHTML = '0'
+    ShoppingCardPrice.innerHTML = '0'
     shoppingCardProductArray.forEach(obj => {
         sum += obj.price * obj.val
         headerShoppingCardPrice.innerHTML = sum
         sideShoppingCardPrice.innerHTML = sum
+        ShoppingCardPrice.innerHTML = sum
     })
 }
 
@@ -255,6 +301,7 @@ function totalPrice() {
 function totalItem() {
     let sum = shoppingCardProductArray.length
     headerShoppingCardItemCount.innerHTML = sum
+    ShoppingCardItemCount.innerHTML = sum
 }
 
 //local storage
@@ -268,6 +315,7 @@ function loadHeaderShoppingCard() {
         shoppingCardProductArray = localStorageArray
         shoppingCardGenerator()
         sideShoppingCardGenerator()
+        mainShoppingCardGenerator()
     }
 }
 
