@@ -6,6 +6,7 @@ let familyNameInput = document.querySelector('#Fname')
 let addressInput = document.querySelector('#add')
 let codeInput = document.querySelector('#code')
 let telInput = document.querySelector('#tel')
+let popUp = document.querySelector('.pop-up')
 // data base
 let dataBase = { 
     آذربایجانشرقی : [
@@ -1219,39 +1220,47 @@ stateBox.addEventListener('change' , () => {
 })
 
 btn.addEventListener('click' , () => {
-    let infoObj = {
-        name : nameInput.value,
-        familyName : familyNameInput.value,
-        state : stateBox.value,
-        city : cityBox.value,
-        address : addressInput.value,
-        code : codeInput.value,
-        tel : telInput.value
-    }
-
-    console.log(infoObj);
-
-    async function sendData() {
-        try {
-            let res = await fetch('https://eky74.wiremockapi.cloud/info' , {
-                method : 'POST',
-                headers : {
-                    'Content-type': 'application/json'
-                },
-                body : JSON.stringify(infoObj)
-            })
-
-            console.log(res)
-
-            if(res.status != 404) {
-                location.href = 'http://127.0.0.1:5500/public/index.html'
-                clearInputs()
-            }
-        } catch (error) {
-            console.log(error)
+    if (nameInput.value === '' || familyNameInput.value === '' || stateBox.value === '' || cityBox.value === '' || addressInput.value === '' || codeInput.value === '' || telInput.value === '') {
+        popUp.style.display = 'block'
+        setTimeout(() => {
+            popUp.style.display = 'none'
+        } , 2000)
+    } else {
+        let infoObj = {
+            name : nameInput.value,
+            familyName : familyNameInput.value,
+            state : stateBox.value,
+            city : cityBox.value,
+            address : addressInput.value,
+            code : codeInput.value,
+            tel : telInput.value
         }
-    }
-    sendData()
+
+        console.log(infoObj);
+
+        async function sendData() {
+            try {
+                let res = await fetch('https://eky74.wiremockapi.cloud/info' , {
+                    method : 'POST',
+                    headers : {
+                        'Content-type': 'application/json'
+                    },
+                    body : JSON.stringify(infoObj)
+                })
+
+                console.log(res)
+
+                if(res.status == 404) {
+                    location.href = 'http://127.0.0.1:5500/public/index.html'
+                    clearInputs()
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    
+        sendData()
+        }   
 })
 
 function clearInputs() {
