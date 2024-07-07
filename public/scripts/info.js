@@ -1,5 +1,11 @@
-let countyBox = document.querySelector('.county')
+let stateBox = document.querySelector('.state')
 let cityBox = document.querySelector('.city')
+let btn = document.querySelector('button')
+let nameInput = document.querySelector('#name')
+let familyNameInput = document.querySelector('#Fname')
+let addressInput = document.querySelector('#add')
+let codeInput = document.querySelector('#code')
+let telInput = document.querySelector('#tel')
 // data base
 let dataBase = { 
     آذربایجانشرقی : [
@@ -1196,12 +1202,12 @@ let dataBase = {
     ] ,
 }
 
-countyBox.addEventListener('change' , () => {
+stateBox.addEventListener('change' , () => {
    // get the county
-   let countyVal = countyBox.value
+   let stateval = stateBox.value
 
    // get the cities
-   let citiesList = dataBase[countyVal]
+   let citiesList = dataBase[stateval]
    cityBox.innerHTML = ''
    citiesList.forEach(city => {
       let optElem = document.createElement('option')
@@ -1210,4 +1216,26 @@ countyBox.addEventListener('change' , () => {
       optElem.setAttribute('class', 'text-zinc-700')
       cityBox.append(optElem)
    })
+})
+
+btn.addEventListener('click' , () => {
+    let infoObj = {
+        name : nameInput.value,
+        familyName : familyNameInput.value,
+        state : stateBox.value,
+        city : cityBox.value,
+        address : addressInput.value,
+        code : codeInput.value,
+        tel : telInput.value
+    }
+    
+    fetch('' , {
+        method : 'POST',
+        headers : {
+            'Content-type': 'application/json'
+        },
+        body : JSON.stringify(infoObj)
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
 })
