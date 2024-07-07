@@ -1230,18 +1230,28 @@ btn.addEventListener('click' , () => {
     }
 
     console.log(infoObj);
-    
-    // fetch('' , {
-    //     method : 'POST',
-    //     headers : {
-    //         'Content-type': 'application/json'
-    //     },
-    //     body : JSON.stringify(infoObj)
-    // })
-    // .then(res => console.log(res))
-    // .catch(err => console.log(err))
 
-    clearInputs()
+    async function sendData() {
+        try {
+            let res = await fetch('https://eky74.wiremockapi.cloud/info' , {
+                method : 'POST',
+                headers : {
+                    'Content-type': 'application/json'
+                },
+                body : JSON.stringify(infoObj)
+            })
+
+            console.log(res)
+
+            if(res.status != 404) {
+                location.href = 'http://127.0.0.1:5500/public/index.html'
+                clearInputs()
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    sendData()
 })
 
 function clearInputs() {
