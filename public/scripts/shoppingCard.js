@@ -211,7 +211,7 @@ function mainShoppingCardGenerator() {
         shoppingCardBody.insertAdjacentHTML(`beforeend`, 
             `<div class="flex gap-x-3 md:gap-x-5 items-center py-3 md:py-5 border-b-[1px] border-gray-300 dark:border-white/10">
                     <div>
-                        <img class="w-[120px] h-[120px] md:w-[330px] md:h-[330px]" src="${obj.src}" alt="">
+                        <img class="w-[120px] h-[120px] md:w-[170px] md:h-[170px] lg:w-[230px] lg:h-[230px]" src="${obj.src}" alt="">
                     </div>
                     <div class="w-full">
                         <div class="w-full flex justify-between items-center text-zinc-700 dark:text-white mb-[30px] md:mb-[60px]">

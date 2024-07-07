@@ -25,12 +25,12 @@ let sideShoppingCardBody = document.querySelector('.side-shopping-card-body')
 let sideShoppingCardPrice = document.querySelector('.side-shopping-card-price')
 // data base
 let boardGameSliderInfo = [
-    {id : 8, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 135_000, val : 1},
-    {id : 9, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 145_000, val : 1},
-    {id : 10, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 155_000, val : 1},
-    {id : 11, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 165_000, val : 1},
-    {id : 12, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 175_000, val : 1},
-    {id : 13, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 185_000, val : 1},
+    {id : 8, src : "./img/logo.png", title : "بوردگیم ها", price : 135_000, val : 1},
+    {id : 9, src : "./img/logo.png", title : "بوردگیم ها", price : 145_000, val : 1},
+    {id : 10, src : "./img/logo.png", title : "بوردگیم ها", price : 155_000, val : 1},
+    {id : 11, src : "./img/logo.png", title : "بوردگیم ها", price : 165_000, val : 1},
+    {id : 12, src : "./img/logo.png", title : "بوردگیم ها", price : 175_000, val : 1},
+    {id : 13, src : "./img/logo.png", title : "بوردگیم ها", price : 185_000, val : 1},
 ]
 let allBoardGamesInfo = [
     {id : 8, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 135_000, val : 1},

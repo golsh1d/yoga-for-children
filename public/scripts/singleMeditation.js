@@ -145,7 +145,7 @@ function loadData() {
     allCardsInfo.forEach(obj => {
         if (obj.id == pageId) {
             productWrapper.insertAdjacentHTML(`beforeend`,
-            `<div class="container px-5 md:px-16 mt-14 md:mt-48 flex flex-col md:flex-row items-center md:justify-between gap-y-10 md:gap-y-0">
+            `<div class="container px-5 md:px-16 mt-10 md:mt-40 flex flex-col md:flex-row items-center md:justify-between gap-y-10 md:gap-y-0">
             <div class="w-[60%] md:w-[30%] h-min">
                 <div class="w-full h-full p-3 md:p-5 rounded-3xl">
                     <img src="${obj.src}" alt="">
