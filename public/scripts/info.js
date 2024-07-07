@@ -1202,6 +1202,7 @@ countyBox.addEventListener('change' , () => {
 
    // get the cities
    let citiesList = dataBase[countyVal]
+   cityBox.innerHTML = ''
    citiesList.forEach(city => {
       let optElem = document.createElement('option')
       optElem.innerHTML = city
