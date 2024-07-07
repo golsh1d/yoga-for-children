@@ -1,4 +1,7 @@
 let shoppingCardBody = document.querySelector('.shopping-card')
+let orderPriceElem = document.querySelector('.order-price')
+let totalPriceElem = document.querySelector('.total-price')
+let deliveryPriceElem = document.querySelector('.delivery-price')
 function mainShoppingCardGenerator() {
     shoppingCardBody.innerHTML = ''
     shoppingCardProductArray.forEach(obj => {
@@ -23,6 +26,24 @@ function mainShoppingCardGenerator() {
                 </div>`
         )
     })
+    orderPrice()
+}
+
+// order price
+function orderPrice() {
+    let sum = 0
+    orderPriceElem.innerHTML = ''
+    shoppingCardProductArray.forEach(obj => {
+        sum += obj.price * obj.val
+    })
+    orderPriceElem.innerHTML = sum
+    totalPrice(sum)
+}
+
+// total price
+function totalPrice(orderPrice) {
+    let sum = orderPrice + 40_000
+    totalPriceElem.innerHTML = sum
 }
 
 //local storage

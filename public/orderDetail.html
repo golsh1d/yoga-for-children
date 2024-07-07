@@ -84,10 +84,48 @@
     <section class="container mt-10 md:mt-0 p-5">
         <div class="w-full md:w-[60%] mx-auto text-sm md:text-base text-zinc-700 dark:text-gray-100">
             <!-- header -->
-            <div class="font-DanaMedium mb-1 test-base md:text-lg">
+            <div class="font-DanaMedium mb-1 text-base md:text-lg">
                 <p>جزئیات سفارش : </p>
             </div>
-            <div class="shopping-card border-[1px] border-b-0 border-gray-300 dark:border-white/10 rounded"></div>
+            <div class="shopping-card border-[1px] border-b-0 border-gray-300 dark:border-white/10 rounded mb-5"></div>
+            <!-- main -->
+            <div class="font-DanaMedium mb-1 text-base md:text-lg">
+                <p>جزئیات فاکتور : </p>
+            </div>
+            <div class="w-full h-min rounded bg-gray-50 text-zinc-700">
+                <!-- first line -->
+                <div class="w-full font-DanaMedium text-base md:text-lg flex">
+                    <p class="w-[30%] p-1 md:p-3 bg-gray-100 rounded rounded-tl-none rounded-bl-none flex items-center justify-center">جمع کل سفارشات</p>
+                    <div class="w-[70%] flex items-center justify-center">
+                        <p class="order-price">0</p>
+                        <span class="font-Dana text-xs md:text-base tracking-tighter">تومان</span>
+                    </div>
+                </div>
+                <!-- second line -->
+                <div class="w-full font-DanaMedium text-base md:text-lg flex">
+                    <p class="w-[30%] p-1 md:p-3 rounded rounded-tl-none rounded-bl-none flex items-center justify-center">جمع کل تخفیفات</p>
+                    <div class="w-[70%] flex items-center justify-center bg-gray-100">
+                        <p>0</p>
+                        <span class="font-Dana text-xs md:text-base tracking-tighter">تومان</span>
+                    </div>
+                </div> 
+                <!-- third line -->
+                <div class="w-full font-DanaMedium text-base md:text-lg flex">
+                    <p class="w-[30%] p-1 md:p-3 bg-gray-100 rounded rounded-tl-none rounded-bl-none flex items-center justify-center">هزینه ارسال</p>
+                    <div class="w-[70%] flex items-center justify-center">
+                        <p class="delivery-price">40,000</p>
+                        <span class="font-Dana text-xs md:text-base tracking-tighter">تومان</span>
+                    </div>
+                </div> 
+                <!-- forth line -->
+                <div class="w-full font-DanaMedium text-base md:text-lg flex">
+                    <p class="w-[30%] p-1 md:p-3 rounded rounded-tl-none rounded-bl-none flex items-center justify-center">مبلغ قابل پرداخت</p>
+                    <div class="w-[70%] flex items-center justify-center bg-gray-100">
+                        <p class="total-price">0</p>
+                        <span class="font-Dana text-xs md:text-base tracking-tighter">تومان</span>
+                    </div>
+                </div> 
+            </div>
         </div>
         
     </section>
