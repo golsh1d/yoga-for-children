@@ -1228,14 +1228,28 @@ btn.addEventListener('click' , () => {
         code : codeInput.value,
         tel : telInput.value
     }
+
+    console.log(infoObj);
     
-    fetch('' , {
-        method : 'POST',
-        headers : {
-            'Content-type': 'application/json'
-        },
-        body : JSON.stringify(infoObj)
-    })
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+    // fetch('' , {
+    //     method : 'POST',
+    //     headers : {
+    //         'Content-type': 'application/json'
+    //     },
+    //     body : JSON.stringify(infoObj)
+    // })
+    // .then(res => console.log(res))
+    // .catch(err => console.log(err))
+
+    clearInputs()
 })
+
+function clearInputs() {
+    nameInput.value = ''
+    familyNameInput.value = ''
+    stateBox.value = ''
+    cityBox.value = ''
+    addressInput.value = ''
+    codeInput.value = ''
+    telInput.value = ''
+}

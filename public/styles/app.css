@@ -2359,16 +2359,16 @@ video {
     width: 480px;
   }
 
+  .md\:w-\[50\%\] {
+    width: 50%;
+  }
+
   .md\:w-\[59\%\] {
     width: 59%;
   }
 
   .md\:w-\[60\%\] {
     width: 60%;
-  }
-
-  .md\:w-\[50\%\] {
-    width: 50%;
   }
 
   .md\:grid-cols-2 {
