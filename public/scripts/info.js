@@ -1251,7 +1251,7 @@ btn.addEventListener('click' , () => {
                 console.log(res)
 
                 if(res.status != 404) {
-                    location.href = 'http://127.0.0.1:5500/public/index.html'
+                    location.href = 'http://127.0.0.1:5500/public/orderDetail.html'
                     clearInputs()
                 }
             } catch (error) {
