@@ -18,6 +18,7 @@ let phoneNumElem = document.querySelector('.copy-to-clipboard')
 let copybadgeElem = document.querySelector('.copied')
 let swiperWrapper = document.querySelector('.swiper-wrapper')
 let productWrapper = document.querySelector('.product-wrapper')
+let descriptionWrapper = document.querySelector('.desc')
 let swiperSlide1 = document.querySelector('.swiper-slide1')
 let swiperSlide2 = document.querySelector('.swiper-slide2')
 let swiperSlide3 = document.querySelector('.swiper-slide3')
@@ -28,13 +29,13 @@ let headerShoppingCardItemCount = document.querySelector('.header-shopping-card-
 let sideShoppingCardBody = document.querySelector('.side-shopping-card-body')
 let sideShoppingCardPrice = document.querySelector('.side-shopping-card-price')
 let allCardsInfo = [
-    {id : 1, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 135_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200 گرم"},
-    {id : 2, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 145_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200 گرم"},
-    {id : 3, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 155_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200 گرم"},
-    {id : 4, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 165_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200 گرم"},
-    {id : 5, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 175_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200 گرم"},
-    {id : 6, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 185_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200 گرم"},
-    {id : 7, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 195_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200 گرم"},
+    {id : 1, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 135_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200"},
+    {id : 2, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 145_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200"},
+    {id : 3, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 155_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200"},
+    {id : 4, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 165_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200"},
+    {id : 5, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 175_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200"},
+    {id : 6, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 185_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200"},
+    {id : 7, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "کارت های یوگای کودک", desc : "این کارت ها مخصوص یوگای کودک هستند و شما با استفاده از این کارت ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 195_000 , val : 1 , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200"},
 ]
 
 //changing the theme
@@ -155,8 +156,37 @@ function loadData() {
                 productWrapper.insertAdjacentHTML(`beforeend`,
                 `<div class="w-full md:w-[60%] h-min text-zinc-700 dark:text-gray-100">
                     <p class="font-MorabbaMedium text-lg md:text-xl lg:text-2xl xl:text-3xl mb-5 md:mb-7">${obj.title}</p>
-                    <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-justify mb-10 md:mb-16">${obj.desc}
-                    </p>
+                    <div class="mb-5 md:mb-7">
+                        <p class="font-MorabbaMedium text-base md:text-lg lg:text-xl xl:text-2xl mb-1 md:mb-3 tracking-tight">مشخصات فنی</p>
+                        <ul class="space-y-1 md:space-y-3">
+                            <li class="flex items-center gap-x-2">
+                            <div class="w-2 h-2 bg-zinc-700 dark:bg-gray-100 rounded-full"></div>
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tightest">ابعاد کارت ها : ${obj.size} سانتی متر</p>
+                            </li>
+                            <li class="flex items-center gap-x-2">
+                            <div class="w-2 h-2 bg-zinc-700 dark:bg-gray-100 rounded-full"></div>
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tightest">تعداد کارت ها : ${obj.count} عدد</p>
+                            </li>
+                            <li class="flex items-center gap-x-2">
+                            <div class="w-2 h-2 bg-zinc-700 dark:bg-gray-100 rounded-full"></div>
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tightest">جنس کارت ها : ${obj.material}</p>
+                            </li>
+                            <li class="flex items-center gap-x-2">
+                            <div class="w-2 h-2 bg-zinc-700 dark:bg-gray-100 rounded-full"></div>
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tightest">وزن بسته : ${obj.weight} گرم</p>
+                            </li>
+                            <li class="flex items-center gap-x-2">
+                            <div class="w-2 h-2 bg-zinc-700 dark:bg-gray-100 rounded-full"></div>
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tightest">هدف بازی : آموزشی</p>
+                            </li>
+                            <li class="flex items-center gap-x-2">
+                            <div class="w-2 h-2 bg-zinc-700 dark:bg-gray-100 rounded-full"></div>
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tightest">رده سنی : مناسب برای کودکان</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="font-MorabbaMedium text-base md:text-lg lg:text-xl xl:text-2xl mb-1 md:mb-3 tracking-tight">توضیحات</p>
+                    <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tight text-justify mb-5 md:mb-7">${obj.desc}</p>
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="font-Dana text-sm md:text-base lg:text-lg xl:text-xl text-lime-900 dark:text-lime-100"><span class="text-lg md:text-xl lg:text-2xl xl:text-3xl">${obj.price}</span>تومان</p>
@@ -168,7 +198,8 @@ function loadData() {
                             </svg>
                         </div> 
                     </div>
-                </div>`
+                    </div>
+                `
                 )
         }
     })
