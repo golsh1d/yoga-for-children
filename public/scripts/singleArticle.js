@@ -198,7 +198,7 @@ function loadData() {
     allblogsInfo.forEach(obj => {
         if (obj.id == pageId) {
             blogWrapper.insertAdjacentHTML(`beforeend`,
-                `<div class="flex items-center justify-between mb-3 md:mb-5">
+                `<div class="flex items-start justify-between mb-3 md:mb-5">
                     <!-- right section -->
                     <div>
                         <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-1 md:mb-3">${obj.title}</p>

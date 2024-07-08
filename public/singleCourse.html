@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>هنر یوگای کودک</title>
+    <title>صفحه ی دوره</title>
     <link rel="icon" href="./img/logo.png">
     <link rel="stylesheet" href="./styles/app.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="./styles/swiper-bundle.min.css">
     <script src="https://kit.fontawesome.com/4f2890a18c.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -17,7 +16,7 @@
         }
     </script>
 </head>
-<body class="bg-white/60 dark:bg-zinc-800 scroll-smooth">
+<body class="bg-gray-100 dark:bg-zinc-800 scroll-smooth">
 
     <!-- all svg icon -->
     <svg class="hidden">
@@ -78,8 +77,40 @@
         <symbol id="phone" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
         </symbol>
-          
-                 
+        <symbol id="question" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+        </symbol> 
+        <symbol id="clock" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </symbol>
+        <symbol id="calender" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+        </symbol>
+        <symbol id="user" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+        </symbol>
+        <symbol id="video" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+        </symbol>
+        <symbol id="doc" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
+        </symbol>
+        <symbol id="star" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+        </symbol>
+        <symbol id="users" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+        </symbol>
+        <symbol id="desc" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 6.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0 0 15 2.25h-1.5a2.251 2.251 0 0 0-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 0 0-9-9Z" />
+        </symbol>
+        <symbol id="cap" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+        </symbol>
+        <symbol id="lock" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+        </symbol>
+                         
     </svg>
     
     <!-- header -->
@@ -88,9 +119,9 @@
          <nav class="flex gap-x-4 lg:gap-x-9 items-center">
             <img class="w-16 h-16" src="/public/img/logo.png" alt="logo">
             <ul class="font-Dana text-base lg:text-xl tracking-tighter text-gray-300 flex items-center gap-x-4 lg:gap-x-9">
-                <li class="h-16 leading-[64px]"><a href="index.html" class="text-orange-200 hover:text-orange-300 transition-colors">صفحه اصلی</a></li>
+                <li class="h-16 leading-[64px]"><a href="index.html" class="hover:text-orange-300 transition-colors">صفحه اصلی</a></li>
                 <!-- has sub menu -->
-                <li class="relative group h-16 leading-[64px] hover:text-orange-300 transition-colors">
+                <li class="relative group h-16 leading-[64px] text-orange-200 hover:text-orange-300 transition-colors">
                     <a href="#">خدمات ما</a>
                     <ul class="absolute top-100 right-0 hidden w-52 h-min py-5 px-6 rounded-2xl border-t-[3px] bg-white dark:bg-zinc-700 border-orange-300 
                     font-Dana text-base text-zinc-700 dark:text-white group-hover:flex flex-col gap-y-3">
@@ -211,7 +242,7 @@
                         <use xlink:href="#chevron-up"></use>
                     </svg>
                 </div>
-                <ul class="sub-menu w-full h-min pr-9 hidden text-sm text-zinc-600 dark:text-white">
+                <ul class="sub-menu w-full h-min pr-9 hidden text-sm text-zinc-600 dark:text-white z-20">
                     <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors my-3">
                         <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
                         <a href="cards.html">کارت ها</a>
@@ -296,296 +327,211 @@
     </div>
 
     <main>
-         <!-- hero header  -->
-         <section class="w-full h-[200px] md:h-[650px] bg-orange-100 flex items-center justify-center">
-            <div class="w-[90%] h-min mx-auto flex flex-row items-center justify-around">
-                <div class="right-section flex flex-col items-center justify-center basis-[50%]">
-                    <div class="hidden md:block md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px] xl:w-[600px] xl:h-[600px] rotate-180">
-                        <img src="./img/—Pngtree—simple shapes vector_9229331.png" alt="">
-                    </div>
-                    <div class="absolute w-[150px] h-[150px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px]">
-                        <img src="./img/header.png" alt="">
-                    </div>
-                </div>
-                <div class="left-section flex items-center justify-center basis-[50%]">
-                    <!-- title -->
-                    <div class="text-zinc-800 flex flex-col gap-y-3">
-                        <h1 class="font-MorabbaBold text-xl md:text-3xl lg:text-5xl xl:text-6xl drop-shadow-sm">هنر یوگای کودک</h1>
-                        <p class="font-Dana tracking-tighter text-[10px] md:text-sm lg:text-xl xl:text-2xl drop-shadow-sm">یوگا برای کودکان ، آغازی شاد برای زندگی سالم</p>
-                    </div>
-                </div>
-            </div>
-         </section>
-         <!-- start container -->
-         <section class="container p-4">
-            <!-- services -->
-            <section class="w-full h-min mt-5 md:-mt-20 p-3 md:p-5 bg-lime-50 rounded-3xl shadow-sm">
+        <!-- main section -->
+        <div class="container p-4">
+            <section class="mt-5 md:mt-[150px] p-3 md:p-5">
                 <!-- title -->
-                <div class="font-MorabbaMedium text-2xl md:text-4xl text-zinc-700 drop-shadow-sm mb-3 md:mb-5">خدمات ما</div>
-                <!-- cards -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-x-5 px-8 md:px-20">
-                    <!-- first card -->
-                    <div id="cards" class="cursor-pointer inline-block h-min p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-xl md:rounded-3xl group shadow-sm">
-                        <div class="w-full h-min flex items-center justify-center mb-3 md:mb-5">
-                            <i class="fa-solid fa-id-card-clip group-hover:scale-110 
-                            text-zinc-700 dark:text-gray-100 group-hover:text-zinc-800 dark:group-hover:text-white/75 transition-all
-                            text-xl md:text-3xl lg:text-5xl"></i>
+                <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6">دوره ی هنر یوگای کودک</p>
+                <!-- details -->
+                <div class="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 grid-rows-2 mb-8">
+                    <!-- first section -->
+                    <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                    font-Dana">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#question"></use>
+                        </svg>
+                        <div class="space-y-0.5 sm:space-y-1">
+                            <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">وضعیت دوره</p>
+                            <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">تکمیل شده</p>
                         </div>
-                        <div class="relative mx-auto h-min md:h-12 flex items-center justify-center
-                        text-zinc-700 dark:text-gray-100 group-hover:text-zinc-800 dark:group-hover:text-white/75 transition-colors">
-                            <p class="font-Morabba text-base lg:text-2xl xl:text-3xl tracking-tighter">کارت ها</p>
-                            <svg class="absolute left-0 w-3 h-3 lg:w-4 lg:h-4 xl:w-5 xl:h-5 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <use xlink:href="#arrow-down"></use>
+                    </div>
+                    <!-- second section -->
+                    <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                    font-Dana">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#clock"></use>
+                        </svg>
+                        <div class="space-y-0.5 sm:space-y-1">
+                            <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">مدت زمان دوره</p>
+                            <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">10 ساعت</p>
+                        </div>
+                    </div>
+                    <!-- third section -->
+                    <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                    font-Dana">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#calender"></use>
+                        </svg>
+                        <div class="space-y-0.5 sm:space-y-1">
+                            <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">بروزرسانی شده در</p>
+                            <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">1403/10/10</p>
+                        </div>
+                    </div>
+                    <!-- forth section -->
+                    <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                    font-Dana">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#user"></use>
+                        </svg>
+                        <div class="space-y-0.5 sm:space-y-1">
+                            <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">نوع پشتیبانی</p>
+                            <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">آنلاین</p>
+                        </div>
+                    </div>
+                    <!-- fifth section -->
+                    <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                    font-Dana">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#video"></use>
+                        </svg>
+                        <div class="space-y-0.5 sm:space-y-1">
+                            <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">نوع مشاهده</p>
+                            <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">آنلاین</p>
+                        </div>
+                    </div>
+                    <!-- sixth section -->
+                    <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                    font-Dana">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#doc"></use>
+                        </svg>
+                        <div class="space-y-0.5 sm:space-y-1">
+                            <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">پیش نیاز</p>
+                            <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">آشنایی با یوگا</p>
+                        </div>
+                    </div>
+                    <!-- seventh section -->
+                    <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                    font-Dana">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#star"></use>
+                        </svg>
+                        <div class="space-y-0.5 sm:space-y-1">
+                            <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">رضایت</p>
+                            <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">5/5</p>
+                        </div>
+                    </div>
+                    <!-- eighth section -->
+                    <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                    font-Dana">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#users"></use>
+                        </svg>
+                        <div class="space-y-0.5 sm:space-y-1">
+                            <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">تعداد دانشجو</p>
+                            <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">70 نفر</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- description -->
+                <div class="w-full h-min p-4 md:p-5 rounded-3xl bg-white/90 dark:bg-zinc-700 mb-8">
+                    <div class="flex items-center gap-x-2 mb-5">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#desc"></use>
+                        </svg>
+                        <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-base md:text-lg xl:text-xl">توضیحات</p>
+                    </div>
+                    <div class="font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100 text-justify">
+                        یوگا یک فعالیت فیزیکی و ذهنی است که به کودکان کمک می‌کند تا اعتماد به نفس، تعادل و آرامش را تجربه کنند. با شرکت در دوره یوگای کودک، فرزندتان می‌تواند با حرکات آسان و تنفس عمیق، ارتباط بین بدن و ذهن خود را تقویت کند. این دوره همچنین به کودکان کمک می‌کند تا استرس و اضطراب را کاهش دهند و بهبود خواب و تمرکز خود را افزایش دهند. با یوگای کودک، کودکان شادتر، متمرکز‌تر و پویاتر خواهند بود.
+                        دوره یوگای کودک یک فرصت عالی برای کودکان است تا با حرکات آسان و تنفس عمیق، اعتماد به نفس، تعادل و آرامش را تجربه کنند. این دوره به کودکان کمک می‌کند تا ارتباط بین بدن و ذهن خود را تقویت کنند و استرس و اضطراب را کاهش دهند. همچنین، با شرکت در یوگای کودک، کودکان می‌توانند بهبود خواب و تمرکز خود را تجربه کنند و شادتر، متمرکز‌تر و پویاتر شوند.
+                        دوره یوگای کودک همچنین به کودکان کمک می‌کند تا انعطاف‌پذیری بدنی خود را بهبود بخشند و عضلات خود را تقویت کنند. این دوره بازی‌ها، تمرینات حرکتی و تمرینات تنفسی را در بر می‌گیرد که به کودکان کمک می‌کند تا انرژی خود را منظم کنند و بهبود قدرت تمرکز و توجه خود را تجربه کنند. همچنین، یوگای کودک به کودکان کمک می‌کند تا بهترین نسخه خود را در زندگی روزمره خود به ارمغان بیاورند و از طریق تمرینات یوگا، احساس خوب و آرامش را تجربه کنند.
+                    </div>
+                </div>
+                <!-- topics -->
+                <div class="w-full h-min p-4 md:p-5  bg-white/90 dark:bg-zinc-700">
+                    <div class="flex items-center gap-x-2 mb-5">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#cap"></use>
+                        </svg>
+                        <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-base md:text-lg xl:text-xl">سرفصل ها</p>
+                    </div>
+                    <div class="lesson-wrapper w-full h-min p-4 flex items-center justify-between bg-gray-100 hover:bg-gray-300 transition-all text-zinc-700 rounded-3xl cursor-pointer">
+                        <p class="font-DanaDemiBold text-sm sm:text-base">سرفصل ها</p>
+                        <div class="flex items-center gap-x-1.5">
+                            <p class="font-DanaDemiBold text-sm hidden md:block">10 جلسه</p>
+                            <p class="font-DanaDemiBold text-sm hidden md:block">10 ساعت</p>
+                            <svg class="openClose w-4 h-4 -mt-1">
+                                <use xlink:href="#chevron-up"></use>
                             </svg>
                         </div>
                     </div>
-                    <!-- second card -->
-                    <div id="board-games" class="cursor-pointer inline-block h-min p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-xl md:rounded-3xl group shadow-sm">
-                        <div class="w-full h-min flex items-center justify-center mb-3 md:mb-5">
-                            <i class="fa-solid fa-dice group-hover:scale-110 
-                            text-zinc-700 dark:text-gray-100 group-hover:text-zinc-800 dark:group-hover:text-white/75 transition-all
-                            text-xl md:text-3xl lg:text-5xl"></i>
+                    <!-- lessons -->
+                    <div class="lessons hidden transition-all w-full h-min p-4 bg-gray-200 text-zinc-700 rounded-b-3xl">
+                        <!-- first session -->
+                        <div class="flex items-end justify-between w-full pb-4 border-b-[1px] border-black/10">
+                            <div class="flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
+                                <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">1</p>
+                                <p class="font-DanaMedium text-sm md:text-base">قسمت اول دوره یوگای کودک</p>
+                            </div>
+                            <div class="hidden md:flex items-end gap-x-2.5 md:gap-x-3.5">
+                                <p class="font-DanaMedium text-sm md:text-base">20:00</p>
+                                <svg class="w-6 h-6 md:w-7 md:h-7">
+                                    <use xlink:href="#lock"></use>
+                                </svg>
+                            </div>
                         </div>
-                        <div class="relative mx-auto h-min md:h-12 flex items-center justify-center
-                        text-zinc-700 dark:text-gray-100 group-hover:text-zinc-800 dark:group-hover:text-white/75 transition-colors">
-                            <p class="font-Morabba text-base lg:text-2xl xl:text-3xl tracking-tightest">بوردگیم ها</p>
-                            <svg class="absolute left-0 w-3 h-3 lg:w-4 lg:h-4 xl:w-5 xl:h-5 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <use xlink:href="#arrow-down"></use>
-                            </svg>
+                        <!-- second session -->
+                        <div class="flex items-end justify-between w-full py-4 border-b-[1px] border-black/10">
+                            <div class="flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
+                                <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">2</p>
+                                <p class="font-DanaMedium text-sm md:text-base">قسمت دوم دوره یوگای کودک</p>
+                            </div>
+                            <div class="hidden md:flex items-end gap-x-2.5 md:gap-x-3.5">
+                                <p class="font-DanaMedium text-sm md:text-base">30:00</p>
+                                <svg class="w-6 h-6 md:w-7 md:h-7">
+                                    <use xlink:href="#lock"></use>
+                                </svg>
+                            </div>
                         </div>
-                    </div>
-                    <!-- third card -->
-                    <div id="meditations" class="cursor-pointer inline-block h-min p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-xl md:rounded-3xl group shadow-sm">
-                        <div class="w-full h-min flex items-center justify-center mb-3 md:mb-5">
-                            <i class="fa-solid fa-hands-praying group-hover:scale-110 
-                            text-zinc-700 dark:text-gray-100 group-hover:text-zinc-800 dark:group-hover:text-white/75 transition-all
-                            text-xl md:text-3xl lg:text-5xl"></i>
+                        <!-- third session -->
+                        <div class="flex items-end justify-between w-full py-4 border-b-[1px] border-black/10">
+                            <div class="flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
+                                <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">3</p>
+                                <p class="font-DanaMedium text-sm md:text-base">قسمت سوم دوره یوگای کودک</p>
+                            </div>
+                            <div class="hidden md:flex items-end gap-x-2.5 md:gap-x-3.5">
+                                <p class="font-DanaMedium text-sm md:text-base">30:00</p>
+                                <svg class="w-6 h-6 md:w-7 md:h-7">
+                                    <use xlink:href="#lock"></use>
+                                </svg>
+                            </div>
                         </div>
-                        <div class="relative mx-auto h-min md:h-12 flex items-center justify-center
-                        text-zinc-700 dark:text-gray-100 group-hover:text-zinc-800 dark:group-hover:text-white/75 transition-colors">
-                            <p class="font-Morabba text-base lg:text-2xl xl:text-3xl tracking-tighter">مراقبه ها</p>
-                            <svg class="absolute left-0 w-3 h-3 lg:w-4 lg:h-4 xl:w-5 xl:h-5 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <use xlink:href="#arrow-down"></use>
-                            </svg>
+                        <!-- forth session -->
+                        <div class="flex items-end justify-between w-full py-4 border-b-[1px] border-black/10">
+                            <div class="flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
+                                <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">4</p>
+                                <p class="font-DanaMedium text-sm md:text-base">قسمت چهارم دوره یوگای کودک</p>
+                            </div>
+                            <div class="hidden md:flex items-end gap-x-2.5 md:gap-x-3.5">
+                                <p class="font-DanaMedium text-sm md:text-base">15:00</p>
+                                <svg class="w-6 h-6 md:w-7 md:h-7">
+                                    <use xlink:href="#lock"></use>
+                                </svg>
+                            </div>
                         </div>
-                    </div>
-                    <!-- forth card -->
-                    <div id="courses" class="cursor-pointer inline-block h-min p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-xl md:rounded-3xl group shadow-sm">
-                        <div class="w-full h-min flex items-center justify-center mb-3 md:mb-5">
-                            <i class="fa-solid fa-desktop group-hover:scale-110 
-                            text-zinc-700 dark:text-gray-100 group-hover:text-zinc-800 dark:group-hover:text-white/75 transition-all
-                            text-xl md:text-3xl lg:text-5xl"></i>
-                        </div>
-                        <div class="relative mx-auto h-min md:h-12 flex items-center justify-center
-                        text-zinc-700 dark:text-gray-100 group-hover:text-zinc-800 dark:group-hover:text-white/75 transition-colors">
-                            <p class="font-Morabba text-base lg:text-2xl xl:text-3xl tracking-tighter">دوره ها</p>
-                            <svg class="absolute left-0 w-3 h-3 lg:w-4 lg:h-4 xl:w-5 xl:h-5 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <use xlink:href="#arrow-down"></use>
-                            </svg>
+                        <!-- fifth session -->
+                        <div class="flex items-end justify-between w-full pt-4">
+                            <div class="flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
+                                <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">5</p>
+                                <p class="font-DanaMedium text-sm md:text-base">قسمت پنجم دوره یوگای کودک</p>
+                            </div>
+                            <div class="hidden md:flex items-end gap-x-2.5 md:gap-x-3.5">
+                                <p class="font-DanaMedium text-sm md:text-base">10:00</p>
+                                <svg class="w-6 h-6 md:w-7 md:h-7">
+                                    <use xlink:href="#lock"></use>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- products (cards) slider-->
-            <section id="card-slider" class="w-full h-[170px] md:h-[200px] lg:h-[230px] xl:h-[270px] mt-14 md:mt-20 p-3 md:p-5 bg-orange-100 rounded-3xl shadow">
-                <!-- header -->
-                 <div class="flex items-center justify-between mb-3 md:mb-6">
-                    <!-- controller -->
-                    <div class="flex items-center gap-x-1.5 md:gap-x-4">
-                        <div class="swiper-button-prev-custom swiper-button-prev-custom-1 w-9 h-9 md:w-11 md:h-11 rounded-full group bg-zinc-700 hover:bg-zinc-500
-                        text-white transition-colors 
-                        flex items-center justify-center cursor-pointer">
-                            <svg class="w-4 h-4">
-                                <use xlink:href="#chevron-right"></use>
-                            </svg>
-                        </div>
-                        <div class="swiper-button-next-custom swiper-button-next-custom-1 w-9 h-9 md:w-11 md:h-11 rounded-full group bg-zinc-700 hover:bg-zinc-500
-                        text-white transition-colors 
-                        flex items-center justify-center cursor-pointer">
-                            <svg class="w-4 h-4 rotate-180">
-                                <use xlink:href="#chevron-right"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <!-- title -->
-                    <div class="font-MorabbaMedium text-2xl md:text-4xl text-zinc-700 drop-shadow-sm">کارت ها</div>
-                    <!-- see all -->
-                    <a href="cards.html" class="inline-flex items-center sm:gap-x-1 group text-zinc-700 ">
-                        <div class="font-MorabbaMedium text-xs md:text-xl drop-shadow-sm group-hover:text-zinc-500 transition-colors">مشاهده همه</div> 
-                        <svg class="w-3 h-3 sm:w-4 sm:h-4 rotate-180 group-hover:-translate-x-1 group-hover:text-zinc-500 transition-all">
-                            <use xlink:href="#chevron-right"></use>
-                        </svg>
-                    </a> 
-                 </div>
-                 <!-- products -->
-                 <div class="swiper swiper1">
-                    <div id="card-swiper-wrapper" class="swiper-wrapper"></div> 
-                 </div>
-            </section> 
-            <!-- products (board game) slider-->
-            <section id="board-game-slider" class="w-full h-[170px] md:h-[200px] lg:h-[230px] xl:h-[270px] mt-36 md:mt-48 p-3 md:p-5 bg-lime-50 rounded-3xl shadow">
-                <!-- header -->
-                 <div class="flex items-center justify-between mb-3 md:mb-6">
-                    <!-- controller -->
-                    <div class="flex items-center gap-x-1.5 md:gap-x-4">
-                        <div class="swiper-button-prev-custom swiper-button-prev-custom-2 w-9 h-9 md:w-11 md:h-11 rounded-full group bg-zinc-700 hover:bg-zinc-500
-                        text-white transition-colors 
-                        flex items-center justify-center cursor-pointer">
-                            <svg class="w-4 h-4">
-                                <use xlink:href="#chevron-right"></use>
-                            </svg>
-                        </div>
-                        <div class="swiper-button-next-custom swiper-button-next-custom-2 w-9 h-9 md:w-11 md:h-11 rounded-full group bg-zinc-700 hover:bg-zinc-500
-                        text-white transition-colors 
-                        flex items-center justify-center cursor-pointer">
-                            <svg class="w-4 h-4 rotate-180">
-                                <use xlink:href="#chevron-right"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <!-- title -->
-                    <div class="font-MorabbaMedium text-2xl md:text-4xl text-zinc-700 drop-shadow-sm">بوردگیم ها</div>
-                    <!-- see all -->
-                    <a href="boardgame.html" class="inline-flex items-center sm:gap-x-1 group text-zinc-700 ">
-                        <div class="font-MorabbaMedium text-xs md:text-xl drop-shadow-sm group-hover:text-zinc-500 transition-colors">مشاهده همه</div> 
-                        <svg class="w-3 h-3 sm:w-4 sm:h-4 rotate-180 group-hover:-translate-x-1 group-hover:text-zinc-500 transition-all">
-                            <use xlink:href="#chevron-right"></use>
-                        </svg>
-                    </a> 
-                 </div>
-                 <!-- products -->
-                 <div class="swiper swiper2">
-                    <div id="boardgame-swiper-wrapper" class="swiper-wrapper"></div> 
-                 </div>
-            </section>
-            <!-- banners -->
-            <section class="w-full flex flex-col md:flex-row items-center justify-between gap-y-2 md:gap-y-0 mt-40 md:mt-52">
-                <!-- banner1 -->
-                <div class="md:relative w-full md:w-[40%] h-[140px] md:h-[200px] bg-lime-50 rounded-2xl
-                flex flex-row md:flex-col gap-x-4 md:gap-y-2 items-center md:items-start p-3 shadow">
-                    <div class="w-28 h-28 md:w-40 md:h-40 lg:w-44 lg:h-44 md:absolute -top-20 right-5 -mt-5 md:mt-0">
-                        <img src="./img/bannerImg2.png" alt="">
-                    </div>
-                    <div class="md:absolute bottom-9 lg:bottom-7 right-5 font-MorabbaMedium text-xl md:text-3xl xl:text-4xl text-zinc-700 drop-shadow-sm">
-                        کودکانی خلاق و آرام
-                    </div>
-                </div>
-                <!-- banner2 -->
-                <div class="md:relative w-full md:w-[59%] h-[140px] md:h-[200px] bg-orange-200 rounded-2xl
-                flex flex-row md:flex-col gap-x-4 md:gap-y-2 items-center md:items-start p-3 shadow">
-                    <div class="w-28 h-28 md:w-48 md:h-48 lg:w-52 lg:h-52 md:absolute -top-[70px] right-5 rotate-[0.5deg]">
-                        <img src="./img/bannerImg.png" alt="">
-                    </div>
-                    <div class="md:absolute bottom-9 lg:bottom-7 right-5 font-MorabbaMedium text-xl md:text-3xl xl:text-4xl text-zinc-700 drop-shadow-sm">
-                        آموزشی سرشار از انرژی مثبت 
-                    </div>
-                </div>
-            </section>
-            <!-- meditation slider -->
-            <section id="meditation-slider" class="w-full h-[170px] md:h-[200px] lg:h-[230px] xl:h-[270px] mt-14 md:mt-20 p-3 md:p-5 bg-orange-100 rounded-3xl shadow">
-                <!-- header -->
-                 <div class="flex items-center justify-between mb-3 md:mb-6">
-                    <!-- controller -->
-                    <div class="flex items-center gap-x-1.5 md:gap-x-4">
-                        <div class="swiper-button-prev-custom swiper-button-prev-custom-3 w-9 h-9 md:w-11 md:h-11 rounded-full group bg-zinc-700 hover:bg-zinc-500
-                        text-white transition-colors 
-                        flex items-center justify-center cursor-pointer">
-                            <svg class="w-4 h-4">
-                                <use xlink:href="#chevron-right"></use>
-                            </svg>
-                        </div>
-                        <div class="swiper-button-next-custom swiper-button-next-custom-3 w-9 h-9 md:w-11 md:h-11 rounded-full group bg-zinc-700 hover:bg-zinc-500
-                        text-white transition-colors 
-                        flex items-center justify-center cursor-pointer">
-                            <svg class="w-4 h-4 rotate-180">
-                                <use xlink:href="#chevron-right"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <!-- title -->
-                    <div class="font-MorabbaMedium text-2xl md:text-4xl text-zinc-700 drop-shadow-sm">مراقبه ها</div>
-                    <!-- see all -->
-                    <a href="meditation.html" class="inline-flex items-center sm:gap-x-1 group text-zinc-700 ">
-                        <div class="font-MorabbaMedium text-xs md:text-xl drop-shadow-sm group-hover:text-zinc-500 transition-colors">مشاهده همه</div> 
-                        <svg class="w-3 h-3 sm:w-4 sm:h-4 rotate-180 group-hover:-translate-x-1 group-hover:text-zinc-500 transition-all">
-                            <use xlink:href="#chevron-right"></use>
-                        </svg>
-                    </a> 
-                 </div>
-                 <!-- products -->
-                 <div class="swiper swiper3">
-                    <div id="meditation-swiper-wrapper" class="swiper-wrapper"></div> 
-                 </div>
-            </section> 
-            <!-- courses section -->
-            <section id="courses-section" class="relative w-full h-min mt-24 md:mt-36 p-3 md:p-5 bg-lime-50 rounded-3xl shadow
-              flex items-center">
-              <!-- title -->
-              <div class="font-MorabbaMedium text-2xl md:text-4xl text-zinc-700 text-center drop-shadow-sm w-[40%]">دوره ها</div>
-              <!-- card -->
-              <div class="inline-flex flex-col md:flex-row items-center gap-x-6 w-[60%] h-min p-3 md:p-5
-               bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-               <a href="#" class="inline-block w-full hover:scale-110 overflow-hidden transition-transform mb-5 md:mb-0">
-                  <img class="w-[120px] md:w-60 h-full mx-auto" src="./img/logo.png" alt="">
-               </a>
-               <div class="flex flex-col gap-y-2.5 md:gap-y-3.5 w-full">
-                  <p class="font-DanaDemiBold text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">دوره ی یوگای کودک</p>
-                  <p class="font-DanaMedium text-xs md:text-sm lg:text-base xl:text-lg text-zinc-700 dark:text-gray-100 line-clamp-2">
-                    هنر یوگای کودک در این دوره سعی دارد تا با استفاده از جدید ترین تکنیک ها شما را تبدیل به یک مربی حرفه ای یوگای کودک کند. 
-                  </p>
-                  <div class="w-full flex items-center justify-between">
-                      <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">135,000</span>تومان</p>
-                  </div>
-               </div>
-              </div>
-              <!-- img -->
-              <div class="absolute bottom-0 right-0">
-                <img class="w-16 h-16 md:w-32 md:h-32 lg:w-40 lg:h-40" src="./img/lineGirl.png" alt="">
-              </div>
-            </section>
-            <!-- blogs -->
-            <section id="blog-slider" class="w-full h-min mt-14 md:mt-20 p-3 md:p-5 bg-orange-100 rounded-3xl shadow">
-                <!-- header -->
-                 <div class="flex items-center justify-between mb-3 md:mb-6">
-                    <!-- controller -->
-                    <div class="flex items-center gap-x-1.5 md:gap-x-4">
-                        <div class="swiper-button-prev-custom swiper-button-prev-custom-4 w-9 h-9 md:w-11 md:h-11 rounded-full group bg-zinc-700 hover:bg-zinc-500
-                        text-white transition-colors 
-                        flex items-center justify-center cursor-pointer">
-                            <svg class="w-4 h-4">
-                                <use xlink:href="#chevron-right"></use>
-                            </svg>
-                        </div>
-                        <div class="swiper-button-next-custom swiper-button-next-custom-4 w-9 h-9 md:w-11 md:h-11 rounded-full group bg-zinc-700 hover:bg-zinc-500
-                        text-white transition-colors 
-                        flex items-center justify-center cursor-pointer">
-                            <svg class="w-4 h-4 rotate-180">
-                                <use xlink:href="#chevron-right"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <!-- title -->
-                    <div class="font-MorabbaMedium text-2xl md:text-4xl text-zinc-700 drop-shadow-sm">مقالات</div>
-                    <!-- see all -->
-                    <a href="Article.html" class="inline-flex items-center sm:gap-x-1 group text-zinc-700 ">
-                        <div class="font-MorabbaMedium text-xs md:text-xl drop-shadow-sm group-hover:text-zinc-500 transition-colors">مشاهده همه</div> 
-                        <svg class="w-3 h-3 sm:w-4 sm:h-4 rotate-180 group-hover:-translate-x-1 group-hover:text-zinc-500 transition-all">
-                            <use xlink:href="#chevron-right"></use>
-                        </svg>
-                    </a> 
-                 </div>
-                 <!-- products -->
-                 <div class="swiper swiper4">
-                    <div id="blog-swiper-wrapper" class="swiper-wrapper"></div> 
-                 </div>
-            </section>
-         </section>
+        </div>
     </main> 
 
-    <footer class="relative w-full h-min bg-zinc-700 mt-14 md:mt-20">
+    <footer class="relative w-full h-min bg-zinc-700 mt-5 md:mt-20">
         <!-- curve -->
         <div class="w-full">
-            <svg class="w-[100px] h-[22px] mx-auto text-white dark:text-zinc-800 rotate-180">
+            <svg class="w-[100px] h-[22px] mx-auto text-gray-100 dark:text-zinc-800 rotate-180">
                 <use xlink:href="#curve"></use>
             </svg>
             <div class="absolute -top-4 w-full flex justify-center">
@@ -600,7 +546,7 @@
             </div>
         </div>
         <!--  main footer -->
-        <div class="w-full px-8 md:px-24 pt-6 md:pt-16 flex justify-between gap-x-20 items-baseline flex-wrap">
+        <div class="w-full px-8 md:px-24 pt-8 md:pt-16 flex justify-between gap-x-20 items-baseline flex-wrap">
             <div class="w-full md:w-[480px] text-center mb-8 md:mb-16 mx-auto">
                  <p class="font-DanaDemiBold text-sm md:text-base lg:text-lg xl:text-2xl text-white mb-3 md:mb-4 lg:mb-5">چرا هنر یوگای کودک ؟</p>
                  <div class="font-Dana text-xs md:text-sm lg:text-base xl:text-xl leading-[30px] md:leading-[38px] lg:leading-[42px] xl:leading-[48px] text-gray-300 text-justify">
@@ -666,101 +612,6 @@
     <!-- overlay -->
     <div class="overlay w-full h-full fixed inset-0 bg-black/40 z-10 hidden"></div>
     
-    <script src="./scripts/app.js"></script>
-    <script src="./scripts/swiper-bundle.min.js"></script>
-    <script>
-        const swiper1 = new Swiper(".swiper1", {
-            slidesPerView: 2,
-            spaceBetween: 10,
-            loop : true,
-            navigation: {
-                nextEl: '.swiper-button-next-custom-1',
-                prevEl: '.swiper-button-prev-custom-1',
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 3,
-                    spaceBetween: 15,
-                },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 15,
-                },
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 15,
-                },
-            },
-        });
-        const swiper2 = new Swiper(".swiper2", {
-            slidesPerView: 2,
-            spaceBetween: 10,
-            loop : true,
-            navigation: {
-                nextEl: '.swiper-button-next-custom-2',
-                prevEl: '.swiper-button-prev-custom-2',
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 3,
-                    spaceBetween: 15,
-                },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 15,
-                },
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 15,
-                },
-            },
-        });
-        const swiper3 = new Swiper(".swiper3", {
-            slidesPerView: 2,
-            spaceBetween: 10,
-            loop : true,
-            navigation: {
-                nextEl: '.swiper-button-next-custom-3',
-                prevEl: '.swiper-button-prev-custom-3',
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 3,
-                    spaceBetween: 15,
-                },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 15,
-                },
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 15,
-                },
-            },
-        });
-        const swiper4 = new Swiper(".swiper4", {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            loop : true,
-            navigation: {
-                nextEl: '.swiper-button-next-custom-4',
-                prevEl: '.swiper-button-prev-custom-4',
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 1,
-                    spaceBetween: 15,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 15,
-                },
-                1024: {
-                    slidesPerView: 2,
-                    spaceBetween: 15,
-                },
-            },
-        });
-    </script>
+    <script src="./scripts/singleCourse.js"></script>
 </body>
 </html>
