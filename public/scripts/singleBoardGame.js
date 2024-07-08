@@ -191,7 +191,7 @@ function loadData() {
                         <div>
                             <p class="font-Dana text-sm md:text-base lg:text-lg xl:text-xl text-lime-900 dark:text-lime-100"><span class="text-lg md:text-xl lg:text-2xl xl:text-3xl">${obj.price}</span>تومان</p>
                         </div>
-                        <div onclick="addCardToShoppingCard(${obj.id})" class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-gray-300 text-gray-600 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                        <div onclick="addBoardGameToShoppingCard(${obj.id})" class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-gray-300 text-gray-600 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
                         inline-flex items-center justify-center cursor-pointer">
                             <svg class="w-5 h-5 lg:w-8 lg:h-8">
                                 <use xlink:href="#shopping-card"></use>
