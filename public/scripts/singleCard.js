@@ -155,38 +155,38 @@ function loadData() {
                 `<img class="w-full h-full" src="${obj.src4}" alt="">`)
                 productWrapper.insertAdjacentHTML(`beforeend`,
                 `<div class="w-full md:w-[60%] h-min text-zinc-700 dark:text-gray-100">
-                    <p class="font-MorabbaMedium text-lg md:text-xl lg:text-2xl xl:text-3xl mb-5 md:mb-7">${obj.title}</p>
+                    <p class="font-MorabbaMedium text-lg md:text-xl lg:text-2xl xl:text-3xl mb-3 md:mb-5">${obj.title}</p>
                     <div class="mb-5 md:mb-7">
                         <p class="font-MorabbaMedium text-base md:text-lg lg:text-xl xl:text-2xl mb-1 md:mb-3 tracking-tight">مشخصات فنی</p>
                         <ul class="space-y-1 md:space-y-3">
                             <li class="flex items-center gap-x-2">
                             <div class="w-2 h-2 bg-zinc-700 dark:bg-gray-100 rounded-full"></div>
-                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tightest">ابعاد کارت ها : ${obj.size} سانتی متر</p>
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tighter">ابعاد کارت ها : ${obj.size} سانتی متر</p>
                             </li>
                             <li class="flex items-center gap-x-2">
                             <div class="w-2 h-2 bg-zinc-700 dark:bg-gray-100 rounded-full"></div>
-                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tightest">تعداد کارت ها : ${obj.count} عدد</p>
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tighter">تعداد کارت ها : ${obj.count} عدد</p>
                             </li>
                             <li class="flex items-center gap-x-2">
                             <div class="w-2 h-2 bg-zinc-700 dark:bg-gray-100 rounded-full"></div>
-                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tightest">جنس کارت ها : ${obj.material}</p>
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tighter">جنس کارت ها : ${obj.material}</p>
                             </li>
                             <li class="flex items-center gap-x-2">
                             <div class="w-2 h-2 bg-zinc-700 dark:bg-gray-100 rounded-full"></div>
-                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tightest">وزن بسته : ${obj.weight} گرم</p>
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tighter">وزن بسته : ${obj.weight} گرم</p>
                             </li>
                             <li class="flex items-center gap-x-2">
                             <div class="w-2 h-2 bg-zinc-700 dark:bg-gray-100 rounded-full"></div>
-                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tightest">هدف بازی : آموزشی</p>
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tighter">هدف بازی : آموزشی</p>
                             </li>
                             <li class="flex items-center gap-x-2">
                             <div class="w-2 h-2 bg-zinc-700 dark:bg-gray-100 rounded-full"></div>
-                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tightest">رده سنی : مناسب برای کودکان</p>
+                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tighter">رده سنی : مناسب برای کودکان</p>
                             </li>
                         </ul>
                     </div>
                     <p class="font-MorabbaMedium text-base md:text-lg lg:text-xl xl:text-2xl mb-1 md:mb-3 tracking-tight">توضیحات</p>
-                    <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tight text-justify mb-5 md:mb-7">${obj.desc}</p>
+                    <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tight text-justify mb-3 md:mb-5">${obj.desc}</p>
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="font-Dana text-sm md:text-base lg:text-lg xl:text-xl text-lime-900 dark:text-lime-100"><span class="text-lg md:text-xl lg:text-2xl xl:text-3xl">${obj.price}</span>تومان</p>
