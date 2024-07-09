@@ -33,6 +33,8 @@ let courseLessonCount = document.querySelector('.course-lesson-count')
 let courseDurationTime = document.querySelector('.course-duration-time')
 let detailWrapper = document.querySelector('.detail-wrapper')
 let lessonContainer = document.querySelector('.lesson-container')
+let lessonTitle = document.querySelector('.lesson-title')
+let lessonDesc = document.querySelector('.lesson-desc')
 
 let lessonsData = [
     {id : 1 , src : './video/video.mp4' , title : "قسمت اول دوره یوگای کودک", desc : " دراین قسمت از دوره ی هنر یوگا به نحوه ی ارتباط گیری با کودکان میپردازیم "},
@@ -45,6 +47,19 @@ let lessonsData = [
     {id : 8 , src : './video/video.mp4' , title : "قسمت هشتم دوره یوگای کودک", desc : " دراین قسمت از دوره ی هنر یوگا به نحوه ی ارتباط گیری با کودکان میپردازیم "},
     {id : 9 , src : './video/video.mp4' , title : "قسمت نهم دوره یوگای کودک", desc : " دراین قسمت از دوره ی هنر یوگا به نحوه ی ارتباط گیری با کودکان میپردازیم "},
     {id : 10 , src : './video/video.mp4' , title : "قسمت دهم دوره یوگای کودک", desc : " دراین قسمت از دوره ی هنر یوگا به نحوه ی ارتباط گیری با کودکان میپردازیم "}
+]
+
+let lessonsInfo = [
+    {id : 1 , title : "قسمت اول دوره یوگای کودک", duration : "20:00"},
+    {id : 2 , title : "قسمت دوم دوره یوگای کودک", duration : "10:00"},
+    {id : 3 , title : "قسمت سوم دوره یوگای کودک", duration : "30:00"},
+    {id : 4 , title : "قسمت چهارم دوره یوگای کودک", duration : "20:00"},
+    {id : 5 , title : "قسمت پنجم دوره یوگای کودک", duration : "40:00"},
+    {id : 6 , title : "قسمت ششم دوره یوگای کودک", duration : "10:00"},
+    {id : 7 , title : "قسمت هفتم دوره یوگای کودک", duration : "5:00"},
+    {id : 8 , title : "قسمت هشتم دوره یوگای کودک", duration : "10:00"},
+    {id : 9 , title : "قسمت نهم دوره یوگای کودک", duration : "20:00"},
+    {id : 10 , title : "قسمت دهم دوره یوگای کودک", duration : "30:00"},
 ]
 
 //changing the theme
@@ -154,18 +169,34 @@ let pageId = searchParams.get('id')
 function loadLessonData() {
     lessonsData.forEach(obj => {
         if(obj.id == pageId) {
-            lessonContainer.insertAdjacentHTML(`beforeend`,
+            lessonContainer.insertAdjacentHTML(`afterbegin`,
                 `<div class="w-full h-[200px] md:h-[300px] xl:h-[400px] mb-8">
                     <video class="w-full h-full rounded-3xl" controls src="${obj.src}"></video>
                 </div>
-                <div class="w-full md:w-[50%]">
-                    <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6">${obj.title}</p>
-                    <div class="font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100 text-justify">
-                    ${obj.desc}
-                    </div>
-                </div>`
+                `
             )
+            lessonTitle.innerHTML = obj.title
+            lessonDesc.innerHTML = obj.desc
         }
+    })
+}
+
+function loadLessonInfo() {
+    lessonsInfo.forEach(obj => {
+        lessonsSection.insertAdjacentHTML(`beforeend`,
+            `<div class="flex items-end justify-between w-full py-4 border-b-[1px] border-black/10">
+                <a href="lesson.html?id=${obj.id}" class="inline-flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
+                    <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">${obj.id}</p>
+                    <p class="font-DanaMedium text-sm md:text-base">${obj.title}</p>
+                </a>
+                <div class="hidden md:flex items-end gap-x-2.5 md:gap-x-3.5">
+                    <p class="font-DanaMedium text-sm md:text-base">${obj.duration}</p>
+                    <svg class="w-6 h-6 md:w-7 md:h-7">
+                        <use xlink:href="#unLock"></use>
+                    </svg>
+                </div>
+            </div>`
+        )
     })
 }
 
@@ -327,3 +358,4 @@ footerChevronUpElem.addEventListener('click' , scrollToTop)
 phoneNumElem.addEventListener('click' , copyToClipboard)
 window.addEventListener('load' , loadHeaderShoppingCard)
 window.addEventListener('load' , loadLessonData)
+window.addEventListener('load' , loadLessonInfo)
