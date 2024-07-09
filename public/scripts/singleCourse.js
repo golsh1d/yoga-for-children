@@ -208,7 +208,7 @@ function loadLessonData() {
     lessonsData[pageId].forEach(obj => {
         lessonsSection.insertAdjacentHTML(`beforeend`,
             `<div class="flex items-end justify-between w-full py-4 border-b-[1px] border-black/10">
-                <a href="#" class="inline-flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
+                <a href="lesson.html?id=${obj.id}" class="inline-flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
                     <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">${obj.id}</p>
                     <p class="font-DanaMedium text-sm md:text-base">${obj.title}</p>
                 </a>
