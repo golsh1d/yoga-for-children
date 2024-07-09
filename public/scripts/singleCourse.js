@@ -29,6 +29,8 @@ let lessonsSection = document.querySelector('.lessons')
 let openCloseElem = document.querySelector('.openClose')
 let courseDesc = document.querySelector('.course-desc')
 let coursePrice = document.querySelector('.course-price')
+let courseLessonCount = document.querySelector('.course-lesson-count')
+let courseDurationTime = document.querySelector('.course-duration-time')
 let detailWrapper = document.querySelector('.detail-wrapper')
 let courseData = [
     {id : 1 , 
@@ -37,6 +39,8 @@ let courseData = [
     دوره یوگای کودک یک فرصت عالی برای کودکان است تا با حرکات آسان و تنفس عمیق، اعتماد به نفس، تعادل و آرامش را تجربه کنند. این دوره به کودکان کمک می‌کند تا ارتباط بین بدن و ذهن خود را تقویت کنند و استرس و اضطراب را کاهش دهند. همچنین، با شرکت در یوگای کودک، کودکان می‌توانند بهبود خواب و تمرکز خود را تجربه کنند و شادتر، متمرکز‌تر و پویاتر شوند.
     `,
     price : "2,000,000",
+    lessonCount : '10 جلسه',
+    courseDuration : '10 ساعت',
     },
 ]
 
@@ -194,6 +198,8 @@ function loadCourseData() {
         if(obj.id == pageId) {
             courseDesc.innerHTML= obj.desc
             coursePrice.innerHTML = `قیمت : ${obj.price}`
+            courseLessonCount.innerHTML = obj.lessonCount
+            courseDurationTime.innerHTML = obj.courseDuration
         }
     })
 }
@@ -202,10 +208,10 @@ function loadLessonData() {
     lessonsData[pageId].forEach(obj => {
         lessonsSection.insertAdjacentHTML(`beforeend`,
             `<div class="flex items-end justify-between w-full py-4 border-b-[1px] border-black/10">
-                <div class="flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
+                <a href="#" class="inline-flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
                     <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">${obj.id}</p>
                     <p class="font-DanaMedium text-sm md:text-base">${obj.title}</p>
-                </div>
+                </a>
                 <div class="hidden md:flex items-end gap-x-2.5 md:gap-x-3.5">
                     <p class="font-DanaMedium text-sm md:text-base">${obj.duration}</p>
                     <svg class="w-6 h-6 md:w-7 md:h-7">
