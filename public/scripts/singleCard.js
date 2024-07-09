@@ -156,7 +156,7 @@ function loadData() {
                 productWrapper.insertAdjacentHTML(`beforeend`,
                 `<div class="w-full md:w-[60%] h-min text-zinc-700 dark:text-gray-100">
                     <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6">${obj.title}</p>
-                    <div class="mb-5 md:mb-7">
+                    <div class="mb-8">
                         <div class="flex items-center gap-x-2 mb-5">
                         <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
                             <use xlink:href="#exclamation"></use>
@@ -226,8 +226,13 @@ function loadData() {
                             </div>
                         </div>
                     </div>
-                    <p class="font-MorabbaMedium text-base md:text-lg lg:text-xl xl:text-2xl mb-1 md:mb-3 tracking-tight">توضیحات</p>
-                    <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl tracking-tight text-justify mb-3 md:mb-5">${obj.desc}</p>
+                    <div class="flex items-center gap-x-2 mb-5">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#desc"></use>
+                        </svg>
+                        <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-base md:text-lg xl:text-xl">توضیحات</p>
+                    </div>
+                    <p class="font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100 text-justify mb-8">${obj.desc}</p>
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="font-Dana text-sm md:text-base lg:text-lg xl:text-xl text-lime-900 dark:text-lime-100"><span class="text-lg md:text-xl lg:text-2xl xl:text-3xl">${obj.price}</span>تومان</p>
@@ -241,7 +246,7 @@ function loadData() {
                     </div>
                     </div>
                 `
-                )
+            )
         }
     })
 }
