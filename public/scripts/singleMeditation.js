@@ -145,15 +145,15 @@ function loadData() {
     allCardsInfo.forEach(obj => {
         if (obj.id == pageId) {
             productWrapper.insertAdjacentHTML(`beforeend`,
-            `<div class="container px-5 md:px-16 mt-10 md:mt-40 flex flex-col md:flex-row items-center md:justify-between gap-y-10 md:gap-y-0">
+            `<div class="container px-5 md:px-16 mt-10 md:mt-40 flex flex-col md:flex-row items-center md:justify-between gap-y-8 md:gap-y-0">
             <div class="w-[60%] md:w-[30%] h-min">
                 <div class="w-full h-full p-3 md:p-5 rounded-3xl">
                     <img src="${obj.src}" alt="">
                 </div>
             </div>
             <div class="w-full md:w-[60%] h-min text-zinc-700 dark:text-gray-100">
-                <p class="font-MorabbaMedium text-lg md:text-xl lg:text-2xl xl:text-3xl mb-7 md:mb-10">${obj.title}</p>
-                <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-justify mb-7 md:mb-10">${obj.desc}
+                <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-8">${obj.title}</p>
+                <p class="font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100 text-justify mb-8">${obj.desc}
                 </p>
                 <div class="w-full h-min p-[2px] bg-zinc-700 dark:bg-transparent rounded-full">
                     <audio class="w-full" controls src="${obj.audioSrc}"></audio>
