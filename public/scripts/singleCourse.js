@@ -27,6 +27,28 @@ let sideShoppingCardPrice = document.querySelector('.side-shopping-card-price')
 let lessonWrapper = document.querySelector('.lesson-wrapper')
 let lessonsSection = document.querySelector('.lessons')
 let openCloseElem = document.querySelector('.openClose')
+let courseData = [
+    {id : 1 , status : "تکمیل شده" , duration : "10 ساعت" , update : "1403/10/10" , support : "online" , howToUse : "online" , prerequisite : "آشنایی با یوگا" , rate : "5/5" , count : "70 نفر" ,
+    desc : `
+    یوگا یک فعالیت فیزیکی و ذهنی است که به کودکان کمک می‌کند تا اعتماد به نفس، تعادل و آرامش را تجربه کنند. با شرکت در دوره یوگای کودک، فرزندتان می‌تواند با حرکات آسان و تنفس عمیق، ارتباط بین بدن و ذهن خود را تقویت کند. این دوره همچنین به کودکان کمک می‌کند تا استرس و اضطراب را کاهش دهند و بهبود خواب و تمرکز خود را افزایش دهند. با یوگای کودک، کودکان شادتر، متمرکز‌تر و پویاتر خواهند بود.
+    دوره یوگای کودک یک فرصت عالی برای کودکان است تا با حرکات آسان و تنفس عمیق، اعتماد به نفس، تعادل و آرامش را تجربه کنند. این دوره به کودکان کمک می‌کند تا ارتباط بین بدن و ذهن خود را تقویت کنند و استرس و اضطراب را کاهش دهند. همچنین، با شرکت در یوگای کودک، کودکان می‌توانند بهبود خواب و تمرکز خود را تجربه کنند و شادتر، متمرکز‌تر و پویاتر شوند.
+    `,
+    price : "2,000,000",
+    }
+]
+
+let lessonsData = [
+    {id : 1 , title : "قسمت اول دوره یوگای کودک", duration : "20:00"},
+    {id : 2 , title : "قسمت دوم دوره یوگای کودک", duration : "10:00"},
+    {id : 3 , title : "قسمت سوم دوره یوگای کودک", duration : "30:00"},
+    {id : 4 , title : "قسمت چهارم دوره یوگای کودک", duration : "20:00"},
+    {id : 5 , title : "قسمت پنجم دوره یوگای کودک", duration : "40:00"},
+    {id : 6 , title : "قسمت ششم دوره یوگای کودک", duration : "10:00"},
+    {id : 7 , title : "قسمت هفتم دوره یوگای کودک", duration : "5:00"},
+    {id : 8 , title : "قسمت هشتم دوره یوگای کودک", duration : "10:00"},
+    {id : 9 , title : "قسمت نهم دوره یوگای کودک", duration : "20:00"},
+    {id : 10 , title : "قسمت دهم دوره یوگای کودک", duration : "30:00"},
+]
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
