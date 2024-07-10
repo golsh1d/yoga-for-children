@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل کاربری</title>
+    <link rel="icon" href="./img/logo.png">
+    <link rel="stylesheet" href="./styles/app.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="./styles/swiper-bundle.min.css">
+    <script src="https://kit.fontawesome.com/4f2890a18c.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="relative bg-white/60 dark:bg-zinc-800 w-full h-screen flex items-center justify-center overflow-hidden">
+     <!-- all svg icon -->
+     <svg class="hidden">
+        <symbol id="shopping-card" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+        </symbol>
+        <symbol id="moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+        </symbol>
+        <symbol id="sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+        </symbol>
+        <symbol id="arrow-right-end-on-rectangle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
+        </symbol>
+        <symbol id="chevron-left" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </symbol>
+        <symbol id="plus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </symbol>
+        <symbol id="minus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+        </symbol>
+        <symbol id="home" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </symbol>
+        <symbol id="services" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+        </symbol>
+        <symbol id="about" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
+        </symbol>
+        <symbol id="contact" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z" />
+        </symbol>  
+        <symbol id="chevron-up" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+        </symbol>        
+        <symbol id="X-mark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </symbol>
+        <symbol id="arrow-down" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+        </symbol>
+        <symbol id="chevron-right" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </symbol>
+        <symbol id="curve" viewBox="0 0 100 22" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 0C69 0 81 22 100 22L0 22C18.75 22 31 0 50 0Z" />
+        </symbol>  
+        <symbol id="instagram" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.7405 5.9375C9.52393 5.9375 6.05884 9.39795 6.05884 13.6191V24.3809C6.05884 28.5974 9.51929 32.0625 13.7405 32.0625H24.5022C28.7188 32.0625 32.1838 28.6021 32.1838 24.3809V13.6191C32.1838 9.40259 28.7234 5.9375 24.5022 5.9375H13.7405ZM13.7405 8.3125H24.5022C27.4385 8.3125 29.8088 10.6829 29.8088 13.6191V24.3809C29.8088 27.3171 27.4385 29.6875 24.5022 29.6875H13.7405C10.8042 29.6875 8.43384 27.3171 8.43384 24.3809V13.6191C8.43384 10.6829 10.8042 8.3125 13.7405 8.3125ZM26.135 10.9102C25.5366 10.9102 25.0588 11.3879 25.0588 11.9863C25.0588 12.5847 25.5366 13.0625 26.135 13.0625C26.7334 13.0625 27.2112 12.5847 27.2112 11.9863C27.2112 11.3879 26.7334 10.9102 26.135 10.9102ZM19.1213 11.875C15.2017 11.875 11.9963 15.0803 11.9963 19C11.9963 22.9197 15.2017 26.125 19.1213 26.125C23.041 26.125 26.2463 22.9197 26.2463 19C26.2463 15.0803 23.041 11.875 19.1213 11.875ZM19.1213 14.25C21.7607 14.25 23.8713 16.3606 23.8713 19C23.8713 21.6394 21.7607 23.75 19.1213 23.75C16.4819 23.75 14.3713 21.6394 14.3713 19C14.3713 16.3606 16.4819 14.25 19.1213 14.25Z"/>
+        </symbol>  
+        <symbol id="telegram" viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M31.0136 7.9292C32.3492 7.9292 32.7007 8.93937 32.3056 11.3112C31.8536 14.0234 30.5513 23.0033 29.5126 28.5933C29.1152 30.7324 28.3988 31.6547 27.3561 31.6547C26.783 31.6547 26.1116 31.376 25.3405 30.867C24.2955 30.1766 19.0199 26.6877 17.8743 25.8684C16.8293 25.1218 15.3877 24.2233 17.1959 22.4547C17.8395 21.8245 22.0567 17.7973 25.3421 14.6631C25.6928 14.3282 25.3991 13.8176 25.0096 13.8176C24.921 13.8176 24.8268 13.8445 24.7349 13.9055C20.3063 16.8426 14.1654 20.9189 13.384 21.4501C12.6026 21.9805 11.841 22.3209 10.8261 22.3209C10.3076 22.3209 9.72255 22.2322 9.03459 22.0343C7.49638 21.5926 5.99459 21.0661 5.40955 20.865C3.15726 20.0924 3.69163 19.0909 5.87901 18.1282C14.6491 14.2704 25.9976 9.56637 27.5643 8.91562C29.0907 8.28149 30.2243 7.9292 31.0136 7.9292ZM31.0136 5.5542C29.9306 5.5542 28.6268 5.90332 26.6547 6.72112L26.418 6.81928C17.9986 10.3153 10.3646 13.5595 4.92267 15.9535C4.07242 16.328 1.48605 17.4656 1.58659 19.8454C1.62934 20.8722 2.19459 22.2718 4.63926 23.1102L4.81976 23.172C5.50217 23.4071 6.92322 23.8971 8.37988 24.3159C9.26655 24.5708 10.0677 24.6943 10.8269 24.6943C12.1443 24.6943 13.1647 24.3183 13.9627 23.8805C13.9588 24.0135 13.9619 24.1473 13.9722 24.2819C14.1163 26.1122 15.5318 27.116 16.3773 27.7161L16.4953 27.8C17.7437 28.693 23.3938 32.4257 24.0335 32.8477C25.2376 33.6425 26.3246 34.0281 27.3577 34.0281C28.9822 34.0281 31.0809 33.1604 31.8488 29.0263C32.578 25.1052 33.4203 19.6277 34.0354 15.6282C34.2975 13.9213 34.5128 12.5217 34.6498 11.7007C34.9261 10.0429 35.0527 8.16512 33.8993 6.80424C33.4148 6.23424 32.5218 5.5542 31.0136 5.5542Z"/>
+        </symbol>
+        <symbol id="phone" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+        </symbol>
+        <symbol id="user" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+        </symbol>  
+        <symbol id="truck" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+        </symbol>
+        <symbol id="video" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+        </symbol>    
+        <symbol id="academic-cap" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+        </symbol>
+        <symbol id="arrow-right-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
+        </symbol>
+        <symbol id="bars-new" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+        </symbol>
+                    
+    </svg>
+    
+    <section class="w-[95%] h-[96%] md:h-[88%] flex flex-col md:flex-row items-start justify-between">
+        <!-- right section -->
+        <div class="hidden md:block w-[30%] h-full p-5">
+            <div class="flex flex-col lg:flex-row items-center gap-x-3 gap-y-3 pb-3 md:pb-6 border-b-[1px] border-gray-300 dark:border-white/10">
+                <div>
+                    <img class="w-16 h-16" src="./img/logo.png" alt="">
+                </div>
+                <div class="flex flex-col gap-y-1">
+                    <p class="font-MorabbaBold text-lg text-zinc-700 dark:text-gray-100">هنر یوگای کودک</p>
+                    <p class="font-DanaMedium text-sm text-zinc-700 dark:text-gray-100">آغازی شاد برای زندگی سالم</p>
+                </div>
+            </div>
+            <ul>
+                <li class="w-full h-min p-3 mt-3 flex items-center rounded-xl">
+                    <a href="#" class="w-full inline-flex items-end gap-x-2">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                            <use xlink:href="#truck"></use>
+                        </svg>
+                        <p class="font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">سفارشات</p>
+                    </a>
+                </li>
+                <li class="w-full h-min p-3 flex items-center rounded-xl">
+                    <a href="#" class="w-full inline-flex items-end gap-x-2">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                            <use xlink:href="#academic-cap"></use>
+                        </svg>
+                        <p class="font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">دوره ها</p>
+                    </a>
+                </li>
+                <li class="w-full h-min p-3 mb-3 flex items-center rounded-xl bg-orange-300">
+                    <a href="#" class="w-full inline-flex items-end gap-x-2">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8 text-white">
+                            <use xlink:href="#user"></use>
+                        </svg>
+                        <p class="font-DanaMedium text-sm lg:text-base text-white">اطلاعات</p>
+                    </a>
+                </li>
+            </ul>
+            <!-- seperator -->
+            <div class="w-[full] h-[0.7px] bg-gray-300 dark:bg-white/10"></div> 
+            <!-- logout -->
+            <div class="w-full h-min flex items-center gap-x-2 p-3 mt-3 group rounded-xl cursor-pointer">
+                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                    <use xlink:href="#arrow-right-out"></use>
+                </svg>
+                <p class="font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">خروج از حساب</p>
+            </div>
+        </div>
+        <!-- topic for left section -->
+        <div class="pannel-icon flex md:hidden items-center gap-x-1 mb-4 cursor-pointer">
+            <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                <use xlink:href="#bars-new"></use>
+            </svg>
+            <p class="font-MorabbaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">پنل کاربری</p>
+        </div>
+        <!-- left section -->
+        <div class="w-full md:w-[70%] h-full p-5 bg-gray-100 dark:bg-zinc-700 rounded-2xl"></div>
+    </section>
+
+    <!-- side nav -->
+    <div class="side-pannel absolute top-0 right-0 translate-x-[300px] bg-white dark:bg-zinc-700 z-20">
+        <div class="w-[300px] h-screen p-5">
+            <div class="relative flex flex-col items-center gap-y-3 pb-3 md:pb-6 border-b-[1px] border-gray-300 dark:border-white/10">
+                <div>
+                    <img class="w-16 h-16" src="./img/logo.png" alt="">
+                </div>
+                <div class="flex flex-col gap-y-1">
+                    <p class="font-MorabbaBold text-lg text-zinc-700 dark:text-gray-100">هنر یوگای کودک</p>
+                    <p class="font-DanaMedium text-sm text-zinc-700 dark:text-gray-100">آغازی شاد برای زندگی سالم</p>
+                </div>
+                <div class="x-mark">
+                    <svg class="absolute left-0 top-0 w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                        <use xlink:href="#X-mark"></use>
+                    </svg>
+                </div>
+            </div>
+            <ul>
+                <li class="w-full h-min p-3 mt-3 flex items-center rounded-xl">
+                    <a href="#" class="w-full inline-flex items-end gap-x-2">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                            <use xlink:href="#truck"></use>
+                        </svg>
+                        <p class="font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">سفارشات</p>
+                    </a>
+                </li>
+                <li class="w-full h-min p-3 flex items-center rounded-xl">
+                    <a href="#" class="w-full inline-flex items-end gap-x-2">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                            <use xlink:href="#academic-cap"></use>
+                        </svg>
+                        <p class="font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">دوره ها</p>
+                    </a>
+                </li>
+                <li class="w-full h-min p-3 mb-3 flex items-center rounded-xl bg-orange-300">
+                    <a href="#" class="w-full inline-flex items-end gap-x-2">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8 text-white">
+                            <use xlink:href="#user"></use>
+                        </svg>
+                        <p class="font-DanaMedium text-sm lg:text-base text-white">اطلاعات</p>
+                    </a>
+                </li>
+            </ul>
+            <!-- seperator -->
+            <div class="w-[full] h-[0.7px] bg-gray-300 dark:bg-white/10"></div> 
+            <!-- logout -->
+            <div class="w-full h-min flex items-center gap-x-2 p-3 mt-3 group rounded-xl cursor-pointer">
+                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                    <use xlink:href="#arrow-right-out"></use>
+                </svg>
+                <p class="font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">خروج از حساب</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- overlay -->
+    <div class="overlay w-full h-full fixed inset-0 bg-black/40 z-10 hidden"></div>
+
+    <script src="./scripts/pannel.js"></script>
+</body>
+</html>
