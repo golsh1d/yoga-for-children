@@ -33,6 +33,8 @@ let headerShoppingCardPrice = document.querySelector('.header-shopping-card-pric
 let headerShoppingCardItemCount = document.querySelector('.header-shopping-card-item-count')
 let sideShoppingCardBody = document.querySelector('.side-shopping-card-body')
 let sideShoppingCardPrice = document.querySelector('.side-shopping-card-price')
+let pannelIcon = document.querySelector('.pannel-icon')
+let pannelContainer = document.querySelector('.pannel-container')
 
 // database
 let cardSlidrerInfo = [
@@ -471,6 +473,19 @@ function loadHeaderShoppingCard() {
     }
 }
 
+let isHide = true
+function showPannel() {
+    if (isHide) {
+        pannelContainer.style.display = 'block'
+        overlayElem.style.display = 'block'
+        isHide = false
+    } else {
+        pannelContainer.style.display = 'none'
+        overlayElem.style.display = 'none'
+        isHide = true
+    }
+}
+
 // events
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
@@ -488,3 +503,4 @@ window.addEventListener('load' , loadBoardGames)
 window.addEventListener('load' , loadmeditation)
 window.addEventListener('load' , loadblogs)
 window.addEventListener('load' , loadHeaderShoppingCard)
+pannelIcon.addEventListener('click' , showPannel)
