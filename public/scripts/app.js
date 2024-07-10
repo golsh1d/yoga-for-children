@@ -477,6 +477,7 @@ let isHide = true
 function showPannel() {
     if (isHide) {
         pannelContainer.style.display = 'block'
+        pannelContainer.style.zIndex = '999' 
         overlayElem.style.display = 'block'
         isHide = false
     } else {
