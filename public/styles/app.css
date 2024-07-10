@@ -1266,6 +1266,16 @@ video {
   min-width: min-content;
 }
 
+.max-w-min {
+  max-width: -moz-min-content;
+  max-width: min-content;
+}
+
+.max-w-max {
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
 .basis-\[50\%\] {
   flex-basis: 50%;
 }
@@ -2204,6 +2214,10 @@ video {
 
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
+}
+
+.dark\:block:is(.dark *) {
+  display: block;
 }
 
 .dark\:inline-block:is(.dark *) {

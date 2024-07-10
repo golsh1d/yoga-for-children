@@ -112,7 +112,7 @@
             </div>
             <ul>
                 <li class="w-full h-min p-3 mt-3 flex items-center rounded-xl">
-                    <a href="#" class="w-full inline-flex items-end gap-x-2">
+                    <a href="#" class="max-w-max  inline-flex items-end gap-x-2">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
                             <use xlink:href="#truck"></use>
                         </svg>
@@ -120,7 +120,7 @@
                     </a>
                 </li>
                 <li class="w-full h-min p-3 flex items-center rounded-xl">
-                    <a href="#" class="w-full inline-flex items-end gap-x-2">
+                    <a href="#" class="max-w-max  inline-flex items-end gap-x-2">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
                             <use xlink:href="#academic-cap"></use>
                         </svg>
@@ -128,7 +128,7 @@
                     </a>
                 </li>
                 <li class="w-full h-min p-3 mb-3 flex items-center rounded-xl bg-orange-300">
-                    <a href="#" class="w-full inline-flex items-end gap-x-2">
+                    <a href="#" class="max-w-max  inline-flex items-end gap-x-2">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8 text-white">
                             <use xlink:href="#user"></use>
                         </svg>
@@ -139,12 +139,28 @@
             <!-- seperator -->
             <div class="w-[full] h-[0.7px] bg-gray-300 dark:bg-white/10"></div> 
             <!-- logout -->
-            <div class="w-full h-min flex items-center gap-x-2 p-3 mt-3 group rounded-xl cursor-pointer">
-                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
-                    <use xlink:href="#arrow-right-out"></use>
-                </svg>
-                <p class="font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">خروج از حساب</p>
-            </div>
+            <ul>
+                <div class="toggle-theme max-w-max h-min flex items-center gap-x-2 p-3 mt-3 group rounded-xl cursor-pointer">
+                    <div>
+                        <svg class="block dark:hidden w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                            <use xlink:href="#moon"></use>
+                        </svg>
+                        <svg class="hidden dark:block w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                            <use xlink:href="#sun"></use>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="block dark:hidden font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">تم تیره</p>
+                        <p class="hidden dark:block font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">تم روشن</p> 
+                    </div>
+               </div>
+                <div class="max-w-max  h-min flex items-center gap-x-2 p-3 group rounded-xl cursor-pointer">
+                     <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                         <use xlink:href="#arrow-right-out"></use>
+                     </svg>
+                     <p class="font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">خروج از حساب</p>
+                </div>
+            </ul>
         </div>
         <!-- topic for left section -->
         <div class="pannel-icon flex md:hidden items-center gap-x-1 mb-4 cursor-pointer">
@@ -154,7 +170,7 @@
             <p class="font-MorabbaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">پنل کاربری</p>
         </div>
         <!-- left section -->
-        <div class="w-full md:w-[70%] h-full p-5 bg-gray-50 dark:bg-lime-50 rounded-2xl
+        <div class="w-full md:w-[70%] h-full p-5 bg-lime-50 rounded-2xl
         flex md:items-center">
             <div class="w-full">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-y-5 w-full h-min mb-5 md:mb-10">
@@ -220,7 +236,7 @@
             </div>
             <ul>
                 <li class="w-full h-min p-3 mt-3 flex items-center rounded-xl">
-                    <a href="#" class="w-full inline-flex items-end gap-x-2">
+                    <a href="#" class="max-w-max inline-flex items-end gap-x-2">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
                             <use xlink:href="#truck"></use>
                         </svg>
@@ -228,7 +244,7 @@
                     </a>
                 </li>
                 <li class="w-full h-min p-3 flex items-center rounded-xl">
-                    <a href="#" class="w-full inline-flex items-end gap-x-2">
+                    <a href="#" class="max-w-max inline-flex items-end gap-x-2">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
                             <use xlink:href="#academic-cap"></use>
                         </svg>
@@ -236,7 +252,7 @@
                     </a>
                 </li>
                 <li class="w-full h-min p-3 mb-3 flex items-center rounded-xl bg-orange-300">
-                    <a href="#" class="w-full inline-flex items-end gap-x-2">
+                    <a href="#" class="max-w-max inline-flex items-end gap-x-2">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8 text-white">
                             <use xlink:href="#user"></use>
                         </svg>
@@ -247,12 +263,28 @@
             <!-- seperator -->
             <div class="w-[full] h-[0.7px] bg-gray-300 dark:bg-white/10"></div> 
             <!-- logout -->
-            <div class="w-full h-min flex items-center gap-x-2 p-3 mt-3 group rounded-xl cursor-pointer">
-                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
-                    <use xlink:href="#arrow-right-out"></use>
-                </svg>
-                <p class="font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">خروج از حساب</p>
-            </div>
+            <ul>
+                <div class="toggle-theme max-w-max h-min flex items-center gap-x-2 p-3 mt-3 group rounded-xl cursor-pointer">
+                    <div>
+                        <svg class="block dark:hidden w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                            <use xlink:href="#moon"></use>
+                        </svg>
+                        <svg class="hidden dark:block w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                            <use xlink:href="#sun"></use>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="block dark:hidden font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">تم تیره</p>
+                        <p class="hidden dark:block font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">تم روشن</p> 
+                    </div>
+               </div>
+                <div class="max-w-max h-min flex items-center gap-x-2 p-3 group rounded-xl cursor-pointer">
+                     <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 dark:text-gray-100">
+                         <use xlink:href="#arrow-right-out"></use>
+                     </svg>
+                     <p class="font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">خروج از حساب</p>
+                </div>
+            </ul>
         </div>
     </div>
 
