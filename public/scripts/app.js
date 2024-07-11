@@ -35,6 +35,9 @@ let sideShoppingCardBody = document.querySelector('.side-shopping-card-body')
 let sideShoppingCardPrice = document.querySelector('.side-shopping-card-price')
 let pannelIcon = document.querySelector('.pannel-icon')
 let pannelContainer = document.querySelector('.pannel-container')
+let pannelSubIcon = document.querySelector('.pannel-sub-icon')
+let pannelSubMenu = document.querySelector('.pannel-sub-menu')
+let pannelSubli = document.querySelector('.has-pannel-sub')
 
 // database
 let cardSlidrerInfo = [
@@ -112,13 +115,13 @@ function changeSubmenuDisplay () {
         chevronUp.style.transform = 'rotate(180deg)'
         chevronUp.style.transition = 'transform .2s ease'
         liSub.style.display = 'block'
-        liSub.style.transition = 'all 2s ease'
+        liSub.style.transition = 'all .2s ease'
         isUp = false
     } else {
         chevronUp.style.transform = 'rotate(0deg)'
         chevronUp.style.transition = 'transform .2s ease'
         liSub.style.display = 'none'
-        liSub.style.transition = 'all 2s ease'
+        liSub.style.transition = 'all .2s ease'
         isUp = true
     }
 }
@@ -486,6 +489,25 @@ function showPannel() {
     }
 }
 
+let isShown = true
+function showPannelSub() {
+    if(isShown) {
+        pannelSubIcon.style.transform = 'rotate(180deg)'
+        pannelSubIcon.style.transition = 'transform 0.2s ease'
+        pannelSubli.style.marginBottom = '0px'
+        pannelSubMenu.style.display = 'block'
+        pannelSubMenu.style.transition = 'transform 0.2s ease'
+        isShown = false
+    } else {
+        pannelSubIcon.style.transform = 'rotate(0deg)'
+        pannelSubIcon.style.transition = 'transform 0.2s ease'
+        pannelSubli.style.marginBottom = '24px'
+        pannelSubMenu.style.display = 'none'
+        pannelSubMenu.style.transition = 'transform 0.2s ease'
+        isShown = true
+    }
+}
+
 // events
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
@@ -504,3 +526,4 @@ window.addEventListener('load' , loadmeditation)
 window.addEventListener('load' , loadblogs)
 window.addEventListener('load' , loadHeaderShoppingCard)
 pannelIcon.addEventListener('click' , showPannel)
+pannelSubIcon.addEventListener('click' , showPannelSub)

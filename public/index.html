@@ -313,13 +313,45 @@
             </li>
         </ul>
         <ul class="mt-[30px]">
-            <li class="text-orange-300 font-Dana text-base flex items-center gap-x-2">
-                <svg class="w-5 h-5">
-                    <use xlink:href="#arrow-right-end-on-rectangle"></use>
-                </svg>
-                <a href="register.html">ورود  |  ثبت‌نام</a>
+            <li class="text-orange-300 font-Dana text-base px-2.5 mb-6">
+                <div class="flex items-center gap-x-2">
+                    <svg class="w-5 h-5">
+                        <use xlink:href="#arrow-right-end-on-rectangle"></use>
+                    </svg>
+                    <a href="register.html">ورود  |  ثبت‌نام</a>
+                </div>
             </li>
-            <li class="toggle-theme text-orange-300 font-Dana text-base mt-6">
+            <!-- has sub -->
+            <li class="has-pannel-sub text-orange-300 font-Dana text-base w-full px-2.5 mb-6">
+                <div class="w-full flex items-center justify-between">
+                    <div class="flex items-start gap-x-2">
+                        <svg class="w-5 h-5">
+                            <use xlink:href="#user"></use>
+                        </svg>
+                        <a href="#">پنل کاربری</a>
+                    </div>
+                    <div>
+                        <svg class="pannel-sub-icon chevron-up w-4 h-4 -mt-[3px]">
+                            <use xlink:href="#chevron-up"></use>
+                        </svg>
+                    </div>
+                </div>
+                <ul class="pannel-sub-menu hidden w-full h-min pr-7 my-2.5 text-sm text-zinc-600 dark:text-white">
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors py-3">
+                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
+                        <a href="./pannel.html?id=1">سفارشات</a>
+                    </li>
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors pb-3">
+                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
+                        <a href="./pannel.html?id=2">دوره ها</a>
+                    </li>
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors pb-3">
+                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
+                        <a href="./pannel.html?id=3">اطلاعات</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="toggle-theme text-orange-300 font-Dana text-base px-2.5 mb-6">
                 <div class="flex items-center gap-x-2">
                     <svg class="w-5 h-5 inline-block dark:hidden">
                         <use xlink:href="#moon"></use>
@@ -333,11 +365,11 @@
                     <a href="#" class="hidden dark:inline-block">تم روشن</a>
                 </div>
             </li>
-            <li class="text-orange-300 font-Dana text-base flex items-center gap-x-2 mt-6">
+            <li class="text-orange-300 font-Dana text-base flex items-center gap-x-2 px-2.5 mb-6">
                 <svg class="w-5 h-5">
                     <use xlink:href="#shopping-card"></use>
                 </svg>
-                <a href="#">سبد خرید</a>
+                <a href="shoppingCard.html">سبد خرید</a>
             </li>
         </ul>
     </div> 
