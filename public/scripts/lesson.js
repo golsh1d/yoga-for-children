@@ -35,6 +35,11 @@ let detailWrapper = document.querySelector('.detail-wrapper')
 let lessonContainer = document.querySelector('.lesson-container')
 let lessonTitle = document.querySelector('.lesson-title')
 let lessonDesc = document.querySelector('.lesson-desc')
+let pannelIcon = document.querySelector('.pannel-icon')
+let pannelContainer = document.querySelector('.pannel-container')
+let pannelSubIcon = document.querySelector('.pannel-sub-icon')
+let pannelSubMenu = document.querySelector('.pannel-sub-menu')
+let pannelSubli = document.querySelector('.has-pannel-sub')
 
 let lessonsData = [
     {id : 1 , src : './video/video.mp4' , title : "قسمت اول دوره یوگای کودک", desc : " دراین قسمت از دوره ی هنر یوگا به نحوه ی ارتباط گیری با کودکان میپردازیم "},
@@ -348,6 +353,39 @@ function loadHeaderShoppingCard() {
     }
 }
 
+let isHide = true
+function showPannel() {
+    if (isHide) {
+        pannelContainer.style.display = 'block'
+        overlayElem.style.display = 'block'
+        isHide = false
+    } else {
+        pannelContainer.style.display = 'none'
+        overlayElem.style.display = 'none'
+        isHide = true
+    }
+}
+
+let isShown = true
+function showPannelSub() {
+    if(isShown) {
+        pannelSubIcon.style.transform = 'rotate(180deg)'
+        pannelSubIcon.style.transition = 'transform 0.2s ease'
+        pannelSubli.style.marginBottom = '0px'
+        pannelSubMenu.style.display = 'block'
+        pannelSubMenu.style.transition = 'transform 0.2s ease'
+        isShown = false
+    } else {
+        pannelSubIcon.style.transform = 'rotate(0deg)'
+        pannelSubIcon.style.transition = 'transform 0.2s ease'
+        pannelSubli.style.marginBottom = '24px'
+        pannelSubMenu.style.display = 'none'
+        pannelSubMenu.style.transition = 'transform 0.2s ease'
+        isShown = true
+    }
+}
+
+
 // events
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
@@ -359,3 +397,5 @@ phoneNumElem.addEventListener('click' , copyToClipboard)
 window.addEventListener('load' , loadHeaderShoppingCard)
 window.addEventListener('load' , loadLessonData)
 window.addEventListener('load' , loadLessonInfo)
+pannelIcon.addEventListener('click' , showPannel)
+pannelSubIcon.addEventListener('click' , showPannelSub)
