@@ -152,12 +152,12 @@ function loadData() {
         mainSection.insertAdjacentHTML(`beforeend`,
             `<div class="w-full md:w-[70%] h-full p-5 bg-lime-50 rounded-2xl
              flex justify-center md:justify-start">
-               <div class="inline-flex flex-col md:flex-row items-center gap-x-6 w-[50%] h-min p-3 md:p-5
+               <div class="inline-flex flex-row items-center gap-x-3 md:gap-x-5 w-full md:w-[70%] h-min mx-auto p-3 md:p-5
                bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-               <a href="singleCourse.html?id=1" class="inline-block hover:scale-110 overflow-hidden transition-transform mb-5 md:mb-0">
+               <a href="singleCourse.html?id=1" class="inline-block hover:scale-110 overflow-hidden transition-transform">
                   <img class="w-28 md:w-32 h-full mx-auto" src="./img/logo.png" alt="">
                </a>
-               <div class="flex flex-col gap-y-1.5 md:gap-y-2.5 w-full">
+               <div class="flex flex-col gap-y-2 md:gap-y-2.5 w-full">
                   <p class="font-DanaDemiBold text-sm lg:text-base text-zinc-700 dark:text-gray-100 line-clamp-2">دوره ی یوگای کودک</p>
                   <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 line-clamp-2">
                     هنر یوگای کودک در این دوره سعی دارد تا با استفاده از جدید ترین تکنیک ها شما را تبدیل به یک مربی حرفه ای یوگای کودک کند. 
@@ -167,6 +167,53 @@ function loadData() {
                   </div>
                </div>
               </div>
+            </div>`
+        )
+    }
+    if (pageId == 1) {
+        myInfoLink.classList.add('text-gray-400')
+        myInfoLink.classList.add('dark:text-gray-100')
+        myInfotext.classList.add('text-zinc-700')
+        myInfotext.classList.add('dark:text-gray-100')
+        sideInfoLink.classList.add('text-gray-400')
+        sideInfoLink.classList.add('dark:text-gray-100')
+        sideInfotext.classList.add('text-zinc-700')
+        sideInfotext.classList.add('dark:text-gray-100')
+        myCoursesLink.classList.add('text-gray-400')
+        myCoursesLink.classList.add('dark:text-gray-100')
+        myCoursestext.classList.add('text-zinc-700')
+        myCoursestext.classList.add('dark:text-gray-100')
+        sideCoursesLink.classList.add('text-gray-400')
+        sideCoursesLink.classList.add('dark:text-gray-100')
+        sideCoursestext.classList.add('text-zinc-700')
+        sideCoursestext.classList.add('dark:text-gray-100')
+        myOrderLi.classList.add('bg-orange-300')
+        myOrderLink.classList.add('text-white')
+        myOrdertext.classList.add('text-white')
+        sideOrderLi.classList.add('bg-orange-300')
+        sideOrderLink.classList.add('text-white')
+        sideOrdertext.classList.add('text-white')
+        mainSection.insertAdjacentHTML(`beforeend`,
+            `<div class="w-full md:w-[70%] h-full p-5 bg-lime-50 rounded-2xl
+             flex flex-col justify-start gap-y-3 overflow-y-scroll">
+                <div class="w-full md:w-[70%] h-min mx-auto flex gap-x-3 md:gap-x-5 items-center p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                    <div>
+                        <img class="w-28 md:w-32 h-full mx-auto" src="./img/logo.png" alt="">
+                    </div>
+                    <div class="w-full">
+                        <p class="font-DanaMedium text-sm md:text-base text-zinc-700 dark:text-white mb-[10px] md:mb-[20px]">کارت های یوگای کودک</p>
+                        <div class="flex items-center gap-x-3">
+                        <p class="font-DanaDemiBold text-sm md:text-base tracking-tighter text-orange-300
+                        flex items-center gap-x-3">
+                            1
+                            <svg class="w-3 h-3 md:w-4 md:h-4 text-zinc-700 dark:text-white">
+                                <use xlink:href="#X-mark"></use>
+                            </svg>
+                        </p>
+                        <p class="font-Dana text-xs md:text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-sm md:text-base text-zinc-700 dark:text-white">135,000</span> تومان</p>
+                        </div>
+                    </div>
+                </div>
             </div>`
         )
     }
