@@ -527,3 +527,4 @@ window.addEventListener('load' , loadblogs)
 window.addEventListener('load' , loadHeaderShoppingCard)
 pannelIcon.addEventListener('click' , showPannel)
 pannelSubIcon.addEventListener('click' , showPannelSub)
+

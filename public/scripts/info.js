@@ -1240,7 +1240,7 @@ btn.addEventListener('click' , () => {
 
         async function sendData() {
             try {
-                let res = await fetch('https://eky74.wiremockapi.cloud/info' , {
+                let res = await fetch('http://127.0.0.1:27017/test' , {
                     method : 'POST',
                     headers : {
                         'Content-type': 'application/json'
@@ -1250,7 +1250,7 @@ btn.addEventListener('click' , () => {
 
                 console.log(res)
 
-                if(res.status == 404) {
+                if(res.status != 404) {
                     location.href = 'http://127.0.0.1:5500/public/orderDetail.html'
                     clearInputs()
                 }

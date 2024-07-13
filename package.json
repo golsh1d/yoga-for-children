@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.1"
+  },
+  "name": "yoga",
+  "version": "1.0.0",
+  "description": "connect mongo db with express",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "golshid",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "yoga-for-children"
+  }
+}
