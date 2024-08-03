@@ -219,23 +219,28 @@ function loadBoardGames() {
    })
 }
 
-// function loadmeditation() {
-//     meditationSliderInfo.forEach(obj => {
-//         meditationSwiperWrapper.insertAdjacentHTML(`beforeend` , 
-//             `<div class="swiper-slide">
-//                 <a href="singleMeditation.html?id=${obj.id}" class="inline-block w-full h-min p-3 md:p-5
-//                  bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-//                 <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
-//                     <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
-//                 </div>
-//                 <div>
-//                     <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
-//                 </div>
-//                 </a>
-//             </div>`)
-//         }
-//     )
-// }
+function loadmeditation() {
+    fetch(`http://localhost:3000/api/meditations/`)
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(obj => {
+            meditationSwiperWrapper.insertAdjacentHTML(`beforeend` , 
+                `<div class="swiper-slide">
+                    <a href="singleMeditation.html?id=${obj.id}" class="inline-block w-full h-min p-3 md:p-5
+                     bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                    <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
+                        <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
+                    </div>
+                    <div>
+                        <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
+                    </div>
+                    </a>
+                </div>`)
+            }
+        )
+    })
+    
+}
 
 // function loadblogs() {
 //     blogSliderInfo.forEach(obj => {
@@ -496,7 +501,7 @@ footerChevronUpElem.addEventListener('click' , scrollToTop)
 phoneNumElem.addEventListener('click' , copyToClipboard)
 window.addEventListener('load' , loadCards)
 window.addEventListener('load' , loadBoardGames)
-// window.addEventListener('load' , loadmeditation)
+window.addEventListener('load' , loadmeditation)
 // window.addEventListener('load' , loadblogs)
 window.addEventListener('load' , loadHeaderShoppingCard)
 pannelIcon.addEventListener('click' , showPannel)
