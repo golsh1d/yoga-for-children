@@ -32,15 +32,6 @@ let pannelContainer = document.querySelector('.pannel-container')
 let pannelSubIcon = document.querySelector('.pannel-sub-icon')
 let pannelSubMenu = document.querySelector('.pannel-sub-menu')
 let pannelSubli = document.querySelector('.has-pannel-sub')
-let allCardsInfo = [
-    {id : 1, src : "./img/logo.png", title : "مراقبه های یوگای کودک", desc : "این مراقبه ها مخصوص یوگای کودک هستند و شما با استفاده از این مراقبه ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." ,audioSrc : "./audio/radio-motamem-16-Time-management1.mp3"},
-    {id : 2, src : "./img/logo.png", title : "مراقبه های یوگای کودک", desc : "این مراقبه ها مخصوص یوگای کودک هستند و شما با استفاده از این مراقبه ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." ,audioSrc : "./audio/radio-motamem-16-Time-management1.mp3"},
-    {id : 3, src : "./img/logo.png", title : "مراقبه های یوگای کودک", desc : "این مراقبه ها مخصوص یوگای کودک هستند و شما با استفاده از این مراقبه ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." ,audioSrc : "./audio/radio-motamem-16-Time-management1.mp3"},
-    {id : 4, src : "./img/logo.png", title : "مراقبه های یوگای کودک", desc : "این مراقبه ها مخصوص یوگای کودک هستند و شما با استفاده از این مراقبه ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." ,audioSrc : "./audio/radio-motamem-16-Time-management1.mp3"},
-    {id : 5, src : "./img/logo.png", title : "مراقبه های یوگای کودک", desc : "این مراقبه ها مخصوص یوگای کودک هستند و شما با استفاده از این مراقبه ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." ,audioSrc : "./audio/radio-motamem-16-Time-management1.mp3"},
-    {id : 6, src : "./img/logo.png", title : "مراقبه های یوگای کودک", desc : "این مراقبه ها مخصوص یوگای کودک هستند و شما با استفاده از این مراقبه ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." ,audioSrc : "./audio/radio-motamem-16-Time-management1.mp3"},
-    {id : 7, src : "./img/logo.png", title : "مراقبه های یوگای کودک", desc : "این مراقبه ها مخصوص یوگای کودک هستند و شما با استفاده از این مراقبه ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." ,audioSrc : "./audio/radio-motamem-16-Time-management1.mp3"},
-]
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -147,25 +138,29 @@ let searchParams = new URLSearchParams(locationSearch)
 let pageId = searchParams.get('id')
 
 function loadData() {
-    allCardsInfo.forEach(obj => {
-        if (obj.id == pageId) {
-            productWrapper.insertAdjacentHTML(`beforeend`,
-            `<div class="container px-5 md:px-16 mt-10 md:mt-40 flex flex-col md:flex-row items-center md:justify-between gap-y-8 md:gap-y-0">
-            <div class="w-[60%] md:w-[30%] h-min">
-                <div class="w-full h-full p-3 md:p-5 rounded-3xl">
-                    <img src="${obj.src}" alt="">
+    fetch(`http://localhost:3000/api/meditations/`)
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(obj => {
+            if (obj.id == pageId) {
+                productWrapper.insertAdjacentHTML(`beforeend`,
+                `<div class="container px-5 md:px-16 mt-10 md:mt-40 flex flex-col md:flex-row items-center md:justify-between gap-y-8 md:gap-y-0">
+                <div class="w-[60%] md:w-[30%] h-min">
+                    <div class="w-full h-full p-3 md:p-5 rounded-3xl">
+                        <img src="${obj.src}" alt="">
+                    </div>
                 </div>
-            </div>
-            <div class="w-full md:w-[60%] h-min text-zinc-700 dark:text-gray-100">
-                <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-8">${obj.title}</p>
-                <p class="font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100 text-justify mb-8">${obj.desc}
-                </p>
-                <div class="w-full h-min p-[2px] bg-zinc-700 dark:bg-transparent rounded-full">
-                    <audio class="w-full" controls src="${obj.audioSrc}"></audio>
+                <div class="w-full md:w-[60%] h-min text-zinc-700 dark:text-gray-100">
+                    <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-8">${obj.title}</p>
+                    <p class="font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100 text-justify mb-8">${obj.description}
+                    </p>
+                    <div class="w-full h-min p-[2px] bg-zinc-700 dark:bg-transparent rounded-full">
+                        <audio class="w-full" controls src="${obj.audioSrc}"></audio>
+                    </div>
                 </div>
-            </div>
-            </div>`)
-        }
+                </div>`)
+            }
+        })
     })
 }
 
@@ -193,7 +188,7 @@ function shoppingCardGenerator() {
                                         <use xlink:href="#plus"></use>
                                     </svg>
                                 </div>
-                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.val}</p>
+                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.value}</p>
                                 <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                                     <svg class="w-4 h-4 cursor-pointer">
                                         <use xlink:href="#minus"></use>
@@ -221,7 +216,7 @@ function sideShoppingCardGenerator() {
                 <div class="w-[170px] flex flex-col gap-y-3">
                     <div class="flex justify-between">
                     <p class="font-DanaMedium text-sm text-zinc-700 dark:text-white">${obj.title}</p>
-                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 cursor-pointer text-zinc-700 dark:text-white hover:text-orange-300">
+                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 text-zinc-700 dark:text-white cursor-pointer hover:text-orange-300">
                         <use xlink:href="#X-mark"></use>
                     </svg>
                     </div>
@@ -232,7 +227,7 @@ function sideShoppingCardGenerator() {
                                 <use xlink:href="#plus"></use>
                             </svg>
                         </div>
-                        <p class="text-base tracking-tighter">${obj.val}</p>
+                        <p class="text-base tracking-tighter">${obj.value}</p>
                         <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                             <svg class="w-4 h-4 cursor-pointer">
                                 <use xlink:href="#minus"></use>
@@ -262,7 +257,7 @@ function removeItem(id) {
 function inVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            ++obj.val 
+            ++obj.value 
             totalPrice()
         }
     })
@@ -274,8 +269,8 @@ function inVal(id) {
 function decVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            if(obj.val > 1){
-                --obj.val 
+            if(obj.value > 1){
+                --obj.value 
                 totalPrice()
             }
         }
@@ -290,7 +285,7 @@ function totalPrice() {
     headerShoppingCardPrice.innerHTML = '0'
     sideShoppingCardPrice.innerHTML = '0'
     shoppingCardProductArray.forEach(obj => {
-        sum += obj.price * obj.val
+        sum += obj.price * obj.value
         headerShoppingCardPrice.innerHTML = sum
         sideShoppingCardPrice.innerHTML = sum
     })
