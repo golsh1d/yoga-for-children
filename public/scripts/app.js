@@ -276,41 +276,50 @@ function loadblogs() {
 
 // add element to shopping card array
 function addCardToShoppingCard(id) {
-    cardSlidrerInfo.forEach(obj => {
-        if (obj.id === id) {
-            let isInArray = shoppingCardProductArray.some(obj => {
-                if (obj.id === id) {
-                    return true
+    fetch(`http://localhost:3000/api/cards/`)
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(obj => {
+            if (obj.id === id) {
+                let isInArray = shoppingCardProductArray.some(obj => {
+                    if (obj.id === id) {
+                        return true
+                    }
+                }
+                )
+                if (!isInArray){
+                    shoppingCardProductArray.push(obj)
+                    shoppingCardGenerator()
+                    sideShoppingCardGenerator()
+                    setLocalStorage()
                 }
             }
-            )
-            if (!isInArray){
-                shoppingCardProductArray.push(obj)
-                shoppingCardGenerator()
-                sideShoppingCardGenerator()
-                setLocalStorage()
-            }
-        }
+        })
     })
 }
 
 function addBoardGameToShoppingCard(id) {
-    boardGameSliderInfo.forEach(obj => {
-        if (obj.id === id) {
-            let isInArray = shoppingCardProductArray.some(obj => {
-                if (obj.id === id) {
-                    return true
-                }
-            }
-            )
-            if (!isInArray){
-                shoppingCardProductArray.push(obj)
-                shoppingCardGenerator()
-                sideShoppingCardGenerator()
-                setLocalStorage()
-            }
-        }
-    })
+    fetch(`http://localhost:3000/api/boardgames/`)
+   .then(res => res.json())
+   .then(data => {
+       data.forEach(obj => {
+           if (obj.id === id) {
+               let isInArray = shoppingCardProductArray.some(obj => {
+                   if (obj.id === id) {
+                       return true
+                   }
+               }
+               )
+               if (!isInArray){
+                   shoppingCardProductArray.push(obj)
+                   shoppingCardGenerator()
+                   sideShoppingCardGenerator()
+                   setLocalStorage()
+               }
+           }
+       })
+
+   })
 }
 
 // generate shopping card
@@ -337,7 +346,7 @@ function shoppingCardGenerator() {
                                         <use xlink:href="#plus"></use>
                                     </svg>
                                 </div>
-                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.val}</p>
+                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.value}</p>
                                 <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                                     <svg class="w-4 h-4 cursor-pointer">
                                         <use xlink:href="#minus"></use>
@@ -376,7 +385,7 @@ function sideShoppingCardGenerator() {
                                 <use xlink:href="#plus"></use>
                             </svg>
                         </div>
-                        <p class="text-base tracking-tighter">${obj.val}</p>
+                        <p class="text-base tracking-tighter">${obj.value}</p>
                         <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                             <svg class="w-4 h-4 cursor-pointer">
                                 <use xlink:href="#minus"></use>
@@ -406,7 +415,7 @@ function removeItem(id) {
 function inVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            ++obj.val 
+            ++obj.value 
             totalPrice()
         }
     })
@@ -418,8 +427,8 @@ function inVal(id) {
 function decVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            if(obj.val > 1){
-                --obj.val 
+            if(obj.value > 1){
+                --obj.value 
                 totalPrice()
             }
         }
@@ -434,7 +443,7 @@ function totalPrice() {
     headerShoppingCardPrice.innerHTML = '0'
     sideShoppingCardPrice.innerHTML = '0'
     shoppingCardProductArray.forEach(obj => {
-        sum += obj.price * obj.val
+        sum += obj.price * obj.value
         headerShoppingCardPrice.innerHTML = sum
         sideShoppingCardPrice.innerHTML = sum
     })
