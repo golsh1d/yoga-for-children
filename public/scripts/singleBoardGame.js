@@ -32,15 +32,6 @@ let pannelContainer = document.querySelector('.pannel-container')
 let pannelSubIcon = document.querySelector('.pannel-sub-icon')
 let pannelSubMenu = document.querySelector('.pannel-sub-menu')
 let pannelSubli = document.querySelector('.has-pannel-sub')
-let allBoardGamesInfo = [
-    {id : 8, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "بوردگیم های یوگای کودک", desc : "این بوردگیم ها مخصوص یوگای کودک هستند و شما با استفاده از این بوردگیم ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 135_000, val : 1 , size : "30 در 30" , count: 1 , material : "کاغذ" , weight : "400"},
-    {id : 9, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "بوردگیم های یوگای کودک", desc : "این بوردگیم ها مخصوص یوگای کودک هستند و شما با استفاده از این بوردگیم ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 145_000, val : 1 , size : "30 در 30" , count: 1 , material : "کاغذ" , weight : "400"},
-    {id : 10, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "بوردگیم های یوگای کودک", desc : "این بوردگیم ها مخصوص یوگای کودک هستند و شما با استفاده از این بوردگیم ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 155_000, val : 1 , size : "30 در 30" , count: 1 , material : "کاغذ" , weight : "400"},
-    {id : 11, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "بوردگیم های یوگای کودک", desc : "این بوردگیم ها مخصوص یوگای کودک هستند و شما با استفاده از این بوردگیم ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 165_000, val : 1 , size : "30 در 30" , count: 1 , material : "کاغذ" , weight : "400"},
-    {id : 12, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "بوردگیم های یوگای کودک", desc : "این بوردگیم ها مخصوص یوگای کودک هستند و شما با استفاده از این بوردگیم ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 175_000, val : 1 , size : "30 در 30" , count: 1 , material : "کاغذ" , weight : "400"},
-    {id : 13, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "بوردگیم های یوگای کودک", desc : "این بوردگیم ها مخصوص یوگای کودک هستند و شما با استفاده از این بوردگیم ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 185_000, val : 1 , size : "30 در 30" , count: 1 , material : "کاغذ" , weight : "400"},
-    {id : 14, src : "./img/logo.png", src2 : "./img/logo.png", src3 : "./img/logo.png", src4 : "./img/logo.png", title : "بوردگیم های یوگای کودک", desc : "این بوردگیم ها مخصوص یوگای کودک هستند و شما با استفاده از این بوردگیم ها در کلاس یوگای کودک خود و یا در خانه می توانید کودک خود را سرگرم کنید." , price : 195_000, val : 1 , size : "30 در 30" , count: 1 , material : "کاغذ" , weight : "400"},
-]
 let shoppingCardProductArray = []
 
 //changing the theme
@@ -148,129 +139,138 @@ let searchParams = new URLSearchParams(locationSearch)
 let pageId = searchParams.get('id')
 
 function loadData() {
-    allBoardGamesInfo.forEach(obj => {
-        if (obj.id == pageId) {
-            swiperSlide1.insertAdjacentHTML(`afterbegin` , 
-            `<img class="w-full h-full" src="${obj.src}" alt="">`)
-            swiperSlide2.insertAdjacentHTML(`afterbegin`,
-            `<img class="w-full h-full" src="${obj.src2}" alt="">`)
-            swiperSlide3.insertAdjacentHTML(`afterbegin`,
-            `<img class="w-full h-full" src="${obj.src3}" alt="">`)
-            swiperSlide4.insertAdjacentHTML(`afterbegin`,
-            `<img class="w-full h-full" src="${obj.src4}" alt="">`)
-            productWrapper.insertAdjacentHTML(`beforeend`,
-            `<div class="w-full md:w-[60%] h-min text-zinc-700 dark:text-gray-100">
-                    <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6">${obj.title}</p>
-                    <div class="mb-8">
-                        <div class="flex items-center gap-x-2 mb-5">
-                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
-                            <use xlink:href="#exclamation"></use>
-                        </svg>
-                        <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-base md:text-lg xl:text-xl tracking-tight">مشخصات فنی</p>
-                        </div>
-                        <div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
-                            <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
-                            font-Dana">
-                            <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
-                                <use xlink:href="#document"></use>
-                            </svg>
-                            <div class="space-y-0.5 sm:space-y-1">
-                                <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">ابعاد</p>
-                                <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">${obj.size} cm</p>
-                            </div>
-                            </div>
-                            <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
-                            font-Dana">
-                            <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
-                                <use xlink:href="#documents"></use>
-                            </svg>
-                            <div class="space-y-0.5 sm:space-y-1">
-                                <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">تعداد</p>
-                                <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">${obj.count} عدد</p>
-                            </div>
-                            </div>
-                            <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
-                            font-Dana">
-                            <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
-                                <use xlink:href="#material"></use>
-                            </svg>
-                            <div class="space-y-0.5 sm:space-y-1">
-                                <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">جنس</p>
-                                <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">${obj.material}</p>
-                            </div>
-                            </div>
-                            <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
-                            font-Dana">
-                            <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
-                                <use xlink:href="#scale"></use>
-                            </svg>
-                            <div class="space-y-0.5 sm:space-y-1">
-                                <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">وزن</p>
-                                <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">${obj.weight} گرم</p>
-                            </div>
-                            </div>
-                            <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
-                            font-Dana">
-                            <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
-                                <use xlink:href="#users"></use>
-                            </svg>
-                            <div class="space-y-0.5 sm:space-y-1">
-                                <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">رده ی سنی</p>
-                                <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100"> برای کودکان</p>
-                            </div>
-                            </div>
-                            <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
-                            font-Dana">
-                            <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
-                                <use xlink:href="#question"></use>
-                            </svg>
-                            <div class="space-y-0.5 sm:space-y-1">
-                                <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">هدف</p>
-                                <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">آموزشی</p>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-x-2 mb-5">
-                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
-                            <use xlink:href="#desc"></use>
-                        </svg>
-                        <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-base md:text-lg xl:text-xl">توضیحات</p>
-                    </div>
-                    <p class="font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100 text-justify mb-8">${obj.desc}</p>
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="font-Dana text-sm md:text-base lg:text-lg xl:text-xl text-lime-900 dark:text-lime-100"><span class="text-lg md:text-xl lg:text-2xl xl:text-3xl">${obj.price}</span>تومان</p>
-                        </div>
-                        <div onclick="addBoardGameToShoppingCard(${obj.id})" class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-gray-300 text-gray-600 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
-                        inline-flex items-center justify-center cursor-pointer">
-                            <svg class="w-5 h-5 lg:w-8 lg:h-8">
-                                <use xlink:href="#shopping-card"></use>
-                            </svg>
-                        </div> 
-                    </div>
-                    </div>`
-            )
-        }
-    })
-}
+    fetch(`http://localhost:3000/api/boardgames/`)
+   .then(res => res.json())
+   .then(data => {
+       data.forEach(obj => {
+           if (obj.id == pageId) {
+               swiperSlide1.insertAdjacentHTML(`afterbegin` , 
+               `<img class="w-full h-full" src="${obj.src}" alt="">`)
+               swiperSlide2.insertAdjacentHTML(`afterbegin`,
+               `<img class="w-full h-full" src="${obj.src2}" alt="">`)
+               swiperSlide3.insertAdjacentHTML(`afterbegin`,
+               `<img class="w-full h-full" src="${obj.src3}" alt="">`)
+               swiperSlide4.insertAdjacentHTML(`afterbegin`,
+               `<img class="w-full h-full" src="${obj.src4}" alt="">`)
+               productWrapper.insertAdjacentHTML(`beforeend`,
+               `<div class="w-full md:w-[60%] h-min text-zinc-700 dark:text-gray-100">
+                       <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6">${obj.title}</p>
+                       <div class="mb-8">
+                           <div class="flex items-center gap-x-2 mb-5">
+                           <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                               <use xlink:href="#exclamation"></use>
+                           </svg>
+                           <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-base md:text-lg xl:text-xl tracking-tight">مشخصات فنی</p>
+                           </div>
+                           <div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
+                               <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                               font-Dana">
+                               <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                                   <use xlink:href="#document"></use>
+                               </svg>
+                               <div class="space-y-0.5 sm:space-y-1">
+                                   <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">ابعاد</p>
+                                   <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">${obj.size} cm</p>
+                               </div>
+                               </div>
+                               <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                               font-Dana">
+                               <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                                   <use xlink:href="#documents"></use>
+                               </svg>
+                               <div class="space-y-0.5 sm:space-y-1">
+                                   <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">تعداد</p>
+                                   <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">${obj.count} عدد</p>
+                               </div>
+                               </div>
+                               <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                               font-Dana">
+                               <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                                   <use xlink:href="#material"></use>
+                               </svg>
+                               <div class="space-y-0.5 sm:space-y-1">
+                                   <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">جنس</p>
+                                   <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">${obj.material}</p>
+                               </div>
+                               </div>
+                               <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                               font-Dana">
+                               <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                                   <use xlink:href="#scale"></use>
+                               </svg>
+                               <div class="space-y-0.5 sm:space-y-1">
+                                   <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">وزن</p>
+                                   <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">${obj.weight} گرم</p>
+                               </div>
+                               </div>
+                               <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                               font-Dana">
+                               <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                                   <use xlink:href="#users"></use>
+                               </svg>
+                               <div class="space-y-0.5 sm:space-y-1">
+                                   <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">رده ی سنی</p>
+                                   <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100"> برای کودکان</p>
+                               </div>
+                               </div>
+                               <div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                               font-Dana">
+                               <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                                   <use xlink:href="#question"></use>
+                               </svg>
+                               <div class="space-y-0.5 sm:space-y-1">
+                                   <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">هدف</p>
+                                   <p class="block text-sm opacity-70 text-zinc-700 dark:text-gray-100">آموزشی</p>
+                               </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="flex items-center gap-x-2 mb-5">
+                           <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                               <use xlink:href="#desc"></use>
+                           </svg>
+                           <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-base md:text-lg xl:text-xl">توضیحات</p>
+                       </div>
+                       <p class="font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100 text-justify mb-8">${obj.description}</p>
+                       <div class="flex items-center justify-between">
+                           <div>
+                               <p class="font-Dana text-sm md:text-base lg:text-lg xl:text-xl text-lime-900 dark:text-lime-100"><span class="text-lg md:text-xl lg:text-2xl xl:text-3xl">${obj.price}</span>تومان</p>
+                           </div>
+                           <div onclick="addBoardGameToShoppingCard(${obj.id})" class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-gray-300 text-gray-600 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                           inline-flex items-center justify-center cursor-pointer">
+                               <svg class="w-5 h-5 lg:w-8 lg:h-8">
+                                   <use xlink:href="#shopping-card"></use>
+                               </svg>
+                           </div> 
+                       </div>
+                       </div>`
+               )
+           }
+       })
+   })
+}   
 
 function addBoardGameToShoppingCard(id) {
-    allBoardGamesInfo.forEach(obj => {
-        if (obj.id === id) {
-            let isInArray = shoppingCardProductArray.some(obj => {
-                if (obj.id === id) {
-                    return true
+    fetch(`http://localhost:3000/api/boardgames/`)
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(obj => {
+            if (obj.id === id) {
+                let isInArray = shoppingCardProductArray.some(obj => {
+                    if (obj.id === id) {
+                        return true
+                    }
+                }
+                )
+                if (!isInArray){
+                    shoppingCardProductArray.push(obj)
+                    shoppingCardGenerator()
+                    sideShoppingCardGenerator()
+                    setLocalStorage()
                 }
             }
-            )
-            if (!isInArray){
-                shoppingCardProductArray.push(obj)
-                shoppingCardGenerator()
-                sideShoppingCardGenerator()
-                setLocalStorage()
-            }
-        }
+        })
+ 
     })
 }
 
@@ -298,7 +298,7 @@ function shoppingCardGenerator() {
                                         <use xlink:href="#plus"></use>
                                     </svg>
                                 </div>
-                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.val}</p>
+                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.value}</p>
                                 <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                                     <svg class="w-4 h-4 cursor-pointer">
                                         <use xlink:href="#minus"></use>
@@ -326,7 +326,7 @@ function sideShoppingCardGenerator() {
                 <div class="w-[170px] flex flex-col gap-y-3">
                     <div class="flex justify-between">
                     <p class="font-DanaMedium text-sm text-zinc-700 dark:text-white">${obj.title}</p>
-                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 cursor-pointer text-zinc-700 dark:text-white hover:text-orange-300">
+                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 text-zinc-700 dark:text-white cursor-pointer hover:text-orange-300">
                         <use xlink:href="#X-mark"></use>
                     </svg>
                     </div>
@@ -337,7 +337,7 @@ function sideShoppingCardGenerator() {
                                 <use xlink:href="#plus"></use>
                             </svg>
                         </div>
-                        <p class="text-base tracking-tighter">${obj.val}</p>
+                        <p class="text-base tracking-tighter">${obj.value}</p>
                         <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                             <svg class="w-4 h-4 cursor-pointer">
                                 <use xlink:href="#minus"></use>
@@ -367,7 +367,7 @@ function removeItem(id) {
 function inVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            ++obj.val 
+            ++obj.value 
             totalPrice()
         }
     })
@@ -379,8 +379,8 @@ function inVal(id) {
 function decVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            if(obj.val > 1){
-                --obj.val 
+            if(obj.value > 1){
+                --obj.value 
                 totalPrice()
             }
         }
@@ -395,7 +395,7 @@ function totalPrice() {
     headerShoppingCardPrice.innerHTML = '0'
     sideShoppingCardPrice.innerHTML = '0'
     shoppingCardProductArray.forEach(obj => {
-        sum += obj.price * obj.val
+        sum += obj.price * obj.value
         headerShoppingCardPrice.innerHTML = sum
         sideShoppingCardPrice.innerHTML = sum
     })
