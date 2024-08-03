@@ -28,24 +28,6 @@ let pannelContainer = document.querySelector('.pannel-container')
 let pannelSubIcon = document.querySelector('.pannel-sub-icon')
 let pannelSubMenu = document.querySelector('.pannel-sub-menu')
 let pannelSubli = document.querySelector('.has-pannel-sub')
-let meditationSliderInfo = [
-    {id : 1, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-    {id : 2, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-    {id : 3, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-    {id : 4, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-    {id : 5, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-    {id : 6, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-]
-let allmeditationsInfo = [
-    {id : 1, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-    {id : 2, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-    {id : 3, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-    {id : 4, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-    {id : 5, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-    {id : 6, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-    {id : 7, src : "./img/logo.png", title : "مراقبه های یوگای کودک"},
-]
-
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -149,50 +131,55 @@ function copyToClipboard() {
 
 // fetch slider data from back end
 async function fetchSliderData() {
-    try {
-        meditationSliderInfo.forEach(info => {
-            swiperWrapper.insertAdjacentHTML(`beforeend` , 
-                `<div class="swiper-slide">
-                        <a href="singleMeditation.html?id=${info.id}" class="inline-block w-full h-min p-3 md:p-5
-                        bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-                        <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
-                            <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${info.src}" alt="">
-                        </div>
-                        <div>
-                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${info.title}</p>
-                        </div>
-                        </a>
-                    </div>`)
-        })
-    } catch (error) {
-        console.log(error);
-    }
+    fetch(`http://localhost:3000/api/meditations/`)
+    .then(res => res.json())
+    .then(data => {
+        try {
+            data.forEach(info => {
+                swiperWrapper.insertAdjacentHTML(`beforeend` , 
+                    `<div class="swiper-slide">
+                            <a href="singleMeditation.html?id=${info.id}" class="inline-block w-full h-min p-3 md:p-5
+                            bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                            <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
+                                <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${info.src}" alt="">
+                            </div>
+                            <div>
+                                <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${info.title}</p>
+                            </div>
+                            </a>
+                        </div>`)
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    })
 }
-
-fetchSliderData()
 
 // fetch all product data from back end
 async function fetchProductData() {
-    try {
-        allmeditationsInfo.forEach(info => {
-            productWrapper.insertAdjacentHTML(`beforeend` , 
-                `<a href="singleMeditation.html?id=${info.id}" class="inline-block w-full h-min p-3 md:p-5
-                        bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-                        <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
-                            <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${info.src}" alt="">
-                        </div>
-                        <div>
-                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${info.title}</p>
-                        </div>
-                </a>`
-            )
-        })
-    } catch (error) {
-        console.log(error);
-    }
-}
+    fetch(`http://localhost:3000/api/meditations/`)
+    .then(res => res.json())
+    .then(data => {
+        try {
+            data.forEach(info => {
+                productWrapper.insertAdjacentHTML(`beforeend` , 
+                    `<a href="singleMeditation.html?id=${info.id}" class="inline-block w-full h-min p-3 md:p-5
+                            bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                            <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
+                                <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${info.src}" alt="">
+                            </div>
+                            <div>
+                                <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${info.title}</p>
+                            </div>
+                    </a>`
+                )
+            })
+        } catch (error) {
+            console.log(error);
+        }
 
-fetchProductData()
+    })
+}
 
 // generate shopping card
 function shoppingCardGenerator() {
@@ -218,7 +205,7 @@ function shoppingCardGenerator() {
                                         <use xlink:href="#plus"></use>
                                     </svg>
                                 </div>
-                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.val}</p>
+                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.value}</p>
                                 <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                                     <svg class="w-4 h-4 cursor-pointer">
                                         <use xlink:href="#minus"></use>
@@ -246,7 +233,7 @@ function sideShoppingCardGenerator() {
                 <div class="w-[170px] flex flex-col gap-y-3">
                     <div class="flex justify-between">
                     <p class="font-DanaMedium text-sm text-zinc-700 dark:text-white">${obj.title}</p>
-                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 cursor-pointer text-zinc-700 dark:text-white hover:text-orange-300">
+                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 text-zinc-700 dark:text-white cursor-pointer hover:text-orange-300">
                         <use xlink:href="#X-mark"></use>
                     </svg>
                     </div>
@@ -257,7 +244,7 @@ function sideShoppingCardGenerator() {
                                 <use xlink:href="#plus"></use>
                             </svg>
                         </div>
-                        <p class="text-base tracking-tighter">${obj.val}</p>
+                        <p class="text-base tracking-tighter">${obj.value}</p>
                         <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                             <svg class="w-4 h-4 cursor-pointer">
                                 <use xlink:href="#minus"></use>
@@ -287,7 +274,7 @@ function removeItem(id) {
 function inVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            ++obj.val 
+            ++obj.value 
             totalPrice()
         }
     })
@@ -299,8 +286,8 @@ function inVal(id) {
 function decVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            if(obj.val > 1){
-                --obj.val 
+            if(obj.value > 1){
+                --obj.value 
                 totalPrice()
             }
         }
@@ -315,7 +302,7 @@ function totalPrice() {
     headerShoppingCardPrice.innerHTML = '0'
     sideShoppingCardPrice.innerHTML = '0'
     shoppingCardProductArray.forEach(obj => {
-        sum += obj.price * obj.val
+        sum += obj.price * obj.value
         headerShoppingCardPrice.innerHTML = sum
         sideShoppingCardPrice.innerHTML = sum
     })
@@ -340,6 +327,7 @@ function loadHeaderShoppingCard() {
         sideShoppingCardGenerator()
     }
 }
+
 
 let isHide = true
 function showPannel() {
@@ -383,3 +371,5 @@ phoneNumElem.addEventListener('click' , copyToClipboard)
 window.addEventListener('load' , loadHeaderShoppingCard)
 pannelIcon.addEventListener('click' , showPannel)
 pannelSubIcon.addEventListener('click' , showPannelSub)
+window.addEventListener('load' , fetchProductData)
+window.addEventListener('load' , fetchSliderData)
