@@ -28,25 +28,6 @@ let pannelContainer = document.querySelector('.pannel-container')
 let pannelSubIcon = document.querySelector('.pannel-sub-icon')
 let pannelSubMenu = document.querySelector('.pannel-sub-menu')
 let pannelSubli = document.querySelector('.has-pannel-sub')
-// data base
-let boardGameSliderInfo = [
-    {id : 8, src : "./img/logo.png", title : "بوردگیم ها", price : 135_000, val : 1},
-    {id : 9, src : "./img/logo.png", title : "بوردگیم ها", price : 145_000, val : 1},
-    {id : 10, src : "./img/logo.png", title : "بوردگیم ها", price : 155_000, val : 1},
-    {id : 11, src : "./img/logo.png", title : "بوردگیم ها", price : 165_000, val : 1},
-    {id : 12, src : "./img/logo.png", title : "بوردگیم ها", price : 175_000, val : 1},
-    {id : 13, src : "./img/logo.png", title : "بوردگیم ها", price : 185_000, val : 1},
-]
-let allBoardGamesInfo = [
-    {id : 8, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 135_000, val : 1},
-    {id : 9, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 145_000, val : 1},
-    {id : 10, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 155_000, val : 1},
-    {id : 11, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 165_000, val : 1},
-    {id : 12, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 175_000, val : 1},
-    {id : 13, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 185_000, val : 1},
-    {id : 14, src : "./img/logo.png", title : "بوردگیم های یوگای کودک", price : 195_000, val : 1},
-]
-
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -150,105 +131,94 @@ function copyToClipboard() {
 
 // fetch slider data 
 async function fetchSliderData() {
-    try {
-        boardGameSliderInfo.forEach(obj => {
-            swiperWrapper.insertAdjacentHTML(`beforeend` , 
-                `<div class="swiper-slide">
-                        <div class="w-full h-min p-3 md:p-5
-                        bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-                        <a href="singleBoardGame.html?id=${obj.id}" class="inline-block w-full hover:scale-110 overflow-hidden transition-transform mb-5">
-                            <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
-                        </a>
-                        <div class="flex flex-col gap-y-2.5">
-                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
-                            <div class="w-full flex items-center justify-between">
-                                <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${obj.price}</span>تومان</p>
-                                <div onclick="addBoardGameToShoppingCard(${obj.id})" class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
-                                 flex items-center justify-center cursor-pointer">
-                                    <svg class="w-4 h-4 md:w-5 md:h-5">
-                                        <use xlink:href="#shopping-card"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>`)
-        })
-    } catch (error) {
-        console.log(error);
-    }
+    fetch(`http://localhost:3000/api/boardgames/`)
+   .then(res => res.json())
+   .then(data => {
+       try {
+           data.forEach(obj => {
+               swiperWrapper.insertAdjacentHTML(`beforeend` , 
+                   `<div class="swiper-slide">
+                           <div class="w-full h-min p-3 md:p-5
+                           bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                           <a href="singleBoardGame.html?id=${obj.id}" class="inline-block w-full hover:scale-110 overflow-hidden transition-transform mb-5">
+                               <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
+                           </a>
+                           <div class="flex flex-col gap-y-2.5">
+                               <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
+                               <div class="w-full flex items-center justify-between">
+                                   <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${obj.price}</span>تومان</p>
+                                   <div onclick="addBoardGameToShoppingCard(${obj.id})" class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                                    flex items-center justify-center cursor-pointer">
+                                       <svg class="w-4 h-4 md:w-5 md:h-5">
+                                           <use xlink:href="#shopping-card"></use>
+                                       </svg>
+                                   </div>
+                               </div>
+                           </div>
+                           </div>
+                       </div>`)
+           })
+       } catch (error) {
+           console.log(error);
+       }
+   })
 }
-
-fetchSliderData()
 
 // fetch all product data from back end
 async function fetchProductData() {
-    try {
-        allBoardGamesInfo.forEach(obj => {
-            productWrapper.insertAdjacentHTML(`beforeend` , 
-                `<div class="w-full h-min p-3 md:p-5
-                        bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-                        <a href="singleBoardGame.html?id=${obj.id}" class="inline-block w-full hover:scale-110 overflow-hidden transition-transform mb-5">
-                            <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
-                        </a>
-                        <div class="flex flex-col gap-y-2.5">
-                            <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
-                            <div class="w-full flex items-center justify-between">
-                                <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${obj.price}</span>تومان</p>
-                                <div onclick="addAllBoardGameToShoppingCard(${obj.id})" class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
-                                 flex items-center justify-center cursor-pointer">
-                                    <svg class="w-4 h-4 md:w-5 md:h-5">
-                                        <use xlink:href="#shopping-card"></use>
-                                    </svg>
+    fetch(`http://localhost:3000/api/boardgames/`)
+    .then(res => res.json())
+    .then(data => {
+        try {
+            data.forEach(obj => {
+                productWrapper.insertAdjacentHTML(`beforeend` , 
+                    `<div class="w-full h-min p-3 md:p-5
+                            bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                            <a href="singleBoardGame.html?id=${obj.id}" class="inline-block w-full hover:scale-110 overflow-hidden transition-transform mb-5">
+                                <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${obj.src}" alt="">
+                            </a>
+                            <div class="flex flex-col gap-y-2.5">
+                                <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
+                                <div class="w-full flex items-center justify-between">
+                                    <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${obj.price}</span>تومان</p>
+                                    <div onclick="addBoardGameToShoppingCard(${obj.id})" class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                                     flex items-center justify-center cursor-pointer">
+                                        <svg class="w-4 h-4 md:w-5 md:h-5">
+                                            <use xlink:href="#shopping-card"></use>
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                </div>`
-            )
-        })
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-fetchProductData()
-
-// add element to shopping card array
-function addBoardGameToShoppingCard(id) {
-    boardGameSliderInfo.forEach(obj => {
-        if (obj.id === id) {
-            let isInArray = shoppingCardProductArray.some(obj => {
-                if (obj.id === id) {
-                    return true
-                }
-            }
-            )
-            if (!isInArray){
-                shoppingCardProductArray.push(obj)
-                shoppingCardGenerator()
-                sideShoppingCardGenerator()
-                setLocalStorage()
-            }
+                    </div>`
+                )
+            })
+        } catch (error) {
+            console.log(error);
         }
     })
 }
 
-function addAllBoardGameToShoppingCard(id) {
-    allBoardGamesInfo.forEach(obj => {
-        if (obj.id === id) {
-            let isInArray = shoppingCardProductArray.some(obj => {
-                if (obj.id === id) {
-                    return true
+// add element to shopping card array
+function addBoardGameToShoppingCard(id) {
+    fetch(`http://localhost:3000/api/boardgames/`)
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(obj => {
+            if (obj.id === id) {
+                let isInArray = shoppingCardProductArray.some(obj => {
+                    if (obj.id === id) {
+                        return true
+                    }
+                }
+                )
+                if (!isInArray){
+                    shoppingCardProductArray.push(obj)
+                    shoppingCardGenerator()
+                    sideShoppingCardGenerator()
+                    setLocalStorage()
                 }
             }
-            )
-            if (!isInArray){
-                shoppingCardProductArray.push(obj)
-                shoppingCardGenerator()
-                sideShoppingCardGenerator()
-                setLocalStorage()
-            }
-        }
+        })
     })
 }
 
@@ -276,7 +246,7 @@ function shoppingCardGenerator() {
                                         <use xlink:href="#plus"></use>
                                     </svg>
                                 </div>
-                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.val}</p>
+                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.value}</p>
                                 <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                                     <svg class="w-4 h-4 cursor-pointer">
                                         <use xlink:href="#minus"></use>
@@ -304,7 +274,7 @@ function sideShoppingCardGenerator() {
                 <div class="w-[170px] flex flex-col gap-y-3">
                     <div class="flex justify-between">
                     <p class="font-DanaMedium text-sm text-zinc-700 dark:text-white">${obj.title}</p>
-                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 cursor-pointer text-zinc-700 dark:text-white hover:text-orange-300">
+                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 text-zinc-700 dark:text-white cursor-pointer hover:text-orange-300">
                         <use xlink:href="#X-mark"></use>
                     </svg>
                     </div>
@@ -315,7 +285,7 @@ function sideShoppingCardGenerator() {
                                 <use xlink:href="#plus"></use>
                             </svg>
                         </div>
-                        <p class="text-base tracking-tighter">${obj.val}</p>
+                        <p class="text-base tracking-tighter">${obj.value}</p>
                         <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                             <svg class="w-4 h-4 cursor-pointer">
                                 <use xlink:href="#minus"></use>
@@ -345,7 +315,7 @@ function removeItem(id) {
 function inVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            ++obj.val 
+            ++obj.value 
             totalPrice()
         }
     })
@@ -357,8 +327,8 @@ function inVal(id) {
 function decVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            if(obj.val > 1){
-                --obj.val 
+            if(obj.value > 1){
+                --obj.value 
                 totalPrice()
             }
         }
@@ -373,7 +343,7 @@ function totalPrice() {
     headerShoppingCardPrice.innerHTML = '0'
     sideShoppingCardPrice.innerHTML = '0'
     shoppingCardProductArray.forEach(obj => {
-        sum += obj.price * obj.val
+        sum += obj.price * obj.value
         headerShoppingCardPrice.innerHTML = sum
         sideShoppingCardPrice.innerHTML = sum
     })
@@ -442,3 +412,5 @@ phoneNumElem.addEventListener('click' , copyToClipboard)
 window.addEventListener('load' , loadHeaderShoppingCard)
 pannelIcon.addEventListener('click' , showPannel)
 pannelSubIcon.addEventListener('click' , showPannelSub)
+window.addEventListener('load' , fetchSliderData)
+window.addEventListener('load' , fetchProductData)

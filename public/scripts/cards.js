@@ -182,7 +182,7 @@ async function fetchProductData() {
                                 <p class="font-DanaMedium text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${obj.title}</p>
                                 <div class="w-full flex items-center justify-between">
                                     <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-base lg:text-xl">${obj.price}</span>تومان</p>
-                                    <div onclick="addAllCardToShoppingCard(${obj.id})" class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
+                                    <div onclick="addCardToShoppingCard(${obj.id})" class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gray-100 text-gray-400 dark:bg-zinc-800 hover:text-white hover:bg-lime-900 dark:hover:bg-lime-900
                                      flex items-center justify-center cursor-pointer">
                                         <svg class="w-4 h-4 md:w-5 md:h-5">
                                             <use xlink:href="#shopping-card"></use>
@@ -201,29 +201,6 @@ async function fetchProductData() {
 
 // add element to shopping card array
 function addCardToShoppingCard(id) {
-    fetch(`http://localhost:3000/api/cards/`)
-    .then(res => res.json())
-    .then(data => {
-        data.forEach(obj => {
-            if (obj.id === id) {
-                let isInArray = shoppingCardProductArray.some(obj => {
-                    if (obj.id === id) {
-                        return true
-                    }
-                }
-                )
-                if (!isInArray){
-                    shoppingCardProductArray.push(obj)
-                    shoppingCardGenerator()
-                    sideShoppingCardGenerator()
-                    setLocalStorage()
-                }
-            }
-        })
-    })
-}
-
-function addAllCardToShoppingCard(id) {
     fetch(`http://localhost:3000/api/cards/`)
     .then(res => res.json())
     .then(data => {
