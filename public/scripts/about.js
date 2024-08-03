@@ -60,6 +60,7 @@ function animationForIcon(event) {
      }
 }
 
+
 // changing display for side nav sub menu
 let isUp = true
 function changeSubmenuDisplay () {
