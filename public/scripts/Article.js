@@ -28,12 +28,6 @@ let pannelContainer = document.querySelector('.pannel-container')
 let pannelSubIcon = document.querySelector('.pannel-sub-icon')
 let pannelSubMenu = document.querySelector('.pannel-sub-menu')
 let pannelSubli = document.querySelector('.has-pannel-sub')
-let allArticlesInfo = [
-    {id : 1, src : "./img/blogimg.png" , title : "فواید یوگا برای کودکان" , author : "ندا تاری وردی" , desc : "در این مقاله سعی داریم تا به فواید یوگا برای کودکان و نحوه برگزاری کلاس های هنر یوگای کودک بپردازیم."},
-    {id : 2, src : "./img/blogimg.png" , title : "فواید یوگا برای کودکان" , author : "ندا تاری وردی" , desc : "در این مقاله سعی داریم تا به فواید یوگا برای کودکان و نحوه برگزاری کلاس های هنر یوگای کودک بپردازیم."},
-    {id : 3, src : "./img/blogimg.png" , title : "فواید یوگا برای کودکان" , author : "ندا تاری وردی" , desc : "در این مقاله سعی داریم تا به فواید یوگا برای کودکان و نحوه برگزاری کلاس های هنر یوگای کودک بپردازیم."},
-    {id : 4, src : "./img/blogimg.png" , title : "فواید یوگا برای کودکان" , author : "ندا تاری وردی" , desc : "در این مقاله سعی داریم تا به فواید یوگا برای کودکان و نحوه برگزاری کلاس های هنر یوگای کودک بپردازیم."},
-]
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -137,37 +131,39 @@ function copyToClipboard() {
 
 // fetch all product data from back end
 async function fetchProductData() {
-    try {
-        allArticlesInfo.forEach(info => {
-            productWrapper.insertAdjacentHTML(`beforeend` , 
-                `<div class="swiper-slide">
-                <div class="flex flex-row justify-around items-center w-full h-min p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-                    <div class="hover:scale-110 overflow-hidden transition-transform w-[30%]">
-                        <img class="w-full" src="${info.src}" alt="">
-                    </div>
-                    <div class="flex flex-col gap-y-2 md:gap-y-1 lg:gap-y-2 w-[60%] h-min">
-                        <p class="font-DanaDemiBold text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${info.title}</p>
-                        <p class="font-Dana text-[10px] lg:text-xs xl:text-sm text-lime-900 dark:text-lime-100 line-clamp-2">نویسنده : ${info.author}</p>
-                        <p class="font-DanaMedium text-xs lg:text-sm xl:text-base text-zinc-700 dark:text-gray-100 mb-3 md:mb-5 line-clamp-2">${info.desc}</p>
-                        <div class="w-full text-left">
-                            <a href="singleArticle.html?id=${info.id}" class="group inline-flex items-center justify-between font-DanaMedium">
-                                <p class="text-xs lg:text-sm tracking-tighter text-zinc-700 dark:text-gray-100  group-hover:text-zinc-500 dark:group-hover:text-lime-100 transition-colors">مشاهده</p>
-                                <svg class="w-3 h-3 mt-[-2px] text-zinc-700 dark:text-gray-100  group-hover:text-zinc-500 dark:group-hover:text-lime-100 group-hover:-translate-x-1 transition-all">
-                                    <use xlink:href="#chevron-left"></use>
-                                </svg>
-                            </a>
+    fetch(`http://localhost:3000/api/blogs/`)
+    .then(res => res.json())
+    .then(data => {
+        try {
+            data.forEach(info => {
+                productWrapper.insertAdjacentHTML(`beforeend` , 
+                    `<div class="swiper-slide">
+                    <div class="flex flex-row justify-around items-center w-full h-min p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                        <div class="hover:scale-110 overflow-hidden transition-transform w-[30%]">
+                            <img class="w-full" src="${info.src}" alt="">
+                        </div>
+                        <div class="flex flex-col gap-y-2 md:gap-y-1 lg:gap-y-2 w-[60%] h-min">
+                            <p class="font-DanaDemiBold text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-gray-100 line-clamp-2">${info.title}</p>
+                            <p class="font-Dana text-[10px] lg:text-xs xl:text-sm text-lime-900 dark:text-lime-100 line-clamp-2">نویسنده : ${info.author}</p>
+                            <p class="font-DanaMedium text-xs lg:text-sm xl:text-base text-zinc-700 dark:text-gray-100 mb-3 md:mb-5 line-clamp-2">${info.description}</p>
+                            <div class="w-full text-left">
+                                <a href="singleArticle.html?id=${info.id}" class="group inline-flex items-center justify-between font-DanaMedium">
+                                    <p class="text-xs lg:text-sm tracking-tighter text-zinc-700 dark:text-gray-100  group-hover:text-zinc-500 dark:group-hover:text-lime-100 transition-colors">مشاهده</p>
+                                    <svg class="w-3 h-3 mt-[-2px] text-zinc-700 dark:text-gray-100  group-hover:text-zinc-500 dark:group-hover:text-lime-100 group-hover:-translate-x-1 transition-all">
+                                        <use xlink:href="#chevron-left"></use>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>`
-            )
-        })
-    } catch (error) {
-        console.log(error);
-    }
+                </div>`
+                )
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    })
 }
-
-fetchProductData()
 
 // generate shopping card
 function shoppingCardGenerator() {
@@ -193,7 +189,7 @@ function shoppingCardGenerator() {
                                         <use xlink:href="#plus"></use>
                                     </svg>
                                 </div>
-                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.val}</p>
+                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.value}</p>
                                 <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                                     <svg class="w-4 h-4 cursor-pointer">
                                         <use xlink:href="#minus"></use>
@@ -221,7 +217,7 @@ function sideShoppingCardGenerator() {
                 <div class="w-[170px] flex flex-col gap-y-3">
                     <div class="flex justify-between">
                     <p class="font-DanaMedium text-sm text-zinc-700 dark:text-white">${obj.title}</p>
-                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 cursor-pointer text-zinc-700 dark:text-white hover:text-orange-300">
+                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 text-zinc-700 dark:text-white cursor-pointer hover:text-orange-300">
                         <use xlink:href="#X-mark"></use>
                     </svg>
                     </div>
@@ -232,7 +228,7 @@ function sideShoppingCardGenerator() {
                                 <use xlink:href="#plus"></use>
                             </svg>
                         </div>
-                        <p class="text-base tracking-tighter">${obj.val}</p>
+                        <p class="text-base tracking-tighter">${obj.value}</p>
                         <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                             <svg class="w-4 h-4 cursor-pointer">
                                 <use xlink:href="#minus"></use>
@@ -262,7 +258,7 @@ function removeItem(id) {
 function inVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            ++obj.val 
+            ++obj.value 
             totalPrice()
         }
     })
@@ -274,8 +270,8 @@ function inVal(id) {
 function decVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            if(obj.val > 1){
-                --obj.val 
+            if(obj.value > 1){
+                --obj.value 
                 totalPrice()
             }
         }
@@ -290,7 +286,7 @@ function totalPrice() {
     headerShoppingCardPrice.innerHTML = '0'
     sideShoppingCardPrice.innerHTML = '0'
     shoppingCardProductArray.forEach(obj => {
-        sum += obj.price * obj.val
+        sum += obj.price * obj.value
         headerShoppingCardPrice.innerHTML = sum
         sideShoppingCardPrice.innerHTML = sum
     })
@@ -315,6 +311,7 @@ function loadHeaderShoppingCard() {
         sideShoppingCardGenerator()
     }
 }
+
 
 let isHide = true
 function showPannel() {
@@ -359,3 +356,4 @@ phoneNumElem.addEventListener('click' , copyToClipboard)
 window.addEventListener('load' , loadHeaderShoppingCard)
 pannelIcon.addEventListener('click' , showPannel)
 pannelSubIcon.addEventListener('click' , showPannelSub)
+window.addEventListener('load' , fetchProductData)
