@@ -133,6 +133,47 @@ function copyToClipboard() {
 }
 
 // generate shopping card
+
+function mainShoppingCardGenerator() {
+    shoppingCardBody.innerHTML = ''
+    shoppingCardProductArray.forEach(obj => {
+        shoppingCardBody.insertAdjacentHTML(`beforeend`, 
+            `<div class="flex gap-x-3 md:gap-x-5 items-center py-3 md:py-5 border-b-[1px] border-gray-300 dark:border-white/10">
+                    <div>
+                        <img class="w-[120px] h-[120px] md:w-[170px] md:h-[170px] lg:w-[230px] lg:h-[230px]" src="${obj.src}" alt="">
+                    </div>
+                    <div class="w-full">
+                        <div class="w-full flex justify-between items-center text-zinc-700 dark:text-white mb-[30px] md:mb-[60px]">
+                        <p class="font-DanaMedium text-lg md:text-2xl">${obj.title}</p>
+                        <svg onclick="removeItem(${obj.id})" class="w-4 h-4 md:w-5 md:h-5 cursor-pointer hover:text-orange-300">
+                            <use xlink:href="#X-mark"></use>
+                        </svg>
+                        </div>
+                        <div class="flex items-end">
+                            <div class="flex items-center justify-evenly w-[90px] h-11 ml-5 border-[1px] border-gray-300 rounded-full
+                            font-DanaDemiBold text-orange-300">
+                            <div onclick="inVal(${obj.id})" class="hover:text-orange-400 transition-colors">
+                                <svg class="w-4 h-4 cursor-pointer">
+                                    <use xlink:href="#plus"></use>
+                                </svg>
+                            </div>
+                            <p class="val text-xl tracking-tighter">${obj.value}</p>
+                            <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
+                                <svg class="w-4 h-4 cursor-pointer">
+                                    <use xlink:href="#minus"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="font-Dana text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-xl">${obj.price}</span> تومان</p>
+                        </div>
+                    </div>
+                </div>`
+        )
+    })
+    totalItem()
+    totalPrice()
+}
+
 function shoppingCardGenerator() {
     headerShoppingCard.innerHTML = ''
     shoppingCardProductArray.forEach(obj => {
@@ -156,7 +197,7 @@ function shoppingCardGenerator() {
                                         <use xlink:href="#plus"></use>
                                     </svg>
                                 </div>
-                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.val}</p>
+                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.value}</p>
                                 <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                                     <svg class="w-4 h-4 cursor-pointer">
                                         <use xlink:href="#minus"></use>
@@ -195,7 +236,7 @@ function sideShoppingCardGenerator() {
                                 <use xlink:href="#plus"></use>
                             </svg>
                         </div>
-                        <p class="text-base tracking-tighter">${obj.val}</p>
+                        <p class="text-base tracking-tighter">${obj.value}</p>
                         <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                             <svg class="w-4 h-4 cursor-pointer">
                                 <use xlink:href="#minus"></use>
@@ -208,44 +249,6 @@ function sideShoppingCardGenerator() {
         )
     })
     totalPrice()
-}
-
-function mainShoppingCardGenerator() {
-    shoppingCardBody.innerHTML = ''
-    shoppingCardProductArray.forEach(obj => {
-        shoppingCardBody.insertAdjacentHTML(`beforeend`, 
-            `<div class="flex gap-x-3 md:gap-x-5 items-center py-3 md:py-5 border-b-[1px] border-gray-300 dark:border-white/10">
-                    <div>
-                        <img class="w-[120px] h-[120px] md:w-[170px] md:h-[170px] lg:w-[230px] lg:h-[230px]" src="${obj.src}" alt="">
-                    </div>
-                    <div class="w-full">
-                        <div class="w-full flex justify-between items-center text-zinc-700 dark:text-white mb-[30px] md:mb-[60px]">
-                        <p class="font-DanaMedium text-lg md:text-2xl">${obj.title}</p>
-                        <svg onclick="removeItem(${obj.id})" class="w-4 h-4 md:w-5 md:h-5 cursor-pointer hover:text-orange-300">
-                            <use xlink:href="#X-mark"></use>
-                        </svg>
-                        </div>
-                        <div class="flex items-end">
-                            <div class="flex items-center justify-evenly w-[90px] h-11 ml-5 border-[1px] border-gray-300 rounded-full
-                            font-DanaDemiBold text-orange-300">
-                            <div onclick="inVal(${obj.id})" class="hover:text-orange-400 transition-colors">
-                                <svg class="w-4 h-4 cursor-pointer">
-                                    <use xlink:href="#plus"></use>
-                                </svg>
-                            </div>
-                            <p class="val text-xl tracking-tighter">${obj.val}</p>
-                            <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
-                                <svg class="w-4 h-4 cursor-pointer">
-                                    <use xlink:href="#minus"></use>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="font-Dana text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-xl">${obj.price}</span> تومان</p>
-                        </div>
-                    </div>
-                </div>`
-        )
-    })
 }
 
 // remove item
@@ -264,7 +267,7 @@ function removeItem(id) {
 function inVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            ++obj.val 
+            ++obj.value 
             totalPrice()
         }
     })
@@ -277,8 +280,8 @@ function inVal(id) {
 function decVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            if(obj.val > 1){
-                --obj.val 
+            if(obj.value > 1){
+                --obj.value 
                 totalPrice()
             }
         }
@@ -293,9 +296,8 @@ function totalPrice() {
     let sum = 0
     headerShoppingCardPrice.innerHTML = '0'
     sideShoppingCardPrice.innerHTML = '0'
-    ShoppingCardPrice.innerHTML = '0'
     shoppingCardProductArray.forEach(obj => {
-        sum += obj.price * obj.val
+        sum += obj.price * obj.value
         headerShoppingCardPrice.innerHTML = sum
         sideShoppingCardPrice.innerHTML = sum
         ShoppingCardPrice.innerHTML = sum
@@ -323,6 +325,7 @@ function loadHeaderShoppingCard() {
         mainShoppingCardGenerator()
     }
 }
+
 
 let isHide = true
 function showPannel() {
