@@ -7,6 +7,7 @@ let messages = document.querySelectorAll('.message')
 let btns = document.querySelectorAll('button')
 let successfulSignInMessage = document.querySelector('.successful-sign-in')
 let successfulLogInMessage = document.querySelector('.successful-log-in')
+let failedLogInMessage = document.querySelector('.failed-log-in')
 let takenUserNameMessage = document.querySelector('.taken-user-name')
 
 // move specific lables
@@ -66,12 +67,22 @@ hideMessages()
 // work with cookies
 function setCookie() {
     let userNameValue = inputsElems[2].value
-
+   
     if (userNameValue) {
         let now = new Date()
-        now.setTime(now.getTime() + 10 * 24 * 60 * 60 * 1000)
+        now.setTime(now.getTime() + 10 * 24 * 60 * 60 * 10000)
 
-        document.cookie = `userName=${userNameValue};path=/;expires=${now}`
+        document.cookie = `userNameYogaForKids=${userNameValue};path=/;expires=${now}`
+    }
+}
+
+function setCookieForLogIn() {
+    let userNameValueForLogIn = inputsElems[0].value
+    if (userNameValueForLogIn) {
+        let now = new Date()
+        now.setTime(now.getTime() + 10 * 24 * 60 * 60 * 10000)
+    
+        document.cookie = `userNameYogaForKids=${userNameValueForLogIn};path=/;expires=${now}`
     }
 }
 
@@ -82,6 +93,7 @@ function showSuccessfulSignIn() {
     setTimeout(() => {
         successfulSignInMessage.style.display = 'none'
         successfulSignInMessage.style.transition = 'transform 0.5s ease'
+        location.href = 'http://127.0.0.1:5500/public/index.html'
     } , 3000)
 }
 
@@ -94,9 +106,9 @@ async function sendDataToBackEnd() {
         userName : userNameValue,
         password : passwordValue,
     }
-
+        
     try {
-        let res = await fetch('https://wke21.wiremockapi.cloud/Users' , {
+        let res = await fetch('http://localhost:3000/api/users/newUserInfo' , {
         method : 'POST' ,
         headers : {
             "Content-type" : "application/json"
@@ -107,9 +119,9 @@ async function sendDataToBackEnd() {
         console.log(res)
         showSuccessfulSignIn()
 
-        } catch (err) {
-          console.log(err)
-        }
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 // clear inputs 
@@ -145,7 +157,7 @@ async function connectToBackEnd() {
         let userNameValue = inputsElems[2].value
 
         try {
-            let res = await fetch('https://eky74.wiremockapi.cloud/info')
+            let res = await fetch('http://localhost:3000/api/users/')
             let data = await res.json()
 
             let isInData = data.some(info => {
@@ -175,44 +187,34 @@ async function getUserInfos() {
     let passValue = inputsElems[1].value
 
     try {
-        let res = await fetch('https://eky74.wiremockapi.cloud/info')
+        let res = await fetch('http://localhost:3000/api/users/')
         let data = await res.json()
 
-        let isInUserNames = data.some(info => {
-            if (info.userName === userNameValue) {
+        let isInDB = data.some(info => {
+            if (info.userName === userNameValue && info.password === passValue) {
                 return true
             } else {
                 return false
             }
         })
 
-        let isInPasswords = data.some(info => {
-            if (info.password === passValue) {
-                return true
-            } else {
-                return false
-            }
-        })
-
-        if (isInUserNames && isInPasswords) {
+        if (isInDB) {
             successfulLogInMessage.style.display = 'block'
             successfulLogInMessage.style.transition = 'transform 0.5s ease'
+            setCookieForLogIn()
             setTimeout(() => {
                 successfulLogInMessage.style.display = 'none'
                 successfulLogInMessage.style.transition = 'transform 0.5s ease'
+                location.href = 'http://127.0.0.1:5500/public/index.html'
             }, 3000)
-        } else if (!isInUserNames && isInPasswords) {
-            messages[0].style.opacity = '1'
-            messages[0].style.transition = 'transform 0.5s ease'
-        } else if (isInUserNames && !isInPasswords) {
-            messages[1].style.opacity = '1'
-            messages[1].style.transition = 'transform 0.5s ease'
-        }
-        else {
-            messages[0].style.opacity = '1'
-            messages[0].style.transition = 'transform 0.5s ease'
-            messages[1].style.opacity = '1'
-            messages[1].style.transition = 'transform 0.5s ease'
+        } else {
+            failedLogInMessage.style.display = 'block'
+            failedLogInMessage.style.transition = 'transform 0.5s ease'
+            setCookieForLogIn()
+            setTimeout(() => {
+                failedLogInMessage.style.display = 'none'
+                failedLogInMessage.style.transition = 'transform 0.5s ease'
+            }, 3000)
         }
 
         clearInputs()

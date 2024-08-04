@@ -326,7 +326,6 @@ function loadHeaderShoppingCard() {
     }
 }
 
-
 let isHide = true
 function showPannel() {
     if (isHide) {
