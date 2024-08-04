@@ -157,16 +157,10 @@ async function connectToBackEnd() {
         let userNameValue = inputsElems[2].value
 
         try {
-            let res = await fetch('http://localhost:3000/api/users/')
+            let res = await fetch(`http://localhost:3000/api/users/${userNameValue}`)
             let data = await res.json()
 
-            let isInData = data.some(info => {
-                return info.userName === userNameValue
-            })
-
-            console.log(isInData)
-
-            if (isInData) {
+            if (data.length) {
                 takenUserNameMessage.style.opacity = '1'
                 takenUserNameMessage.style.transform = 'transition 0.5s ease'
             } else {
@@ -187,18 +181,10 @@ async function getUserInfos() {
     let passValue = inputsElems[1].value
 
     try {
-        let res = await fetch('http://localhost:3000/api/users/')
+        let res = await fetch(`http://localhost:3000/api/users/${userNameValue}/${passValue}`)
         let data = await res.json()
 
-        let isInDB = data.some(info => {
-            if (info.userName === userNameValue && info.password === passValue) {
-                return true
-            } else {
-                return false
-            }
-        })
-
-        if (isInDB) {
+        if (data.length) {
             successfulLogInMessage.style.display = 'block'
             successfulLogInMessage.style.transition = 'transform 0.5s ease'
             setCookieForLogIn()
