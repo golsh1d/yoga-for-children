@@ -22,6 +22,7 @@ let sideOrderLi = document.querySelector('.side-order-li')
 let sideOrderLink = document.querySelector('.side-order-link')
 let sideOrdertext = document.querySelector('.side-order-text')
 let mainSection = document.querySelector('.main-section')
+let userName = document.cookie.split('=')
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -54,7 +55,7 @@ let locationSearch = location.search
 let searchParams = new URLSearchParams(locationSearch)
 let pageId = searchParams.get('id')
 
-function loadData() {
+async function loadData() {
     if (pageId == 3) {
         myOrderLink.classList.add('text-gray-400')
         myOrderLink.classList.add('dark:text-gray-100')
@@ -78,53 +79,90 @@ function loadData() {
         sideCoursesLink.classList.add('dark:text-gray-100')
         sideCoursestext.classList.add('text-zinc-700')
         sideCoursestext.classList.add('dark:text-gray-100')
-        mainSection.insertAdjacentHTML(`beforeend`,
-            `<div class="w-full md:w-[70%] h-full p-5 bg-lime-50 rounded-2xl
-        flex md:items-center">
-            <div class="w-full">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-y-5 w-full h-min mb-5 md:mb-10">
-                    <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
-                        <label for="name" class="font-DanaMedium text-sm md:text-base text-zinc-700">نام</label>
-                        <input id="name" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="گلشید">
+        try {
+            let res = await fetch(`http://localhost:3000/api/users/${userName[1]}`)
+            let data = await res.json()
+            if (data.length) {
+                console.log(data);
+                mainSection.insertAdjacentHTML(`beforeend`,
+                    `<div class="w-full md:w-[70%] h-full p-5 bg-lime-50 rounded-2xl
+                flex md:items-center overflow-y-scroll">
+                    <div class="w-full">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-y-3 w-full h-min mb-3 md:mb-5">
+                            <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
+                                <label for="name" class="font-DanaMedium text-sm md:text-base text-zinc-700">نام</label>
+                                <input id="name" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].name}">
+                            </div>
+                            <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
+                                <label for="Fname" class="font-DanaMedium text-sm md:text-base text-zinc-700">نام خانوادگی</label>
+                                <input id="Fname" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].familyName}">
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-y-3 w-full h-min mb-3 md:mb-5">
+                            <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
+                                <label for="userName" class="font-DanaMedium text-sm md:text-base text-zinc-700">نام کاربری</label>
+                                <input id="userName" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" readonly value="${data[0].userName}">
+                            </div>
+                            <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
+                                <label for="pass" class="font-DanaMedium text-sm md:text-base text-zinc-700">رمز عبور</label>
+                                <input id="pass" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].password}">
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-y-3 w-full h-min mb-3 md:mb-5">
+                            <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
+                                <label for="tel" class="font-DanaMedium text-sm md:text-base text-zinc-700">شماره تلفن</label>
+                                <input id="tel" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].phone}">
+                            </div>
+                            <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
+                                <label for="mail" class="font-DanaMedium text-sm md:text-base text-zinc-700">ایمیل</label>
+                                <input id="mail" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].mail}">
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-y-3 w-full mb-3 md:mb-5 h-min">
+                            <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
+                                <label for="address" class="font-DanaMedium text-sm md:text-base text-zinc-700">آدرس</label>
+                                <input id="address" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].address}">
+                            </div>
+                            <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
+                                <label for="code" class="font-DanaMedium text-sm md:text-base text-zinc-700">کد پستی</label>
+                                <input id="code" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].postalCode}">
+                            </div>
+                        </div>
+                        <div class="w-full">    
+                            <button class="info-btn w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base text-white bg-orange-300 rounded-lg">ویرایش اطلاعات</button>
+                        </div>
                     </div>
-                    <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
-                        <label for="Fname" class="font-DanaMedium text-sm md:text-base text-zinc-700">نام خانوادگی</label>
-                        <input id="Fname" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="ابراهیمی">
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-center justify-between gap-y-5 w-full h-min mb-5 md:mb-10">
-                    <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
-                        <label for="userName" class="font-DanaMedium text-sm md:text-base text-zinc-700">نام کاربری</label>
-                        <input id="userName" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="golshid">
-                    </div>
-                    <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
-                        <label for="pass" class="font-DanaMedium text-sm md:text-base text-zinc-700">رمز عبور</label>
-                        <input id="pass" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="123">
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-center justify-between gap-y-5 w-full h-min mb-5 md:mb-10">
-                    <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
-                        <label for="tel" class="font-DanaMedium text-sm md:text-base text-zinc-700">شماره تلفن</label>
-                        <input id="tel" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="09394008198">
-                    </div>
-                    <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
-                        <label for="mail" class="font-DanaMedium text-sm md:text-base text-zinc-700">ایمیل</label>
-                        <input id="mail" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="example@gmail.com">
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-center justify-between gap-y-5 w-full h-min">
-                    <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
-                        <label for="address" class="font-DanaMedium text-sm md:text-base text-zinc-700">آدرس</label>
-                        <input id="address" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="">
-                    </div>
-                    <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
-                        <label for="code" class="font-DanaMedium text-sm md:text-base text-zinc-700">کد پستی</label>
-                        <input id="code" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="">
-                    </div>
-                </div>
-            </div>
-        </div>`
-        )
+                </div>`
+                )
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        document.querySelector('.info-btn').addEventListener('click' , async () => {
+            let userNewInfoObj = {
+                name : document.querySelector('#name').value,
+                familyName : document.querySelector('#Fname').value,
+                userName : document.querySelector('#userName').value,
+                password : document.querySelector('#pass').value,
+                phone : document.querySelector('#tel').value,
+                mail : document.querySelector('#mail').value,
+                address : document.querySelector('#address').value,
+                postalCode : document.querySelector('#code').value,
+            }
+            try {
+                let res = await fetch(`http://localhost:3000/api/users/newUserAllInfo` , {
+                    method : 'PUT',
+                    headers : {
+                        'Content-type' : 'application/json'
+                    },
+                    body : JSON.stringify(userNewInfoObj)
+                })
+                console.log(res);
+                location.reload()
+            } catch (error) {
+                console.log(error);
+            }
+        })
     }
     if (pageId == 2) {
         myOrderLink.classList.add('text-gray-400')
