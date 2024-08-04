@@ -180,58 +180,60 @@
                   </a>
               </div>
               <!-- pannel -->
-              <div class="pannel-icon relative h-16 flex items-center justify-center hover:text-orange-300">
-                 <svg class="w-6 h-6 lg:w-8 lg:h-8 cursor-pointer">
-                     <use xlink:href="#user"></use>
-                 </svg>
-                 <!-- has sub -->
-                 <div class="pannel-container hidden w-[250px] h-min px-5 py-3 absolute top-full left-0
-                 rounded-2xl border-t-[3px] bg-white dark:bg-zinc-700 border-orange-300">
-                     <div class="w-full flex items-center gap-x-3 pb-3 border-b-[1px] border-gray-300 dark:border-white/10">
-                         <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gray-100 flex items-center justify-center">
-                             <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400">
-                                 <use xlink:href="#user"></use>
-                             </svg>
-                         </div>
-                         <p class="pannel-userName font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">گلشید</p>
-                     </div>
-                     <ul>
-                         <li class="w-full h-min p-2 mt-2 flex items-center rounded-xl hover:bg-orange-300 group">
-                             <a href="./pannel.html?id=1" class="w-full inline-flex items-end gap-x-2">
-                                 <svg class="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 dark:text-gray-100 group-hover:text-white">
-                                     <use xlink:href="#truck"></use>
-                                 </svg>
-                                 <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 group-hover:text-white">سفارشات</p>
-                             </a>
-                         </li>
-                         <li class="w-full h-min p-2 flex items-center rounded-xl hover:bg-orange-300 group">
-                             <a href="./pannel.html?id=2" class="w-full inline-flex items-end gap-x-2">
-                                 <svg class="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 dark:text-gray-100 group-hover:text-white">
-                                     <use xlink:href="#academic-cap"></use>
-                                 </svg>
-                                 <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 group-hover:text-white">دوره ها</p>
-                             </a>
-                         </li>
-                         <li class="w-full h-min p-2 mb-2 flex items-center rounded-xl hover:bg-orange-300 group">
-                             <a href="./pannel.html?id=3" class="w-full inline-flex items-end gap-x-2">
-                                 <svg class="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 dark:text-gray-100 group-hover:text-white">
-                                     <use xlink:href="#user"></use>
-                                 </svg>
-                                 <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 group-hover:text-white">اطلاعات</p>
-                             </a>
-                         </li>
-                     </ul>
-                     <!-- seperator -->
-                     <div class="w-[full] h-[0.7px] bg-gray-300 dark:bg-white/10"></div> 
-                     <!-- logout -->
-                     <div class="w-full h-min flex items-center gap-x-2 p-2 mt-2 hover:bg-red-500 group rounded-xl cursor-pointer">
-                         <svg class="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 dark:text-gray-100 group-hover:text-white">
-                             <use xlink:href="#arrow-right-out"></use>
-                         </svg>
-                         <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 group-hover:text-white">خروج از حساب</p>
-                     </div>
-                 </div> 
-              </div>
+              <div class="pannel-icon-wrapper hidden">
+                <div class="pannel-icon relative h-16 flex items-center justify-center hover:text-orange-300">
+                    <svg class="w-6 h-6 lg:w-8 lg:h-8 cursor-pointer">
+                        <use xlink:href="#user"></use>
+                    </svg>
+                    <!-- has sub -->
+                    <div class="pannel-container hidden w-[250px] h-min px-5 py-3 absolute top-full left-0
+                    rounded-2xl border-t-[3px] bg-white dark:bg-zinc-700 border-orange-300">
+                        <div class="w-full flex items-center gap-x-3 pb-3 border-b-[1px] border-gray-300 dark:border-white/10">
+                            <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gray-100 flex items-center justify-center">
+                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-gray-400">
+                                    <use xlink:href="#user"></use>
+                                </svg>
+                            </div>
+                            <p class="pannel-userName font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">گلشید</p>
+                        </div>
+                        <ul>
+                            <li class="w-full h-min p-2 mt-2 flex items-center rounded-xl hover:bg-orange-300 group">
+                                <a href="./pannel.html?id=1" class="w-full inline-flex items-end gap-x-2">
+                                    <svg class="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 dark:text-gray-100 group-hover:text-white">
+                                        <use xlink:href="#truck"></use>
+                                    </svg>
+                                    <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 group-hover:text-white">سفارشات</p>
+                                </a>
+                            </li>
+                            <li class="w-full h-min p-2 flex items-center rounded-xl hover:bg-orange-300 group">
+                                <a href="./pannel.html?id=2" class="w-full inline-flex items-end gap-x-2">
+                                    <svg class="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 dark:text-gray-100 group-hover:text-white">
+                                        <use xlink:href="#academic-cap"></use>
+                                    </svg>
+                                    <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 group-hover:text-white">دوره ها</p>
+                                </a>
+                            </li>
+                            <li class="w-full h-min p-2 mb-2 flex items-center rounded-xl hover:bg-orange-300 group">
+                                <a href="./pannel.html?id=3" class="w-full inline-flex items-end gap-x-2">
+                                    <svg class="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 dark:text-gray-100 group-hover:text-white">
+                                        <use xlink:href="#user"></use>
+                                    </svg>
+                                    <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 group-hover:text-white">اطلاعات</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- seperator -->
+                        <div class="w-[full] h-[0.7px] bg-gray-300 dark:bg-white/10"></div> 
+                        <!-- logout -->
+                        <div class="w-full h-min flex items-center gap-x-2 p-2 mt-2 hover:bg-red-500 group rounded-xl cursor-pointer">
+                            <svg class="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 dark:text-gray-100 group-hover:text-white">
+                                <use xlink:href="#arrow-right-out"></use>
+                            </svg>
+                            <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 group-hover:text-white">خروج از حساب</p>
+                        </div>
+                    </div> 
+                 </div>
+             </div>
          </div>
     </header>
 
@@ -500,5 +502,6 @@
     <div class="overlay w-full h-full fixed inset-0 bg-black/40 z-10 hidden"></div>
     
     <script src="./scripts/shoppingCard.js"></script>
+    <script src="./scripts/userInfo.js"></script>
 </body>
 </html>
