@@ -37,45 +37,6 @@ let pannelContainer = document.querySelector('.pannel-container')
 let pannelSubIcon = document.querySelector('.pannel-sub-icon')
 let pannelSubMenu = document.querySelector('.pannel-sub-menu')
 let pannelSubli = document.querySelector('.has-pannel-sub')
-let courseData = [
-    {id : 1 , 
-    desc : `
-    یوگا یک فعالیت فیزیکی و ذهنی است که به کودکان کمک می‌کند تا اعتماد به نفس، تعادل و آرامش را تجربه کنند. با شرکت در دوره یوگای کودک، فرزندتان می‌تواند با حرکات آسان و تنفس عمیق، ارتباط بین بدن و ذهن خود را تقویت کند. این دوره همچنین به کودکان کمک می‌کند تا استرس و اضطراب را کاهش دهند و بهبود خواب و تمرکز خود را افزایش دهند. با یوگای کودک، کودکان شادتر، متمرکز‌تر و پویاتر خواهند بود.
-    دوره یوگای کودک یک فرصت عالی برای کودکان است تا با حرکات آسان و تنفس عمیق، اعتماد به نفس، تعادل و آرامش را تجربه کنند. این دوره به کودکان کمک می‌کند تا ارتباط بین بدن و ذهن خود را تقویت کنند و استرس و اضطراب را کاهش دهند. همچنین، با شرکت در یوگای کودک، کودکان می‌توانند بهبود خواب و تمرکز خود را تجربه کنند و شادتر، متمرکز‌تر و پویاتر شوند.
-    `,
-    price : "2,000,000",
-    lessonCount : '10 جلسه',
-    courseDuration : '10 ساعت',
-    },
-]
-
-let detailData = {
-    '1' : [
-    {id : 1 , icon : "question", title1 : "وضعیت دوره", status : "تکمیل شده" ,},
-    {id : 2 , icon : "clock", title1 : "مدت زمان دوره", status : "10 ساعت" ,},
-    {id : 3 , icon : "calender", title1 : "بروزرسانی شده در", status : "1403/01/01" ,},
-    {id : 4 , icon : "user", title1 : "نوع پشتیبانی", status : "آنلاین" ,},
-    {id : 5 , icon : "video", title1 : "نوع مشاهده", status : "آنلاین" ,},
-    {id : 6 , icon : "doc", title1 : "پیش نیاز", status : "آشنایی با یوگا" ,},
-    {id : 7 , icon : "star", title1 : "رضایت", status : "5/5" ,},
-    {id : 8 , icon : "users", title1 : "تعداد دانشجو", status : "70 نفر" ,},
-    ]
-}
-
-let lessonsData = {
-    1 : [
-    {id : 1 , title : "قسمت اول دوره یوگای کودک", duration : "20:00"},
-    {id : 2 , title : "قسمت دوم دوره یوگای کودک", duration : "10:00"},
-    {id : 3 , title : "قسمت سوم دوره یوگای کودک", duration : "30:00"},
-    {id : 4 , title : "قسمت چهارم دوره یوگای کودک", duration : "20:00"},
-    {id : 5 , title : "قسمت پنجم دوره یوگای کودک", duration : "40:00"},
-    {id : 6 , title : "قسمت ششم دوره یوگای کودک", duration : "10:00"},
-    {id : 7 , title : "قسمت هفتم دوره یوگای کودک", duration : "5:00"},
-    {id : 8 , title : "قسمت هشتم دوره یوگای کودک", duration : "10:00"},
-    {id : 9 , title : "قسمت نهم دوره یوگای کودک", duration : "20:00"},
-    {id : 10 , title : "قسمت دهم دوره یوگای کودک", duration : "30:00"},
-    ]
-}
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -182,49 +143,62 @@ let searchParams = new URLSearchParams(locationSearch)
 let pageId = searchParams.get('id')
 
 function loadDetailData() {
-    detailData[pageId].forEach(obj => {
-            detailWrapper.insertAdjacentHTML(`beforeend` , 
-                `<div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
-                    font-Dana">
-                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
-                            <use xlink:href="#${obj.icon}"></use>
-                        </svg>
-                        <div class="space-y-0.5 sm:space-y-1">
-                            <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">${obj.title1}</p>
-                            <p class="course-status block text-sm opacity-70 text-zinc-700 dark:text-gray-100">${obj.status}</p>
-                        </div>
-                </div>`
-            )
+    fetch(`http://localhost:3000/api/courseDataDetail/`)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        data.forEach(obj => {
+                detailWrapper.insertAdjacentHTML(`beforeend` , 
+                    `<div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
+                        font-Dana">
+                            <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                                <use xlink:href="#${obj.icon}"></use>
+                            </svg>
+                            <div class="space-y-0.5 sm:space-y-1">
+                                <p class="block font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100">${obj.title}</p>
+                                <p class="course-status block text-sm opacity-70 text-zinc-700 dark:text-gray-100">${obj.status}</p>
+                            </div>
+                    </div>`
+                )
+        })
     })
 }
 
 function loadCourseData() {
-    courseData.forEach(obj => {
-        if(obj.id == pageId) {
-            courseDesc.innerHTML= obj.desc
-            coursePrice.innerHTML = `قیمت : ${obj.price}`
-            courseLessonCount.innerHTML = obj.lessonCount
-            courseDurationTime.innerHTML = obj.courseDuration
-        }
+    fetch(`http://localhost:3000/api/courseData/`)
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(obj => {
+            if(obj.id == pageId) {
+                courseDesc.innerHTML= obj.description
+                coursePrice.innerHTML = `قیمت : ${obj.price}`
+                courseLessonCount.innerHTML = obj.lessonCount + 'جلسه'
+                courseDurationTime.innerHTML = obj.courseDuration + 'ساعت'
+            }
+        })
     })
 }
 
 function loadLessonData() {
-    lessonsData[pageId].forEach(obj => {
-        lessonsSection.insertAdjacentHTML(`beforeend`,
-            `<div class="flex items-end justify-between w-full py-4 border-b-[1px] border-black/10">
-                <a href="lesson.html?id=${obj.id}" class="inline-flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
-                    <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">${obj.id}</p>
-                    <p class="font-DanaMedium text-sm md:text-base">${obj.title}</p>
-                </a>
-                <div class="hidden md:flex items-end gap-x-2.5 md:gap-x-3.5">
-                    <p class="font-DanaMedium text-sm md:text-base">${obj.duration}</p>
-                    <svg class="w-6 h-6 md:w-7 md:h-7">
-                        <use xlink:href="#lock"></use>
-                    </svg>
-                </div>
-            </div>`
-        )
+    fetch(`http://localhost:3000/api/courseDataDetailAllLessons/`)
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(obj => {
+            lessonsSection.insertAdjacentHTML(`beforeend`,
+                `<div class="flex items-end justify-between w-full py-4 border-b-[1px] border-black/10">
+                    <a href="lesson.html?id=${obj.id}" class="inline-flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
+                        <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">${obj.id}</p>
+                        <p class="font-DanaMedium text-sm md:text-base">${obj.title}</p>
+                    </a>
+                    <div class="hidden md:flex items-end gap-x-2.5 md:gap-x-3.5">
+                        <p class="font-DanaMedium text-sm md:text-base">${obj.duration}</p>
+                        <svg class="w-6 h-6 md:w-7 md:h-7">
+                            <use xlink:href="#lock"></use>
+                        </svg>
+                    </div>
+                </div>`
+            )
+        })
     })
 }
 
@@ -252,7 +226,7 @@ function shoppingCardGenerator() {
                                         <use xlink:href="#plus"></use>
                                     </svg>
                                 </div>
-                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.val}</p>
+                                <p data-id="${obj.id}" class="val text-xl tracking-tighter">${obj.value}</p>
                                 <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                                     <svg class="w-4 h-4 cursor-pointer">
                                         <use xlink:href="#minus"></use>
@@ -280,7 +254,7 @@ function sideShoppingCardGenerator() {
                 <div class="w-[170px] flex flex-col gap-y-3">
                     <div class="flex justify-between">
                     <p class="font-DanaMedium text-sm text-zinc-700 dark:text-white">${obj.title}</p>
-                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 cursor-pointer text-zinc-700 dark:text-white , size : "10 در 10" , count: 20 , material : "کاغذ" , weight : "200 گرم" hover:text-orange-300">
+                    <svg onclick="removeItem(${obj.id})" class="w-4 h-4 text-zinc-700 dark:text-white cursor-pointer hover:text-orange-300">
                         <use xlink:href="#X-mark"></use>
                     </svg>
                     </div>
@@ -291,7 +265,7 @@ function sideShoppingCardGenerator() {
                                 <use xlink:href="#plus"></use>
                             </svg>
                         </div>
-                        <p class="text-base tracking-tighter">${obj.val}</p>
+                        <p class="text-base tracking-tighter">${obj.value}</p>
                         <div onclick="decVal(${obj.id})" class="hover:text-orange-400 transition-colors">
                             <svg class="w-4 h-4 cursor-pointer">
                                 <use xlink:href="#minus"></use>
@@ -321,7 +295,7 @@ function removeItem(id) {
 function inVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            ++obj.val 
+            ++obj.value 
             totalPrice()
         }
     })
@@ -333,8 +307,8 @@ function inVal(id) {
 function decVal(id) {
     shoppingCardProductArray.forEach(obj => {
         if (obj.id == id) {
-            if(obj.val > 1){
-                --obj.val 
+            if(obj.value > 1){
+                --obj.value 
                 totalPrice()
             }
         }
@@ -349,7 +323,7 @@ function totalPrice() {
     headerShoppingCardPrice.innerHTML = '0'
     sideShoppingCardPrice.innerHTML = '0'
     shoppingCardProductArray.forEach(obj => {
-        sum += obj.price * obj.val
+        sum += obj.price * obj.value
         headerShoppingCardPrice.innerHTML = sum
         sideShoppingCardPrice.innerHTML = sum
     })
