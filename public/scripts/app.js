@@ -473,11 +473,9 @@ let isHide = true
 function showPannel() {
     if (isHide) {
         pannelContainer.style.display = 'block'
-        overlayElem.style.display = 'block'
         isHide = false
     } else {
         pannelContainer.style.display = 'none'
-        overlayElem.style.display = 'none'
         isHide = true
     }
 }
