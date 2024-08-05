@@ -15,7 +15,7 @@ function mainShoppingCardGenerator() {
                         <div class="flex items-center gap-x-3">
                         <p class="font-DanaDemiBold text-base md:text-lg tracking-tighter text-orange-300
                         flex items-center gap-x-3">
-                            ${obj.val}
+                            ${obj.value}
                             <svg class="w-4 h-4 md:w-5 md:h-5 text-zinc-700 dark:text-white">
                                 <use xlink:href="#X-mark"></use>
                             </svg>
@@ -34,7 +34,7 @@ function orderPrice() {
     let sum = 0
     orderPriceElem.innerHTML = ''
     shoppingCardProductArray.forEach(obj => {
-        sum += obj.price * obj.val
+        sum += obj.price * obj.value
     })
     orderPriceElem.innerHTML = sum
     totalPrice(sum)
@@ -53,6 +53,7 @@ function setLocalStorage() {
 
 function loadHeaderShoppingCard() {
     let localStorageArray = JSON.parse(localStorage.getItem('shoppingCardArray'))
+    console.log(localStorageArray);
     if (localStorageArray) {
         shoppingCardProductArray = localStorageArray
         mainShoppingCardGenerator()
