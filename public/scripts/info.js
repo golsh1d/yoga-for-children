@@ -1232,35 +1232,50 @@ btn.addEventListener('click' , () => {
             state : stateBox.value,
             city : cityBox.value,
             address : addressInput.value,
-            code : codeInput.value,
-            tel : telInput.value
+            postalCode : codeInput.value,
+            phone : telInput.value
         }
 
         console.log(infoObj);
 
         async function sendData() {
-            try {
-                let res = await fetch('http://127.0.0.1:27017/test' , {
-                    method : 'POST',
-                    headers : {
-                        'Content-type': 'application/json'
-                    },
-                    body : JSON.stringify(infoObj)
-                })
-
-                console.log(res)
-
-                if(res.status != 404) {
+            let userName = document.cookie.split('=')
+            if (userName.length > 1) {
+                try {
+                  let res = await fetch(`http://localhost:3000/api/users/${userName[1]}` , {
+                      method : 'PUT',
+                      headers : {
+                          'Content-type': 'application/json'
+                      },
+                      body : JSON.stringify(infoObj)
+                  })
+                  let data = await res.json()
+                  if (data) {
                     location.href = 'http://127.0.0.1:5500/public/orderDetail.html'
-                    clearInputs()
+                  }
+                } catch (error) {
+                  console.log(error)
                 }
-            } catch (error) {
-                console.log(error)
+            } else {
+                  try {
+                    let res = await fetch(`http://localhost:3000/api/users/userOrderInfo` , {
+                        method : 'POST',
+                        headers : {
+                            'Content-type': 'application/json'
+                        },
+                        body : JSON.stringify(infoObj)
+                    })
+                    let data = await res.json()
+                    if (data) {
+                      location.href = 'http://127.0.0.1:5500/public/orderDetail.html'
+                    }
+                  } catch (error) {
+                    console.log(error)
+                  }
             }
         }
-    
         sendData()
-        }   
+    }   
 })
 
 function clearInputs() {
@@ -1272,3 +1287,23 @@ function clearInputs() {
     codeInput.value = ''
     telInput.value = ''
 }
+
+async function showUserData() {
+  let userName = document.cookie.split('=')
+  if (userName.length > 1) {
+    try {
+      let res = await fetch(`http://localhost:3000/api/users/${userName[1]}`)
+      let data = await res.json()
+      nameInput.value = data[0].name
+      familyNameInput.value = data[0].familyName
+      addressInput.value = data[0].address
+      codeInput.value = data[0].postalCode
+      telInput.value = data[0].phone 
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+// events
+window.addEventListener('load' , showUserData)
