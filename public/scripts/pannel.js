@@ -22,6 +22,7 @@ let sideOrderLi = document.querySelector('.side-order-li')
 let sideOrderLink = document.querySelector('.side-order-link')
 let sideOrdertext = document.querySelector('.side-order-text')
 let mainSection = document.querySelector('.main-section')
+let logOutBtn = document.querySelectorAll('.log-out-btn')
 let userName = document.cookie.split('=')
 
 //changing the theme
@@ -83,7 +84,6 @@ async function loadData() {
             let res = await fetch(`http://localhost:3000/api/users/${userName[1]}`)
             let data = await res.json()
             if (data.length) {
-                console.log(data);
                 mainSection.insertAdjacentHTML(`beforeend`,
                     `<div class="w-full md:w-[70%] h-full p-5 bg-lime-50 rounded-2xl
                 flex md:items-center overflow-y-scroll">
@@ -257,6 +257,14 @@ async function loadData() {
     }
 }
 
+function logOut() {
+    document.cookie.replace(/(?<=^|;).+?(?=\=|;|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
+    location.href = 'http://127.0.0.1:5500/public/index.html'
+}
+
 pannelIcon.addEventListener('click', showSidePannel)
 closeElem.addEventListener('click', hideSidePannel)
 window.addEventListener('load', loadData)
+logOutBtn.forEach(btn => {
+    btn.addEventListener('click' , logOut)
+})
