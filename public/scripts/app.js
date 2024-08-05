@@ -291,7 +291,7 @@ function addCardToShoppingCard(id) {
                     shoppingCardProductArray.push(obj)
                     shoppingCardGenerator()
                     sideShoppingCardGenerator()
-                    setLocalStorage()
+                    setData(obj)
                 }
             }
         })
@@ -314,7 +314,7 @@ function addBoardGameToShoppingCard(id) {
                    shoppingCardProductArray.push(obj)
                    shoppingCardGenerator()
                    sideShoppingCardGenerator()
-                   setLocalStorage()
+                   setData(obj)
                }
            }
        })
@@ -408,7 +408,7 @@ function removeItem(id) {
     shoppingCardProductArray.splice(objIndex , 1)
     shoppingCardGenerator()
     sideShoppingCardGenerator()
-    setLocalStorage()
+    setData()
 }
 
 // calculate value
@@ -421,7 +421,7 @@ function inVal(id) {
     })
     shoppingCardGenerator()
     sideShoppingCardGenerator()
-    setLocalStorage()
+    setData()
 }
 
 function decVal(id) {
@@ -435,7 +435,7 @@ function decVal(id) {
     })
     shoppingCardGenerator()
     sideShoppingCardGenerator()
-    setLocalStorage()
+    setData
 }
 
 function totalPrice() {
@@ -456,11 +456,31 @@ function totalItem() {
 }
 
 //local storage
-function setLocalStorage() {
+function setData() {
+    // let userName = document.cookie.split('=')
+    // let shoppingCardLength = shoppingCardProductArray.length
+    // console.log(shoppingCardLength);
+    // console.log(shoppingCardProductArray[shoppingCardLength - 1]);
+    // fetch(`http://localhost:3000/api/basket/${userName[1]}` , {
+    //     method : 'POST' , 
+    //     headers : {
+    //         'Content-type' : 'application/json'
+    //     },
+    //     body : JSON.stringify(shoppingCardProductArray[shoppingCardLength - 1]),
+    // })
+    // .then(res => console.log(res))
     localStorage.setItem('shoppingCardArray' , JSON.stringify(shoppingCardProductArray))
 }
 
-function loadHeaderShoppingCard() {
+async function loadHeaderShoppingCard() {
+    // let res = await fetch(`http://localhost:3000/api/basket/`)
+    // let data = await res.json()
+    // if (data.length) {
+    //     console.log(data);
+    //     shoppingCardProductArray = data
+    //     shoppingCardGenerator()
+    //     sideShoppingCardGenerator()
+    // }
     let localStorageArray = JSON.parse(localStorage.getItem('shoppingCardArray'))
     if (localStorageArray) {
         shoppingCardProductArray = localStorageArray
