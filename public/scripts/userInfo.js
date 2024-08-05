@@ -1,5 +1,5 @@
-let pannelIconWrapper = document.querySelector('.pannel-icon-wrapper')
-let register = document.querySelector('.register')
+let pannelIconWrapper = document.querySelectorAll('.pannel-icon-wrapper')
+let register = document.querySelectorAll('.register')
 let pannelUserName = document.querySelector('.pannel-userName')
 
 async function loadUserData() {
@@ -10,14 +10,17 @@ async function loadUserData() {
         let data = await res.json()
 
         if (data.length) {
-            pannelIconWrapper.style.display = 'flex'
-            register.style.display = 'none'
+            pannelIconWrapper[0].style.display = 'flex'
+            pannelIconWrapper[1].style.display = 'block'
+            register[0].style.display = 'none'
+            register[1].style.display = 'none'
             pannelUserName.innerHTML = data[0].userName
         } else {
-            pannelIconWrapper.style.display = 'none'
-            register.style.display = 'flex'
+            pannelIconWrapper[0].style.display = 'none'
+            pannelIconWrapper[1].style.display = 'none'
+            register[0].style.display = 'flex'
+            register[1].style.display = 'block'
         }
-
     } catch (error) {
         console.log(error)
     }
