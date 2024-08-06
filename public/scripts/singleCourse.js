@@ -146,7 +146,6 @@ function loadDetailData() {
     fetch(`http://localhost:3000/api/courseDataDetail/`)
     .then(res => res.json())
     .then(data => {
-        console.log(data);
         data.forEach(obj => {
                 detailWrapper.insertAdjacentHTML(`beforeend` , 
                     `<div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
@@ -179,27 +178,56 @@ function loadCourseData() {
     })
 }
 
-function loadLessonData() {
-    fetch(`http://localhost:3000/api/courseDataDetailAllLessons/`)
-    .then(res => res.json())
-    .then(data => {
+async function loadLessonData() {
+    let userName = document.cookie.split('=')
+    console.log(userName);
+    if (userName.length === 1) {
+        fetch(`http://localhost:3000/api/courseDataDetailAllLessons/`)
+                .then(res => res.json())
+                .then(data => {
+                    data.forEach(obj => {
+                        lessonsSection.insertAdjacentHTML(`beforeend`,
+                            `<div class="flex items-end justify-between w-full py-4 border-b-[1px] border-black/10">
+                                <a href="#" class="inline-flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
+                                    <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">${obj.id}</p>
+                                    <p class="font-DanaMedium text-sm md:text-base">${obj.title}</p>
+                                </a>
+                                <div class="hidden md:flex items-end gap-x-2.5 md:gap-x-3.5">
+                                    <p class="font-DanaMedium text-sm md:text-base">${obj.duration}</p>
+                                    <svg class="w-6 h-6 md:w-7 md:h-7">
+                                        <use xlink:href="#lock"></use>
+                                    </svg>
+                                </div>
+                            </div>`
+                        )
+                    })
+                })
+    } else {
+        let res = await fetch(`http://localhost:3000/api/courseOrder/${userName[1]}`)
+        let data = await res.json()
         data.forEach(obj => {
-            lessonsSection.insertAdjacentHTML(`beforeend`,
-                `<div class="flex items-end justify-between w-full py-4 border-b-[1px] border-black/10">
-                    <a href="lesson.html?id=${obj.id}" class="inline-flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
-                        <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">${obj.id}</p>
-                        <p class="font-DanaMedium text-sm md:text-base">${obj.title}</p>
-                    </a>
-                    <div class="hidden md:flex items-end gap-x-2.5 md:gap-x-3.5">
-                        <p class="font-DanaMedium text-sm md:text-base">${obj.duration}</p>
-                        <svg class="w-6 h-6 md:w-7 md:h-7">
-                            <use xlink:href="#lock"></use>
-                        </svg>
-                    </div>
-                </div>`
-            )
+            fetch(`http://localhost:3000/api/courseDataDetailAllLessons/`)
+            .then(res => res.json())
+            .then(data => {
+                data.forEach(obj => {
+                    lessonsSection.insertAdjacentHTML(`beforeend`,
+                        `<div class="flex items-end justify-between w-full py-4 border-b-[1px] border-black/10">
+                            <a href="lesson.html?id=${obj.id}" class="inline-flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
+                                <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">${obj.id}</p>
+                                <p class="font-DanaMedium text-sm md:text-base">${obj.title}</p>
+                            </a>
+                            <div class="hidden md:flex items-end gap-x-2.5 md:gap-x-3.5">
+                                <p class="font-DanaMedium text-sm md:text-base">${obj.duration}</p>
+                                <svg class="w-6 h-6 md:w-7 md:h-7">
+                                    <use xlink:href="#un-lock"></use>
+                                </svg>
+                            </div>
+                        </div>`
+                    )
+                })
+            })
         })
-    })
+    }
 }
 
 // generate shopping card
