@@ -187,25 +187,27 @@ async function loadData() {
         try {
             let res = await fetch(`http://localhost:3000/api/courseOrder/${userName[1]}`)
             let data = await res.json() 
-            data.forEach(obj => {
-                document.querySelector('.recivedDataWrapper').insertAdjacentHTML(`beforeend`,
-                    `<div class="inline-flex flex-row items-center gap-x-3 md:gap-x-5 w-full md:w-[70%] h-min mx-auto p-3 md:p-5
-                        bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-                        <a href="singleCourse.html?id=1" class="inline-block hover:scale-110 overflow-hidden transition-transform">
-                            <img class="w-28 md:w-32 h-full mx-auto" src="./img/logo.png" alt="">
-                        </a>
-                        <div class="flex flex-col gap-y-2 md:gap-y-2.5 w-full">
-                            <p class="font-DanaDemiBold text-sm lg:text-base text-zinc-700 dark:text-gray-100 line-clamp-2">دوره ی یوگای کودک</p>
-                            <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 line-clamp-2">
-                            هنر یوگای کودک در این دوره سعی دارد تا با استفاده از جدید ترین تکنیک ها شما را تبدیل به یک مربی حرفه ای یوگای کودک کند. 
-                            </p>
-                            <div class="w-full flex items-center justify-between">
-                                <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-sm lg:text-base">135,000</span>تومان</p>
+            if (data.length) {
+                data.forEach(obj => {
+                    document.querySelector('.recivedDataWrapper').insertAdjacentHTML(`beforeend`,
+                        `<div class="inline-flex flex-row items-center gap-x-3 md:gap-x-5 w-full md:w-[70%] h-min mx-auto p-3 md:p-5
+                            bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                            <a href="singleCourse.html?id=1" class="inline-block hover:scale-110 overflow-hidden transition-transform">
+                                <img class="w-28 md:w-32 h-full mx-auto" src="./img/logo.png" alt="">
+                            </a>
+                            <div class="flex flex-col gap-y-2 md:gap-y-2.5 w-full">
+                                <p class="font-DanaDemiBold text-sm lg:text-base text-zinc-700 dark:text-gray-100 line-clamp-2">دوره ی یوگای کودک</p>
+                                <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 line-clamp-2">
+                                هنر یوگای کودک در این دوره سعی دارد تا با استفاده از جدید ترین تکنیک ها شما را تبدیل به یک مربی حرفه ای یوگای کودک کند. 
+                                </p>
+                                <div class="w-full flex items-center justify-between">
+                                    <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-sm lg:text-base">135,000</span>تومان</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>`
-                )
-            })
+                        </div>`
+                    )
+                })
+            }
         } catch (error) {
            console.log(error); 
         }
@@ -236,28 +238,30 @@ async function loadData() {
         try {
             let res = await fetch(`http://localhost:3000/api/shoppingCardOrder/${userName[1]}`)
             let data = await res.json()
-            data.forEach(obj => {
-                document.querySelector('.recivedDataWrapper').insertAdjacentHTML(`beforeend`,
-                    `<div class="w-full md:w-[70%] h-min mx-auto flex gap-x-3 md:gap-x-5 items-center p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-                        <div>
-                            <img class="w-28 md:w-32 h-full mx-auto" src=${obj.src} alt="">
-                        </div>
-                        <div class="w-full">
-                            <p class="font-DanaMedium text-sm md:text-base text-zinc-700 dark:text-white mb-[10px] md:mb-[20px]">${obj.title}</p>
-                            <div class="flex items-center gap-x-3">
-                            <p class="font-DanaDemiBold text-sm md:text-base tracking-tighter text-orange-300
-                            flex items-center gap-x-3">
-                                ${obj.value}
-                                <svg class="w-3 h-3 md:w-4 md:h-4 text-zinc-700 dark:text-white">
-                                    <use xlink:href="#X-mark"></use>
-                                </svg>
-                            </p>
-                            <p class="font-Dana text-xs md:text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-sm md:text-base text-zinc-700 dark:text-white">${obj.price}</span> تومان</p>
+            if (data.length) {
+                data.forEach(obj => {
+                    document.querySelector('.recivedDataWrapper').insertAdjacentHTML(`beforeend`,
+                        `<div class="w-full md:w-[70%] h-min mx-auto flex gap-x-3 md:gap-x-5 items-center p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                            <div>
+                                <img class="w-28 md:w-32 h-full mx-auto" src=${obj.src} alt="">
                             </div>
-                        </div>
-                    </div>`
-                )
-            })
+                            <div class="w-full">
+                                <p class="font-DanaMedium text-sm md:text-base text-zinc-700 dark:text-white mb-[10px] md:mb-[20px]">${obj.title}</p>
+                                <div class="flex items-center gap-x-3">
+                                <p class="font-DanaDemiBold text-sm md:text-base tracking-tighter text-orange-300
+                                flex items-center gap-x-3">
+                                    ${obj.value}
+                                    <svg class="w-3 h-3 md:w-4 md:h-4 text-zinc-700 dark:text-white">
+                                        <use xlink:href="#X-mark"></use>
+                                    </svg>
+                                </p>
+                                <p class="font-Dana text-xs md:text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-sm md:text-base text-zinc-700 dark:text-white">${obj.price}</span> تومان</p>
+                                </div>
+                            </div>
+                        </div>`
+                    )
+                })
+            }
         } catch (error) {
             console.log(error);
         }
