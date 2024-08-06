@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه ی پرداخت با موفقیت</title>
+    <link rel="icon" href="./img/logo.png">
+    <link rel="stylesheet" href="./styles/app.css">
+    <script type="text/javascript">
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-zinc-800 flex items-center justify-center">
+    <div class="w-96 h-min p-5 text-white font-DanaDemiBold rounded mt-10" style="background-color: #047857  ;">
+        دوره یوگای کودک با موفقیت برای شما ثبت شد.
+    </div>
+    <script src="./scripts/userInfo.js"></script>
+</body>
+</html>
