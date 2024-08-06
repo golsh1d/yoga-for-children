@@ -184,23 +184,31 @@ async function loadData() {
         sideCoursesLi.classList.add('bg-orange-300')
         sideCoursesLink.classList.add('text-white')
         sideCoursestext.classList.add('text-white')
-        document.querySelector('.recivedDataWrapper').insertAdjacentHTML(`beforeend`,
-            `<div class="inline-flex flex-row items-center gap-x-3 md:gap-x-5 w-full md:w-[70%] h-min mx-auto p-3 md:p-5
-                bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-                <a href="singleCourse.html?id=1" class="inline-block hover:scale-110 overflow-hidden transition-transform">
-                    <img class="w-28 md:w-32 h-full mx-auto" src="./img/logo.png" alt="">
-                </a>
-                <div class="flex flex-col gap-y-2 md:gap-y-2.5 w-full">
-                    <p class="font-DanaDemiBold text-sm lg:text-base text-zinc-700 dark:text-gray-100 line-clamp-2">دوره ی یوگای کودک</p>
-                    <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 line-clamp-2">
-                    هنر یوگای کودک در این دوره سعی دارد تا با استفاده از جدید ترین تکنیک ها شما را تبدیل به یک مربی حرفه ای یوگای کودک کند. 
-                    </p>
-                    <div class="w-full flex items-center justify-between">
-                        <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-sm lg:text-base">135,000</span>تومان</p>
-                    </div>
-                </div>
-            </div>`
-        )
+        try {
+            let res = await fetch(`http://localhost:3000/api/courseOrder/${userName[1]}`)
+            let data = await res.json() 
+            data.forEach(obj => {
+                document.querySelector('.recivedDataWrapper').insertAdjacentHTML(`beforeend`,
+                    `<div class="inline-flex flex-row items-center gap-x-3 md:gap-x-5 w-full md:w-[70%] h-min mx-auto p-3 md:p-5
+                        bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
+                        <a href="singleCourse.html?id=1" class="inline-block hover:scale-110 overflow-hidden transition-transform">
+                            <img class="w-28 md:w-32 h-full mx-auto" src="./img/logo.png" alt="">
+                        </a>
+                        <div class="flex flex-col gap-y-2 md:gap-y-2.5 w-full">
+                            <p class="font-DanaDemiBold text-sm lg:text-base text-zinc-700 dark:text-gray-100 line-clamp-2">دوره ی یوگای کودک</p>
+                            <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 line-clamp-2">
+                            هنر یوگای کودک در این دوره سعی دارد تا با استفاده از جدید ترین تکنیک ها شما را تبدیل به یک مربی حرفه ای یوگای کودک کند. 
+                            </p>
+                            <div class="w-full flex items-center justify-between">
+                                <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-sm lg:text-base">135,000</span>تومان</p>
+                            </div>
+                        </div>
+                    </div>`
+                )
+            })
+        } catch (error) {
+           console.log(error); 
+        }
     }
     if (pageId == 1) {
         myInfoLink.classList.add('text-gray-400')
