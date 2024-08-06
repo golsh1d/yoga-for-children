@@ -37,6 +37,9 @@ let pannelContainer = document.querySelector('.pannel-container')
 let pannelSubIcon = document.querySelector('.pannel-sub-icon')
 let pannelSubMenu = document.querySelector('.pannel-sub-menu')
 let pannelSubli = document.querySelector('.has-pannel-sub')
+let rollInCourse = document.querySelector('.roll-in-course')
+let registerPopupWrapper = document.querySelector('.register-pop-up-wrapper')
+let closeRegisterPopup = document.querySelector('.close-register-pop-up')
 
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
@@ -451,6 +454,19 @@ function showPannelSub() {
     }
 }
 
+function rollIn() {
+    let userName = document.cookie.split('=')
+    if (userName.length === 1) {
+        registerPopupWrapper.style.display = 'flex'
+    } else {
+        rollInCourse.setAttribute('href','./afterPayingCourse.html')
+    }
+}
+
+function closeRegisterMsg() {
+    registerPopupWrapper.style.display = 'none'
+}
+
 // events
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
@@ -466,3 +482,5 @@ window.addEventListener('load' , loadLessonData)
 lessonWrapper.addEventListener('click', showLessons)
 pannelIcon.addEventListener('click' , showPannel)
 pannelSubIcon.addEventListener('click' , showPannelSub)
+rollInCourse.addEventListener('click' , rollIn)
+closeRegisterPopup.addEventListener('click' , closeRegisterMsg)
