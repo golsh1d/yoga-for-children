@@ -60,5 +60,4 @@ function loadHeaderShoppingCard() {
     }
 }
 
-
 window.addEventListener('load' , loadHeaderShoppingCard)
