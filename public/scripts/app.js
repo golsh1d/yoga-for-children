@@ -291,7 +291,7 @@ function addCardToShoppingCard(id) {
                     shoppingCardProductArray.push(obj)
                     shoppingCardGenerator()
                     sideShoppingCardGenerator()
-                    setData(obj)
+                    setLocalStorage()
                 }
             }
         })
@@ -314,7 +314,7 @@ function addBoardGameToShoppingCard(id) {
                    shoppingCardProductArray.push(obj)
                    shoppingCardGenerator()
                    sideShoppingCardGenerator()
-                   setData(obj)
+                   setLocalStorage()
                }
            }
        })
@@ -408,7 +408,7 @@ function removeItem(id) {
     shoppingCardProductArray.splice(objIndex , 1)
     shoppingCardGenerator()
     sideShoppingCardGenerator()
-    setData()
+    setLocalStorage()
 }
 
 // calculate value
@@ -421,7 +421,7 @@ function inVal(id) {
     })
     shoppingCardGenerator()
     sideShoppingCardGenerator()
-    setData()
+    setLocalStorage()
 }
 
 function decVal(id) {
@@ -435,7 +435,7 @@ function decVal(id) {
     })
     shoppingCardGenerator()
     sideShoppingCardGenerator()
-    setData
+    setLocalStorage()
 }
 
 function totalPrice() {
@@ -456,7 +456,7 @@ function totalItem() {
 }
 
 //local storage
-function setData() {
+function setLocalStorage() {
     // let userName = document.cookie.split('=')
     // let shoppingCardLength = shoppingCardProductArray.length
     // console.log(shoppingCardLength);
