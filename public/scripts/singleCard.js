@@ -37,6 +37,7 @@ let shoppingCardBtn = document.querySelectorAll('.shopping-card-btn')
 let registerPopupWrapper = document.querySelector('.register-pop-up-wrapper')
 let closeRegisterPopup = document.querySelector('.close-register-pop-up')
 let logOutBtn = document.querySelector('.log-out-btn')
+let shoppingCardProductArray = []
 //changing the theme
 toggleThemeBtns.forEach(function (btn) {
     btn.addEventListener("click" , () => {
