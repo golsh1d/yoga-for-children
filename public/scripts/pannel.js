@@ -22,7 +22,7 @@ let sideOrderLi = document.querySelector('.side-order-li')
 let sideOrderLink = document.querySelector('.side-order-link')
 let sideOrdertext = document.querySelector('.side-order-text')
 let mainSection = document.querySelector('.main-section')
-let logOutBtn = document.querySelectorAll('.log-out-btn')
+let logOutBtn = document.querySelector('.log-out-btn')
 let userName = document.cookie.split('=')
 
 //changing the theme
@@ -276,6 +276,4 @@ function logOut() {
 pannelIcon.addEventListener('click', showSidePannel)
 closeElem.addEventListener('click', hideSidePannel)
 window.addEventListener('load', loadData)
-logOutBtn.forEach(btn => {
-    btn.addEventListener('click' , logOut)
-})
+logOutBtn.addEventListener('click' , logOut)

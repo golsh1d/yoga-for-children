@@ -41,6 +41,7 @@ let pannelSubli = document.querySelector('.has-pannel-sub')
 let shoppingCardBtn = document.querySelectorAll('.shopping-card-btn')
 let registerPopupWrapper = document.querySelector('.register-pop-up-wrapper')
 let closeRegisterPopup = document.querySelector('.close-register-pop-up')
+let logOutBtn = document.querySelector('.log-out-btn')
 let shoppingCardProductArray = []
 
 //changing the theme
@@ -535,6 +536,11 @@ function closeRegisterMsg() {
     registerPopupWrapper.style.display = 'none'
 }
 
+function logOut() {
+    document.cookie.replace(/(?<=^|;).+?(?=\=|;|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
+    location.href = 'http://127.0.0.1:5500/public/index.html'
+}
+
 // events
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
@@ -558,3 +564,4 @@ shoppingCardBtn.forEach(btn => {
     btn.addEventListener('click' , showRegisterMsg)
 })
 closeRegisterPopup.addEventListener('click' , closeRegisterMsg)
+logOutBtn.addEventListener('click' , logOut)
