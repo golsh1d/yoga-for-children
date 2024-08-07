@@ -18,7 +18,6 @@ async function sendData() {
     })
     setTimeout(() => {
         location.href = 'http://127.0.0.1:5500/public/index.html'
-        localStorage.setItem('shoppingCardArray' , JSON.stringify(''))
     } , 1500)
 }
 
