@@ -5,7 +5,7 @@ async function sendData() {
         try {
             let res = await fetch(`http://localhost:3000/api/users/${userName[1]}`)
             let data = await res.json()
-            localstorageData.forEach(async (obj) => {
+            await localstorageData.forEach(async (obj) => {
                 let newOrderObj = {
                     userName : userName[1], 
                     productId : obj.id, 
@@ -35,6 +35,10 @@ async function sendData() {
                     console.log(error);
                 }
             })
+            setTimeout(() => {
+                location.href = 'http://127.0.0.1:5500/public/index.html'
+                localStorage.setItem('shoppingCardArray' , JSON.stringify(''))
+            } , 1500)
         } catch (error) {
             console.log(error);
         }
