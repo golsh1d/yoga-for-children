@@ -368,3 +368,7 @@ phoneNumElem.addEventListener('click' , copyToClipboard)
 window.addEventListener('load' , loadHeaderShoppingCard)
 pannelIcon.addEventListener('click' , showPannel)
 pannelSubIcon.addEventListener('click' , showPannelSub)
+shoppingCardBtn.forEach(btn => {
+    btn.addEventListener('click' , showRegisterMsg)
+})
+closeRegisterPopup.addEventListener('click' , closeRegisterMsg)

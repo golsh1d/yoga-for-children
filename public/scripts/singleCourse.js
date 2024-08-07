@@ -485,3 +485,7 @@ pannelIcon.addEventListener('click' , showPannel)
 pannelSubIcon.addEventListener('click' , showPannelSub)
 rollInCourse.addEventListener('click' , rollIn)
 closeRegisterPopup.addEventListener('click' , closeRegisterMsg)
+shoppingCardBtn.forEach(btn => {
+    btn.addEventListener('click' , showRegisterMsg)
+})
+closeRegisterPopup.addEventListener('click' , closeRegisterMsg)

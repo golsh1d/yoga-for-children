@@ -417,3 +417,7 @@ pannelIcon.addEventListener('click' , showPannel)
 pannelSubIcon.addEventListener('click' , showPannelSub)
 window.addEventListener('load' , fetchSliderData)
 window.addEventListener('load' , fetchProductData)
+shoppingCardBtn.forEach(btn => {
+    btn.addEventListener('click' , showRegisterMsg)
+})
+closeRegisterPopup.addEventListener('click' , closeRegisterMsg)
