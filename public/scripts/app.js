@@ -38,6 +38,9 @@ let pannelContainer = document.querySelector('.pannel-container')
 let pannelSubIcon = document.querySelector('.pannel-sub-icon')
 let pannelSubMenu = document.querySelector('.pannel-sub-menu')
 let pannelSubli = document.querySelector('.has-pannel-sub')
+let shoppingCardBtn = document.querySelectorAll('.shopping-card-btn')
+let registerPopupWrapper = document.querySelector('.register-pop-up-wrapper')
+let closeRegisterPopup = document.querySelectorAll('.close-register-pop-up')
 let shoppingCardProductArray = []
 
 //changing the theme
@@ -519,6 +522,19 @@ function showPannelSub() {
     }
 }
 
+function showRegisterMsg() {
+    let userName = document.cookie.split('=')
+    if (userName.length === 1) {
+        registerPopupWrapper.style.display = 'flex'
+    } else {
+        location.href = 'http://127.0.0.1:5500/public/info.html'
+    }
+}
+
+function closeRegisterMsg() {
+    registerPopupWrapper.style.display = 'none'
+}
+
 // events
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
@@ -538,3 +554,9 @@ window.addEventListener('load' , loadblogs)
 window.addEventListener('load' , loadHeaderShoppingCard)
 pannelIcon.addEventListener('click' , showPannel)
 pannelSubIcon.addEventListener('click' , showPannelSub)
+shoppingCardBtn.forEach(btn => {
+    btn.addEventListener('click' , showRegisterMsg)
+})
+closeRegisterPopup.forEach(obj => {
+    obj.addEventListener('click' , closeRegisterMsg)
+})
