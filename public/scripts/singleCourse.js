@@ -38,6 +38,7 @@ let pannelSubIcon = document.querySelector('.pannel-sub-icon')
 let pannelSubMenu = document.querySelector('.pannel-sub-menu')
 let pannelSubli = document.querySelector('.has-pannel-sub')
 let rollInCourse = document.querySelector('.roll-in-course')
+let shoppingCardBtn = document.querySelectorAll('.shopping-card-btn')
 let registerPopupWrapper = document.querySelector('.register-pop-up-wrapper')
 let closeRegisterPopup = document.querySelector('.close-register-pop-up')
 

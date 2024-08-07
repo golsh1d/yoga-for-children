@@ -40,7 +40,7 @@ let pannelSubMenu = document.querySelector('.pannel-sub-menu')
 let pannelSubli = document.querySelector('.has-pannel-sub')
 let shoppingCardBtn = document.querySelectorAll('.shopping-card-btn')
 let registerPopupWrapper = document.querySelector('.register-pop-up-wrapper')
-let closeRegisterPopup = document.querySelectorAll('.close-register-pop-up')
+let closeRegisterPopup = document.querySelector('.close-register-pop-up')
 let shoppingCardProductArray = []
 
 //changing the theme
@@ -557,6 +557,4 @@ pannelSubIcon.addEventListener('click' , showPannelSub)
 shoppingCardBtn.forEach(btn => {
     btn.addEventListener('click' , showRegisterMsg)
 })
-closeRegisterPopup.forEach(obj => {
-    obj.addEventListener('click' , closeRegisterMsg)
-})
+closeRegisterPopup.addEventListener('click' , closeRegisterMsg)

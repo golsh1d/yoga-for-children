@@ -32,6 +32,9 @@ let pannelContainer = document.querySelector('.pannel-container')
 let pannelSubIcon = document.querySelector('.pannel-sub-icon')
 let pannelSubMenu = document.querySelector('.pannel-sub-menu')
 let pannelSubli = document.querySelector('.has-pannel-sub')
+let shoppingCardBtn = document.querySelectorAll('.shopping-card-btn')
+let registerPopupWrapper = document.querySelector('.register-pop-up-wrapper')
+let closeRegisterPopup = document.querySelector('.close-register-pop-up')
 let shoppingCardProductArray = []
 
 //changing the theme
