@@ -322,6 +322,19 @@ function showPannelSub() {
     }
 }
 
+function showRegisterMsg() {
+    let userName = document.cookie.split('=')
+    if (userName.length === 1) {
+        registerPopupWrapper.style.display = 'flex'
+    } else {
+        location.href = 'http://127.0.0.1:5500/public/info.html'
+    }
+}
+
+function closeRegisterMsg() {
+    registerPopupWrapper.style.display = 'none'
+}
+
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
 hamburgerIcon.addEventListener('click' , moveSideNav)

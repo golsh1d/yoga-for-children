@@ -468,6 +468,15 @@ function closeRegisterMsg() {
     registerPopupWrapper.style.display = 'none'
 }
 
+function showRegisterMsg() {
+    let userName = document.cookie.split('=')
+    if (userName.length === 1) {
+        registerPopupWrapper.style.display = 'flex'
+    } else {
+        location.href = 'http://127.0.0.1:5500/public/info.html'
+    }
+}
+
 // events
 checkBoxInput.addEventListener('change', animationForIcon)
 chevronUp.addEventListener('click', changeSubmenuDisplay)
@@ -484,7 +493,6 @@ lessonWrapper.addEventListener('click', showLessons)
 pannelIcon.addEventListener('click' , showPannel)
 pannelSubIcon.addEventListener('click' , showPannelSub)
 rollInCourse.addEventListener('click' , rollIn)
-closeRegisterPopup.addEventListener('click' , closeRegisterMsg)
 shoppingCardBtn.forEach(btn => {
     btn.addEventListener('click' , showRegisterMsg)
 })
