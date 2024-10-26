@@ -101,19 +101,17 @@
          <nav class="flex gap-x-4 lg:gap-x-9 items-center">
             <img class="w-16 h-16" src="/public/img/logo.png" alt="logo">
             <ul class="font-Dana text-base lg:text-xl tracking-tighter text-gray-300 flex items-center gap-x-4 lg:gap-x-9">
-                <li class="h-16 leading-[64px]"><a href="index.html" class="hover:text-orange-300 transition-colors">صفحه اصلی</a></li>
+                <li class="h-16 leading-[64px]"><a href="index.html" class="text-orange-200 hover:text-orange-300 transition-colors">صفحه اصلی</a></li>
                 <!-- has sub menu -->
                 <li class="relative group h-16 leading-[64px] hover:text-orange-300 transition-colors">
                     <a href="#">خدمات ما</a>
                     <ul class="absolute top-100 right-0 hidden w-52 h-min py-5 px-6 rounded-2xl border-t-[3px] bg-white dark:bg-zinc-700 border-orange-300 
                     font-Dana text-base text-zinc-700 dark:text-white group-hover:flex flex-col gap-y-3">
-                        <li class="hover:-translate-x-1 hover:text-orange-200 dark:hover:text-orange-300 transition-all"><a href="cards.html">کارت ها</a></li>
-                        <li class="hover:-translate-x-1 hover:text-orange-200 dark:hover:text-orange-300 transition-all"><a href="boardgame.html">بورد گیم ها</a></li>
                         <li class="hover:-translate-x-1 hover:text-orange-200 dark:hover:text-orange-300 transition-all"><a href="meditation.html">مراقبه ها</a></li>
                         <li class="hover:-translate-x-1 hover:text-orange-200 dark:hover:text-orange-300 transition-all"><a href="singleCourse.html?id=1">دوره ها</a></li>
                     </ul>
                 </li>
-                <li class="h-16 leading-[64px]"><a href="about.html" class="text-orange-200 hover:text-orange-300 transition-colors">درباره ی ما</a></li>
+                <li class="h-16 leading-[64px]"><a href="about.html" class="hover:text-orange-300 transition-colors">درباره ی ما</a></li>
                 <li class="h-16 leading-[64px]"><a href="contact.html" class="hover:text-orange-300 transition-colors">ارتباط با ما</a></li>
             </ul>
          </nav>
@@ -121,37 +119,6 @@
          <div class="flex items-center text-orange-200">
              <!-- shopping card icon & dark mode icon -->
              <div class="flex items-center gap-x-5">
-                <!-- shopping card -->
-                <div class="group relative transition-colors">
-                    <svg class="w-6 lg:w-8 h-16 hover:text-orange-300 cursor-pointer">
-                        <use xlink:href="#shopping-card"></use>
-                    </svg>
-                    <!-- has sub menu -->
-                    <div class="hidden group-hover:block absolute top-100 left-0 w-[400px] h-min p-5
-                     rounded-2xl border-t-[3px] bg-white dark:bg-zinc-700 border-orange-300">
-                     <div class="w-full flex items-center justify-between font-DanaMedium">
-                        <div class="text-xs tracking-tighter text-gray-300">
-                            <p><span class="header-shopping-card-item-count">0</span> مورد</p>
-                        </div>
-                        <a href="shoppingCard.html" class="inline-flex items-center justify-between text-orange-300 hover:text-orange-400 transition-colors">
-                            <p class="text-xs tracking-tighter">مشاهده سبد خرید</p>
-                            <svg class="w-3 h-3">
-                                <use xlink:href="#chevron-left"></use>
-                            </svg>
-                        </a>
-                     </div>
-                     <div class="header-shopping-card"></div>
-                     <div class="mt-5 flex items-center justify-between">
-                        <div>
-                            <p class="font-DanaMedium text-xs tracking-tighter text-gray-300">مبلغ قابل پرداخت</p>
-                            <p class="font-Dana text-sm text-zinc-700 dark:text-white"><span class="header-shopping-card-price font-DanaDemiBold text-xl">0</span> تومان</p>
-                        </div>
-                        <a class="shopping-card-btn inline-flex items-center justify-center w-[144px] h-14 bg-lime-900 hover:bg-lime-950 dark:bg-green-700 dark:hover:bg-green-800 transition-colors rounded-xl cursor-pointer">
-                            <p class="font-Dana text-xl tracking-tighter text-white">ثبت سفارش</p>
-                        </a>
-                     </div>
-                    </div>
-                </div>
                 <!-- change theme -->
                 <div class="toggle-theme hover:text-orange-300 transition-colors cursor-pointer">
                     <svg class="inline-block dark:hidden w-6 h-6 lg:w-8 lg:h-8">
@@ -163,9 +130,9 @@
                 </div>
              </div>
              <!-- seperator -->
-             <div class="w-px h-14 bg-white/20 mx-5 xl:mx-5"></div> 
+             <div class="w-px h-14 bg-white/20 mx-5"></div> 
              <!-- register  -->
-             <div class="register hidden">
+             <div class="register">
                 <a href="register.html" class="inline-flex items-center gap-x-3 hover:text-orange-300 transition-colors cursor-pointer">
                     <div>
                         <svg class="w-6 h-6 lg:w-8 lg:h-8">
@@ -195,15 +162,7 @@
                             <p class="pannel-userName font-DanaMedium text-sm lg:text-base text-zinc-700 dark:text-gray-100">گلشید</p>
                         </div>
                         <ul>
-                            <li class="w-full h-min p-2 mt-2 flex items-center rounded-xl hover:bg-orange-300 group">
-                                <a href="./pannel.html?id=1" class="w-full inline-flex items-end gap-x-2">
-                                    <svg class="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 dark:text-gray-100 group-hover:text-white">
-                                        <use xlink:href="#truck"></use>
-                                    </svg>
-                                    <p class="font-DanaMedium text-xs lg:text-sm text-zinc-700 dark:text-gray-100 group-hover:text-white">سفارشات</p>
-                                </a>
-                            </li>
-                            <li class="w-full h-min p-2 flex items-center rounded-xl hover:bg-orange-300 group">
+                            <li class="w-full h-min p-2 my-2 flex items-center rounded-xl hover:bg-orange-300 group">
                                 <a href="./pannel.html?id=2" class="w-full inline-flex items-end gap-x-2">
                                     <svg class="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 dark:text-gray-100 group-hover:text-white">
                                         <use xlink:href="#academic-cap"></use>
@@ -248,11 +207,6 @@
         <div class="w-14 h-14">
             <img src="./img/logo.png" alt="">
         </div>
-        <div class="shopping-card">
-            <svg class="w-6 h-6 text-zinc-700 dark:text-white">
-                <use xlink:href="#shopping-card"></use>
-            </svg>
-        </div>
     </header>
 
     <!-- side nav -->
@@ -283,14 +237,6 @@
                 </div>
                 <ul class="sub-menu w-full h-min pr-9 hidden text-sm text-zinc-600 dark:text-white">
                     <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors my-3">
-                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
-                        <a href="cards.html">کارت ها</a>
-                    </li>
-                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors mb-3">
-                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
-                        <a href="boardgame.html">بوردگیم ها</a>
-                    </li>
-                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors mb-3">
                         <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
                         <a href="meditation.html">مراقبه ها</a>
                     </li>
@@ -323,7 +269,7 @@
                 </div>
             </li>
             <!-- has sub -->
-            <li class="pannel-icon-wrapper has-pannel-sub text-orange-300 font-Dana text-base w-full px-2.5 mb-6">
+            <li class="pannel-icon-wrapper has-pannel-sub text-orange-300 font-Dana text-base w-full px-2.5 mb-6 hidden">
                 <div class="w-full flex items-center justify-between">
                     <div class="flex items-start gap-x-2">
                         <svg class="w-5 h-5">
@@ -337,16 +283,12 @@
                         </svg>
                     </div>
                 </div>
-                <ul class="pannel-sub-menu hidden w-full h-min pr-7 my-2.5 text-sm text-zinc-600 dark:text-white">
-                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors py-3">
-                        <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
-                        <a href="./pannel.html?id=1">سفارشات</a>
-                    </li>
-                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors pb-3">
+                <ul class="pannel-sub-menu hidden w-full h-min pr-7 text-sm text-zinc-600 dark:text-white">
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors my-3">
                         <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
                         <a href="./pannel.html?id=2">دوره ها</a>
                     </li>
-                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors pb-3">
+                    <li class="flex items-center gap-x-[6px] group hover:text-orange-300 transition-colors mb-3">
                         <div class="w-[4px] h-[4px] bg-orange-300 rounded-full hidden group-hover:block transition-transform"></div>
                         <a href="./pannel.html?id=3">اطلاعات</a>
                     </li>
@@ -366,36 +308,8 @@
                     <a href="#" class="hidden dark:inline-block">تم روشن</a>
                 </div>
             </li>
-            <li class="text-orange-300 font-Dana text-base flex items-center gap-x-2 px-2.5 mb-6">
-                <svg class="w-5 h-5">
-                    <use xlink:href="#shopping-card"></use>
-                </svg>
-                <a href="shoppingCard.html">سبد خرید</a>
-            </li>
         </ul>
-    </div>  
-
-    <!-- side shopping card -->
-    <div class="side-shopping-card w-64 min-h-screen py-5 px-4 bg-white dark:bg-zinc-700 fixed top-0 bottom-0 left-0 translate-x-[-256px] z-20 overflow-y-scroll">
-        <div class="w-full pb-5 font-Dana text-zinc-700 dark:text-white flex items-center justify-between
-        border-b-[1px] border-gray-100 dark:border-white/10">
-            <svg class="w-5 h-5 x-mark">
-                <use xlink:href="#X-mark"></use>
-            </svg>
-            <a href="shoppingCard.html" class="text-base hover:text-orange-300 transition-colors">مشاهده سبد خرید</a>
-        </div>
-        <div class="side-shopping-card-body">
-        </div>
-        <div class="mt-5 flex items-center gap-x-4">
-            <a class="shopping-card-btn inline-flex items-center justify-center w-28 h-11  bg-lime-900 hover:bg-lime-950 dark:bg-green-700 dark:hover:bg-green-800 transition-colors rounded-xl">
-                <p class="font-Dana text-base tracking-tighter text-white">ثبت سفارش</p>
-            </a>
-            <div>
-                <p class="font-DanaMedium text-xs tracking-tighter text-gray-300">مبلغ قابل پرداخت</p>
-                <p class="font-Dana text-xs text-zinc-700 dark:text-white"><span class="side-shopping-card-price font-DanaDemiBold text-base">0</span> تومان</p>
-            </div>
-        </div>
-    </div>
+    </div> 
 
     <main>
          <!-- start container -->

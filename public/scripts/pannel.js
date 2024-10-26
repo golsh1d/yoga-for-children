@@ -15,12 +15,6 @@ let myCoursestext = document.querySelector('.my-courses-text')
 let sideCoursesLi = document.querySelector('.side-courses-li')
 let sideCoursesLink = document.querySelector('.side-courses-link')
 let sideCoursestext = document.querySelector('.side-courses-text')
-let myOrderLi = document.querySelector('.my-order-li')
-let myOrderLink = document.querySelector('.my-order-link')
-let myOrdertext = document.querySelector('.my-order-text')
-let sideOrderLi = document.querySelector('.side-order-li')
-let sideOrderLink = document.querySelector('.side-order-link')
-let sideOrdertext = document.querySelector('.side-order-text')
 let mainSection = document.querySelector('.main-section')
 let logOutBtn = document.querySelector('.log-out-btn')
 let userName = document.cookie.split('=')
@@ -58,14 +52,6 @@ let pageId = searchParams.get('id')
 
 async function loadData() {
     if (pageId == 3) {
-        myOrderLink.classList.add('text-gray-400')
-        myOrderLink.classList.add('dark:text-gray-100')
-        myOrdertext.classList.add('text-zinc-700')
-        myOrdertext.classList.add('dark:text-gray-100')
-        sideOrderLink.classList.add('text-gray-400')
-        sideOrderLink.classList.add('dark:text-gray-100')
-        sideOrdertext.classList.add('text-zinc-700')
-        sideOrdertext.classList.add('dark:text-gray-100')
         myInfoLi.classList.add('bg-orange-300')
         myInfoLink.classList.add('text-white')
         myInfotext.classList.add('text-white')
@@ -162,14 +148,6 @@ async function loadData() {
         })
     }
     if (pageId == 2) {
-        myOrderLink.classList.add('text-gray-400')
-        myOrderLink.classList.add('dark:text-gray-100')
-        myOrdertext.classList.add('text-zinc-700')
-        myOrdertext.classList.add('dark:text-gray-100')
-        sideOrderLink.classList.add('text-gray-400')
-        sideOrderLink.classList.add('dark:text-gray-100')
-        sideOrdertext.classList.add('text-zinc-700')
-        sideOrdertext.classList.add('dark:text-gray-100')
         myInfoLink.classList.add('text-gray-400')
         myInfoLink.classList.add('dark:text-gray-100')
         myInfotext.classList.add('text-zinc-700')
@@ -210,60 +188,6 @@ async function loadData() {
             }
         } catch (error) {
            console.log(error); 
-        }
-    }
-    if (pageId == 1) {
-        myInfoLink.classList.add('text-gray-400')
-        myInfoLink.classList.add('dark:text-gray-100')
-        myInfotext.classList.add('text-zinc-700')
-        myInfotext.classList.add('dark:text-gray-100')
-        sideInfoLink.classList.add('text-gray-400')
-        sideInfoLink.classList.add('dark:text-gray-100')
-        sideInfotext.classList.add('text-zinc-700')
-        sideInfotext.classList.add('dark:text-gray-100')
-        myCoursesLink.classList.add('text-gray-400')
-        myCoursesLink.classList.add('dark:text-gray-100')
-        myCoursestext.classList.add('text-zinc-700')
-        myCoursestext.classList.add('dark:text-gray-100')
-        sideCoursesLink.classList.add('text-gray-400')
-        sideCoursesLink.classList.add('dark:text-gray-100')
-        sideCoursestext.classList.add('text-zinc-700')
-        sideCoursestext.classList.add('dark:text-gray-100')
-        myOrderLi.classList.add('bg-orange-300')
-        myOrderLink.classList.add('text-white')
-        myOrdertext.classList.add('text-white')
-        sideOrderLi.classList.add('bg-orange-300')
-        sideOrderLink.classList.add('text-white')
-        sideOrdertext.classList.add('text-white')
-        try {
-            let res = await fetch(`http://localhost:3000/api/shoppingCardOrder/${userName[1]}`)
-            let data = await res.json()
-            if (data.length) {
-                data.forEach(obj => {
-                    document.querySelector('.recivedDataWrapper').insertAdjacentHTML(`beforeend`,
-                        `<div class="w-full md:w-[70%] h-min mx-auto flex gap-x-3 md:gap-x-5 items-center p-3 md:p-5 bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-                            <div>
-                                <img class="w-28 md:w-32 h-full mx-auto" src=${obj.src} alt="">
-                            </div>
-                            <div class="w-full">
-                                <p class="font-DanaMedium text-sm md:text-base text-zinc-700 dark:text-white mb-[10px] md:mb-[20px]">${obj.title}</p>
-                                <div class="flex items-center gap-x-3">
-                                <p class="font-DanaDemiBold text-sm md:text-base tracking-tighter text-orange-300
-                                flex items-center gap-x-3">
-                                    ${obj.value}
-                                    <svg class="w-3 h-3 md:w-4 md:h-4 text-zinc-700 dark:text-white">
-                                        <use xlink:href="#X-mark"></use>
-                                    </svg>
-                                </p>
-                                <p class="font-Dana text-xs md:text-sm text-zinc-700 dark:text-white"><span class="font-DanaDemiBold text-sm md:text-base text-zinc-700 dark:text-white">${obj.price}</span> تومان</p>
-                                </div>
-                            </div>
-                        </div>`
-                    )
-                })
-            }
-        } catch (error) {
-            console.log(error);
         }
     }
 }
