@@ -132,7 +132,7 @@ function loadDetailData() {
         data.forEach(obj => {
                 detailWrapper.insertAdjacentHTML(`beforeend` , 
                     `<div class="flex flex-col md:flex-row text-center md:text-right items-center justify-center sm:justify-start gap-x-3 gap-y-2.5 bg-white/90 dark:bg-zinc-700 pt-4 pb-3.5 sm:py-3 px-4 rounded-xl
-                        font-Dana">
+                        font-Dana drop-shadow-lg">
                             <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
                                 <use xlink:href="#${obj.icon}"></use>
                             </svg>
