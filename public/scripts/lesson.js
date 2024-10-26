@@ -134,7 +134,7 @@ function loadLessonData() {
         data.forEach(obj => {
             if(obj.id == pageId) {
                 lessonContainer.insertAdjacentHTML(`afterbegin`,
-                    `<div class="w-full h-[200px] md:h-[300px] xl:h-[400px] mb-8">
+                    `<div class="w-full h-[200px] md:h-[300px] xl:h-[400px] mb-8 drop-shadow-lg">
                         <video class="w-full h-full rounded-3xl" controls src="${obj.src}"></video>
                     </div>
                     `
