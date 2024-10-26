@@ -75,45 +75,45 @@ async function loadData() {
                         <div class="flex flex-col md:flex-row items-center justify-between gap-y-3 w-full h-min mb-3 md:mb-5">
                             <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
                                 <label for="name" class="font-DanaMedium text-sm md:text-base text-zinc-700">نام</label>
-                                <input id="name" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].name}">
+                                <input id="name" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-300 drop-shadow-md opacity-40" value="${data[0].name}">
                             </div>
                             <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
                                 <label for="Fname" class="font-DanaMedium text-sm md:text-base text-zinc-700">نام خانوادگی</label>
-                                <input id="Fname" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].familyName}">
+                                <input id="Fname" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-300 drop-shadow-md opacity-40" value="${data[0].familyName}">
                             </div>
                         </div>
                         <div class="flex flex-col md:flex-row items-center justify-between gap-y-3 w-full h-min mb-3 md:mb-5">
                             <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
                                 <label for="userName" class="font-DanaMedium text-sm md:text-base text-zinc-700">نام کاربری</label>
-                                <input id="userName" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" readonly value="${data[0].userName}">
+                                <input id="userName" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-300 drop-shadow-md opacity-40" readonly value="${data[0].userName}">
                             </div>
                             <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
                                 <label for="pass" class="font-DanaMedium text-sm md:text-base text-zinc-700">رمز عبور</label>
-                                <input id="pass" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].password}">
+                                <input id="pass" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-300 drop-shadow-md opacity-40" value="${data[0].password}">
                             </div>
                         </div>
                         <div class="flex flex-col md:flex-row items-center justify-between gap-y-3 w-full h-min mb-3 md:mb-5">
                             <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
                                 <label for="tel" class="font-DanaMedium text-sm md:text-base text-zinc-700">شماره تلفن</label>
-                                <input id="tel" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].phone}">
+                                <input id="tel" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-300 drop-shadow-md opacity-40" value="${data[0].phone}">
                             </div>
                             <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
                                 <label for="mail" class="font-DanaMedium text-sm md:text-base text-zinc-700">ایمیل</label>
-                                <input id="mail" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].mail}">
+                                <input id="mail" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-300 drop-shadow-md opacity-40" value="${data[0].mail}">
                             </div>
                         </div>
                         <div class="flex flex-col md:flex-row items-center justify-between gap-y-3 w-full mb-3 md:mb-5 h-min">
                             <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
                                 <label for="address" class="font-DanaMedium text-sm md:text-base text-zinc-700">آدرس</label>
-                                <input id="address" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].address}">
+                                <input id="address" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-300 drop-shadow-md opacity-40" value="${data[0].address}">
                             </div>
                             <div class="w-[65%] md:w-[45%] flex flex-col gap-y-2">
                                 <label for="code" class="font-DanaMedium text-sm md:text-base text-zinc-700">کد پستی</label>
-                                <input id="code" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-200 opacity-40" value="${data[0].postalCode}">
+                                <input id="code" type="text" class="w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base rounded-lg outline-none text-black bg-lime-300 drop-shadow-md opacity-40" value="${data[0].postalCode}">
                             </div>
                         </div>
                         <div class="w-full">    
-                            <button class="info-btn w-full h-11 md:h-14 p-2 font-DanaMedium text-sm md:text-base text-white bg-orange-300 rounded-lg">ویرایش اطلاعات</button>
+                            <button class="info-btn w-full h-11 md:h-14 p-2 mt-3 font-DanaMedium text-sm md:text-base text-white bg-orange-300 rounded-lg drop-shadow-md">ویرایش اطلاعات</button>
                         </div>
                     </div>`
                 )
@@ -179,7 +179,7 @@ async function loadData() {
                                 هنر یوگای کودک در این دوره سعی دارد تا با استفاده از جدید ترین تکنیک ها شما را تبدیل به یک مربی حرفه ای یوگای کودک کند. 
                                 </p>
                                 <div class="w-full flex items-center justify-between">
-                                    <p class="font-Dana text-xs lg:text-sm tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1"><span class="font-DanaMedium text-sm lg:text-base">135,000</span>تومان</p>
+                                    <p class="font-Dana text-sm lg:text-base tracking-tighter text-lime-900 dark:text-lime-100 flex items-baseline gap-x-1">رایگان</p>
                                 </div>
                             </div>
                         </div>`
