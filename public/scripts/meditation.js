@@ -122,7 +122,8 @@ async function fetchSliderData() {
                     `<div class="swiper-slide">
                             <a href="singleMeditation.html?id=${info.id}" class="inline-block w-full h-min p-3 md:p-5
                             bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow">
-                            <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
+                            <div class="hover:scale-110 overflow-hidden transition-transform mb-5
+                            dark:bg-white/90 dark:rounded-xl">
                                 <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${info.src}" alt="">
                             </div>
                             <div>
@@ -147,7 +148,8 @@ async function fetchProductData() {
                 productWrapper.insertAdjacentHTML(`beforeend` , 
                     `<a href="singleMeditation.html?id=${info.id}" class="inline-block w-full h-min p-3 md:p-5
                             bg-white/90 dark:bg-zinc-700 rounded-2xl drop-shadow-lg">
-                            <div class="hover:scale-110 overflow-hidden transition-transform mb-5">
+                            <div class="hover:scale-110 overflow-hidden transition-transform mb-5
+                            dark:bg-white/90 dark:rounded-xl">
                                 <img class="w-[90px] h-[90px] md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 mx-auto" src="${info.src}" alt="">
                             </div>
                             <div>
