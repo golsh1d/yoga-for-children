@@ -133,11 +133,28 @@ function loadData() {
                     </div>
                 </div>
                 <div class="w-full md:w-[60%] h-min text-zinc-700 dark:text-gray-100">
-                    <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-8">${obj.title}</p>
-                    <p class="font-DanaMedium text-sm sm:text-base text-zinc-700 dark:text-gray-100 text-justify mb-8">${obj.description}
-                    </p>
-                    <div class="w-full h-min p-[2px] bg-zinc-700 dark:bg-transparent rounded-full">
+                    <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6">${obj.title}</p>
+
+                    <div class="bg-white/90 rounded-3xl drop-shadow-lg mb-8 p-4 md:p-5">
+                    <div class="flex items-center gap-x-2 mb-5">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#desc"></use>
+                        </svg>
+                        <p class="font-MorabbaBold text-zinc-700 text-base md:text-lg xl:text-xl">توضیحات</p>
+                    </div>                 
+                    <p class="font-DanaMedium text-sm sm:text-base text-zinc-700 text-justify">${obj.description}</p>
+                    </div>
+
+                    <div class="bg-white/90 rounded-3xl drop-shadow-lg p-4 md:p-5 mb-8">
+                    <div class="flex items-center gap-x-2 mb-5">
+                        <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
+                            <use xlink:href="#music"></use>
+                        </svg>
+                        <p class="font-MorabbaBold text-zinc-700 text-base md:text-lg xl:text-xl">فایل صوتی مراقبه</p>
+                    </div>
+                    <div class="w-full h-min p-[2px] bg-zinc-700 dark:bg-zinc-700 dark:bg-transparent rounded-full">
                         <audio class="w-full" controls src="${obj.audioSrc}"></audio>
+                    </div>
                     </div>
                 </div>
                 </div>`)
