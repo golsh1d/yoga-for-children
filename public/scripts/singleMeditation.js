@@ -126,8 +126,8 @@ function loadData() {
         data.forEach(obj => {
             if (obj.id == pageId) {
                 productWrapper.insertAdjacentHTML(`beforeend`,
-                `<div class="container px-5 md:px-16 mt-10 md:mt-40 flex flex-col md:flex-row items-center md:justify-between gap-y-8 md:gap-y-0">
-                <div class="w-[60%] md:w-[30%] h-min">
+                `<div class="container p-3 md:p-5 mt-5 md:mt-[150px] flex flex-col md:flex-row items-center md:justify-between gap-y-8 md:gap-y-0">
+                <div class="w-[60%] md:w-[30%] h-min hidden md:block">
                     <div class="w-full h-full p-3 md:p-5 rounded-3xl">
                         <img src="${obj.src}" alt="">
                     </div>
@@ -145,7 +145,7 @@ function loadData() {
                     <p class="font-DanaMedium text-sm sm:text-base text-zinc-700 text-justify">${obj.description}</p>
                     </div>
 
-                    <div class="bg-white/90 rounded-3xl drop-shadow-lg p-4 md:p-5 mb-8">
+                    <div class="bg-white/90 rounded-3xl drop-shadow-lg p-4 md:p-5">
                     <div class="flex items-center gap-x-2 mb-5">
                         <svg class="w-10 sm:w-11 h-10 sm:h-11 text-orange-300">
                             <use xlink:href="#music"></use>
