@@ -135,7 +135,7 @@ function loadLessonData() {
             if(obj.id == pageId) {
                 lessonContainer.insertAdjacentHTML(`afterbegin`,
                     `<div class="w-full h-[200px] md:h-[300px] xl:h-[400px] mb-8 drop-shadow-lg">
-                        <video class="w-full h-full rounded-3xl" controls src="${obj.src}"></video>
+                        <video class="w-full h-full rounded-3xl" controls controlslist="nodownload" src="${obj.src}" oncontextmenu="preventDownloading(event)"></video>
                     </div>
                     `
                 )
@@ -218,6 +218,11 @@ function closeRegisterMsg() {
 function logOut() {
     document.cookie.replace(/(?<=^|;).+?(?=\=|;|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
     location.href = 'http://127.0.0.1:5500/public/index.html'
+}
+
+//prevent downloading
+function preventDownloading(event) {
+    event.preventDefault()
 }
 
 // events
