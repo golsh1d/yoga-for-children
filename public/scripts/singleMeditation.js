@@ -120,12 +120,11 @@ let searchParams = new URLSearchParams(locationSearch)
 let pageId = searchParams.get('id')
 
 function loadData() {
-    fetch(`http://localhost:3000/api/meditations/`)
+    fetch(`http://localhost:3000/api/meditations/${pageId}`)
     .then(res => res.json())
     .then(data => {
         data.forEach(obj => {
-            if (obj.id == pageId) {
-                productWrapper.insertAdjacentHTML(`beforeend`,
+            productWrapper.insertAdjacentHTML(`beforeend`,
                 `<div class="container p-3 md:p-5 mt-5 md:mt-[150px]">
                 <div class="w-full h-min text-zinc-700 dark:text-gray-100">
                     <p class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6">${obj.title}</p>
@@ -152,8 +151,7 @@ function loadData() {
                     </div>
                     </div>
                 </div>
-                </div>`)
-            }
+            </div>`)
         })
     })
 }
