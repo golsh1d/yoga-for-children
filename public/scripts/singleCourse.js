@@ -164,12 +164,12 @@ function loadCourseData() {
 async function loadLessonData() {
     let userName = document.cookie.split('=')
     if (userName.length === 1) {
-        fetch(`http://localhost:3000/api/courseDataDetailAllLessons/`)
-        .then(res => res.json())
-        .then(data => {
-            if (data.length) {
-                data.forEach(obj => {
-                    lessonsSection.insertAdjacentHTML(`beforeend`,
+        let res = await fetch(`http://localhost:3000/api/courseDataDetailAllLessons/`)
+        let data = await res.json()
+
+        if (data.length) {
+            data.forEach(obj => {
+                lessonsSection.insertAdjacentHTML(`beforeend`,
                         `<div class="flex items-end justify-between w-full py-4 border-b-[1px] border-black/10">
                             <a href="#" class="inline-flex items-end gap-x-2.5 md:gap-x-3.5 cursor-pointer">
                                 <p class="w-8 h-6 md:h-7 bg-white/90 flex items-end justify-center font-DanaMedium rounded">${obj.id}</p>
@@ -182,10 +182,10 @@ async function loadLessonData() {
                                 </svg>
                             </div>
                         </div>`
-                    )
-                })
-            }
-        })
+                )
+            })
+        }
+
     } else {
         let res = await fetch(`http://localhost:3000/api/courseOrder/${userName[1]}`)
         let data = await res.json()

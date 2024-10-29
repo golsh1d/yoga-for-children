@@ -2,6 +2,8 @@ async function showMsg(obj) {
     let res = await fetch(`http://localhost:3000/api/courseOrder/${obj.userName}`)
     let data = await res.json()
 
+    // console.log(data)
+
     if (data.length) {
         document.body.insertAdjacentHTML(`afterbegin` , 
             `<div class="w-96 h-min p-5 text-white font-DanaDemiBold rounded mt-10 bg-red-800">
@@ -22,26 +24,27 @@ async function showMsg(obj) {
                 isPaid : 1
         }
 
-        fetch(`http://localhost:3000/api/courseOrder` , {
+        let respond = await fetch(`http://localhost:3000/api/courseOrder` , {
                 method : 'POST' , 
                 headers : {
                     'Content-type' : 'application/json'
                 } , 
                 body : JSON.stringify(newCourseBuyerData)
         })
-        .then(res => res.json())
-        .then(data => {
-                if (data) {
-                    document.body.insertAdjacentHTML(`afterbegin` , 
+        let info = await respond.json()
+
+        // console.log(info);
+
+        if (info) {
+            document.body.insertAdjacentHTML(`afterbegin` , 
                         `<div class="w-96 h-min p-5 text-white font-DanaDemiBold rounded mt-10" style="background-color: #047857  ;">
                         دوره یوگای کودک با موفقیت برای شما ثبت شد.
                         </div>`
-                    )
-                    setTimeout(() => {
+            )
+            setTimeout(() => {
                         location.href = 'http://127.0.0.1:5500/public/index.html'
-                    } , 2000)
-                }
-        })
+            } , 2000)
+        }
     }
 }
 
