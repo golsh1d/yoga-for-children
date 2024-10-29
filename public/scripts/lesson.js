@@ -128,20 +128,18 @@ let searchParams = new URLSearchParams(locationSearch)
 let pageId = searchParams.get('id')
 
 function loadLessonData() {
-    fetch(`http://localhost:3000/api/courseDataDetailAllLessons/`)
+    fetch(`http://localhost:3000/api/courseDataDetailAllLessons/${pageId}`)
     .then(res => res.json())
     .then(data => {
         data.forEach(obj => {
-            if(obj.id == pageId) {
-                lessonContainer.insertAdjacentHTML(`afterbegin`,
+            lessonContainer.insertAdjacentHTML(`afterbegin`,
                     `<div class="w-full h-[200px] md:h-[300px] xl:h-[400px] mb-8 drop-shadow-lg">
                         <video class="w-full h-full rounded-3xl" controls controlslist="nodownload" src="${obj.src}" oncontextmenu="preventDownloading(event)"></video>
                     </div>
                     `
-                )
-                lessonTitle.innerHTML = obj.title
-                lessonDesc.innerHTML = obj.description
-            }
+            )
+            lessonTitle.innerHTML = obj.title
+            lessonDesc.innerHTML = obj.description
         })
     })
 }
