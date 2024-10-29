@@ -1,25 +1,8 @@
 async function showMsg(obj) {
-
-    // console.log(obj.userName);
-    
-    let res = await fetch(`http://localhost:3000/api/courseOrder/`)
+    let res = await fetch(`http://localhost:3000/api/courseOrder/${obj.userName}`)
     let data = await res.json()
 
-    // console.log(data);
-
-    let isInArr = data.some(info => {
-        if (info.userName == obj.userName) {
-            // console.log(info.userName);
-            // console.log(obj.userName);
-            return true
-        } else {
-            return false
-        }
-    })
-
-    if (isInArr) {
-        console.log('is in arr');
-
+    if (data.length) {
         document.body.insertAdjacentHTML(`afterbegin` , 
             `<div class="w-96 h-min p-5 text-white font-DanaDemiBold rounded mt-10 bg-red-800">
             شما قبلا در دوره ثبت نام کرده اید.
@@ -31,8 +14,6 @@ async function showMsg(obj) {
         } , 2000)
 
     } else {
-        // console.log('is not in arr');
-
         let newCourseBuyerData = {
                 userName : obj.userName,
                 name : obj.name,
@@ -40,7 +21,6 @@ async function showMsg(obj) {
                 phone : obj.phone,
                 isPaid : 1
         }
-        // console.log(newCourseBuyerData);
 
         fetch(`http://localhost:3000/api/courseOrder` , {
                 method : 'POST' , 
