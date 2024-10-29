@@ -16,9 +16,14 @@ async function sendData() {
         } , 
         body : JSON.stringify(newCourseBuyerData)
     })
+    document.body.insertAdjacentHTML(`afterbegin` , 
+        `<div class="w-96 h-min p-5 text-white font-DanaDemiBold rounded mt-10" style="background-color: #047857  ;">
+        دوره یوگای کودک با موفقیت برای شما ثبت شد.
+        </div>`
+    )
     setTimeout(() => {
         location.href = 'http://127.0.0.1:5500/public/index.html'
-    } , 1500)
+    } , 2000)
 }
 
 //event
