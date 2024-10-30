@@ -94,7 +94,7 @@ function showSuccessfulSignIn() {
         successfulSignInMessage.style.display = 'none'
         successfulSignInMessage.style.transition = 'transform 0.5s ease'
         location.href = 'http://127.0.0.1:5500/public/index.html'
-    } , 3000)
+    } , 2000)
 }
 
 // send data to back end
@@ -116,7 +116,7 @@ async function sendDataToBackEnd() {
         body : JSON.stringify(userInfoObj),
         })
 
-        console.log(res)
+        // console.log(res)
         showSuccessfulSignIn()
 
     } catch (err) {
@@ -192,15 +192,14 @@ async function getUserInfos() {
                 successfulLogInMessage.style.display = 'none'
                 successfulLogInMessage.style.transition = 'transform 0.5s ease'
                 location.href = 'http://127.0.0.1:5500/public/index.html'
-            }, 3000)
+            }, 2000)
         } else {
             failedLogInMessage.style.display = 'block'
             failedLogInMessage.style.transition = 'transform 0.5s ease'
-            setCookieForLogIn()
             setTimeout(() => {
                 failedLogInMessage.style.display = 'none'
                 failedLogInMessage.style.transition = 'transform 0.5s ease'
-            }, 3000)
+            }, 2000)
         }
 
         clearInputs()
