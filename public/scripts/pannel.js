@@ -16,7 +16,7 @@ let sideCoursesLi = document.querySelector('.side-courses-li')
 let sideCoursesLink = document.querySelector('.side-courses-link')
 let sideCoursestext = document.querySelector('.side-courses-text')
 let mainSection = document.querySelector('.main-section')
-let logOutBtn = document.querySelector('.log-out-btn')
+let logOutBtns = document.querySelectorAll('.log-out-btn')
 let userName = document.cookie.split('=')
 
 //changing the theme
@@ -201,7 +201,11 @@ function logOut() {
     location.href = 'http://127.0.0.1:5500/public/index.html'
 }
 
+
+//events
 pannelIcon.addEventListener('click', showSidePannel)
 closeElem.addEventListener('click', hideSidePannel)
 window.addEventListener('load', loadData)
-logOutBtn.addEventListener('click' , logOut)
+logOutBtns.forEach(btn => {
+    btn.addEventListener('click' , logOut)
+})
