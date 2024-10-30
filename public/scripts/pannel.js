@@ -132,8 +132,11 @@ async function loadData() {
                 address : document.querySelector('#address').value,
                 postalCode : document.querySelector('#code').value,
             }
+            
+            // console.log(userName[1]);
+
             try {
-                let res = await fetch(`http://localhost:3000/api/users/newUserAllInfo` , {
+                let res = await fetch(`http://localhost:3000/api/users/editUser/${userName[1]}` , {
                     method : 'PUT',
                     headers : {
                         'Content-type' : 'application/json'
@@ -143,6 +146,7 @@ async function loadData() {
                 console.log(res);
                 location.reload()
             } catch (error) {
+                console.log('err');
                 console.log(error);
             }
         })
