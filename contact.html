@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه ی خدمات (مراقبه ها)</title>
+    <title>صفحه ی ارتباط با ما</title>
     <link rel="icon" href="./img/logo.png">
     <link rel="stylesheet" href="./styles/app.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="https://kit.fontawesome.com/4f2890a18c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./styles/swiper-bundle.min.css">
     <script type="text/javascript">
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
@@ -92,8 +91,7 @@
         </symbol>
         <symbol id="arrow-right-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
-        </symbol>
-          
+        </symbol>  
                  
     </svg>
     
@@ -101,7 +99,7 @@
     <header class="header hidden md:flex items-center justify-between absolute top-5 right-0 left-0 w-[95%] h-24 mx-auto p-5 rounded-3xl bg-black/50 backdrop-blur-[6px] z-50">
         <!-- menu -->
          <nav class="flex gap-x-4 lg:gap-x-9 items-center">
-            <img class="w-16 h-16" src="/public/img/logo.png" alt="logo">
+            <img class="w-16 h-16" src="./img/logo.png" alt="logo">
             <ul class="font-Dana text-base lg:text-xl tracking-tighter text-gray-300 flex items-center gap-x-4 lg:gap-x-9">
                 <li class="h-16 leading-[64px]"><a href="index.html" class="text-orange-200 hover:text-orange-300 transition-colors">صفحه اصلی</a></li>
                 <!-- has sub menu -->
@@ -314,51 +312,58 @@
     </div> 
 
     <main>
-         <div class="container p-4">
-         <section class="p-3 md:p-5 mt-5 md:mt-[150px]">
-            <!-- products (cards) slider-->
-         <section id="card-slider" class="w-full h-[170px] md:h-[200px] lg:h-[230px] xl:h-[270px] p-3 md:p-5 bg-orange-100 rounded-3xl drop-shadow-lg">
-            <!-- header -->
-             <div class="flex items-center justify-between mb-3 md:mb-6">
-                <!-- title -->
-                <div class="font-MorabbaBold text-zinc-700 text-lg md:text-xl lg:text-2xl xl:text-3xl drop-shadow-sm">محبوب ترین مراقبه ها</div>
-                <!-- controller -->
-                <div class="flex items-center gap-x-1.5 md:gap-x-4">
-                    <div class="swiper-button-prev-custom swiper-button-prev-custom-1 w-9 h-9 md:w-11 md:h-11 rounded-full group bg-zinc-700 hover:bg-zinc-500
-                    text-white transition-colors 
-                    flex items-center justify-center cursor-pointer">
-                        <svg class="w-4 h-4">
-                            <use xlink:href="#chevron-right"></use>
-                        </svg>
+         <!-- start container -->
+         <section class="container px-4 mt-5 mb-16 md:mt-36 md:mb-12">
+            <!-- main content -->
+            <section>
+                <div class="w-full h-min bg-gray-100 dark:bg-zinc-800 flex items-center justify-center">
+                    <div class="flex flex-col md:flex-row items-center gap-y-8 gap-x-10">
+                        <div class="right-section">
+                            <div class="w-[150px] h-[150px] md:w-[200px] md:h-[200px] lg:w-[300px] lg:h-[300px] xl:w-[400px] xl:h-[400px]">
+                                <img src="./img/header.png" alt="">
+                            </div>
+                        </div>
+                        <div class="left-section w-full">
+                            <div class="text-zinc-700 dark:text-gray-100 flex flex-col gap-y-5 md:gap-y-7 lg:gap-y-10">
+                                <h1 class="font-MorabbaBold text-xl md:text-3xl lg:text-4xl xl:text-5xl drop-shadow-sm mb-1">ارتباط با من</h1>
+                                <div class="flex items-center gap-x-8 md:gap-x-14">
+                                    <p class="font-Dana text-base md:text-lg lg:text-2xl xl:text-3xl drop-shadow-sm"> لینک شبکه های اجتماعی</p>
+                                    <div class="flex items-center justify-center -mt-2">
+                                        <div class="flex items-center gap-x-5">
+                                            <a href="https://www.instagram.com/honareyogayekodak" class="inline-block">
+                                                <svg class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 text-zinc-700 dark:text-gray-100 hover:text-orange-300 dark:hover:text-orange-300 transition-colors">
+                                                    <use xlink:href="#instagram"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="https://t.me/nedatariverdi" class="inline-block mt-1.5">
+                                                <svg class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 text-zinc-700 dark:text-gray-100 hover:text-orange-300 dark:hover:text-orange-300 transition-colors">
+                                                    <use xlink:href="#telegram"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-x-8 md:gap-x-14">
+                                    <p class="min-w-fit font-Dana text-base md:text-lg lg:text-2xl xl:text-3xl drop-shadow-sm"> شماره ی تماس</p>
+                                    <div class="copy-to-clipboard w-full mt-1.5 flex items-center gap-x-1">
+                                        <span class="text-xs text-zinc-700 dark:text-gray-100 md:text-sm lg:text-base xl:text-xl hover:text-orange-300 dark:hover:text-orange-300 transition-colors
+                                        font-DanaDemiBold cursor-pointer">09122600520</span>
+                                        <div class="copied hidden">
+                                            <div class="w-16 h-6 bg-zinc-500 text-white rounded-xl flex items-center justify-center -mt-2">
+                                                <p class="font-Dana text-xs tracking-wider mt-1">کپی شد !</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="swiper-button-next-custom swiper-button-next-custom-1 w-9 h-9 md:w-11 md:h-11 rounded-full group bg-zinc-700 hover:bg-zinc-500
-                    text-white transition-colors 
-                    flex items-center justify-center cursor-pointer">
-                        <svg class="w-4 h-4 rotate-180">
-                            <use xlink:href="#chevron-right"></use>
-                        </svg>
-                    </div>
-                </div>               
-             </div>
-             <!-- products -->
-             <div class="swiper swiper1">
-                <div class="swiper-wrapper">
-                </div> 
-             </div>
+                </div>
+            </section>
          </section>
-         <!-- all products -->
-         <section class="mt-[55px] md:mt-[85px] pt-3 pr-3 pl-3 md:pt-5 md:pr-5 md:pl-5">
-             <!-- title -->
-             <div class="font-MorabbaBold text-zinc-700 dark:text-gray-100 text-lg md:text-xl lg:text-2xl xl:text-3xl drop-shadow-sm mb-3 md:mb-6">تمامی مراقبه ها</div>
-             <!-- products -->
-             <div class="product-wrapper grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
-             </div> 
-         </section> 
-         </section>
-         </div>
     </main> 
 
-    <footer class="relative w-full h-min bg-zinc-700 mt-10 md:mt-11">
+    <footer class="relative w-full h-min bg-zinc-700">
         <!-- curve -->
         <div class="w-full">
             <svg class="w-[100px] h-[22px] mx-auto text-gray-100 dark:text-zinc-800 rotate-180">
@@ -456,35 +461,7 @@
         </div>
     </div>
     
-    <script src="./scripts/meditation.js"></script>
+    <script src="./scripts/contact.js"></script>
     <script src="./scripts/userInfo.js"></script>
-    <script src="./scripts/swiper-bundle.min.js"></script>
-    <script>
-        const swiper1 = new Swiper(".swiper1", {
-            slidesPerView: 2,
-            spaceBetween: 10,
-            autoplay: {
-                delay: 2000,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next-custom-1',
-                prevEl: '.swiper-button-prev-custom-1',
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 3,
-                    spaceBetween: 15,
-                },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 15,
-                },
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 15,
-                },
-            },
-        });
-    </script>
 </body>
 </html>
