@@ -126,7 +126,7 @@ let searchParams = new URLSearchParams(locationSearch)
 let pageId = searchParams.get('id')
 
 function loadDetailData() {
-    fetch(`http://localhost:3000/api/courseDataDetail/`)
+    fetch(`https://honareyogayekodak.liara.run/api/courseDataDetail/`)
     .then(res => res.json())
     .then(data => {
         data.forEach(obj => {
@@ -147,7 +147,7 @@ function loadDetailData() {
 }
 
 function loadCourseData() {
-    fetch(`http://localhost:3000/api/courseData/`)
+    fetch(`https://honareyogayekodak.liara.run/api/courseData/`)
     .then(res => res.json())
     .then(data => {
         data.forEach(obj => {
@@ -164,7 +164,7 @@ function loadCourseData() {
 async function loadLessonData() {
     let userName = document.cookie.split('=')
     if (userName.length === 1) {
-        let res = await fetch(`http://localhost:3000/api/courseDataDetailAllLessons/`)
+        let res = await fetch(`https://honareyogayekodak.liara.run/api/courseDataDetailAllLessons/`)
         let data = await res.json()
 
         if (data.length) {
@@ -187,10 +187,10 @@ async function loadLessonData() {
         }
 
     } else {
-        let res = await fetch(`http://localhost:3000/api/courseOrder/${userName[1]}`)
+        let res = await fetch(`https://honareyogayekodak.liara.run/api/courseOrder/${userName[1]}`)
         let data = await res.json()
         if (data.length) {
-            let res = await fetch(`http://localhost:3000/api/courseDataDetailAllLessons/`)
+            let res = await fetch(`https://honareyogayekodak.liara.run/api/courseDataDetailAllLessons/`)
             let data = await res.json()
             if (data.length) {
                 data.forEach(obj => {
@@ -211,7 +211,7 @@ async function loadLessonData() {
                 })
             }
         } else {
-            let res = await fetch(`http://localhost:3000/api/courseDataDetailAllLessons/`)
+            let res = await fetch(`https://honareyogayekodak.liara.run/api/courseDataDetailAllLessons/`)
             let data = await res.json()
             if (data.length) {
                 data.forEach(obj => {
@@ -306,13 +306,13 @@ function showRegisterMsg() {
     if (userName.length === 1) {
         registerPopupWrapper.style.display = 'flex'
     } else {
-        location.href = 'http://127.0.0.1:5500/public/info.html'
+        location.href = 'https://honareyogayekodak.liara.run/info.html'
     }
 }
 
 function logOut() {
     document.cookie.replace(/(?<=^|;).+?(?=\=|;|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
-    location.href = 'http://127.0.0.1:5500/public/index.html'
+    location.href = 'https://honareyogayekodak.liara.run/index.html'
 }
 
 // events

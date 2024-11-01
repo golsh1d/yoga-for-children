@@ -113,7 +113,7 @@ function copyToClipboard() {
 
 // fetch slider data from back end
 async function fetchSliderData() {
-    fetch(`http://localhost:3000/api/meditations/`)
+    fetch(`https://honareyogayekodak.liara.run/api/meditations/`)
     .then(res => res.json())
     .then(data => {
         try {
@@ -140,7 +140,7 @@ async function fetchSliderData() {
 
 // fetch all product data from back end
 async function fetchProductData() {
-    fetch(`http://localhost:3000/api/meditations/`)
+    fetch(`https://honareyogayekodak.liara.run/api/meditations/`)
     .then(res => res.json())
     .then(data => {
         try {
@@ -203,7 +203,7 @@ function showRegisterMsg() {
     if (userName.length === 1) {
         registerPopupWrapper.style.display = 'flex'
     } else {
-        location.href = 'http://127.0.0.1:5500/public/info.html'
+        location.href = 'https://honareyogayekodak.liara.run/info.html'
     }
 }
 
@@ -213,7 +213,7 @@ function closeRegisterMsg() {
 
 function logOut() {
     document.cookie.replace(/(?<=^|;).+?(?=\=|;|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
-    location.href = 'http://127.0.0.1:5500/public/index.html'
+    location.href = 'https://honareyogayekodak.liara.run/index.html'
 }
 
 checkBoxInput.addEventListener('change', animationForIcon)

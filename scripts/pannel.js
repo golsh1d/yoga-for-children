@@ -67,7 +67,7 @@ async function loadData() {
         sideCoursestext.classList.add('text-zinc-700')
         sideCoursestext.classList.add('dark:text-gray-100')
         try {
-            let res = await fetch(`http://localhost:3000/api/users/${userName[1]}`)
+            let res = await fetch(`https://honareyogayekodak.liara.run/api/users/${userName[1]}`)
             let data = await res.json()
             if (data.length) {
                 document.querySelector('.recivedDataWrapper').insertAdjacentHTML(`beforeend`,
@@ -136,7 +136,7 @@ async function loadData() {
             // console.log(userName[1]);
 
             try {
-                let res = await fetch(`http://localhost:3000/api/users/editUser/${userName[1]}` , {
+                let res = await fetch(`https://honareyogayekodak.liara.run/api/users/editUser/${userName[1]}` , {
                     method : 'PUT',
                     headers : {
                         'Content-type' : 'application/json'
@@ -167,7 +167,7 @@ async function loadData() {
         sideCoursesLink.classList.add('text-white')
         sideCoursestext.classList.add('text-white')
         try {
-            let res = await fetch(`http://localhost:3000/api/courseOrder/${userName[1]}`)
+            let res = await fetch(`https://honareyogayekodak.liara.run/api/courseOrder/${userName[1]}`)
             let data = await res.json() 
             if (data.length) {
                 data.forEach(obj => {
@@ -198,7 +198,7 @@ async function loadData() {
 
 function logOut() {
     document.cookie.replace(/(?<=^|;).+?(?=\=|;|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
-    location.href = 'http://127.0.0.1:5500/public/index.html'
+    location.href = 'https://honareyogayekodak.liara.run/index.html'
 }
 
 

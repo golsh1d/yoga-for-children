@@ -1,5 +1,5 @@
 async function showMsg(obj) {
-    let res = await fetch(`http://localhost:3000/api/courseOrder/${obj.userName}`)
+    let res = await fetch(`https://honareyogayekodak.liara.run/api/courseOrder/${obj.userName}`)
     let data = await res.json()
 
     // console.log(data)
@@ -12,7 +12,7 @@ async function showMsg(obj) {
         )
 
         setTimeout(() => {
-            location.href = 'http://127.0.0.1:5500/public/index.html'
+            location.href = 'https://honareyogayekodak.liara.run/index.html'
         } , 2000)
 
     } else {
@@ -24,7 +24,7 @@ async function showMsg(obj) {
                 isPaid : 1
         }
 
-        let respond = await fetch(`http://localhost:3000/api/courseOrder` , {
+        let respond = await fetch(`https://honareyogayekodak.liara.run/api/courseOrder` , {
                 method : 'POST' , 
                 headers : {
                     'Content-type' : 'application/json'
@@ -42,7 +42,7 @@ async function showMsg(obj) {
                         </div>`
             )
             setTimeout(() => {
-                        location.href = 'http://127.0.0.1:5500/public/index.html'
+                        location.href = 'https://honareyogayekodak.liara.run/index.html'
             } , 2000)
         }
     }
@@ -51,7 +51,7 @@ async function showMsg(obj) {
 
 async function sendData() {
     let userName = document.cookie.split('=')
-    let res = await fetch(`http://localhost:3000/api/users/${userName[1]}`)
+    let res = await fetch(`https://honareyogayekodak.liara.run/api/users/${userName[1]}`)
     let data = await res.json()
     showMsg(data[0])
 }

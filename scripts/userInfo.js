@@ -6,7 +6,7 @@ async function loadUserData() {
     let userName = document.cookie.split('=')
     
     try {
-        let res = await fetch(`http://localhost:3000/api/users/${userName[1]}`)
+        let res = await fetch(`https://honareyogayekodak.liara.run/api/users/${userName[1]}`)
         let data = await res.json()
 
         if (data.length) {

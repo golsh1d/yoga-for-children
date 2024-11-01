@@ -93,7 +93,7 @@ function showSuccessfulSignIn() {
     setTimeout(() => {
         successfulSignInMessage.style.display = 'none'
         successfulSignInMessage.style.transition = 'transform 0.5s ease'
-        location.href = 'http://127.0.0.1:5500/public/index.html'
+        location.href = 'https://honareyogayekodak.liara.run/index.html'
     } , 2000)
 }
 
@@ -108,7 +108,7 @@ async function sendDataToBackEnd() {
     }
         
     try {
-        let res = await fetch('http://localhost:3000/api/users/newUserInfo' , {
+        let res = await fetch('https://honareyogayekodak.liara.run/api/users/newUserInfo' , {
         method : 'POST' ,
         headers : {
             "Content-type" : "application/json"
@@ -157,7 +157,7 @@ async function connectToBackEnd() {
         let userNameValue = inputsElems[2].value
 
         try {
-            let res = await fetch(`http://localhost:3000/api/users/${userNameValue}`)
+            let res = await fetch(`https://honareyogayekodak.liara.run/api/users/${userNameValue}`)
             let data = await res.json()
 
             if (data.length) {
@@ -181,7 +181,7 @@ async function getUserInfos() {
     let passValue = inputsElems[1].value
 
     try {
-        let res = await fetch(`http://localhost:3000/api/users/${userNameValue}/${passValue}`)
+        let res = await fetch(`https://honareyogayekodak.liara.run/api/users/${userNameValue}/${passValue}`)
         let data = await res.json()
 
         if (data.length) {
@@ -191,7 +191,7 @@ async function getUserInfos() {
             setTimeout(() => {
                 successfulLogInMessage.style.display = 'none'
                 successfulLogInMessage.style.transition = 'transform 0.5s ease'
-                location.href = 'http://127.0.0.1:5500/public/index.html'
+                location.href = 'https://honareyogayekodak.liara.run/index.html'
             }, 2000)
         } else {
             failedLogInMessage.style.display = 'block'

@@ -124,7 +124,7 @@ function copyToClipboard() {
 
 // load dynamic data
 function loadmeditation() {
-    fetch(`http://localhost:3000/api/meditations/`)
+    fetch(`https://honareyogayekodak.liara.run/api/meditations/`)
     .then(res => res.json())
     .then(data => {
         data.forEach(obj => {
@@ -183,7 +183,7 @@ function showRegisterMsg() {
     if (userName.length === 1) {
         registerPopupWrapper.style.display = 'flex'
     } else {
-        location.href = 'http://127.0.0.1:5500/public/info.html'
+        location.href = 'https://honareyogayekodak.liara.run/info.html'
     }
 }
 
@@ -193,7 +193,7 @@ function closeRegisterMsg() {
 
 function logOut() {
     document.cookie.replace(/(?<=^|;).+?(?=\=|;|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
-    location.href = 'http://127.0.0.1:5500/public/index.html'
+    location.href = 'https://honareyogayekodak.liara.run/index.html'
 }
 
 // events
