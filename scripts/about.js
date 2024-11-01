@@ -147,7 +147,7 @@ function showRegisterMsg() {
     if (userName.length === 1) {
         registerPopupWrapper.style.display = 'flex'
     } else {
-        location.href = 'https://honareyogayekodak.liara.run/info.html'
+        location.href = 'https://golsh1d.github.io/yoga-for-children/info.html'
     }
 }
 
@@ -157,7 +157,7 @@ function closeRegisterMsg() {
 
 function logOut() {
     document.cookie.replace(/(?<=^|;).+?(?=\=|;|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
-    location.href = 'https://honareyogayekodak.liara.run/index.html'
+    location.href = 'https://golsh1d.github.io/yoga-for-children/index.html'
 }
 
 checkBoxInput.addEventListener('change', animationForIcon)
