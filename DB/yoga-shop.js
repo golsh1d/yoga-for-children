@@ -4,8 +4,8 @@ let yogaShopDB = mySql.createConnection({
         host : 'honareyogayekodakdb' ,
         port : 3306 ,
         user : 'root' ,
-        password : 'KgC0AtYC41kJW2HblvuGDqSV' ,
-        database : 'beautiful_franklin'
+        password : 'Z1BzoapfyUHX579R2ymjgnyO' ,
+        database : 'epic_hodgkin'
 })
 
 yogaShopDB.connect((err) => {
