@@ -124,9 +124,10 @@ function copyToClipboard() {
 
 // load dynamic data
 function loadmeditation() {
-    fetch(`https://golsh1d.github.io/yoga-for-children/api/meditations/`)
+    fetch(`https://honareyogayekodak.liara.run/api/meditations/`)
     .then(res => res.json())
     .then(data => {
+        console.log(data);
         data.forEach(obj => {
             meditationSwiperWrapper.insertAdjacentHTML(`beforeend` , 
                 `<div class="swiper-slide">
@@ -183,7 +184,7 @@ function showRegisterMsg() {
     if (userName.length === 1) {
         registerPopupWrapper.style.display = 'flex'
     } else {
-        location.href = 'https://golsh1d.github.io/yoga-for-children/info.html'
+        location.href = 'https://honareyogayekodak.liara.run/info.html'
     }
 }
 
@@ -193,7 +194,7 @@ function closeRegisterMsg() {
 
 function logOut() {
     document.cookie.replace(/(?<=^|;).+?(?=\=|;|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
-    location.href = 'https://golsh1d.github.io/yoga-for-children/index.html'
+    location.href = 'https://honareyogayekodak.liara.run/index.html'
 }
 
 // events
