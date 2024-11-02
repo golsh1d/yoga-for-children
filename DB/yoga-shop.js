@@ -1,11 +1,11 @@
 let mySql = require(`mysql`)
 
 let yogaShopDB = mySql.createConnection({
-        host : 'honareyogayekodakdb' ,
-        port : '3306' ,
+        host : 'sinai.liara.cloud' ,
+        port : '33877' ,
         user : 'root' ,
-        password : 'Y6OxEyUxMFJ4w9l092KUGMId' ,
-        database : 'amazing_yonath'
+        password : 'uAtXrFtPKKYFOvTMiaBEEfRi' ,
+        database : 'quirky_saha'
 })
 
 yogaShopDB.connect((err) => {
